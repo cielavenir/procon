@@ -1,0 +1,11 @@
+#!/usr/bin/octave -q
+while((n=input(""))!=0)
+	ma=0;mi=1000;s=0;
+	for i = 1:n
+		x=input("");
+		if(x<mi) mi=x; endif
+		if(x>ma) ma=x; endif
+		s+=x;
+	endfor
+	printf("%d\n",(s-mi-ma)/(n-2));
+endwhile

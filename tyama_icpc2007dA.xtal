@@ -1,0 +1,23 @@
+#!/usr/bin/env xtal
+
+myget: fun(){
+  r:0;s:"";
+  while(1){
+    s=stdin.get_s(1);
+    if(s=="\n"){return r;};
+    r=r*10+s.to_i;
+  }
+}
+
+while(1){
+  ma:0;mi:1000;sum:0;n:0;x:0;
+  n=myget();
+  if(n==0)break;
+  for(i:0;i<n;i++){
+    x=myget();
+    if(ma<x)ma=x;
+    if(mi>x)mi=x;
+    sum+=x;
+  }
+  ( (sum - ma - mi) / (n - 2) ).p;
+}

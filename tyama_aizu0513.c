@@ -1,0 +1,20 @@
+a[200],b[200];
+main(n,m,c,i){
+  scanf("%d%d",&n,&m);
+  for(i=0;i<2*n;i++)a[i]=i+1;
+  for(;m;m--){
+    scanf("%d",&c);
+    if(!c)
+      for(i=0;i<n;i++)
+        b[2*i]=a[i],b[2*i+1]=a[n+i];
+    else{
+      for(i=0;i<c;i++)
+        b[2*n-c+i]=a[i];
+      for(;i<2*n;i++)
+        b[i-c]=a[i];
+    }
+    memcpy(a,b,8*n);
+  }
+  for(i=0;i<2*n;i++)printf("%d\n",a[i]);
+  exit(0);
+}

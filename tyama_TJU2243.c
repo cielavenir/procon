@@ -1,0 +1,1 @@
+main(n,r){for(;scanf("%d",&n),n;printf("%d\n",r))for(r=1;n!=1;n/=2,r++)if(n%2)n=3*n+1,r++;}

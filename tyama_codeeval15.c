@@ -1,0 +1,1 @@
+main(i){printf("%sEndian\n",*((char*)&i)==1?"Little":"Big");exit(0);}

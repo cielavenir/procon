@@ -1,0 +1,1 @@
+main(a,b){char s[2];for(;~scanf("%d%s%d",&a,s,&b);)printf("%d\n",*s=='+'?a+b:*s=='-'?a-b:*s=='*'?a*b:*s=='/'?a/b:a%b);}

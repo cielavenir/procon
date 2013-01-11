@@ -1,0 +1,14 @@
+import java.io.*;
+import System.Console;
+
+class Main{
+	public static void main(String[]z){
+		int i,n,y,m;
+		n=Integer.parseInt(Console.ReadLine());
+		for(i=0;i<n;i++){
+			String[] a=Console.ReadLine().Split(" ".ToCharArray());
+			y=Integer.parseInt(a[0])-1;m=Integer.parseInt(a[1])-1;
+			Console.WriteLine(196471-y*195-y/3*5-m*20+(y%3!=2?m/2:0)-Integer.parseInt(a[2]));
+		}
+	}
+}

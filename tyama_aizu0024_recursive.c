@@ -1,0 +1,1 @@
+double f;main(){return~scanf("%lf",&f)?main(printf("%d\n",(int)(f*f/98+2))):0;}

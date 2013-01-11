@@ -1,0 +1,1 @@
+main(n){for(;scanf("%d",&n),n!=42;)printf("%d\n",n);exit(0);}

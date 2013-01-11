@@ -1,0 +1,1 @@
+x,h;main(){return scanf("%d%d",&x,&h),x?main(printf("%f\n",x*(x+sqrt(4*h*h+x*x)))):0;}

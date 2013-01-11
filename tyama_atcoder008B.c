@@ -1,0 +1,1 @@
+n[99],m[99];main(N,M,i){scanf("%d%d",&N,&M);for(;~N--;)n[getchar()]++;for(;~M--;)m[getchar()]++;for(N=0,i=65;i<91;i++){if(n[i]){if(!m[i])puts("-1"),exit(0);if(N<(M=(n[i]+m[i]-1)/m[i]))N=M;}}printf("%d\n",N);exit(0);}

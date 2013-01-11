@@ -1,0 +1,1 @@
+m=1000000007;main(t,n){long long r,k;for(scanf("%d",&t);t--;printf("%lld\n",r))for(scanf("%d",&n),n--,r=1,k=2;n;k=k*k%m,n/=2)if(n&1)r=r*k%m;exit(0);}

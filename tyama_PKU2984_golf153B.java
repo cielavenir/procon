@@ -1,0 +1,1 @@
+enum Main{A;{System s=null;s.out.print(new java.math.BigInteger(new java.util.Scanner(s.in).nextBigInteger().toString(2).replace("0",""),2));s.exit(1);}}

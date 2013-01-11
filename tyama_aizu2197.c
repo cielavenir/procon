@@ -1,0 +1,1 @@
+n[1001];main(i,j,s){for(i=1;i<500;i++)for(s=i,j=i+1;;n[s]++)if((s+=j++)>1000)break;for(;scanf("%d",&i),i;)printf("%d\n",n[i]);}

@@ -1,0 +1,1 @@
+main(){double a,l,x;for(;~scanf("%lf%lf%lf",&a,&l,&x);)printf("%f\n",a*sqrt(4*l*l-a*a)/4+l*sqrt(2*l*x+x*x)/2);exit(0);}

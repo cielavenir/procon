@@ -1,0 +1,21 @@
+#!/usr/bin/bsh
+// something is wrong; you have to execute like
+// cat A|bsh tyama_icpc2007dA.bsh 2>&1 >/dev/null
+
+void judge(int n){
+	int ma=0,mi=1000,s=0,x,i;
+	for(i=0;i<n;i++){
+		x=cin.nextInt();
+		if(x<mi)mi=x;
+		if(x>ma)ma=x;
+		s+=x;
+	}
+	System.err.println((s-ma-mi)/(n-2));
+}
+
+cin=new Scanner(System.in);
+while(true){
+	int n=cin.nextInt();
+	if(n==0)break;
+	judge(n);
+}

@@ -1,0 +1,1 @@
+i,table[151201];main(j,n){for(;i<54;i++)for(j=0;j<97;j++)if((n=i*i*i+j*(j+1)*(j+2)/6)<151201)table[n]=1;for(;scanf("%d",&n),n;printf("%d\n",n))while(!table[n])n--;}

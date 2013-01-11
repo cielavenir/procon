@@ -1,0 +1,1 @@
+char s[16];main(i,a,p){for(;i<=9;i++)scanf("%s%d%d",s,&a,&p),printf("%s %d %d\n",s,a+p,a*200+p*300);exit(0);}

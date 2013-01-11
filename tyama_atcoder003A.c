@@ -1,0 +1,1 @@
+char S[110];main(i,n){double r=0;scanf("%d%s",&n,S);for(i=0;i<n;i++)if(S[i]!='F')r+='E'-S[i];printf("%.9f\n",r/n);exit(0);}

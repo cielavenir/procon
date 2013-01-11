@@ -1,0 +1,1 @@
+a[999];main(b,c,n,i,j,r){for(scanf("%d",&c);b<=c;printf("%d\n\n",r)){for(printf("Scenario #%d:\n",b++),scanf("%d",&n),i=0;i<n;scanf("%d",a+i++));for(r=i=0;i<n;i++)for(j=i;j<n;)r+=a[i]>a[j++];}}

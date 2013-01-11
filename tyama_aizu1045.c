@@ -1,0 +1,1 @@
+s[2],a[20];main(i,j,n,N,m){for(;scanf("%d",&n),n;printf("%d\n",m)){for(i=0;i<n;i++)scanf("%d",a+i);for(i=0,m=9999,N=1<<n;i<N;j=abs(*s-s[1]),m=m<j?m:j,i++)for(*s=s[1]=j=0;j<n;j++)s[(i>>j)&1]+=a[j];}exit(0);}

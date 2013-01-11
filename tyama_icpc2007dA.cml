@@ -1,0 +1,9 @@
+#!/usr/bin/ocaml
+let rec sum (n,k,ma,mi,s,x) =
+  let ma = if ma<x then x else ma in
+    let mi = if mi>x then x else mi in
+      if k==0 then (s+x-ma-mi)/(n-2) else sum(n,k-1,ma,mi,s+x,read_int());;
+
+while true do
+  let n = read_int() in
+    if n==0 then exit(0) else (print_int(sum(n,n-1,0,1000,0,read_int())); print_string "\n") done;;

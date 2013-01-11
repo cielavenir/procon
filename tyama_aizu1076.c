@@ -1,0 +1,1 @@
+main(n,m,p,f){for(;scanf("%d%d",&n,&m),n;printf("%f\n",f?n/2.:0))for(f=1;m--;f=f&&p-1)scanf("%d",&p);}

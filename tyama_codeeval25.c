@@ -1,0 +1,1 @@
+main(i){for(;i<100;i+=2)printf("%d\n",i);exit(0);}

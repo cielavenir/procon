@@ -1,0 +1,1 @@
+int a[9]={2,3,5,7,11,13,17,19,23};main(n,i,j,f){for(;scanf("%d",&n),n;puts(""))for(printf("%d =",n),f=i=0;n;n/=a[i++])if(n%a[i])for(printf(" %s%d",f?"+ ":"",n%a[i]),f=1,j=0;j<i;printf("*%d",a[j++]));exit(0);}

@@ -1,0 +1,1 @@
+main(x,y,z,e,m){for(;scanf("%d",&e),m=e;printf("%d\n",m))for(z=0;z*z*z<=e;z++)for(y=0;y*y+z*z*z<=e;y++)if(x=e-z*z*z-y*y+y+z,m>x)m=x;exit(0);}

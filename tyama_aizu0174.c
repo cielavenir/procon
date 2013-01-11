@@ -1,0 +1,1 @@
+main(a,b,c){for(a=b=0,getchar();(c=getchar())!='0';)if(c-'\n')c=='A'?a++:b++;else{printf("%d %d\n",a>b?a+1:a,a<b?b+1:b),a=b=0;if(getchar()=='0')break;}exit(0);}

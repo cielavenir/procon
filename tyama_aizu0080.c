@@ -1,0 +1,1 @@
+double x;main(q){for(;scanf("%d",&q),~q;printf("%f\n",x))for(x=q/2.0;fabs(x*x*x-q)>0.00001*q;x=x-(x*x*x-q)/3/x/x);exit(0);}

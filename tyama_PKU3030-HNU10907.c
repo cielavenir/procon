@@ -1,0 +1,1 @@
+main(x,y,z){for(gets(&x);~scanf("%d%d%d",&x,&y,&z);y-=z+x,puts(y>0?"advertise":y<0?"do not advertise":"does not matter"));}

@@ -1,0 +1,1 @@
+a[4],b[4];main(i,j,h,l){for(;~scanf("%d%d%d%d%d%d%d%d",a,a+1,a+2,a+3,b,b+1,b+2,b+3);printf("%d %d\n",h,l))for(i=h=l=0;i<4;i++)for(j=0;j<4;j++)if(a[i]==b[j])i==j?h++:l++;exit(0);}

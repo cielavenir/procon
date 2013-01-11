@@ -1,0 +1,18 @@
+;tested using linux hspcmp 3.2b1[svn]
+repeat
+  input n,1,1
+  n=int(n)
+  if n < 3 : break
+  ma=0
+  mi=1000
+  sum=0
+  repeat n
+    input x,1,1
+    x=int(x)
+    if ma<x : ma=x
+    if mi>x : mi=x
+    sum+=x
+  loop
+  mes (sum-mi-ma)/(n-2)
+loop
+end

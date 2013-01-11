@@ -1,0 +1,1 @@
+main(i,j){for(;i<13;putchar('\n'),i++)for(j=1;j<13;j++)printf(j==1?"%2d":"%4d",i*j);exit(0);}

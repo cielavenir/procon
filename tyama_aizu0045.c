@@ -1,0 +1,1 @@
+main(s,a,n,x,y){for(s=a=n=0;~scanf("%d,%d",&x,&y);n++)s+=x*y,a+=y;printf("%d\n%d\n",s,lround((double)a/n));exit(0);}

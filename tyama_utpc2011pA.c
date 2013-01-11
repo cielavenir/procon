@@ -1,0 +1,1 @@
+main(){double a,b,c,d;scanf("%lf%lf%lf%lf",&a,&b,&c,&d);printf("%f\n",hypot(c-a,d-b));exit(0);}

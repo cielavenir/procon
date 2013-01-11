@@ -1,0 +1,1 @@
+main(d){for(gets(&d);~scanf("%d",&d);printf("%.3f\n",.017453293*d));exit(0);}

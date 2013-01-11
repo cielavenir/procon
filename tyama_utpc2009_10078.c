@@ -1,0 +1,1 @@
+main(){float a,b,c,d;scanf("%f%f%f%f",&a,&b,&c,&d);printf("%.5f\n",hypotf(c-a,d-b));exit(0);}

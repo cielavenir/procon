@@ -1,0 +1,1 @@
+main(x){char a,b;for(x=65;~scanf("%c,%c\n",&a,&b);)x=x==a?b:x==b?a:x;printf("%c\n",x);exit(0);}

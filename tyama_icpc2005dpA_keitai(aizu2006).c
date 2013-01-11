@@ -1,0 +1,1 @@
+char *t[]={".,!? ","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};main(n,s,x,c){for(scanf("%d",&n),getchar();x=-1,n;puts(""),n--)while((c=getchar())!='\n'&&~c)if(c-=48)s=c-1,x++;else if(~x)putchar(t[s][x%strlen(t[s])]),x=-1;}

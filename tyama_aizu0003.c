@@ -1,0 +1,1 @@
+a[3];main(i,m,n){for(scanf("%d",&i);~scanf("%d%d%d",a,a+1,a+2);puts(a[0]*a[0]+a[1]*a[1]+a[2]*a[2]-m?"NO":"YES"))for(m=i=0;i<2;i++)if(n=2*a[i]*a[i],m<n)m=n;exit(0);}

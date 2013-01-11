@@ -1,0 +1,1 @@
+main(n,m,x){for(;~scanf("%d",&n),n/=4;printf("%d\n",m))for(m=0;n--;m+=x)scanf("%d",&x);exit(0);}

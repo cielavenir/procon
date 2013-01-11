@@ -1,0 +1,1 @@
+char r[21],q[11];main(n,z){scanf("%s%d",q,&n);for(z=0;n;n--){scanf("%s",r);r[strlen(r)*2]=0;memcpy(r+strlen(r),r,strlen(r));if(strstr(r,q))z++;}printf("%d\n",z);exit(0);}

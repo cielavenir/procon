@@ -1,0 +1,13 @@
+A[101][101],M[101][101];
+main(N,i,j,r){
+	for(scanf("%d",&N),i=0;i<N;i++)
+		for(j=0;j<N;j++)
+			scanf("%d",A[i]+j);
+	for(i=0;i<N;i++)
+		M[i][i]=1,M[i][N-i-1]=1,M[i][N/2]=1,M[N/2][i]=1;
+	for(r=i=0;i<N;i++)
+		for(j=0;j<N;j++)
+			if(M[i][j])r+=A[i][j];
+	printf("%d\n",r);
+	exit(0);
+}

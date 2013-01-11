@@ -1,0 +1,1 @@
+int g(x,y){return y?g(y,x%y):x;}main(x,y){for(;~scanf("%d%d",&x,&y);printf("%d\n",x>y?g(x,y):g(y,x)));exit(0);}

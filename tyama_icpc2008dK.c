@@ -1,0 +1,1 @@
+main(){double a,b;for(;scanf("%lf%lf",&a,&b),a;printf("%.8lf\n",a/b));}

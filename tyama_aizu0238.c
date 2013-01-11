@@ -1,0 +1,1 @@
+main(t,n,s,f,r){for(;scanf("%d%d",&t,&n),t;r<t?printf("%d\n",t-r):puts("OK"))for(r=0;n--;r+=f-s)scanf("%d%d",&s,&f);exit(0);}

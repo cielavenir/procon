@@ -1,0 +1,1 @@
+r;main(a,b,n){for(;~scanf("%d%d%d",&a,&b,&n);printf("%d\n",r))for(r=0,a*=10;n--;a=a%b*10)r+=a/b%10;exit(0);}

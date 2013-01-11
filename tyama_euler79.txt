@@ -1,0 +1,2 @@
+731,162,289,890 sequences will tell you the answer is 73162890.
+You will also know that there are no duplicates :p

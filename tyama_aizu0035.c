@@ -1,0 +1,1 @@
+double a[4],b[4],c[4];main(i){for(;~scanf("%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf",a,b,a+1,b+1,a+2,b+2,a+3,b+3);puts(c[0]*c[1]*c[2]*c[3]>0?"YES":"NO"))for(i=0;i<4;i++)c[i]=(a[(i+1)%4]-a[i])*(b[(i+2)%4]-b[i])-(b[(i+1)%4]-b[i])*(a[(i+2)%4]-a[i]);exit(0);}

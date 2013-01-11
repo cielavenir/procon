@@ -1,0 +1,1 @@
+long long table[8]={0,1,2,3,5,7,8,9},r;main(n,i){for(;scanf("%d",&n),n;printf("%lld\n",r))for(r=0,i=1;n;n/=8,i*=10)r+=table[n&7]*i;exit(0);}

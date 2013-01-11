@@ -1,0 +1,1 @@
+a[3001];main(i,n,f,k){for(i=0;i<3001;i++)if(!(i&3)&&(i%100||!(i%400)))a[i]=1;for(f=0;scanf("%d%d",&i,&n),n;k?1:puts("NA"),f=1)for(k=0,f?puts(""):1;i<=n;i++)if(a[i])printf("%d\n",i),k=1;exit(0);}

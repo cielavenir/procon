@@ -1,0 +1,1 @@
+main(n,p,d,e,x,y){for(;scanf("%d",&n),n;printf("%d %d\n",x,y))for(y=0;n--;y<d+e?x=p,y=d+e:1)scanf("%d%d%d",&p,&d,&e);exit(0);}

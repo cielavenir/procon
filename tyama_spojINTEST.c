@@ -1,0 +1,1 @@
+main(n,k,x,r){for(scanf("%d%d",&n,&k),r=0;n--;)if(scanf("%d",&x),x%k==0)r++;printf("%d\n",r);exit(0);}

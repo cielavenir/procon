@@ -1,0 +1,1 @@
+a[50],n,c,p;main(x){for(;a[c]==p?n?printf("%d\n",c):1,c=a[c]=0,scanf("%d%d",&n,&p),x=p:~c++;x?x--,a[c]++:(x+=a[c],a[c]=0))c%=n;}

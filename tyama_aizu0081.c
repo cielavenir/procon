@@ -1,0 +1,1 @@
+main(){double x,y,X,Y,A,B,t;for(;~scanf("%lf,%lf,%lf,%lf,%lf,%lf",&x,&y,&X,&Y,&A,&B);){A-=x,B-=y,t=atan2(Y-y,X-x)*2;printf("%f %f\n",A*cos(t)+B*sin(t)+x,A*sin(t)-B*cos(t)+y);}exit(0);}

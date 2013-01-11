@@ -1,0 +1,1 @@
+main(){float d,e,f,g,h,i,m,n;for(;~scanf("%f%f%f%f%f%f%f%f",&d,&e,&f,&g,&h,&i,&m,&n);puts((f-d)*(n-e)*(f=(h-f)*(n-g)-(m-f)*(i-g))>f*(m-d)*(g-e)&f*(d-h)*(n-i)>f*(m-h)*(e-i)?"YES":"NO"));}

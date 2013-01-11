@@ -1,0 +1,1 @@
+main(n,r,y,m,d){for(scanf("%d",&n);n--;printf("%d\n",r)){for(scanf("%d%d%d",&y,&m,&d),r=(y%3&&m%2==0?20:21)-d,m++;m<=10;m++)r+=y%3&&m%2==0?19:20;for(y++;y<1000;y++)r+=y%3?195:200;}exit(0);}

@@ -1,0 +1,9 @@
+main(a,b,m,n){
+  while(scanf("%d%d",&m,&n),n){
+    for(m++;n;n--){
+      scanf("%d%d",&a,&b);
+      m-=b-a+1;
+    }
+    printf("%d\n",m);
+  }
+}

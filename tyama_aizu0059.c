@@ -1,0 +1,1 @@
+double a,b,c,d,e,f,g,h;main(){for(;~scanf("%lf%lf%lf%lf%lf%lf%lf%lf",&a,&b,&c,&d,&e,&f,&g,&h);puts(a>g||e>c||b>h||f>d?"NO":"YES"));exit(0);}

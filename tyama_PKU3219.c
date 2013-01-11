@@ -1,0 +1,1 @@
+main(m,n){for(;~scanf("%d%d",&m,&n);puts((m&n)==n?"1":"0"));}

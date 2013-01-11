@@ -1,0 +1,1 @@
+char S[9];main(n,h,o,s){for(scanf("%d",&n);n--;printf("%d\n",s))for(h=o=s=0;o<3;){scanf("%s",S);if(S[0]=='O')o++;if(S[1]=='O')s+=h+1,h=0;if(S[1]=='I')if(h==3)s++;else h++;}exit(0);}

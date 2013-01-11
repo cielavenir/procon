@@ -1,0 +1,1 @@
+a[26];main(c){for(;~(c=getchar());){if(c<97)c+=32;if(96<c&&c<123)a[c-97]++;}for(c=0;c<26;c++)printf("%c : %d\n",c+97,a[c]);exit(0);}

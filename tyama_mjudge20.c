@@ -1,0 +1,1 @@
+char s[99];main(i,j){l:for(i=0;~(s[i]=getchar());i++)if(s[i]==10){for(s[i]=0,j=i-1,i=0;i<=j;)if(s[i++]!=s[j--]){i=0;break;}puts(i?"YES":"NO");goto l;}exit(0);}

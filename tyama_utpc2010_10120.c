@@ -1,0 +1,1 @@
+main(n){scanf("%d",&n);printf("%.4f\n",n*sqrt(2-2*cos(6.283/n))/2);exit(0);}

@@ -1,0 +1,11 @@
+var n,ma,mi,s,x,i;
+for(;(n=parseInt(readln()))!=0;){
+  ma=0,mi=1000,s=0;
+  for(i=0;i<n;i++){
+    x=parseInt(readln());
+    if(x<mi)mi=x;
+    if(x>ma)ma=x;
+    s+=x;
+  }
+  println(parseInt((s-ma-mi)/(n-2)));
+}

@@ -1,0 +1,9 @@
+a[99][2];
+main(N,i,j,m){
+	for(scanf("%d",&N),i=0;i<N;i++)scanf("%d%d",a[i],a[i]+1);
+	for(i=0;i<N;i++)for(j=0;j<2;j++)a[i][j]=a[i][j]<0?-a[i][j]:a[i][j];
+	for(j=(a[0][0]+a[0][1])%2,i=1;i<N;i++)if(j!=(a[i][0]+a[i][1])%2)puts("-1"),exit(0);
+	for(m=a[0][0]+a[0][1],j=0,i=1;i<N;i++)if(m<a[i][0]+a[i][1])m=a[i][0]+a[i][1],j=i;
+	for(m=0,i=1;m<a[j][0]+a[j][1]||m%2!=(a[j][0]+a[j][1])%2;i++)m+=i;
+	printf("%d\n",i-1);exit(0);
+}

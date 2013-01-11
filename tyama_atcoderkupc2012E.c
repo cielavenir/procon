@@ -1,0 +1,1 @@
+i,j,k,c;main(N){scanf("%d",&N);for(;i<N;i++,k=c==N-1?i:k)for(c=j=0;j<=N;j++)c+=getchar()=='o';for(i=1000;i--;)printf("%d\n",k?:rand()%N+1);}

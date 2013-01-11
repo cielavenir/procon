@@ -1,0 +1,1 @@
+main(v,t){for(;~scanf("%d%d",&v,&t);printf("%d\n",v*t*2));exit(0);}

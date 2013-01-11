@@ -1,0 +1,1 @@
+main(n,r,x,y){scanf("%d", &r);for(x=-r;x<=r;x++)for(y=-r;y<=r;y++)if(x*x+y*y==r*r)n++;printf("%d\n", n-1);exit(0);}

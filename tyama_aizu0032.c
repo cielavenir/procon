@@ -1,0 +1,1 @@
+main(a,b,c,x,y){for(x=y=0;~scanf("%d,%d,%d",&a,&b,&c);){if(a*a+b*b==c*c)x++;if(a==b)y++;}printf("%d\n%d\n",x,y);exit(0);}

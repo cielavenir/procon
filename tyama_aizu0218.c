@@ -1,0 +1,1 @@
+main(n,m,e,j){for(;scanf("%d",&n),n;)for(;n--;){scanf("%d%d%d",&m,&e,&j);puts(m==100||e==100||j==100||m+e>179||m+e+j>239?"A":m+e+j>209||(m+e+j>149&&(m>79||e>79))?"B":"C");}exit(0);}

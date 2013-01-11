@@ -1,0 +1,1 @@
+main(c){for(;c=~getchar();putchar(~c));}

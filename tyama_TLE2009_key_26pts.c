@@ -1,0 +1,1 @@
+main(i,j,x){for(gets(&i);~scanf("%d",&i);puts(~j?"YES":"NO")){for(j=0;i>>j;j++);for(x=0;x<j/2;x++)j=((i>>x)-(i>>(j-1-x)))&1?-1:j;}}

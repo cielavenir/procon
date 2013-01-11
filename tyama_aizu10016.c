@@ -1,0 +1,1 @@
+main(m,f,r){for(;scanf("%d%d%d",&m,&f,&r),~m||~f||~r;puts(m==-1||f==-1?"F":m+f>=80?"A":m+f>=65?"B":m+f>=50?"C":m+f<30?"F":r<50?"D":"C"));exit(0);}

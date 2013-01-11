@@ -1,0 +1,1 @@
+main(i,n,s,M,m,S){for(;scanf("%d",&n),n;printf("%d\n",(S-M-m)/(n-2)))for(i=S=M=0,m=1000;i<n;i++)scanf("%d",&s),M=M>s?M:s,m=m<s?m:s,S+=s;}

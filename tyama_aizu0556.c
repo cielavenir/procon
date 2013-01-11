@@ -1,0 +1,1 @@
+main(n,k,a,b){for(scanf("%d%d",&n,&k),n--;k;k--){scanf("%d%d",&a,&b);a--,b--;if(a+b>=n)a=n-a,b=n-b;printf("%d\n",(a<b?a:b)%3+1);}exit(0);}

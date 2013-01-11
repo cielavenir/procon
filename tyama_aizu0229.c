@@ -1,0 +1,2 @@
+main(b,r,g,c,s,t){for(;scanf("%d%d%d%d%d%d",&b,&r,&g,&c,&s,&t),t;printf("%d\n",100+b*95+r*63+g*7+c*2+s*3-t*3));exit(0);}
+//main(b,r,g,c,s,t){for(;scanf("%d%d%d%d%d%d",&b,&r,&g,&c,&s,&t),t;printf("%d\n",100+b*77+r*51+g*4-c-3*(t-6*b-4*r-g-c-s)));exit(0);}

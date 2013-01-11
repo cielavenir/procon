@@ -1,0 +1,1 @@
+long long f(n){return n?n*f(n-1):1;}main(n){scanf("%d",&n);printf("%lld\n",f(n));exit(0);}

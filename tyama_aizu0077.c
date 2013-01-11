@@ -1,0 +1,1 @@
+char s[100];main(i,n){for(;~scanf("%s",s);puts(""))for(i=0;i<strlen(s);i++)if(s[i]=='@')for(n=s[++i]-'0',i++;n--;)putchar(s[i]);else putchar(s[i]);exit(0);}

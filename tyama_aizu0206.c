@@ -1,0 +1,1 @@
+main(l,m,n,i,f){for(;scanf("%d",&l),l;printf(f?"%d\n":"NA\n",f))for(f=i=0;i<12;i++){scanf("%d%d",&m,&n),l-=m-n;if(!f&&l<=0)f=i+1;}exit(0);}

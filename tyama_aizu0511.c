@@ -1,0 +1,1 @@
+a[31];main(i,x){for(i=0;i<28;i++)scanf("%d",&x),a[x]=1;for(i=1;i<31;i++)if(!a[i])printf("%d\n",i);exit(0);}

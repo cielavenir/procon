@@ -1,0 +1,1 @@
+char a[5],b[5];main(H,B,i,j){for(;scanf("%s%s",a,b),a[1];printf("%d %d\n",H,B))for(H=B=i=0;i<4;i++)for(j=0;j<4;j++)if(a[i]==b[j])i==j?H++:B++;exit(0);}

@@ -1,0 +1,1 @@
+main(n){for(;scanf("%d",&n),n;printf(n%2?"No Solution!\n":"%d\n",n-1));}

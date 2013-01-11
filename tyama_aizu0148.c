@@ -1,0 +1,1 @@
+main(a){for(;~scanf("%d",&a);printf("3C%02d\n",(a-1)%39+1));exit(0);}

@@ -1,0 +1,2 @@
+#define F(p,n,m)(p*(f-d)*(n-e)>p*(m-d)*(g-e)&&p*(d-h)*(n-i)>p*(m-h)*(e-i))
+main(z){float d,e,f,g,h,i,m,n,M,N,p,q;for(scanf("%d",&z);z--;puts((F(p,n,m)^F(q,N,M))?"OK":"NG"))scanf("%f%f%f%f%f%f%f%f%f%f",&d,&e,&f,&g,&h,&i,&m,&n,&M,&N),p=(h-f)*(n-g)-(m-f)*(i-g),q=(h-f)*(N-g)-(M-f)*(i-g);}

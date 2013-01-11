@@ -1,0 +1,1 @@
+main(q,b,c,C,Q,x,y){for(;scanf("%d%d%d%d%d",&q,&b,&c,&C,&Q)>4;printf(x?"%d %d\n":"NA\n",x,y)){for(x=b/c,x=x<Q?x:Q;x;x--)if(x+(y=(b-x*c)/C)>=q)break;}exit(0);}

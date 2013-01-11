@@ -1,0 +1,2 @@
+#define b(x,n) (x>>n)&1
+main(i,p,q,r){for(scanf("%d",&p);~scanf("%d:%d:%d",&p,&q,&r);printf("%d %d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d %d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d\n",i++,b(p,5),b(q,5),b(r,5),b(p,4),b(q,4),b(r,4),b(p,3),b(q,3),b(r,3),b(p,2),b(q,2),b(r,2),b(p,1),b(q,1),b(r,1),b(p,0),b(q,0),b(r,0),b(p,5),b(p,4),b(p,3),b(p,2),b(p,1),b(p,0),b(q,5),b(q,4),b(q,3),b(q,2),b(q,1),b(q,0),b(r,5),b(r,4),b(r,3),b(r,2),b(r,1),b(r,0)));}

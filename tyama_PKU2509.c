@@ -1,0 +1,1 @@
+main(n,k,s){while(~scanf("%d%d",&n,&k)){for(s=n;n>=k;s+=n/k,n=n/k+n%k);printf("%d\n",s);}}

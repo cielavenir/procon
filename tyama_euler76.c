@@ -1,0 +1,11 @@
+m[101];
+main(i,d){
+	m[0]=1;
+	for(d=1;d<100;d++){
+		for(i=d;i<101;i++){
+			if(i-d>=0)m[i]+=m[i-d];
+		}
+	}
+	printf("%d\n",m[100]);
+	exit(0);
+}

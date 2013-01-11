@@ -1,0 +1,1 @@
+char s[99];main(N,i,r,x){for(scanf("%d\n",&N);N--;printf("%d\n",x))for(scanf("%s",s),i=r=x=0;i<strlen(s);i++)s[i]=='O'?x+=++r:(r=0);exit(0);}

@@ -1,0 +1,1 @@
+main(){double s,h,r,p=3.1415927;for(;~scanf("%lf",&s);printf("%.2f\n%.2f\n%.2f\n",h*r*p/3,h,sqrt(r)))r=s/4/p,h=sqrt(s/p*(s/p/r-2));}

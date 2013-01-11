@@ -1,0 +1,1 @@
+main(a,b,c,d,e,f,x,i){for(i=3;i--;printf("%d %d %d\n",x/3600,x/60%60,x%60))scanf("%d%d%d%d%d%d",&a,&b,&c,&d,&e,&f),x=(d*3600+e*60+f)-(a*3600+b*60+c);exit(0);}

@@ -1,0 +1,1 @@
+main(){char s[99999],t[99999];int i,j,x,y;while(scanf("%s %s",s,t)>0){x=strlen(t);y=strlen(s);for(i=j=0;j<x;j++)if(s[i]==t[j])if(++i==y)break;printf("%s\n",j==x?"No":"Yes");}}

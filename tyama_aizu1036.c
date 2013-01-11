@@ -1,0 +1,1 @@
+char r[99],g[99],*G,d[99];main(c,i){for(;scanf("%s%s%s",r,g,d)>1;puts(G))for(G=g,c=*G++,i=0;G[-1];)c=c-d[i]?putchar(c),*G++:r[i++];exit(0);}

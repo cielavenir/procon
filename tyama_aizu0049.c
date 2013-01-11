@@ -1,0 +1,1 @@
+a[4],s[3];main(x){for(;~scanf("%d,%s",&x,s);a[x]++)x=*s>99?2:*s=='A'?0:*s=='O'?3:1;printf("%d\n%d\n%d\n%d\n",*a,a[1],a[2],a[3]);exit(0);}

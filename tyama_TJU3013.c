@@ -1,0 +1,1 @@
+main(i,r,w,l){for(;scanf("%d%d%d",&r,&w,&l)>1;i++)printf("Pizza %d %s on the table.\n",i,r*r*4<w*w+l*l?"does not fit":"fits");}

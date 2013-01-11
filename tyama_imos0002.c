@@ -1,0 +1,1 @@
+main(i){for(scanf("%d",&i);i--;puts("Hello, world!"));}

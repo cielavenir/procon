@@ -1,0 +1,2 @@
+#define z(m,n)for(;m;m--)scanf("%d",&s),x[s+n]++
+x[41];main(m,n,s){for(;scanf("%d%d",&m,&n),m;printf("%d\n",s)){memset(x,0,164);z(m,0);z(n,20);for(m=21,s=0;m--;s+=m*(x[m]>x[m+20]?x[m]:x[m+20]));}exit(0);}

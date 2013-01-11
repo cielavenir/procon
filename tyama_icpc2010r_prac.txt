@@ -1,0 +1,13 @@
+-tyama_icpc2010r_pracA.c
+ main(n){for(;scanf("%d",&n),n;printf("%d\n",n+1));}
+-tyama_icpc2010r_pracB.c
+ main(){float a,b;for(;scanf("%f%f",&a,&b),a||b;printf("%f\n",(a+sqrt(a*a-4*b))/2));}
+-tyama_icpc2010r_pracC.cpp(c)
+ #include <algorithm>
+ #include <iostream>
+ #include <string>
+ using namespace std;
+ /* 1 */ main(){string s;for(;cin>>s,cin>>s;printf("o%s\n",count(s.begin(),s.end(),'B')%2?"n":"ff"));}
+ /* 2 */ //string s;main(){cin>>s,cin>>s?printf("o%s\n",count(s.begin(),s.end(),'B')%2?"n":"ff"),main():0;}
+ /* 3 */ //char s[99];main(i,n,x){for(;scanf("%d",&n),n;printf("o%s\n",x%2?"n":"ff"))for(i=x=0,scanf("%s",s);i<strlen(s);i++)if(s[i]=='B')x++;}
+‚¨‚Ü‚¶‚È‚¢‚ ‚è‚È‚çC”Å(3)‚Ì•û‚ª’Z‚¢‚¯‚ÇA‚¨‚Ü‚¶‚È‚¢‚ðl‚¦‚È‚¢‚È‚ç(1)‚ªÅ’ZB

@@ -1,0 +1,1 @@
+char x[501];main(o,i,j,r){memset(x,1,501);for(gets(&o);~scanf("%d%d%d",&o,&i,&j);)if(o){for(r=0;i<=j;i++)if(x[i]<0)r++;printf("%d\n",r);}else for(;i<=j;i++)x[i]*=-1;}

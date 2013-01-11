@@ -1,0 +1,1 @@
+float x[999],a,b,c;main(k,m,i,j){for(;scanf("%d%d",&k,&m),k;printf("%d\n",i)){for(i=k*3;i--;scanf("%f",x+i));for(i=0;m--;scanf("%f%f%f",&a,&b,&c),j+1&&i++)for(j=k-1;a*x[j*3+2]+b*x[j*3+1]+c*x[j*3]<a*a+b*b+c*c&&j--;);}}

@@ -1,0 +1,6 @@
+#!/usr/bin/bsh
+// something is wrong; you have to execute like
+// cat AA|bsh tyama_icpc2012dA.bsh 2>&1 >/dev/null
+Scanner cin=new Scanner(System.in);
+int y,m,d;
+for(y=cin.nextInt();cin.hasNext();System.err.println(196471-(--y)*195-y/3*5-(--m)*20+(y%3!=2?m/2:0)-d)){y=cin.nextInt();m=cin.nextInt();d=cin.nextInt();}

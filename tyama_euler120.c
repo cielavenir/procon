@@ -1,0 +1,1 @@
+main(a,r){for(r=0,a=3;a<1001;a++)r+=(a-1)/2*2*a;printf("%d\n",r);}

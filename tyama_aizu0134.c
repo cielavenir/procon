@@ -1,0 +1,1 @@
+main(n,i,x){long long r;for(scanf("%d",&n),i=r=0;i<n;i++)scanf("%d",&x),r+=x;printf("%lld\n",r/n);exit(0);}

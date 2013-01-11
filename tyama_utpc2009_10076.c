@@ -1,0 +1,1 @@
+main(t){long long n;for(scanf("%lld",&n),t=0;n>1;t++)if(n%2)n=3*n+1;else n/=2;printf("%d\n",t);exit(0);}

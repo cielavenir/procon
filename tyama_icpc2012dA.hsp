@@ -1,0 +1,13 @@
+input n,1,1
+n=int(n)
+repeat n
+	input buf,1,1
+	split buf," ",y,m,d
+	y=int(y)-1
+	m=int(m)-1
+	d=int(d)
+	r=0
+	if y\3!2 : r=m/2
+	mes 196471-y*195-y/3*5-m*20+r-d
+loop
+end

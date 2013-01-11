@@ -1,0 +1,1 @@
+main(n,m,a){scanf("%d%d%d",&n,&m,&a);printf("%I64d\n",(long long)((n+a-1)/a)*((m+a-1)/a));exit(0);}

@@ -1,0 +1,1 @@
+gets.to_i.times{puts [0,gets.to_i-2].max}

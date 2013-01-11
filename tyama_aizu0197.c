@@ -1,0 +1,1 @@
+z;gcd(a,b){return b?(z++,gcd(b,a%b)):a;}main(a,b){for(;scanf("%d%d",&a,&b),a;printf("%d %d\n",a,z))z=0,a=a>b?gcd(a,b):gcd(b,a);exit(0);}

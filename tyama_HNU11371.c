@@ -1,0 +1,1 @@
+main(n,t,s,u){for(;scanf("%d%d%d%d",&n,&t,&s,&u),n;printf("%.3f\n",(n-1)*0.5+n*3+(s-t+n)%n+(s-u+n)%n));exit(0);}

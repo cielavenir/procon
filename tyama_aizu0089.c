@@ -1,0 +1,9 @@
+o[9999];m[99][99];main(x,y,d,e){
+	for(d=0;~y;o[d++]=x)if(y=scanf("%d",&x),!y)getchar(),scanf("%d",&x);
+	for(d=(int)sqrt(d),e=x=0;x<d;x++)for(y=0;y<=x;y++)m[x-y][y]=o[e++];
+	for(x=d-2;~x;x--)for(y=0;y<=x;y++)m[d-1-y][d-1-(x-y)]=o[e++];
+	for(x=1;x<d;x++)m[x][0]+=m[x-1][0];
+	for(y=1;y<d;y++)m[0][y]+=m[0][y-1];
+	for(x=1;x<d;x++)for(y=1;y<d;y++)m[x][y]+=m[x-1][y]>m[x][y-1]?m[x-1][y]:m[x][y-1];
+	printf("%d\n",m[d-1][d-1]);exit(0);
+}

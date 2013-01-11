@@ -1,0 +1,1 @@
+main(a,b){scanf("%d",&a);for(;~scanf("%d%d",&a,&b);printf("%s BRAINS\n",a<b?"NO":"MMM"));}

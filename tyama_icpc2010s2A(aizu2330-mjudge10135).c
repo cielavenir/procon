@@ -1,0 +1,1 @@
+i;main(k,n){for(scanf("%d",&n);k>0&&k<n;i++)k*=3;printf("%d\n",i);exit(0);}

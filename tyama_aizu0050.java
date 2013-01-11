@@ -1,0 +1,1 @@
+class Main{public static void main(String[]z){System.out.println(new java.util.Scanner(System.in).nextLine().replaceAll("peach","@").replaceAll("apple","peach").replaceAll("@","apple"));}}

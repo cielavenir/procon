@@ -1,0 +1,11 @@
+main(n,a,b,c,x,r,z){
+  for(;scanf("%d%d%d%d%d",&n,&a,&b,&c,&x),n;){
+    scanf("%d",&z);
+    for(r=0;n;r++){
+      if(r>10000){r=-1;for(;--n;)scanf("%d",&z);;break;}
+      if(z==x){if(!(--n))break;scanf("%d",&z);}
+      x=(a*x+b)%c;
+    }
+    printf("%d\n",r);
+  }
+}

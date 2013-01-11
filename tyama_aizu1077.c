@@ -1,0 +1,1 @@
+main(a,b,c,d,e,f){for(;scanf("%d%d%d%d%d%d",&a,&b,&c,&d,&e,&f),a|b|c|d|e|f;printf("%d\n",d+f+(a>e?a:e))){a+=d,b+=e,c+=f,d=(a-1)/3,a-=d*3,e=(b-1)/3,b-=e*3,d+=e,f=(c-1)/3,c-=f*3;e=(a==3)+(b==3)+(c==3);if(a>b)a=b;if(a>c)a=c;}}

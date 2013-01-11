@@ -1,0 +1,1 @@
+char s[101];main(N,i,j,m,M,x){for(scanf("%d%s",&N,&s),m=100,M=0,i=49;i<53;m=m>x?x:m,M=M<x?x:M,i++)for(j=x=0;j<N;j++)if(s[j]==i)x++;printf("%d %d\n",M,m);exit(0);}

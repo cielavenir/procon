@@ -1,0 +1,1 @@
+main(){double f;for(;~scanf("%lf",&f);)printf("%.7f\n",f*211/27);exit(0);}

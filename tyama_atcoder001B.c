@@ -1,0 +1,1 @@
+t[10]={0,1,2,3,2,1,2,3,3,2};main(a,b){scanf("%d%d",&a,&b);a=a<b?b-a:(a-b);printf("%d\n",a/10+t[a%10]);exit(0);}

@@ -1,0 +1,1 @@
+main(c){for(;(c=getchar())!='\n';)putchar((c-42)%26+65);puts("");exit(0);}

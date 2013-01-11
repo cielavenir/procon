@@ -1,0 +1,1 @@
+main(f){for(;~scanf("%d",&f);printf("%d\n",(f-32)*5/9));};

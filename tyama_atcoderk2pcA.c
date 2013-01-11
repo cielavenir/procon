@@ -1,0 +1,1 @@
+main(a,b,c,A,B,C){scanf("%d%d%d%d",&a,&b,&c,&A);B=2*A;C=3*A;printf("%d %d %d\n",a>A?0:A-a,b>B?0:B-b,c>C?0:C-c);exit(0);}

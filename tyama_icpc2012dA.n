@@ -1,0 +1,17 @@
+using System.Console;
+using Nemerle.Collections.List;
+
+//module icpc2007dA{
+//  Main():void{
+
+		mutable i,n,y,m:int;
+		n=int.Parse(ReadLine());
+		for(i=0;i<n;i++){
+			mutable a:array[string];
+			a=ReadLine().Split(' ');
+			y=int.Parse(a[0])-1;m=int.Parse(a[1])-1;
+			WriteLine(196471-y*195-y/3*5-m*20+if(y%3!=2){m/2}else{0}-int.Parse(a[2]));
+		}
+
+//  }
+//}

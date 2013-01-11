@@ -1,0 +1,1 @@
+main(k,i,s,x){for(;scanf("%d",&k),k;printf("%d\n",s/(k-1)))for(i=s=0;i<k*(k-1)/2;i++)scanf("%d",&x),s+=x;exit(0);}

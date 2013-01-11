@@ -1,0 +1,1 @@
+main(b){long long n;for(scanf("%lld%d",&n,&b);~b;b--)n/=2;puts(n?"no":"yes");}

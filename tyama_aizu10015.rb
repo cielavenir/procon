@@ -1,0 +1,4 @@
+#!/usr/bin/ruby
+h={}
+gets.to_i.times{h[gets.chomp.split]=1}
+'SHCD'.split('').each{|e|1.step(13){|i|puts e+' '+i.to_s if !h[[e,i.to_s]]}}

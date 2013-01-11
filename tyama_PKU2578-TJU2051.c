@@ -1,0 +1,1 @@
+main(i,a){for(i=0;i<3;i++){scanf("%d",&a);if(a<=168){printf("CRASH %d",a);return;}}printf("NO CRASH");}

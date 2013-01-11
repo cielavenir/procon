@@ -1,0 +1,1 @@
+main(n,c){for(;~scanf("%d%d",&n,&c);printf("%d\n",n?(int)ceil(c/2./n-.5):0));}

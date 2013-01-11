@@ -1,0 +1,2 @@
+#define R(a,b)for(a=0;a<b;a++)
+k,m,i,j,f[100];main(){float l[300],n[300];for(;scanf("%d%d",&k,&m),k;printf("%d\n",k)){R(i,3*k)scanf("%f",l+i);R(i,3*m)scanf("%f",n+i);R(i,m)f[i]=0;R(i,k)R(j,m)if(l[i*3]*n[j*3]+l[i*3+1]*n[j*3+1]+l[i*3+2]*n[j*3+2]>40528473)f[j]=1;k=0;R(i,m)k+=f[i];}}

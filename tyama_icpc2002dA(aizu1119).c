@@ -1,0 +1,1 @@
+t[65536];main(n,x,y,dx,dy,r,m,mx,my){for(scanf("%d\n",&n);n;printf("%d %d\n",mx,my),n--)for(x=y=m=0;scanf("%d%d",&dx,&dy),dx|dy;){x+=dx,y+=dy,r=x*x+y*y;if(r>m||(r==m&&mx<x))m=r,mx=x,my=y;}}

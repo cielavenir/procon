@@ -1,0 +1,1 @@
+gets.to_i.times{puts (1<<gets.to_i-1)%1000000007}

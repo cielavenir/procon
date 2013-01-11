@@ -1,0 +1,1 @@
+main(i){float f=0,x;for(i=0;i<12;f+=x,i++)scanf("%f",&x);printf("$%.2f\n",f/12);}

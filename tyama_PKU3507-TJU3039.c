@@ -1,0 +1,2 @@
+#define p(a,b) ((a)>(b)?(a):(b))
+main(a,b,c,d,e,f){goto x;while(a!=0||b!=0||c!=0||d!=0||e!=0||f!=0){f+=a+b+c+d+e-p(a,p(b,p(c,p(d,p(e,f)))))+p(-a,p(-b,p(-c,p(-d,p(-e,-f)))));printf("%d",f/4);printf(!(f&3)?"\n":(f&3)==1?".25\n":(f&3)==2?".5\n":".75\n");x:scanf("%d%d%d%d%d%d",&a,&b,&c,&d,&e,&f);}}

@@ -1,0 +1,1 @@
+double x,y,r,X,Y,R;main(n){for(scanf("%d",&n);n--;printf("%d\n",x+R<r?2:x+r<R?-2:x<=r+R))scanf("%lf%lf%lf%lf%lf%lf",&x,&y,&r,&X,&Y,&R),x=hypot(X-x,Y-y);}

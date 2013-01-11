@@ -1,0 +1,21 @@
+using System.Console;
+
+//module icpc2007dA{
+//  Main():void{
+
+    mutable i,n,s,ma,mi,sum:int;
+    n=int.Parse(ReadLine());
+    while(n!=0){ //nemerle doesn't have break
+      ma=0;mi=1000;sum=0;
+      for(i=0;i<n;i++){
+        s=int.Parse(ReadLine());
+        ma=if(ma>s){ma}else{s}; //like 3 operand operator
+        mi=if(mi<s){mi}else{s};
+        sum+=s;
+      }
+      WriteLine((sum-ma-mi)/(n-2));
+      n=int.Parse(ReadLine());
+    }
+
+//  }
+//}

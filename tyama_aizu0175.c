@@ -1,0 +1,1 @@
+s[19];main(x,i){for(;scanf("%d",&x),~x;puts(""))if(!x)putchar('0');else{for(i=0;x;i++,x/=4)s[i]=x%4;for(i--;~i;i--)putchar(s[i]+'0');}exit(0);}

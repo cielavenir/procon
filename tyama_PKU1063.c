@@ -1,0 +1,1 @@
+c[2];main(i,n,x){for(gets(&n);~scanf("%d",&n);puts(n%2||abs(*c-c[1])<2?"YES":"NO"))for(*c=c[1]=i=0;i++<n;c[i%2]+=x)scanf("%d",&x);}

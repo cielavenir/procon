@@ -1,0 +1,1 @@
+main(x,y){scanf("%d",&x);for(;~scanf("%d%d",&x,&y);printf(x<y||(x+y)&1?"impossible\n":"%d %d\n",(x+y)/2,(x-y)/2));}

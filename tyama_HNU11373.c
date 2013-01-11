@@ -1,0 +1,1 @@
+main(c,f,h,p){for(;scanf("%d%d%d%d",&c,&f,&h,&p),c;puts((f-0.5)*9+((h?h-0.5:0)+(p?p-0.5:0))*4<c&&c<=(f+0.5)*9+(h+p+1)*4?"yes":"no"));exit(0);}

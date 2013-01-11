@@ -1,0 +1,1 @@
+main(r,x){for(r=0;scanf("%d",&x),x;)r=r<x?x:r;printf("%d\n",r);}

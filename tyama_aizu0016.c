@@ -1,0 +1,1 @@
+main(s,t,T){double x,y;for(t=90;scanf("%d,%d",&s,&T),s||T;t-=T)x+=s*cos(t/57.3),y+=s*sin(t/57.3);printf("%d\n%d\n",(int)x,(int)y);exit(0);}

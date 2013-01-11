@@ -1,0 +1,2 @@
+#define S(a,b)for(i=0;i<a*3;i++)scanf("%f",b+i);
+main(k,m,i,j,r){float l[300],n[300];for(;scanf("%d%d",&k,&m),k;printf("%d\n",r)){S(k,l)S(m,n)for(r=j=0;j<m*3;j+=3)for(i=0;i<k*3;i+=3)if(l[i]*n[j]+l[i+1]*n[j+1]+l[i+2]*n[j+2]>40528473){r++;break;}}}

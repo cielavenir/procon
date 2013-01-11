@@ -1,0 +1,1 @@
+main(a){while(~scanf("%d",&a))putchar(a);}
