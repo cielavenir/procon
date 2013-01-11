@@ -20,7 +20,7 @@ vector<string> split(string &str, const char *delim){
 	return result;
 }
 
-void reversepoland(string &exp){
+void poland(string &exp){
 	vector<string> token = split(exp," ");
 	reverse(token.begin(),token.end());
 	vector<int> resolveNumber;
@@ -53,4 +53,4 @@ void reversepoland(string &exp){
 	//if(resolveNumber.size()!=1){printf("result stack not 1");return;}
 	printf("%d\n",resolveNumber[0]);
 }
-int main(int argc,char **argv){ifstream fin;fin.open(argv[1]);for(string str;getline(fin,str);reversepoland(str));}
+int main(int argc,char **argv){ifstream fin(argv[1]);for(string str;getline(fin,str);poland(str));}

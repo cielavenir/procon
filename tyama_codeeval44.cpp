@@ -6,8 +6,7 @@
 using namespace std;
 
 int main(int argc, char **argv){
-  fstream fin;
-  fin.open(argv[1]);
+  fstream fin(argv[1]);
   string s,t;
   int m=0,n;
   for(;fin>>s;){
