@@ -14,9 +14,9 @@ s[0].times{|j|
 }
 m=a.transpose[0].sum
 M=a.transpose[1].sum
-if s[1]<m || M<s[1] then puts "NO";exit end
+if s[1]<m || M<s[1] then puts :NO;exit end
 
-puts "YES"
+puts :YES
 s[1]-=m
 s[0].times{|i|
   n=x=a[i][1]-a[i][0]

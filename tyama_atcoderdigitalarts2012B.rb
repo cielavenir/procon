@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 s=gets.chomp
 if s=='z'*20||s=='a'
-	puts 'NO'
+	puts :NO
 elsif s!=s.reverse
 	puts s.reverse
 elsif s=='a'*s.length

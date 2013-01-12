@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-a=13.times.map{|i|2**(i/12.0)*440)}
+a=13.times.map{|i|2**(i/12.0)*440}
 r=['Ra','Ra#','Ti','Do','Do#','Re','Re#','Mi','Fa','Fa#','So','So#','Ra']
 while(p=gets.to_f)!=-1
 	o=Math.log(p/440,2).floor

@@ -5,7 +5,7 @@ n.times{|i|
   x=s=gets.chomp
   if !h[s]
     h[s]=0
-    puts "OK"
+    puts :OK
   else
     h[s]+=1
     puts s+h[s].to_s
