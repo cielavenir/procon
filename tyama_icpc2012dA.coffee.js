@@ -15,7 +15,6 @@
   stdin.on('end', function(z) {
     var b, e, i, m, n, r, y, _i, _results;
     n = parseInt(a.shift());
-    console.log(n);
     _results = [];
     for (i = _i = 0; 0 <= n ? _i < n : _i > n; i = 0 <= n ? ++_i : --_i) {
       b = (function() {
@@ -37,5 +36,4 @@
       console.log(196471 - y * 195 - Math.floor(y / 3) * 5 - m * 20 + r - b[2]);
     }
   });
-
 }).call(this);

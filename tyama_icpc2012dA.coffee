@@ -10,7 +10,6 @@ stdin.on 'data', (input) ->
 
 stdin.on 'end', (z) ->
 	n=parseInt(a.shift())
-	console.log(n)
 	for i in [0...n]
 		b=(parseInt(e) for e in a[i].split(" "))
 		y=b[0]-1
