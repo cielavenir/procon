@@ -12,8 +12,8 @@ inline unsigned reverse(unsigned u){
 int main(int argc, char **argv){
   unsigned u,t;
   int n,count;
-  FILE *f=fopen(argv[1],"r");
-  for(;~fscanf(f,"%u",&u);n--){
+  if(argc>1)freopen(argv[1],"rb",stdin);
+  for(;~scanf("%u",&u);n--){
     count^=count;
     t=reverse(u);
     while(u^t){
@@ -23,6 +23,5 @@ int main(int argc, char **argv){
     };
     printf("%d %u\n",count,u);
   }
-  fclose(f);
   return 0;
 }

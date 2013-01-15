@@ -1,8 +1,8 @@
 #include <stdio.h>
 int main(int argc,char **argv){
-	FILE *in=fopen(argv[1],"r");
+	if(argc>1)freopen(argv[1],"rb",stdin);
 	int f,b,n,i;
-	for(;~fscanf(in,"%d%d%d",&f,&b,&n);){
+	for(;~scanf("%d%d%d",&f,&b,&n);){
 		for(i=1;i<=n;i++){
 			if(!(i%f)&&!(i%b))printf("FB");
 			else if(!(i%f))putchar('F');
@@ -12,6 +12,5 @@ int main(int argc,char **argv){
 		}
 		putchar('\n');
 	}
-	fclose(in);
 	return 0;
 }

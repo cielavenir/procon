@@ -1,8 +1,7 @@
 #include <stdio.h>
 int main(int argc, char **argv){
 	int n,p,q;
-	FILE *f=fopen(argv[1],"r");
-	for(;~fscanf(f,"%d,%d,%d",&n,&p,&q);)puts(((n>>(p-1))&1)==((n>>(q-1))&1)?"true":"false");
-	fclose(f);
+	if(argc>1)freopen(argv[1],"rb",stdin);
+	for(;~scanf("%d,%d,%d",&n,&p,&q);)puts(((n>>(p-1))&1)==((n>>(q-1))&1)?"true":"false");
 	return 0;
 }
