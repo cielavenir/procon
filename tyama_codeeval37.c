@@ -2,8 +2,8 @@
 a[256];
 int main(int argc,char **argv){
 	int i,c;
-	FILE *f=fopen(argv[1],"r");
-	for(;~(c=fgetc(f));){
+	if(argc>1)freopen(argv[1],"rb",stdin);
+	for(;~(c=getchar());){
 		if(c=='\n'){
 			for(c=0,i='a';i<='z';i++)
 				if(!a[i])putchar(i),c++;
@@ -14,6 +14,5 @@ int main(int argc,char **argv){
 		if('A'<=c&&c<='Z')c+=32;
 		a[c]++;
 	}
-	fclose(f);
 	return 0;
 }

@@ -10,7 +10,7 @@ backtrack(i,j){
 	else backtrack(i-1,j);
 }
 main(int argc, char **argv){
-  freopen(argv[1],"rb",stdin);
+  if(argc>1)freopen(argv[1],"rb",stdin);
   int i,j,_a,_b;
   while(F(a+1,998,stdin)){
     b=strchr(a+1,';');if(!b)continue;*b=0;
