@@ -72,7 +72,7 @@ require 'rational'
 while gets #DATA.gets
 a,b=$_.chomp.split(';').map{|e|e.split(',').map{|f|f.tr(' ','')}}
 ss=a.map{|e|
-	customer=e.tr('A-Z','a-z')
+	customer=e.downcase
 	customer_length=customer.scan(/[a-z]/).size
 	vowels=customer.scan(/[aeiouy]/).size
 	consonants=customer_length-vowels
