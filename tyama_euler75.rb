@@ -11,4 +11,4 @@ h=Hash.new{|h,k|h[k]=0}
 	}
 }
 #p h
-p h.select{|k,v|v==1}.size
+p h.count{|k,v|v==1}

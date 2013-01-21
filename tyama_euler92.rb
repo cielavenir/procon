@@ -17,4 +17,4 @@ class Integer
 		end
 	end
 end
-p 1.step(10000000).select(&:cycle).count
+p 1.step(10000000).count(&:cycle)

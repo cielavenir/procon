@@ -11,4 +11,4 @@ def z(n)
 	end while sf!=1
 	return r
 end
-p 2.step(10000).select{|i|z(i).length%2==0}.count
+p 2.step(10000).count{|i|z(i).length%2==0}

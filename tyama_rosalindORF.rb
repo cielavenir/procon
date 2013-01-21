@@ -18,7 +18,7 @@ s=gets.chomp
 s.transcript.indexes('AUG').each{|i|
 	z=''
 	zz=''
-	s[i..-1].transcript.chomp.each_slice(3){|e|
+	s[i..-1].transcript.chars.each_slice(3){|e|
 		if codon[x=e.join]==:stop then zz=z;break end
 		break if !codon[x]
 		z<<codon[x]
@@ -29,7 +29,7 @@ s=s.complement
 s.transcript.indexes('AUG').each{|i|
 	z=''
 	zz=''
-	s[i..-1].transcript.chomp.each_slice(3){|e|
+	s[i..-1].transcript.chars.each_slice(3){|e|
 		if codon[x=e.join]==:stop then zz=z;break end
 		break if !codon[x]
 		z<<codon[x]

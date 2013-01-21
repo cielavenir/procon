@@ -10,7 +10,7 @@ a=[1,1]
 	}
 	a=b
 	1.step(i/2){|j|
-		h[a[j]] || h[a[j]]=a[j].prime_division.select{|a,b|b>1}.length
+		h[a[j]] || h[a[j]]=a[j].prime_division.count{|a,b|b>1}
 	}
 }
 p h.select{|k,v|v==0}.keys.reduce(:+)

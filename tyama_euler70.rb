@@ -7,7 +7,7 @@ class Integer
 		a=self.to_s.chars.map(&:to_i)
 		b=r.to_s.chars.map(&:to_i)
 		10.times{|i|
-			if a.select{|e|e==i}.count!=b.select{|e|e==i}.count then return 99999999 end
+			if a.count{|e|e==i}!=b.count{|e|e==i} then return 99999999 end
 		}
 		return self/r.to_f
 	end
