@@ -10,7 +10,7 @@ s=gets.split(',').map(&:to_i)
 			t.length.times{|i|
 				t[i]^=m[i%3]
 			}
-			if t.map(&:chr).join.index(' the ') then p t.reduce(&:+);exit end
+			if t.map(&:chr).join.index(' the ') then p t.reduce(:+);exit end
 		}
 	}
 }

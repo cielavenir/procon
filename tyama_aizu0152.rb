@@ -25,8 +25,8 @@ while(n=gets.to_i)>0
 				if c[i]==10 then c[i]+=b[i+1][0] end
 			end
 		}
-		c[9]=b[9].reduce(&:+)
-		[-c.reduce(&:+),n]
+		c[9]=b[9].reduce(:+)
+		[-c.reduce(:+),n]
 	}.sort.each{|e|
 		puts "#{e[1]} #{-e[0]}"
 	}

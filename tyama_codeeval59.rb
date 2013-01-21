@@ -7,8 +7,8 @@ def d(depth,str,ret)
 		print ret
 		$i+=1
 	else
-		$h[str[depth,1]].each_byte{|e|
-			d(depth+1,str,ret+e.chr)
+		$h[str[depth,1]].chars{|e|
+			d(depth+1,str,ret+e)
 		}
 	end
 end

@@ -8,4 +8,4 @@ class String
 end
 h={}
 1.step(1000){|i|1.step(10000/i){|j|k=i*j;if [i,j,k].map(&:to_s).join.pan? then h[k]=1 end}}
-p h.keys.reduce(&:+)
+p h.keys.reduce(:+)

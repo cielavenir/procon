@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 while gets
 n=$_.to_i
-print '1'
+print'1'
 a=[1]
 2.step(n){
 	b=[a[0]]
@@ -9,7 +9,7 @@ a=[1]
 		b<<a[i]+a[i+1]
 	}
 	b<<a.last
-	print ' '+b.join(' ')
+	print ' '+b.join' '
 	a=b
 }
 puts

@@ -2,7 +2,7 @@
 STDOUT.sync=true
 c=Array.new(9)
 
-(0..8).each{|i|
+9.times{|i|
 	a=[*0..9]
 	a.delete(i)
 	puts "? #{(i.to_s)*9} "+(0..7).map{|j|a.rotate(j)*''}*' '
@@ -14,7 +14,7 @@ c.push(9-c.reduce(:+))
 for n in 0..9 do break if c[n]==0 end
 
 s="000000000"
-(0..9).each{|i|
+10.times{|i|
 	next if i==n
 	x=(i+1)%10
 	x=(x+1)%10 if x==n

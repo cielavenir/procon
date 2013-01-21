@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-p((2**1000).to_s.split('').map(&:to_i).reduce(&:+))
+p (2**1000).to_s.chars.map(&:to_i).reduce(:+)

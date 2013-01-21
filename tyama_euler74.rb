@@ -1,10 +1,9 @@
 #!/usr/bin/ruby
 $h={}
 class Integer
-	def fact() 1.step(self).reduce(1){|s,i|s*=i} end
-	def chain() self.to_s.chars.map{|e|$h[e.to_i]}.reduce(&:+) end
+	def chain() self.to_s.chars.map{|e|$h[e.to_i]}.reduce(:+) end
 end
-10.times{|i|$h[i]=i.fact}
+10.times{|i|$h[i]=(2..i).reduce(:*)||1}
 
 $r={}
 x=0

@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 D=[[-1,0],[1,0],[0,-1],[0,1]]
 $h={[0,0]=>1}
-#def s(n) n.abs.to_s.split('').map(&:to_i).reduce(:+) end
+#def s(n) n.abs.to_s.chars.map(&:to_i).reduce(:+) end
 def s(n)
 	r=0
 	x=n.abs

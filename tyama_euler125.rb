@@ -10,4 +10,4 @@ r={}
 		r[x]=1 if s==s.reverse
 	}
 }
-p r.keys.reduce(&:+)
+p r.keys.reduce(:+)

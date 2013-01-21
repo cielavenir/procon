@@ -23,4 +23,4 @@ while h[x]
 	a<<h[x];x=h[x]
 end
 p a.size-2
-puts a.reverse.join("\n")
+puts a.reverse.join"\n"

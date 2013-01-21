@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-a=[*(0..46340)].map{|e|e**2}
+a=46341.times.map{|e|e**2}
 m={}
 a.each{|e|m[e]=1}
 gets.to_i.times{

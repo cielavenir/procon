@@ -1,4 +1,2 @@
 #!/usr/bin/ruby
-t='zrbcdwtjfqlvsxpmhkng'
-gets;a=gets.chomp.downcase.tr('aeiouy,.','').split
-puts a.map{|e|e.chars.map{|f|t.index(f)/2}.join}.join(' ')
+gets;puts gets.chomp.downcase.tr('aeiouy,.','').split.map{|e|e.chars.map{|f|'zrbcdwtjfqlvsxpmhkng'.index(f)/2}.join}.join' '

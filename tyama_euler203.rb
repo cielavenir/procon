@@ -13,4 +13,4 @@ a=[1,1]
 		h[a[j]] || h[a[j]]=a[j].prime_division.select{|a,b|b>1}.length
 	}
 }
-p h.select{|k,v|v==0}.keys.reduce(&:+)
+p h.select{|k,v|v==0}.keys.reduce(:+)
