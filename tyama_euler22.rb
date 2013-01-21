@@ -1,7 +1,8 @@
 #!/usr/bin/ruby
 #wget -O - http://projecteuler.net/project/names.txt
+require 'json'
 s=gets.chomp
-a=eval('['+s+']').sort
+a=JSON.parse('['+s+']').sort
 r=0
 a.length.times{|i|
 	x=0

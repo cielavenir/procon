@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 #wget -O - http://projecteuler.net/project/words.txt
-a=eval('['+gets.chomp+']')
+require 'json'
+a=JSON.parse('['+gets.chomp+']')
 h={}
 1.step(100){|i|h[i*(i+1)/2]=1}
 r=0

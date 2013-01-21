@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 #wget -O - http://projecteuler.net/project/words.txt
-a=eval('['+gets.chomp+']')
+require 'json'
+a=JSON.parse('['+gets.chomp+']')
 h=Hash.new{|h,k|h[k]=[]}
 $sq=(1..40000).map{|e|(e**2).to_s}
 a.each{|e|h[e.chars.sort*'']<<e}
