@@ -1,5 +1,4 @@
-int m,n,P[1000],b[500],r[500],i,j,t;
-char C[1000][1000],V[1000];
+int m,n,P[1000],b[500],r[500],i,j,t,C[1000][1000],V[1000];
 int h(x,y){return y?h(y,x%y):x;}
 int g(x,y){return x>y?h(x,y):h(y,x);}
 int match(s){int i=m;for(;i<m+n;i++)if(C[s][i]&&!V[i])if(V[i]=1,P[i]<0||match(P[i]))return P[s]=i,P[i]=s,1;return 0;}
