@@ -1,1 +1,0 @@
-echo import this|python

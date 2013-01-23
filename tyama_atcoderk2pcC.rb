@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-$a=(0...50000).map{|e|e*(e+1)/2+1}
+$a=50000.times.map{|e|e*(e+1)/2+1}
 
 class Integer
 	def toX

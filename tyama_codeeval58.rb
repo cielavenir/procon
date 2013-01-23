@@ -28,25 +28,24 @@ def alignment(x, y)
 			end
 		}
 	}
-	#trace-back
-	n=x.length;m=y.length
-	while n!=0||m!=0 do
-		t+=back[n][m][2]
-		n,m = back[n][m][0],back[n][m][1]
-	end
-	t.reverse!
 
-	#output
-	i=0;j=0
-	t.each_byte{|c|
-		case c.chr
-			when "c" then tx+=x[i].chr; i+=1; ty+=y[j].chr; j+=1;
-			when "a" then tx+=x[i].chr; i+=1; ty+="-";
-			when "b" then tx+="-";            ty+=y[j].chr; j+=1;
-		end
-	}
-
-	return a[x.length][y.length]
+	return -a[x.length][y.length]
 end
 
-p -alignment(gets.chomp,gets.chomp)
+a=[]
+while gets
+a<<$_.chomp
+end
+f=[nil]*a.size
+q=['hello']
+while !q.empty?
+	x=q.shift
+	a.length.times{|i|
+		if !f[i]&&alignment(x,a[i])==1
+			f[i]=1
+			q.push(a[i])
+		end
+	}
+	p f.count{|e|e}
+end
+p f.count{|e|e}

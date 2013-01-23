@@ -1,3 +1,4 @@
+#!/usr/bin/ruby
 class String
 	def complement
 		self.reverse.tr("ATGC","TACG")
