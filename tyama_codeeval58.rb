@@ -1,4 +1,5 @@
 #!/usr/bin/ruby
+#It will take 10 hours to execute...
 def maximum3(a)
 	if a.length == 0 then return [nil,0] end
 	ret = [a[0],0]
@@ -46,6 +47,6 @@ while !q.empty?
 			q.push(a[i])
 		end
 	}
-	p f.count{|e|e}
+	#p f.count{|e|e}
 end
-p f.count{|e|e}
+p f.count{|e|e} #4844 (send as PHP).
