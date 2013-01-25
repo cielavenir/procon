@@ -13,7 +13,7 @@ while s.size>1
 		}
 	}
 	if k[0]==0 then
-		s=[s.sort.join];break
+		s=[s.sort*''];break
 	end
 	s.push(s[k[1]]+s[k[2]][k[0]..-1])
 	s[k[1]]=s[k[2]]=nil

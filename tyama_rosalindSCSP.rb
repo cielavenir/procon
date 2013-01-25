@@ -45,7 +45,7 @@ def alignment(x, y)
 			when "b" then tx+="-";            ty+=y[j].chr; j+=1;
 		end
 	}
-	puts tx.length.times.map{|i|tx[i,1]=='-'?ty[i,1]:tx[i,1]}.join
+	puts tx.length.times.map{|i|tx[i,1]=='-'?ty[i,1]:tx[i,1]}*''
 
 	return a[x.length][y.length]
 end

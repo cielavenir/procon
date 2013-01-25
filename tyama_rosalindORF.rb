@@ -19,7 +19,7 @@ s.transcript.indexes('AUG').each{|i|
 	z=''
 	zz=''
 	s[i..-1].transcript.chars.each_slice(3){|e|
-		if codon[x=e.join]==:stop then zz=z;break end
+		if codon[x=e*'']==:stop then zz=z;break end
 		break if !codon[x]
 		z<<codon[x]
 	}
@@ -30,7 +30,7 @@ s.transcript.indexes('AUG').each{|i|
 	z=''
 	zz=''
 	s[i..-1].transcript.chars.each_slice(3){|e|
-		if codon[x=e.join]==:stop then zz=z;break end
+		if codon[x=e*'']==:stop then zz=z;break end
 		break if !codon[x]
 		z<<codon[x]
 	}

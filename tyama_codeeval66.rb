@@ -9,7 +9,7 @@ a=[1]
 		b<<a[i]+a[i+1]
 	}
 	b<<a.last
-	print ' '+b.join' '
+	print ' '+b*' '
 	a=b
 }
 puts

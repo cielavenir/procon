@@ -13,5 +13,5 @@ a=a.map{|e|
 puts s
 a.each{|e|
 	print e[0][1]+': '
-	puts e.map{|f|f[0]}.join' '
+	puts e.map{|f|f[0]}*' '
 }

@@ -37,7 +37,7 @@ x.each{|a,b|
 }
 
 if mode==:codeeval49
-	puts h.select{|e|e.size>2}.map{|e|e.sort.join', '}.sort.join"\n"
+	puts h.select{|e|e.size>2}.map{|e|e.sort*', '}.sort*"\n"
 else
-	puts h.map{|e|e.sort.join'='}.sort.join"\n"
+	puts h.map{|e|e.sort*'='}.sort*"\n"
 end

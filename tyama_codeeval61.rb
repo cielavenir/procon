@@ -5,5 +5,5 @@ puts message.split.map{|e|
 	e.chars.each_slice(2).map{|f|
 		idx=key.index (f.join.to_i+65).chr
 		(idx+65).chr
-	}.join
-}.join' '
+	}*''
+}*' '

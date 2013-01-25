@@ -4,5 +4,5 @@ s=gets.chomp
 while gets
 s.gsub!($_.chomp,':')
 end
-s.tr(':','').tr('T','U').chars.each_slice(3){|e|codon[x=e.join] ? print(codon[x]) : break}
+s.tr(':','').tr('T','U').chars.each_slice(3){|e|codon[x=e*''] ? print(codon[x]) : break}
 puts

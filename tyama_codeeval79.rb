@@ -12,7 +12,7 @@ h.times{|i|
 		else
 			d.count{|e|0<=i+e[0]&&i+e[0]<h && 0<=j+e[1]&&j+e[1]<w && a[i+e[0]][j+e[1]]=='*'}
 		end
-	}.join
+	}*''
 }
 puts
 end

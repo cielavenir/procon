@@ -7,4 +7,4 @@ k=0
 	k+=1 if s[i]==s[k]
 	a<<k
 }
-puts a.join(' ')
+puts a*' '

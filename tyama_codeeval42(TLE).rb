@@ -16,6 +16,6 @@ end
 while gets
 	s=$_.chomp
 	l=s.size-1
-	s=s.split('').join' '
+	s=s.split('')*' '
 	p dfs(s,0,l)
 end

@@ -16,7 +16,7 @@ d=[[1,0],[0,1],[-1,0],[0,-1]]
 x=y=1
 f[y][x]=1
 print m[y][x]
-while true
+loop{
 	break if 4.times.none?{|i|
 		if !f[y+d[i][1]][x+d[i][0]]
 			d.rotate!(i)
@@ -26,6 +26,6 @@ while true
 			true
 		end
 	}
-end
+}
 puts
 end

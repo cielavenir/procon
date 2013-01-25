@@ -13,5 +13,5 @@ end
 m={10000=>'ONE HUNDRED',5000=>'FIFTY',2000=>'TWENTY',1000=>'TEN',500=>'FIVE',200=>'TWO',100=>'ONE',50=>'HALF DOLLAR',25=>'QUARTER',10=>'DIME',5=>'NICKEL',1=>'PENNY'}
 while gets
 n=-$_.split(';').map{|e|(e.to_f*100).to_i}.reduce(:-)
-puts n<0 ? 'ERROR' : n==0 ? 'ZERO' : rec2c(m.keys.sort.reverse,n).map{|e|m[e]}.sort.join','
+puts n<0 ? 'ERROR' : n==0 ? 'ZERO' : rec2c(m.keys.sort.reverse,n).map{|e|m[e]}.sort*','
 end
