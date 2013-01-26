@@ -9,4 +9,4 @@ while gets
 h[s=$_.chomp]=1
 h[s.complement]=1
 end
-h.keys.each{|e|puts "(#{e[0...-1]}, #{e[1..-1]})"}
+h.each_key{|e|puts "(#{e[0...-1]}, #{e[1..-1]})"}
