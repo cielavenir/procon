@@ -14,14 +14,14 @@ leaves.each_with_index{|e,i|
 }
 spl.each{|e|
 	g=h.dup
-	h.each_key{|f|
+	if h.each_key{|f|
 		if (e&f)==f && h.has_key?(e^f)
 			tree.add_node(g[e]=Bio::Tree::Node.new)
 			tree.add_edge(g[e],g.delete(e^f))
 			tree.add_edge(g[e],g.delete(f))
 			break
 		end
-	}
+	} then raise "inconsistent" end
 	h=g
 }
 tree.add_node(tree.root=Bio::Tree::Node.new)
