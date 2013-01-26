@@ -28,7 +28,6 @@ spl=spl.map{|e|e.reverse.to_i(2)}
 				tree.add_edge(g[e],g.delete(f))
 				break
 			end
-			true
 		} then raise end
 		h=g
 	}
