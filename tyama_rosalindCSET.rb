@@ -35,3 +35,4 @@ spl=spl.map{|e|e.reverse.to_i(2)}
 	puts indexes.map{|i|ret[i]}*"\n"
 	exit
 }
+raise 'no proper submatrix'
