@@ -11,8 +11,8 @@ spl=spl.transpose[0]
 len=spl[0].length
 spl=spl.map{|e|e.reverse.to_i(2)}
 
-[*0..spl.size-1].combination(spl.size-1){|spl_|
-	spl0=spl_.map{|i|spl[i]}
+[*0..spl.size-1].combination(spl.size-1){|indexes|
+	spl0=indexes.map{|i|spl[i]}
 	tree=Bio::Tree.new
 	h={}
 	len.times{|i|
@@ -21,7 +21,7 @@ spl=spl.map{|e|e.reverse.to_i(2)}
 	begin
 	spl0.each{|e|
 		g=h.dup
-		if h.each_key.all?{|f|
+		if h.each_key{|f|
 			if (e&f)==f && h.has_key?(e^f)
 				tree.add_node(g[e]=Bio::Tree::Node.new)
 				tree.add_edge(g[e],g.delete(e^f))
@@ -33,6 +33,6 @@ spl=spl.map{|e|e.reverse.to_i(2)}
 		h=g
 	}
 	rescue; next end
-	puts spl_.map{|i|ret[i]}*"\n"
+	puts indexes.map{|i|ret[i]}*"\n"
 	exit
 }
