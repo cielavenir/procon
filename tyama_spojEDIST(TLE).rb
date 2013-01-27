@@ -31,4 +31,4 @@ def alignment(x, y)
 	return -a[x.length][y.length]
 end
 
-p alignment(gets.chomp,gets.chomp)
+gets.to_i.times{p alignment(gets.chomp,gets.chomp)}

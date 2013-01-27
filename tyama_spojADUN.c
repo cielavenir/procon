@@ -1,0 +1,1 @@
+main(){unsigned a,b;scanf("%u%u",&a,&b);printf("%u\n",a+b);exit(0);}

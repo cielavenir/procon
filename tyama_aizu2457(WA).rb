@@ -28,7 +28,26 @@ def alignment(x, y)
 			end
 		}
 	}
+
 	return -a[x.length][y.length]
 end
 
-p alignment(gets.chomp,gets.chomp)
+n,m=gets.split.map(&:to_i)
+a=[]
+n.times{gets.chomp.split.each{|e|a<<e}}
+b=m.times.map{gets.chomp}
+r=0
+a.each{|e|
+	m=99999999
+	p=0
+	b.each_with_index{|f,i|
+		x=alignment(e,f)
+		if x<m
+			m=x
+			p=i
+		end
+	}
+	r+=m
+	#b.delete_at(p) #no... I must use minimum flow.
+}
+p r

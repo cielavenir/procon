@@ -28,7 +28,37 @@ def alignment(x, y)
 			end
 		}
 	}
-	return -a[x.length][y.length]
-end
+	#trace-back
+	n=x.length;m=y.length
+	while n!=0||m!=0 do
+		t+=back[n][m][2]
+		n,m = back[n][m][0],back[n][m][1]
+	end
+	t.reverse!
 
-p alignment(gets.chomp,gets.chomp)
+	#output
+	i=0;j=0
+	t.each_byte{|c|
+		case c.chr
+			when "c" then tx+=x[i].chr; i+=1; ty+=y[j].chr; j+=1;
+			when "a" then tx+=x[i].chr; i+=1; ty+="-";
+			when "b" then tx+="-";            ty+=y[j].chr; j+=1;
+		end
+	}
+
+	return [a[x.length][y.length],tx,ty]
+	puts tx
+	puts ty
+end
+r=0
+a=ARGF.lines.map(&:chomp)
+a.length.times{|i|
+	(i+1).step(a.length-1){|j|
+		x=alignment(a[i],a[j])
+		r+=x[0] #fixme: r is not optimal...
+		a[i]=x[1]
+		a[j]=x[2]
+	}
+}
+p r
+puts a*"\n"

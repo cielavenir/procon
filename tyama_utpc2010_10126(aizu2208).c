@@ -1,0 +1,1 @@
+A[20000];z(int*a,int*b){return*b-*a;}main(n,i,j){for(;scanf("%d",&n),n;puts(i>n?"No":"Yes")){for(i=0;i<n*2;i++)scanf("%d",A+i);for(i=qsort(A,n,4,z);i<n;A[i++]?i=n+1:1)for(j=n;j<n*2;j++)A[j]?A[i]--,A[j]--:1;}exit(0);}
