@@ -50,7 +50,7 @@ spl.each{|e|
 			a[i]=1
 		end
 	}
-	r="(#{x.join(',')}#{r=='' ? '' : ','}#{r})" if x.length>0
+	r="(#{x*','}#{r=='' ? '' : ','}#{r})" if x.length>0
 }
 	x=[]
 	spl.last.enum_for(:chars).each_with_index{|e,i|
@@ -60,7 +60,7 @@ spl.each{|e|
 		end
 	}
 if x.length>0
-puts "(#{x.join(',')}#{r=='' ? '' : ','}#{r});"
+puts "(#{x*','}#{r=='' ? '' : ','}#{r});"
 else
 puts "#{r};"
 end

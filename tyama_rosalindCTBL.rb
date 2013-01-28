@@ -8,10 +8,8 @@ def dfs(v,p)
 	$z[v]=1
 	s=0
 	s|=1<<$nodes[v] if $nodes[v]
-	$tree.descendents(v).each{|e|
-		if !$z[e]
-			s|=dfs(e,v)
-		end
+	$tree.adjacent_nodes(v).each{|e|
+		s|=dfs(e,v) if !$z[e]
 	}
 	$h[s]=1
 	s

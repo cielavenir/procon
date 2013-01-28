@@ -47,18 +47,28 @@ def alignment(x, y)
 	}
 
 	return [a[x.length][y.length],tx,ty]
-	puts tx
-	puts ty
 end
-r=0
-a=ARGF.lines.map(&:chomp)
-a.length.times{|i|
-	(i+1).step(a.length-1){|j|
-		x=alignment(a[i],a[j])
-		r+=x[0] #fixme: r is not optimal...
-		a[i]=x[1]
-		a[j]=x[2]
+seqs=ARGF.lines.map(&:chomp)
+finalseqs=[]
+finalidx=[]
+finalr=-99999
+[*0..seqs.length-1].permutation{|idx|
+	a=idx.map{|i|seqs[i]}
+	r=0
+	a.length.times{|i|
+		(i+1).step(a.length-1){|j|
+			x=alignment(a[i],a[j])
+			r+=x[0] #fixme: r is not optimal...
+			a[i]=x[1]
+			a[j]=x[2]
+		}
 	}
+	if finalr<r
+		finalr=r
+		finalseqs=a
+		finalidx=idx
+	end
 }
-p r
-puts a*"\n"
+#p finalidx
+p finalr
+puts finalidx.map{|i|finalseqs[i]}*"\n"
