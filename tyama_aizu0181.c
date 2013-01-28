@@ -1,0 +1,10 @@
+M[99][99],C[99][99];main(n,m,i,j,k,x){for(;scanf("%d%d",&m,&n),n;printf("%d\n",M[n][m])){
+for(i=0;i<n;i++)scanf("%d",C[i]+i);
+for(i=0;i<n;i++)for(j=i+1;j<n;j++)C[i][j]=C[i][j-1]+C[j][j];
+memset(M,11,sizeof(M));
+for(i=1;i<=n;i++)for(j=1;j<=m;j++)for(k=0;k<i;k++)if(!k){
+	if(M[i][j]>C[k][i-1])M[i][j]=C[k][i-1];
+}else{
+	if(M[i][j]>(x=M[k][j-1]>C[k][i-1]?M[k][j-1]:C[k][i-1]))M[i][j]=x;
+}
+}exit(0);}
