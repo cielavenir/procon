@@ -1,5 +1,9 @@
 #!/usr/bin/ruby
-#prepare water
+#prepare emboss water
+#LAFF
+PARAM=[12,1,'EBLOSUM62']
+#LOCA
+#PARAM=[5,5,'EPAM250']
 require 'tempfile'
 WATER='water'
 Tempfile.open('fasta1','.'){|fasta1|
@@ -8,7 +12,7 @@ Tempfile.open('fasta2','.'){|fasta2|
 	fasta1.flush
 	fasta2.puts ">2\n#{gets.chomp}"
 	fasta2.flush
-	io=open(%Q(| "#{WATER}" -gapopen 12 -gapextend 1 -outfile stdout "#{File.basename fasta1.path}" "#{File.basename fasta2.path}"))
+	io=open(%Q(| "#{WATER}" -gapopen #{PARAM[0]} -gapextend #{PARAM[1]} -datafile #{PARAM[2]} -outfile stdout "#{File.basename fasta1.path}" "#{File.basename fasta2.path}"))
 	until (l=io.gets)=~/Length/ do; end
 	l=~/(\d+)/
 	len=$1.to_i
