@@ -137,7 +137,6 @@ int main(const int argc, const char **argv){
 		write16(buf+28,3*8);
 		write32(buf+34,gif.width*gif.height*3+padding);
 		fwrite(buf,1,54,f);
-		//fclose(out);
 
 		for(y=0;y<gif.height;y++){
 			for(x=0;x<gif.width;x++){
