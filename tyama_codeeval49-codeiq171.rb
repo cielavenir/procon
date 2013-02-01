@@ -12,7 +12,7 @@ if mode==:codeeval49
 	end
 else
 	while gets
-		a,b=$_.chomp.split'='
+		a,b=$_.chomp.split('=')
 		x<<[a,b]
 	end
 end
@@ -37,7 +37,12 @@ x.each{|a,b|
 }
 
 if mode==:codeeval49
-	puts h.select{|e|e.size>2}.map{|e|e.sort*', '}.sort*"\n"
+	puts h.select{|e|e.uniq.size>2}.map{|e|e.sort.join(', ')}.sort.join("\n")
 else
-	puts h.map{|e|e.sort*'='}.sort*"\n"
+	puts h.map{|e|e.sort.join('=')}.sort.join("\n")
 end
+__END__
+A=B
+C=D
+B=C
+=> A=B=C=D
