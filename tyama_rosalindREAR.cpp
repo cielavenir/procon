@@ -60,7 +60,7 @@ main(){int T=0;for(;;T++){
 	V prob;
 	int i=0,t;
 	for(;i<10;i++){
-		if(scanf("%d",&t)==-1)return 0;
+		if(scanf("%d",&t)==-1){putchar('\n');return 0;}
 		prob.push_back(t);
 	}
 	V goal;
@@ -74,4 +74,4 @@ main(){int T=0;for(;;T++){
 	//backtrack(v1);
 	//if(vec2nvec.first!=vec2nvec.second)printf("%d %d\n",vec2nvec.first+1,vec2nvec.second+1);
 	//forwardtrack(v2);
-}putchar('\n');}
+}}
