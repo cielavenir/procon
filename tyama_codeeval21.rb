@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-while s=gets do puts s.split(//).map{|e|e.to_i}.reduce(:+) end
+while s=gets do p s.chars.reduce(0){|s,e|s+=e.to_i} end

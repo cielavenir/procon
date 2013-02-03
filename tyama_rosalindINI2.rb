@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-p gets.split.map{|e|e.to_i**2}.reduce(:+)
+p gets.split.reduce{|s,e|s+=e.to_i**2}

@@ -1,6 +1,6 @@
 //alignment library in C++11 (raw translate of Ruby version)
 //only linear gap penalty is supported.
-#include <vector>
+#include <queue>
 #include <algorithm>
 #include <string>
 #include <iostream>
@@ -9,7 +9,7 @@ using namespace std;
 typedef vector<int> vi;
 typedef tuple<int,int,int> tiii;
 typedef vector<tiii> vtiii;
-void alignment(string &x, string &y){
+int alignment(string x, string y){ //string must be retval of substr
 	vector<vi>a(x.length()+1,vi(y.length()+1));
 	vector<vtiii>back(x.length()+1,vtiii(y.length()+1));
 	string tx,ty;
@@ -28,10 +28,25 @@ void alignment(string &x, string &y){
 			}
 		}
 	}
-	cout<<-a[x.length()][y.length()]<<endl;
+	return -a[x.length()][y.length()];
 }
 int main(){
-	string s,t;
-	cin>>s>>t;
-	alignment(s,t);
+	vector<string>v;
+	string s;
+	for(;cin>>s;)v.push_back(s);
+	vector<int>f(v.size());
+	queue<string>q;
+	q.push("hello");
+	int i,n=0;
+	for(;!q.empty();){
+		s=q.front();q.pop();
+		for(i=0;i<v.size();i++)if(!f[i]&&alignment(s,v[i])==1){
+			f[i]=1;
+			q.push(v[i]);
+		}
+		//for(n=i=0;i<f.size();i++)n+=f[i];
+		//cout<<n<<endl;
+	}
+	for(n=i=0;i<f.size();i++)n+=f[i];
+	cout<<n<<endl; //4844 //still need 10mins...
 }

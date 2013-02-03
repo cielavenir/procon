@@ -48,7 +48,7 @@ void alignment(string &x, string &y){
 		}
 	}
 	for(i=0;i<ty.length();i++)if(ty[i]!='-')break;
-	cout<<(a[z-alast.begin()][y.length()])<<endl;
+	cout<<a[z-alast.begin()][y.length()]<<endl;
 	cout<<tx.substr(i)<<endl;
 	cout<<ty.substr(i)<<endl;
 }

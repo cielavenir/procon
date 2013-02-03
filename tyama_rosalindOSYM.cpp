@@ -28,22 +28,6 @@ int alignment(string x, string y){ //string must be retval of substr
 			}
 		}
 	}
-	int n=x.length(),m=y.length();
-	vi t;
-	for(;n||m;){
-		t.push_back(get<2>(back[n][m]));
-		int z=get<0>(back[n][m]);
-		m=get<1>(back[n][m]);
-		n=z;
-	}
-	reverse(t.begin(),t.end());
-	for(k=i=j=0;k<t.size();k++){
-		switch(t[k]){
-			case 2: tx+=x[i++];ty+=y[j++];break;
-			case 0: tx+=x[i++];ty+='-';   break;
-			case 1: tx+='-';   ty+=y[j++];break;
-		}
-	}
 	return a[x.length()][y.length()];
 }
 int main(){

@@ -44,7 +44,7 @@ void alignment(string &x, string &y){
 			case 1: tx+='-';   ty+=y[j++];break;
 		}
 	}
-	cout<<(-a[x.length()][y.length()])<<endl;
+	cout<<-a[x.length()][y.length()]<<endl;
 	cout<<tx<<endl;
 	cout<<ty<<endl;
 }
