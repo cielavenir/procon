@@ -14,8 +14,8 @@ l=a[0].length
 	h1={}
 	h2={}
 	#de Brujin graph
-	a.each{|s|(l-k).times{|i|h1[s[i...(i+k)]]=s[(i+1)...(i+1+k)]}}
-	b.each{|s|(l-k).times{|i|h2[s[i...(i+k)]]=s[(i+1)...(i+1+k)]}}
+	a.each{|s|(l-k).times{|i|h1[s[i,k]]=s[i+1,k]}}
+	b.each{|s|(l-k).times{|i|h2[s[i,k]]=s[i+1,k]}}
 	f=x=h1.keys[0]
 	s=''
 	while h1[x]||h2[x]

@@ -7,7 +7,7 @@ class Len{
 public:
 	bool operator()(const string& x, const string& y) const {return x.length()<y.length();}
 };
-main(){
+int main(){
 	string f,s;
 	vector<string>v;
 	for(;cin>>s;)v.push_back(s);

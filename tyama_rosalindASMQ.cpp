@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-main(){
+int main(){
 	string s;
 	vector<int>v;
 	int i;

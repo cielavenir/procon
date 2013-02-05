@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <functional>
 #include <cstdio>
+#include <cstdlib>
 using namespace std;
 int s;
 vector<int>p;
@@ -24,7 +25,7 @@ int d(vector<int>&v){
 	}
 	return 0;
 }
-main(){
+int main(){
 	int x;
 	vector<int>v;
 	for(;~scanf("%d",&x);)v.push_back(x);

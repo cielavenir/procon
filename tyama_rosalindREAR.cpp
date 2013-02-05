@@ -55,7 +55,7 @@ int bfs(V &v, int back){
 //	printf("%d %d\n",track[v].first.first+1,track[v].first.second+1);
 //	forwardtrack(track[v].second);
 //}
-main(){int T=0;for(;;T++){
+int main(){int T=0;for(;;T++){
 	m.clear();
 	V prob;
 	int i=0,t;

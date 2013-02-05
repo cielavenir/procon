@@ -55,7 +55,7 @@ void forwardtrack(V &v){
 	printf("%d %d\n",track[v].first.first+1,track[v].first.second+1);
 	forwardtrack(track[v].second);
 }
-main(){
+int main(){
 	V prob;
 	int i=0,t;
 	for(;i<10;i++){
