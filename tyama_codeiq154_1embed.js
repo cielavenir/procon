@@ -1,1 +1,2 @@
-for(w=55,M=[],y=34;--y;r='')for(x=54;--x;M[x+w*y]=1)function D(x,y){for(var i=0;i<8;i+=2)if(X=[-2,0,2,0][n="ê·Ì-¢3\x99ºÏ<QrØiÞ?T!æx\x8D~\x93$".charCodeAt((x+3)*(y+5)%24)-6>>i&3],Y=[0,-2,0,2][n],M[Z=x+w*y+(z=X+w*Y)])M[Z]=M[x+w*y+z/2]=0,D(x+X,y+Y)}for(D(50,4);y<35;)r+="　■\n"[x<w?M[x+++w*y]^0:(x=0,y++,2)];return r
+for(w=55,M=[],y=34;--y;r='')for(x=54;--x;M[x+w*y]=1)function D(x,y){for(var i=0;i<8;i+=2)if(X=[-2,0,2,0][n="ê·Ì-¢3\x99ºÏ<QrØiÞ?T!æx\x8D~\x93$".charCodeAt((x+3)*(y+5)%24)-6>>i&3],Y=[0,-2,0,2][n],M[Z=x+w*y+(z=X+w*Y)])M[Z]=M[x+w*y+z/2]=0,D(x+X,y+Y)}for(D(50,4);y<35;)r+="　■\n"[x<w?M[x+++w*y]^0:(x=0,y++,2)]
+return r
