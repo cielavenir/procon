@@ -48,6 +48,6 @@ a.each{|e|
 		end
 	}
 	r+=m
-	#b.delete_at(p) #no... I must use minimum flow.
+	#b.delete_at(p) #no... I must use minimum cost flow.
 }
 p r
