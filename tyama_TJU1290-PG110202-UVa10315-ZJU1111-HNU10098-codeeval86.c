@@ -99,17 +99,14 @@ int judge(char array[5][3]){
  return (rank<<20)+(val1<<16)+(val2<<12)+(val3<<8)+(val4<<4)+val5; //really dirty!
 }
 
-int main(){
+int main(int argc,char **argv){
+ if(argc>1)freopen(argv[1],"rb",stdin);
  char black[5][3],white[5][3]; //3 means nr,suit,\0 (^^;
  int rankb,rankw,i;
 
- begin:
-  //input
-  black[0][0]=0;
-  scanf("%s %s %s %s %s %s %s %s %s %s",
+ for(;~scanf("%s %s %s %s %s %s %s %s %s %s",
    black[0],black[1],black[2],black[3],black[4],
-   white[0],white[1],white[2],white[3],white[4]);
-  if(!black[0][0]) return 0;
+   white[0],white[1],white[2],white[3],white[4]);){
   for(i=0;i<5;i++){
    black[i][nr]=getnum(black[i][nr]);
    white[i][nr]=getnum(white[i][nr]);
@@ -117,6 +114,8 @@ int main(){
   
   rankb=judge(black);
   rankw=judge(white);
-  printf( rankb==rankw ? "Tie.\n" : rankb>rankw ? "Black wins.\n" : "White wins.\n");
- goto begin;
+  puts( rankb==rankw ? "Tie." : rankb>rankw ? "Black wins." : "White wins.");
+  //puts( rankb==rankw ? "none" : rankb>rankw ? "left" : "right");
+ }
+ exit(0);
 }
