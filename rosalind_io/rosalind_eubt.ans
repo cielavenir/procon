@@ -1,0 +1,15 @@
+((((Neolycaena_sieboldii,Spalax_picta),Ctenotus_fuscatus),Apodora_ocellatus))Alaus_tridactylum;
+((((Ctenotus_fuscatus,Spalax_picta),Neolycaena_sieboldii),Apodora_ocellatus))Alaus_tridactylum;
+((((Ctenotus_fuscatus,Neolycaena_sieboldii),Spalax_picta),Apodora_ocellatus))Alaus_tridactylum;
+((((Neolycaena_sieboldii,Spalax_picta),Apodora_ocellatus),Ctenotus_fuscatus))Alaus_tridactylum;
+((((Apodora_ocellatus,Spalax_picta),Neolycaena_sieboldii),Ctenotus_fuscatus))Alaus_tridactylum;
+((((Apodora_ocellatus,Neolycaena_sieboldii),Spalax_picta),Ctenotus_fuscatus))Alaus_tridactylum;
+((((Ctenotus_fuscatus,Spalax_picta),Apodora_ocellatus),Neolycaena_sieboldii))Alaus_tridactylum;
+((((Apodora_ocellatus,Spalax_picta),Ctenotus_fuscatus),Neolycaena_sieboldii))Alaus_tridactylum;
+((((Apodora_ocellatus,Ctenotus_fuscatus),Spalax_picta),Neolycaena_sieboldii))Alaus_tridactylum;
+((((Ctenotus_fuscatus,Neolycaena_sieboldii),Apodora_ocellatus),Spalax_picta))Alaus_tridactylum;
+((((Apodora_ocellatus,Neolycaena_sieboldii),Ctenotus_fuscatus),Spalax_picta))Alaus_tridactylum;
+((((Apodora_ocellatus,Ctenotus_fuscatus),Neolycaena_sieboldii),Spalax_picta))Alaus_tridactylum;
+(((Apodora_ocellatus,Spalax_picta),(Ctenotus_fuscatus,Neolycaena_sieboldii)))Alaus_tridactylum;
+(((Apodora_ocellatus,Neolycaena_sieboldii),(Ctenotus_fuscatus,Spalax_picta)))Alaus_tridactylum;
+(((Apodora_ocellatus,Ctenotus_fuscatus),(Neolycaena_sieboldii,Spalax_picta)))Alaus_tridactylum;
