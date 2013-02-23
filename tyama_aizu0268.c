@@ -1,0 +1,1 @@
+main(f,x){unsigned u;for(scanf("%d",&x);~scanf("%x",&u);printf("%s%d.%0*d\n",u&1<<31?"-":"",u<<1>>8,x,f))for(f=u%128*78125,x=8;--x&&!(f%10);f/=10);exit(0);}

@@ -4,9 +4,9 @@
 #include <cstdio>
 #include <cstdlib>
 using namespace std;
-char A[9],B[9];
+char A[9];
 #define I(s)strtol(s.c_str(),NULL,10)
-string S(int i,int L){sprintf(A,"%%0%dd",L),sprintf(B,A,i);return B;}
+string S(int i,int L){sprintf(A,"%0*d",L,i);return A;}
 int main(){
 	for(int a,L;scanf("%d%d",&a,&L),L;){
 		vector<int>v;v.push_back(a);
