@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-a=ARGF.lines.map(&:chomp)
+a=ARGF.map(&:chomp)
 r=a.pop
 l=r.size-1
 while a.size>l

@@ -1,0 +1,1 @@
+char s[9];main(r,n){for(scanf("%d",&r);scanf("%s%d",s,&n)>1;){if(*s=='+')r+=n;if(*s=='-')r-=n;if(*s=='*')r*=n;if(*s=='/')r/=n;}printf("%d\n",r);exit(0);}

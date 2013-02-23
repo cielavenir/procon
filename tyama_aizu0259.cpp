@@ -8,19 +8,14 @@ char A[9],B[9];
 #define I(s)strtol(s.c_str(),NULL,10)
 string S(int i,int L){sprintf(A,"%%0%dd",L),sprintf(B,A,i);return B;}
 int main(){
-	for(int a,L;scanf("%d%d",&a,&L),L;){
-		vector<int>v;v.push_back(a);
-		for(;;v.push_back(a)){
-			string t=S(a,L),s;
+	int a,i;
+	for(;scanf("%d",&a),a;printf(a?"%d\n":"NA\n",i)){
+		for(i=0;a&&a!=6174;i++){
+			string t=S(a,4),s;
 			sort(t.begin(),t.end());
 			s=t;
 			reverse(s.begin(),s.end());
-			a=I(s)-I(t);
-			vector<int>::iterator it=find(v.begin(),v.end(),a);
-			if(it!=v.end()){
-				printf("%d %d %d\n",it-v.begin(),a,v.size()-(it-v.begin()));
-				break;
-			}
+			a=I(s)-I(t);			
 		}
 	}
 }

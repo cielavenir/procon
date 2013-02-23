@@ -4,10 +4,7 @@ class String
 		self.reverse.tr("ATGC","TACG")
 	end
 end
-a=[]
-while gets
-a<<$_.chomp
-end
+a=ARGF.map(&:chomp)
 b=a.map{|e|e.complement}
 l=a[0].length
 (l-1).downto(1){|k|

@@ -1,0 +1,1 @@
+M;main(n,m,x,y){for(scanf("%d%d",&n,&m);n--;M=M>m?M:m)if(scanf("%d%d",&x,&y),m+=x-y,m<0){M=0;break;}printf("%d\n",M);exit(0);}

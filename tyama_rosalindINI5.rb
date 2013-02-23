@@ -1,6 +1,2 @@
 #!/usr/bin/ruby
-f=false
-while gets
-	puts $_ if f
-	f=!f
-end
+ARGF.each_with_index{|e,i|puts e if i.odd?}

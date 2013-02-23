@@ -1,0 +1,1 @@
+int z(int*a,int*b){return *a-*b;}a[3],b[3],w;main(s){for(;~scanf("%d%d%d",a,a+1,a+2);w++){qsort(a,3,4,z);if(a[0]+a[1]<=a[2])break;s=a[2]*a[2]-a[0]*a[0]-a[1]*a[1];b[s<0?1:s>0?2:0]++;}printf("%d %d %d %d\n",w,b[0],b[1],b[2]);exit(0);}

@@ -1,8 +1,5 @@
 #!/usr/bin/ruby
-a=[]
-while gets
-a<<$_.chomp.split('')
-end
+a=ARGF.map{|e|e.chomp.split''}
 s=''
 a=a.transpose
 a=a.map{|e|
