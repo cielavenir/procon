@@ -146,7 +146,7 @@ if bc1!=wc1&&bc1-1!=wc1 then puts 'NO';exit end
 if bc1==wc1&&bw then puts 'NO';exit end
 if bc1==wc1-1&&ww then puts 'NO';exit end
 puts 'YES'
-__DATA__
+__END__
 WA:
 .o.......
 ooooooooo
