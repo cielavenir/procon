@@ -1,7 +1,19 @@
 #!/usr/bin/ruby
 M=(1<<27)-1
-s=gets.chomp
-t=gets.chomp
+seqs=[]
+seq=''
+gets
+while gets
+	if $_[0..0]=='>'
+		seqs<<seq
+		seq=''
+	else
+		seq+=$_.chomp
+	end
+end
+seqs<<seq
+s=seqs[0]
+t=seqs[1]
 m=[*0..t.length]
 a=[1]*(t.length+1)
 s.length.times{|i|

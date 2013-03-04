@@ -59,7 +59,19 @@ strs.length.times{|i|
 		$blosum62[strs[i]][strs[j]]=a[j]
 	}
 }
-alignment(gets.chomp,gets.chomp)
+seqs=[]
+seq=''
+gets
+while gets
+	if $_[0..0]=='>'
+		seqs<<seq
+		seq=''
+	else
+		seq+=$_.chomp
+	end
+end
+seqs<<seq
+alignment(seqs[0],seqs[1])
 
 __END__
    A  C  D  E  F  G  H  I  K  L  M  N  P  Q  R  S  T  V  W  Y

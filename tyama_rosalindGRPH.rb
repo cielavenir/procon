@@ -3,7 +3,7 @@ seqs=[]
 names=[gets.chomp[1..-1]]
 seq=''
 while gets
-	if $_[0]=='>'
+	if $_[0..0]=='>'
 		seqs<<seq
 		names<<$_.chomp[1..-1]
 		seq=''

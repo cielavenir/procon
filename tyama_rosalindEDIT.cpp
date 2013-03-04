@@ -31,7 +31,9 @@ void alignment(string &x, string &y){
 	cout<<-a[x.length()][y.length()]<<endl;
 }
 int main(){
-	string s,t;
-	cin>>s>>t;
+	string l,s,t;
+	cin>>l;
+	for(;cin>>l,l[0]!='>';)s+=l;
+	for(;cin>>l;)t+=l;
 	alignment(s,t);
 }

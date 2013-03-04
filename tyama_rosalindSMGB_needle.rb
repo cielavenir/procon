@@ -4,11 +4,23 @@
 PARAM=[1,1]
 require 'tempfile'
 NEEDLE='needle'
+seqs=[]
+seq=''
+gets
+while gets
+	if $_[0..0]=='>'
+		seqs<<seq
+		seq=''
+	else
+		seq+=$_.chomp
+	end
+end
+seqs<<seq
 Tempfile.open('fasta1','.'){|fasta1|
 Tempfile.open('fasta2','.'){|fasta2|
-	fasta1.puts ">1\n#{gets.chomp}"
+	fasta1.puts ">1\n#{seqs[0]}"
 	fasta1.flush
-	fasta2.puts ">2\n#{gets.chomp}"
+	fasta2.puts ">2\n#{seqs[1]}"
 	fasta2.flush
 	io=open(%Q(| "#{NEEDLE}" -gapopen #{PARAM[0]} -gapextend #{PARAM[1]} -endweight -endopen 0 -endextend 0 -datafile EDNASIMPLE -outfile stdout "#{File.basename fasta1.path}" "#{File.basename fasta2.path}"))
 	until (l=io.gets)=~/Length/ do; end

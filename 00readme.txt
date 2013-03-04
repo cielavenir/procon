@@ -1,3 +1,6 @@
+rosalind:
+mgap/need are broken.
+
 1.
 mjudge_old is: http://judge.maximum.vc/
 mjudge is: http://m-judge.maximum.vc/

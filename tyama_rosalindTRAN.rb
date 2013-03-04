@@ -3,7 +3,7 @@ seqs=[]
 seq=''
 gets
 while gets
-	if $_[0]=='>'
+	if $_[0..0]=='>'
 		seqs<<seq
 		seq=''
 	else
