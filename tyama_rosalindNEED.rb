@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 #prepare emboss needle
 #NEED
-PARAM=[12,1]
+PARAM=[11,1]
 require 'tempfile'
 NEEDLE='needle'
 require 'bio'
@@ -14,7 +14,6 @@ Tempfile.open('fasta2','.'){|fasta2|
 	fasta2.puts a[1]
 	fasta2.flush
 	io=open(%Q(| "#{NEEDLE}" -gapopen #{PARAM[0]} -gapextend #{PARAM[1]} -endweight -endopen #{PARAM[0]} -endextend #{PARAM[1]} -datafile EDNAFULL -outfile stdout "#{File.basename fasta1.path}" "#{File.basename fasta2.path}"))
-	#puts io.read;exit
 	until (l=io.gets)=~/Length/ do; end
 	l=~/(\d+)/
 	len=$1.to_i

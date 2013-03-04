@@ -55,4 +55,16 @@ def alignment(x, y)
 	puts ty[startgap.length..-1]
 end
 
-alignment(gets.chomp,gets.chomp)
+seqs=[]
+seq=''
+gets
+while gets
+	if $_[0..0]=='>'
+		seqs<<seq
+		seq=''
+	else
+		seq+=$_.chomp
+	end
+end
+seqs<<seq
+p alignment(seqs[0],seqs[1])
