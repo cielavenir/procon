@@ -17,7 +17,6 @@ Tempfile.open('fasta2','.'){|fasta2|
 	fasta2.puts "#{seqs[1]}"
 	fasta2.flush
 	io=open(%Q(| "#{WATER}" -gapopen #{PARAM[0]} -gapextend #{PARAM[1]} -datafile #{PARAM[2]} -outfile stdout "#{File.basename fasta1.path}" "#{File.basename fasta2.path}"))
-	#puts io.read;exit
 	until (l=io.gets)=~/Length/ do; end
 	l=~/(\d+)/
 	len=$1.to_i
