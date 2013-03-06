@@ -1,0 +1,1 @@
+m[4][3][10];main(n,a,b,c,d){for(scanf("%d",&n);n--;m[a-1][b-1][c-1]+=d)scanf("%d%d%d%d",&a,&b,&c,&d);for(a=0;a<4;a<3?puts("####################"):1,a++)for(b=0;b<3;puts(""),b++)for(c=0;c<10;c++)printf(" %d",m[a][b][c]);exit(0);}

@@ -1,11 +1,20 @@
 #!/usr/bin/ruby
 require 'prime'
-P=Prime.each(10**6).to_a
-while(n=gets.to_i)>0
-	r=0
-	n.times{
+n=[0];cnt=1
+Prime.each{|e|
+	while cnt<e do n<<n.last;cnt+=1 end
+	n<<n.last+1;cnt+=1
+	break if e>10**6
+}
+while(m=gets.to_i)>0
+	r=-m
+	m.times{
 		p,m=gets.split.map(&:to_i)
-		r+=P.find_all{|e|p-m<=e&&e<=p+m}.size
+		j=p-m-1
+		j=0 if j<0
+		k=p+m
+		k=10**6-1 if k>=10**6
+		r+=n[k]-n[j]
 	}
-	p r-n
+	p r
 end

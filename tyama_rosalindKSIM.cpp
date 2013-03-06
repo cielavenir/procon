@@ -13,7 +13,7 @@ void alignment(vector<vi>&a, string &x, string y, int k){
 	int ylen=a[0].size();
 	for(i=1;i<a.size();i++){
 		//for(j=1;j<a[0].size();j++){ //O(s2t)
-		for(j=max(1,i-k);j<min(ylen,i+k);j++){ //O(kst)
+		for(j=max(1,i-k);j<=min(ylen,i+k);j++){ //O(kst)
 			a[i][j]=max(x[i-1]==y[j-1]?a[i-1][j-1]:(a[i-1][j-1]-1),max(a[i-1][j]-1,a[i][j-1]-1));
 		}
 	}

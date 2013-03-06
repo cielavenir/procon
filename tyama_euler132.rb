@@ -18,10 +18,10 @@ class Integer
 end
 
 M=10**9
-$enum=Prime.each;$enum.next;$enum.next #2,3
+enum=Prime::EratosthenesGenerator.new;enum.next;enum.next #2,3
 p Enumerator.new{|y|
 	loop{
-		a=$enum.next
+		a=enum.next
 		y << a if 10.pow_binary_mod(10**9,a)==1
 	}
 }.take(40).reduce(:+)
