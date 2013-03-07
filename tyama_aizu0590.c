@@ -1,0 +1,1 @@
+r;main(n,s,i,f){for(scanf("%d",&n);n--;r+=f)for(scanf("%d",&s),f=i=1;i*i<s;i++)if((s-i)%(2*i+1)==0){f=0;break;}printf("%d\n",r);exit(0);}
