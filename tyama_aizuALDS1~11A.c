@@ -1,0 +1,1 @@
+a[100][100],t;main(T,i,j,k){for(scanf("%d",&T);t<T;t++)for(scanf("%d%d",&i,&k);k--;a[i-1][j-1]=1)scanf("%d",&j);for(i=0;i<t;i++)for(j=0;j<t;j++)printf(j<t-1?"%d ":"%d\n",a[i][j]);exit(0);}
