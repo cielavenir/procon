@@ -15,7 +15,7 @@ int unite(int a,int b){
 int main(){
 	int i,j,s,n,m,x;
 	cin>>n;
-	for(m=i=0;i<n;i++)for(j=0;j<n;j++)if(cin>>x,~x)a[m]=i,b[m]=j,node[m].first=x,node[m].second=m++;
+	for(m=i=0;i<n;i++)for(j=0;j<n;j++)if(cin>>x,~x)a[m]=i,b[m]=j,node[m].first=x,node[m++].second=m;
 	sort(node,node+m);
 	for(i=0;i<n;i++)parent[i]=i;
 	for(s=i=0;i<m;i++)if(unite(a[node[i].second],b[node[i].second]))s+=node[i].first;
