@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-p ARGF.map(&:to_i).reduce(:+)
+p$<.map(&:to_i).reduce(:+)

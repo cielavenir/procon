@@ -1,0 +1,1 @@
+S=9;main(w,a,b,c,d,s){scanf("%d%d%d%d%d",&w,&a,&b,&c,&d);for(a--,b--,c--,d--;w;w--)if(s=abs(a%w-b%w)+abs(a/w-b/w)+abs(c%w-d%w)+abs(c/w-d/w),S>s)S=s;printf("%d\n",S);exit(0);}

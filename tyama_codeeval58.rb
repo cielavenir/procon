@@ -33,7 +33,7 @@ def alignment(x, y)
 	return -a[x.length][y.length]
 end
 
-a=ARGF.map(&:chomp)
+a=$<.map(&:chomp)
 f=[nil]*a.size
 q=['hello']
 while !q.empty?

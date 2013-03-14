@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-a=ARGF.read.split"\n"
+a=$<.read.split"\n"
 n,l=a[0].split.map(&:to_i)
 e=a[l+1].index('o')/2
 l.step(1,-1){|i|
