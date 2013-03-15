@@ -1,3 +1,4 @@
+#include <stdio.h>
 #define max(a,b) ((a)>(b)?(a):(b))
 
 //101 for 1163/HNU10014/atcoderwupc2012A, 351 for 3176, 1001 for XMU1010
@@ -5,11 +6,12 @@
 int x[M][M];
 int s[M][M];
 
-main(){
+main(int argc,char **argv){
+  if(argc>1)freopen(argv[1],"rb",stdin);
   int n,i,j;
-  scanf("%d",&n);
+  //scanf("%d",&n);
   //n=15; //euler18
-  //n=100; //euler67
+  //n=100; //euler67, codeeval89
   for(i=1;i<=n;i++)
     for(j=1;j<=i;j++)
       scanf("%d",x[i]+j);

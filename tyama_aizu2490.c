@@ -1,0 +1,1 @@
+x,c;main(s){for(;~scanf("%s%d",&s,&x)&&c>=0;)c+=s&1?-x:x;c=!puts(c?"NO":"YES");}

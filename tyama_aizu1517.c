@@ -1,1 +1,0 @@
-char s[9];main(c,n,x){for(scanf("%d",&n),c=0;n--;)if(scanf("%s%d",s,&x),c+=*s=='('?x:-x,c<0)break;puts(c?"NO":"YES");exit(0);}
