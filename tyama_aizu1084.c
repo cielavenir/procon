@@ -1,0 +1,10 @@
+c[100],n,k,a,b,x,y,M,m;Z(){for(x=a=0;a<=n-k;x=x>y?x:y,a++)for(y=1,b=0;b<k;b++)y*=c[a+b];}
+main(i,j,t){for(;scanf("%d%d",&n,&k),n;printf("%d\n",m-M)){
+	for(i=0;i<n;i++)scanf("%d",c+i);
+	Z();M=x;
+	for(m=i=0;i<n;i++)for(j=i+1;j<n;j++){
+		t=c[i],c[i]=c[j],c[j]=t;
+		Z();m=m>x?m:x;
+		t=c[i],c[i]=c[j],c[j]=t;
+	}
+}exit(0);}
