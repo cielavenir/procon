@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 unsigned char *a;
 
 void execute(char *p){
@@ -28,7 +30,7 @@ void execute(char *p){
 }
 
 int main(){
-  int c,i=0,n,i1,i2,l=filelength(fileno(stdin))+1;
+  int c,i=0,n,i1,i2,l=999999;//filelength(fileno(stdin))+1;
   unsigned char *da;
   char *p,*x;
   scanf("%d\n",&n);

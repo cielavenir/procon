@@ -1,1 +1,1 @@
-main(){double a,b,c,d,e,f;for(;~scanf("%lf%lf%lf%lf%lf%lf",&a,&b,&c,&d,&e,&f);printf("%.3f %.3f\n",(e*c-b*f)/(a*e-b*d)+0.0,(a*f-d*c)/(a*e-b*d)+0.0));exit(0);}
+main(a){float b,c,d,e,f;for(;~scanf("%d%f%f%f%f%f",&a,&b,&c,&d,&e,&f);printf("%.3f %.3f\n",(c-b*f)/a,f/=a*e-b*d))f=a*f-d*c;exit(0);}
