@@ -1,5 +1,5 @@
 main(i,z){
-	double p=atan2(1,0)*2,r;
+	double p=atan(1)*4,r;
 	for(;scanf("%lf",&r),r;){
 		for(i=0;i<999999;i++){
 			z=(int)(p*i);

@@ -9,4 +9,4 @@ drawKoch(int level, double x1, double y1, double x2, double y2){
 	drawKoch(level-1,x_third,y_third,x_second,y_second);
 	drawKoch(level-1,x_second,y_second,x2,y2);
 }
-main(n){p=atan2(1,0)*2;scanf("%d",&n);puts("0 0");drawKoch(n,0,0,100,0);exit(0);}
+main(n){p=atan(1)*4;scanf("%d",&n);puts("0 0");drawKoch(n,0,0,100,0);exit(0);}
