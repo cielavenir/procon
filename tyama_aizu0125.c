@@ -1,0 +1,2 @@
+#include<time.h>
+struct tm t,T;main(y,m,Y,M){for(;scanf("%d%d%d%d%d%d",&y,&m,&t.tm_mday,&Y,&M,&T.tm_mday),~Y;printf("%d\n",(mktime(&T)-mktime(&t))/86400))t.tm_year=y-1900,t.tm_mon=m-1,T.tm_year=Y-1900,T.tm_mon=M-1;exit(0);}
