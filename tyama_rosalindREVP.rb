@@ -7,7 +7,7 @@ class String
 		(0..self.length-str.length).select{|i|self[i,str.length]==str}
 	end
 end
-s=gets.chomp
+s=ARGF.drop(1).map(&:chomp)*''
 s.length.times{|i|
 	[4,6,8,10,12].each{|j|
 		break if i+j>s.length
