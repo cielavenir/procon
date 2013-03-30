@@ -1,5 +1,5 @@
 //g++ -O3 -msse2 -o ksim tyama_rosalindKSIM.cpp
-//This algorithm is O(knm). 3mins with clang++ -O3 -msse2.
+//This algorithm is O(kst). 3mins with clang++ -O3 -msse2.
 #include <vector>
 #include <algorithm>
 #include <string>

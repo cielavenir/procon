@@ -67,6 +67,7 @@ phase1.split('').each_slice(2).each_with_index{|e,i|
 	answer+=matrix[e[1]][e[0]] #bah! hineri!
 }
 puts answer
+# nihonsainantannoshimahadoko => 沖ノ鳥島
 __END__
 o asid
    h k
