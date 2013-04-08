@@ -1,0 +1,1 @@
+float a,b,c,d,e,f;main(X){~scanf("%f",&f+--X)?main(X==-5?!!printf("%.3f %.3f\n",(d-e*a)/f,a/=f*b-e*c,a=f*a-c*d):X):exit(0);}

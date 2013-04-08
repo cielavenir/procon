@@ -1,0 +1,1 @@
+main(a,b,c,d,e,f){for(gets(&a);~scanf("%d%d%d%d%d%d",&a,&b,&c,&d,&e,&f);printf("%d %d\n",(c-b*f)/a,f/=a*e-b*d))f=a*f-d*c;}

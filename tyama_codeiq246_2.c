@@ -1,0 +1,1 @@
+f,e,d,c,b,a;main(x){for(x=-1;~scanf("%d",&a+x);)if(++x==6)f=a*f-d*c,x=!printf("%d %d\n",(c-b*f)/a,f/=a*e-b*d);}
