@@ -19,7 +19,7 @@ def alignment(x, y)
 	1.step(a[0].length-1){|j| a[0][j] = a[0][j-1] - 1;back[0][j]=[0,  j-1,"b"]}
 	1.step(a.length-1){|i|
 		1.step(a[0].length-1){|j|
-			z = maximum3([x[i-1].chr == y[j-1].chr ? a[i-1][j-1] : a[i-1][j-1]-1, a[i-1][j]-1, a[i][j-1]-1])
+			z = maximum3([x[i-1] == y[j-1] ? a[i-1][j-1] : a[i-1][j-1]-1, a[i-1][j]-1, a[i][j-1]-1])
 			a[i][j]=z[0];
 			case z[1]
 				when 0 then back[i][j]=[i-1,j-1,"c"]
@@ -38,8 +38,8 @@ def alignment(x, y)
 
 	#output
 	i=0;j=0
-	t.each_byte{|c|
-		case c.chr
+	t.chars{|c|
+		case c
 			when "c" then tx+=x[i].chr; i+=1; ty+=y[j].chr; j+=1;
 			when "a" then tx+=x[i].chr; i+=1; ty+="-";
 			when "b" then tx+="-";            ty+=y[j].chr; j+=1;

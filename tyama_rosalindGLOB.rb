@@ -39,8 +39,8 @@ def alignment(x, y)
 
 	#output
 	i=0;j=0
-	t.each_byte{|c|
-		case c.chr
+	t.chars{|c|
+		case c
 			when "c" then tx+=x[i].chr; i+=1; ty+=y[j].chr; j+=1;
 			when "a" then tx+=x[i].chr; i+=1; ty+="-";
 			when "b" then tx+="-";            ty+=y[j].chr; j+=1;
