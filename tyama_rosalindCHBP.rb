@@ -6,7 +6,7 @@ while gets
 	s=$_.chomp
 	spl << (s=~/^1/ ? s.tr('01','10') : s)
 end
-spl=spl.sort_by{|e|e.scan(/1/).size}.map{|e|e.reverse.to_i(2)}
+spl=spl.sort_by{|e|e.count '1'}.map{|e|e.reverse.to_i(2)}
 tree=Bio::Tree.new
 h={}
 leaves.each_with_index{|e,i|
@@ -39,7 +39,7 @@ while gets
 	s=$_.chomp
 	spl << (s=~/^1/ ? s.tr('01','10') : s)
 end
-spl=spl.sort_by{|e|e.scan(/1/).size}
+spl=spl.sort_by{|e|e.count '1'}
 a=Array.new(leaves.size)
 r=''
 spl.each{|e|

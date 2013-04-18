@@ -14,8 +14,8 @@ h={f=>nil}
 q=[[f,0]]
 while !q.empty?
 	x,y=q.shift
-	if diff1(x,l) then q.push([l,y+1]);h[l]=x;break end
-	a.each{|e|if !h.has_key?(e)&&diff1(x,e) then q.push([e,y+1]);h[e]=x end}
+	if diff1(x,l) then q<<[l,y+1];h[l]=x;break end
+	a.each{|e|if !h.has_key?(e)&&diff1(x,e) then q<<[e,y+1];h[e]=x end}
 end
 if q.empty? then p -1;exit end
 a=[l];x=l

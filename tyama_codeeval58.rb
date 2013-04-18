@@ -41,7 +41,7 @@ while !q.empty?
 	a.length.times{|i|
 		if !f[i]&&alignment(x,a[i])==1
 			f[i]=1
-			q.push(a[i])
+			q<<a[i]
 		end
 	}
 	#p f.count{|e|e}

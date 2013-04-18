@@ -4,8 +4,8 @@ p Enumerator.new{|y|
 	n=[1,2,5,7,14,19]
 	y<<2;y<<5
 	loop{
-		a.push 9*a.first+20*n.first
-		n.push 4*a.first+9*n.first
+		a<<9*a.first+20*n.first
+		n<<4*a.first+9*n.first
 		y<<(a.last-7)/5 if (a.last-7)%5==0
 		a.shift
 		n.shift

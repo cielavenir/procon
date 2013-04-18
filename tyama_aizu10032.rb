@@ -1,10 +1,10 @@
 #!/usr/bin/ruby
 h=[]
-loop{
-	x=gets.chomp.split
+ARGF.each{|l|
+	x=l.chomp.split
 	case x[0]
-		when 'push'; h.push x[1]
-		when 'pop'; puts h.pop
+		when 'push'; h<<x[1]
+		when 'pop';  puts h.pop
 		when 'quit'; exit
 	end
 }

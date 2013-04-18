@@ -6,8 +6,8 @@ while(n=gets.to_i)>0
 		b=[]
 		f=0
 		a.each{|e|
-			b.push(e)
-			if e==10&&f==0 then b.push(0) else f^=1 end
+			b<<e
+			if e==10&&f==0 then b<<0 else f^=1 end
 		}
 		b=b.each_slice(2).to_a
 		if b[9]==[10,0] then b[9]=[10] end

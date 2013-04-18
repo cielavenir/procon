@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 a=gets.chomp.gsub('10','T').split('')
 b=[]
-0.step(a.length-1,2){|i|b.push(a[i]+a[i+1])}
+0.step(a.length-1,2){|i|b<<a[i]+a[i+1]}
 i=0
 h={}
 loop{

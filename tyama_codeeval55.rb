@@ -21,6 +21,6 @@ n,s=$_.chomp.split(',')
 n=n.to_i
 a.each_cons(n){|a|if a[0..n-2]==s.split then h[a[n-1]]+=1;sum+=1 end}
 b=[]
-h.each{|k,v|b.push([k,v.to_f/sum])}
-puts b.sort{|a,b|x=b[1]<=>a[1];x=a[0]<=>b[0] if x==0;x}.map{|e|"#{e[0]},#{sprintf('%.3f',e[1])}"}*';'
+h.each{|k,v|b<<[k,v.to_f/sum]}
+puts b.sort{|a,b|x=b[1]<=>a[1];x=a[0]<=>b[0] if x==0;x}.map{|e|[e[0],sprintf('%.3f',e[1])]*','}*';'
 end

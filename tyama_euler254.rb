@@ -52,7 +52,7 @@ def rec2c(a,n)
 	return nil
 end
 $a=[1]
-1.step(9){|i|$a.push($fact[i])}
+1.step(9){|i|$a<<$fact[i]}
 $a.reverse!
 
 #fake... fake...

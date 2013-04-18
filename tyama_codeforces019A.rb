@@ -1,4 +1,5 @@
-h=Hash.new
+#!/usr/bin/ruby
+h={}
 (n=gets.to_i).times{|i|
   h[s=gets.chomp]=[0,0,0,s]
 }
@@ -11,6 +12,6 @@ h=Hash.new
 }
 a=Array.new
 h.values.sort[n/2,n/2].each{|i|
-  a.push i[3]
+  a<<i[3]
 }
 a.sort.each{|s|puts s}

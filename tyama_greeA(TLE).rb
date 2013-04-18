@@ -1,8 +1,7 @@
 #!/usr/bin/ruby
 
 def solve1(n,k)
-	a=[]
-	n.times{|i|a.push(i)}
+	a=n.times.map{|i|i}
 	b=a;c=[];r=0
 	loop{
 		r+=1

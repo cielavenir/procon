@@ -11,6 +11,6 @@ def binary(a,v)
 	return nil
 end
 while(n=gets.to_i)>0
-	a=[];n.times{a.push(gets.to_i)}
+	a=n.times.map{gets.to_i}
 	$c=0;binary(a,gets.to_i);p $c
 end

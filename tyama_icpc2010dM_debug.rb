@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 #m.rb < M --> sort the content of M to see "the aperture".
-a=Array.new
+a=[]
 while(x=gets.to_i)>0
   a.push(x)
 end

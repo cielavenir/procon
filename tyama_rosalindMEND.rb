@@ -5,7 +5,7 @@ $a=[[0],[0,1],[1]]
 def dfs(t,n)
 	_r=[0,0,0]
 	if n.name
-		_r[n.name.scan(/a/).size]+=1
+		_r[n.name.count 'a']+=1
 	else
 		l,r=t.descendents(n)
 		l=dfs(t,l)

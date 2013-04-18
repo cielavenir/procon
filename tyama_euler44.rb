@@ -5,7 +5,7 @@ a.each{|e|h[e]=1}
 b=[]
 a.length.times{|i|
 	(i+1).step(a.length-1){|j|
-		if h[a[j]+a[i]] && h[a[j]-a[i]] then b.push(a[j]-a[i]) end
+		if h[a[j]+a[i]] && h[a[j]-a[i]] then b<<a[j]-a[i] end
 	}
 }
 p b.min

@@ -2,7 +2,7 @@
 m=10**9
 d7=[]
 while m>0
-	d7.push m%7
+	d7<<m%7
 	m/=7
 end
 r=0

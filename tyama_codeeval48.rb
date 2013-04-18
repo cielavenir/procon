@@ -73,11 +73,11 @@ while gets #DATA.gets
 a,b=$_.chomp.split(';').map{|e|e.split(',').map{|f|f.tr(' ','')}}
 ss=a.map{|e|
 	customer=e.downcase
-	customer_length=customer.scan(/[a-z]/).size
-	vowels=customer.scan(/[aeiouy]/).size
+	customer_length=customer.count('a-z')
+	vowels=customer.count('aeiouy')
 	consonants=customer_length-vowels
 	b.map{|f|
-		product_length=f.scan(/[A-Za-z]/).size
+		product_length=f.count('A-Za-z')
 		mul=customer_length.gcd(product_length)>1?1.5:1
 		mul * (product_length%2==0 ? vowels*1.5 : consonants)
 	}

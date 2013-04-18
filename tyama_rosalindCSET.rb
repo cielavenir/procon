@@ -5,7 +5,7 @@ while gets
 	s=$_.chomp
 	spl << [(s=~/^1/ ? s.tr('01','10') : s),s]
 end
-spl=spl.sort_by{|e|e[0].scan(/1/).size}
+spl=spl.sort_by{|e|e[0].count '1'}
 ret=spl.transpose[1]
 spl=spl.transpose[0]
 len=spl[0].length

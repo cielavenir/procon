@@ -3,10 +3,9 @@ n=gets.chomp.to_i
 h=Hash.new;h.default=0
 a=Array.new
 n.times{|z|
-  s=gets.chomp.split(" ")
-  s[1]=s[1].to_i
-  h[s[0]]+=s[1]
-  a.push(s)
+  s=gets.chomp.split
+  h[s[0]]+=s[1].to_i
+  a<<s
 }
 m=h.values.max
 h.each_key{|k| h[k]=(h[k]==m)?0:nil}

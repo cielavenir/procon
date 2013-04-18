@@ -17,7 +17,7 @@ N=60
 	a=[]
 	r=i
 	begin
-		a.push r
+		a<<r
 		r=r.chain
 	end while !(idx=a.index(r)) &&!$r[r]
 	a.length.times{|j|
