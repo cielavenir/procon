@@ -14,7 +14,7 @@ matrix=Hash.new{|h,k|h[k]={}}
 passages.each{|q|
 	phase2_array=q[:phase2].split('')
 	row_size_min=phase2_array.size/key_idx.size
-	row_size_max=(phase2_array.size+key_idx.size-1)/key_idx.length
+	row_size_max=(phase2_array.size+key_idx.size-1)/key_idx.size
 	row_size=[row_size_min]*key_idx.size
 	(phase2_array.size%key_idx.size).times{|i|row_size[i]+=1}
 	transarray=key_idx.size.times.map{|i|
@@ -50,7 +50,7 @@ unused='abcdefghijklmnopqrstuvwxyz0123456789'.chars.select{|e|!list[e]}
 problem='GGAGAXVAGGVAGAVAFAGGFGVAAFGAGAGGGDFAAGAGDADVFGAXAAFAGD'
 phase2_array=problem.split('')
 row_size_min=phase2_array.size/key_idx.size
-row_size_max=(phase2_array.size+key_idx.size-1)/key_idx.length
+row_size_max=(phase2_array.size+key_idx.size-1)/key_idx.size
 row_size=[row_size_min]*key_idx.size
 (phase2_array.size%key_idx.size).times{|i|row_size[i]+=1}
 transarray=key_idx.size.times.map{|i|
