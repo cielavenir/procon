@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 n=gets.chomp.to_i
-h=Hash.new;h.default=0
-a=Array.new
+h=Hash.new(0)
+a=[]
 n.times{|z|
   s=gets.chomp.split
   h[s[0]]+=s[1].to_i

@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 h=[]
-ARGF.each{|l|
+$<.each{|l|
 	x=l.chomp.split
 	case x[0]
 		when 'push'; h<<x[1]

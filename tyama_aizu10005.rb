@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-1000.times{puts'Hello World'}
+puts ['Hello World']*1000

@@ -25,4 +25,4 @@ a.each{|s|h[s[0,$k]]<<s[1,$k]}
 cur=s[0,$k]
 e=s[1,$k]
 dfs(h,cur[-1,1],e)
-$r.each_key{|e|puts e}
+puts $r.keys

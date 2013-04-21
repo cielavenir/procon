@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 T={'A'=>'U','C'=>'G','G'=>'C','U'=>'A'}
-s=ARGF.drop(1).map(&:chomp)*''
+s=$<.drop(1).map(&:chomp)*''
 a=Array.new(s.length+1){[1]*(s.length+1)}
 0.step(s.length-1){|k|
 	k.step(s.length-1){|j|

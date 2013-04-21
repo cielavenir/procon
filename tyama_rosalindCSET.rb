@@ -32,7 +32,7 @@ spl=spl.map{|e|e.reverse.to_i(2)}
 		h=g
 	}
 	rescue; next end
-	puts indexes.map{|i|ret[i]}*"\n"
+	puts indexes.map{|i|ret[i]}
 	exit
 }
 raise 'no proper submatrix'

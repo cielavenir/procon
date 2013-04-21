@@ -23,7 +23,7 @@ Tempfile.open('fasta2','.'){|fasta2|
 	fasta2.flush
 	io=open(%Q(| "#{LALIGN}" "#{File.basename fasta1.path}" "#{File.basename fasta2.path}"))
 	a=io.select{|e|e=~/identity/}
-	#a.each{|e|puts e};exit
+	#puts a;exit
 	a=a.select{|e|
 		e=~/^(\d+).+% identity.+(\d)+ nt/ && $1.to_i>=90 && $2.to_i <= 50
 	}

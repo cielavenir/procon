@@ -48,7 +48,7 @@ def alignment(x, y)
 
 	return [a[x.length][y.length],tx,ty]
 end
-seqs=ARGF.map(&:chomp)
+seqs=$<.map(&:chomp)
 finalseqs=[]
 finalidx=[]
 finalr=-99999
@@ -71,4 +71,4 @@ finalr=-99999
 }
 #p finalidx
 p finalr
-puts finalidx.map{|i|finalseqs[i]}*"\n"
+puts finalidx.map{|i|finalseqs[i]}

@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-h=Hash.new
+h={}
 n=0
 while s=gets
   s.chomp!

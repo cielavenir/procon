@@ -16,4 +16,4 @@ a2=s.length.times.map{|i|
 	end
 	t
 }
-puts (a1+a2).sort_by{|e|-e.length}[0]
+puts (a1+a2).max_by(&:length)

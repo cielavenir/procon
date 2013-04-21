@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
-n=gets.chomp.split(" ").map!{|i|i=i.to_i}
-a=gets.chomp.split(" ").map!{|i|i=i.to_i}.sort
+n=gets.chomp.split.map(&:to_i)
+a=gets.chomp.split.map(&:to_i).sort
 b=a.reverse
-h=Hash.new
+h={}
 h.default=0
 n[1].times{|i|
   h[gets.chomp]+=1;

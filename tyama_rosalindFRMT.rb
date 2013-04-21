@@ -6,6 +6,6 @@ a=Bio::NCBI::REST.efetch(gets.chomp,:db=>'nucleotide',:rettype=>'fasta').split("
 	head=a.shift
 	[head,a]
 }
-r=a.sort_by{|e|e[1].join.length}[0]
+r=a.min_by{|e|e[1].join.length}
 puts r[0]
 puts r[1]

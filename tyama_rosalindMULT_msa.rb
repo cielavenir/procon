@@ -3,7 +3,7 @@
 require 'tempfile'
 MSA='msa'
 Tempfile.open('fasta','.'){|fasta|
-	seqs=ARGF.map(&:chomp)
+	seqs=$<.map(&:chomp)
 	seqs.each_with_index{|e,i|fasta.puts ">#{i}\n#{e}"}
 	Tempfile.open('cost','.'){|cost|
 		s='-ACDEFGHIKLMNPQRSTVWY'
@@ -24,6 +24,6 @@ Tempfile.open('fasta','.'){|fasta|
 		io.gets
 		io.gets=~/(\d+)/
 		puts "-"+$1
-		puts seqs*"\n"
+		puts seqs
 	}
 }

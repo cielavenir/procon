@@ -7,4 +7,4 @@ r=[]
 mech.page.body.split("\n").each{|l|
 	r<<$1 if l=~/DR   GO; GO:\d+; P:([^;]+);/
 }
-puts r*"\n"
+puts r

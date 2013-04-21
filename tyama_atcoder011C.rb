@@ -23,4 +23,4 @@ while h[x]
 	a<<h[x];x=h[x]
 end
 p a.size-2
-puts a.reverse*"\n"
+puts a.reverse

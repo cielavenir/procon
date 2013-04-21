@@ -36,4 +36,4 @@ s.transcript.indexes('AUG').each{|i|
 	}
 	h[zz]=1 if zz!=''
 }
-puts h.keys*"\n"
+puts h.keys

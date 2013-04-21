@@ -24,4 +24,4 @@ b=[a[0][1]]
 }
 c<<b.sort
 raise "len parameter is wrong for this graphviz version" if c.length!=2
-puts c.sort_by{|e|-e.length}[0]*' '
+puts c.max_by(&:size)*' '

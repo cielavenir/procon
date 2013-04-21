@@ -13,7 +13,7 @@ while s.size>1
 		}
 	}
 	if k[0]==0 then
-		s=[s.sort_by{|e|-e.length}[0]];break
+		s=[s.max_by(&:length);break
 	end
 	s<<s[k[1]]+s[k[2]][k[0]..-1]
 	s[k[1]]=s[k[2]]=nil

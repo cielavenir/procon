@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-s=ARGF.map(&:chomp)
+s=$<.map(&:chomp)
 while s.size>1
 	k=[-1,-1,-1]
 	s.length.times{|i|

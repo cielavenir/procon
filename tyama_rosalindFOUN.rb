@@ -5,7 +5,7 @@ n*=2
 pascal=[1,1]
 2.step(n){pascal=[1]+pascal.each_cons(2).map{|a,b|a+b}+[1]}
 1.step(G).map{|g|
-	puts M.each.map{|m|
+	puts M.map{|m|
 		###
 		p=[0]*(n+1)
 		p[m]=1
