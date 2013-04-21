@@ -4,7 +4,7 @@ class String
 		self.reverse.tr("ATGC","TACG")
 	end
 	def indexes(str)
-		(0..self.size-str.length).select{|i|self[i,str.length]==str}
+		(0..self.size-str.size).select{|i|self[i,str.size]==str}
 	end
 end
 s=$<.drop(1).map(&:chomp)*''

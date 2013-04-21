@@ -11,7 +11,7 @@ while(m,n=gets.split.map(&:to_i))!=[0,0]
 	1.step(n){|i|
 		s=gets.chomp
 		if a.size>1
-			if s!=fizzbuzz(i) then a.delete_at(c);c%=a.size else c=(c+1)%a.length end
+			if s!=fizzbuzz(i) then a.delete_at(c);c%=a.size else c=(c+1)%a.size end
 		end
 	}
 	puts a*' '

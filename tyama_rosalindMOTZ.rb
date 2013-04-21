@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 T={'A'=>'U','C'=>'G','G'=>'C','U'=>'A'}
 s=$<.drop(1).map(&:chomp)*''
-a=Array.new(s.size+1){[1]*(s.length+1)}
+a=Array.new(s.size+1){[1]*(s.size+1)}
 0.step(s.size-1){|k|
 	k.step(s.size-1){|j|
 		i=j-k

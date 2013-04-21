@@ -10,8 +10,8 @@ end
 
 def alignment(x, y)
 	#initialize
-	a = Array.new(x.size+1){Array.new(y.length+1, 0)}
-	back = Array.new(x.size+1){Array.new(y.length+1, 0)}
+	a = Array.new(x.size+1){Array.new(y.size+1, 0)}
+	back = Array.new(x.size+1){Array.new(y.size+1, 0)}
 	tx = ""; ty = ""; t=""
 
 	#DP
@@ -29,7 +29,7 @@ def alignment(x, y)
 		}
 	}
 	#trace-back
-	n=x.size;m=y.length
+	n=x.size;m=y.size
 	while n!=0||m!=0 do
 		t+=back[n][m][2]
 		n,m = back[n][m][0],back[n][m][1]
@@ -46,7 +46,7 @@ def alignment(x, y)
 		end
 	}
 
-	return [a[x.size][y.length],tx,ty]
+	return [a[x.size][y.size],tx,ty]
 end
 seqs=$<.map(&:chomp)
 finalseqs=[]

@@ -11,8 +11,8 @@ end
 
 def alignment(x, y)
 	#initialize
-	a = Array.new(x.size+1){Array.new(y.length+1, 0)}
-	back = Array.new(x.size+1){Array.new(y.length+1, 0)}
+	a = Array.new(x.size+1){Array.new(y.size+1, 0)}
+	back = Array.new(x.size+1){Array.new(y.size+1, 0)}
 	tx = ""; ty = ""; t=""
 
 	#DP
@@ -30,7 +30,7 @@ def alignment(x, y)
 		}
 	}
 
-	return -a[x.size][y.length]
+	return -a[x.size][y.size]
 end
 
 a=$<.map(&:chomp)

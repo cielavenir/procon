@@ -78,7 +78,7 @@ ss=a.map{|e|
 	consonants=customer_size-vowels
 	b.map{|f|
 		product_size=f.count('A-Za-z')
-		mul=customer_size.gcd(product_length)>1?1.5:1
+		mul=customer_size.gcd(product_size)>1?1.5:1
 		mul * (product_size%2==0 ? vowels*1.5 : consonants)
 	}
 }
