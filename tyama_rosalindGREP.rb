@@ -5,7 +5,7 @@ def dfs(h,s,cur)
 	return if !h.has_key?(cur)
 	#dest=h[cur].dup
 	#dest.each_with_index{|e,i|
-	h[cur].length.times{
+	h[cur].size.times{
 		e=h[cur].delete_at(0)
 		h.delete(cur) if h[cur].size==0
 		dfs(h,s+cur[-1,1],e)
@@ -16,7 +16,7 @@ a=[]
 while gets
 a<<$_.chomp
 end
-l=a[0].length
+l=a[0].size
 $k=l-1
 h=Hash.new{|h,k|h[k]=[]}
 #de Brujin graph

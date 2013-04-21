@@ -4,7 +4,7 @@ require 'json'
 s=gets.chomp
 a=JSON.parse('['+s+']').sort
 r=0
-a.length.times{|i|
+a.size.times{|i|
 	x=0
 	a[i].each_byte{|n|x+=n-64}
 	r+=x*(i+1)

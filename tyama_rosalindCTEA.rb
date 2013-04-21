@@ -14,10 +14,10 @@ end
 seqs<<seq
 s=seqs[0]
 t=seqs[1]
-m=[*0..t.length]
-a=[1]*(t.length+1)
-s.length.times{|i|
-	t.length.downto(1){|j|
+m=[*0..t.size]
+a=[1]*(t.size+1)
+s.size.times{|i|
+	t.size.downto(1){|j|
 		m[j]+=1
 		x=m[j-1]+(s[i,1]==t[j-1,1] ? 0 : 1)
 		if m[j]>x
@@ -28,7 +28,7 @@ s.length.times{|i|
 		end
 	}
 	m[0]+=1
-	1.step(t.length){|j|
+	1.step(t.size){|j|
 		x=m[j-1]+1
 		if m[j]>x
 			m[j]=x

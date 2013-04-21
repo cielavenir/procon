@@ -10,6 +10,6 @@ while gets
 		h=a[h[e]]
 	}
 end
-a.length.times{|i|
+a.size.times{|i|
 	a[i].each{|k,v|puts "#{i+1} #{v+1} #{k}"}
 }

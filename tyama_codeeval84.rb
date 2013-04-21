@@ -5,7 +5,7 @@ o=0
 c=0
 s=0
 h=0
-fleft=str.length.times.all?{|i|
+fleft=str.size.times.all?{|i|
 	case str[i,1]
 		when '(' then o+=1
 		when ')'
@@ -20,7 +20,7 @@ o=0
 c=0
 s=0
 h=0
-fright=(str.length-1).downto(0).all?{|i|
+fright=(str.size-1).downto(0).all?{|i|
 	case str[i,1]
 		when '('
 			o+=1

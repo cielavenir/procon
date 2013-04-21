@@ -10,8 +10,8 @@ def dfs(t,n)
 		l,r=t.descendents(n)
 		l=dfs(t,l)
 		r=dfs(t,r)
-		l.length.times{|i|
-			r.length.times{|j|
+		l.size.times{|i|
+			r.size.times{|j|
 				$a[i].each{|ii|
 					$a[j].each{|jj|
 						_r[ii+jj]+=(l[i]*r[j]).to_f/($a[i].size*$a[j].size)

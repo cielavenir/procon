@@ -3,8 +3,8 @@ while(n=gets.to_i)>0
 s=n.times.map{gets.chomp}.sort
 while s.size>1
     k=[0,-1,-1]
-	s.length.times{|i|
-		s.length.times{|j|
+	s.size.times{|i|
+		s.size.times{|j|
 			if i!=j
 				n=[s[i].size,s[j].size].min
 				n-=1 while n>0&&s[i][-n..-1]!=s[j][0,n]

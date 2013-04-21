@@ -2,9 +2,9 @@
 #How could I "invent" this code? no way --;
 T={'A'=>'U','C'=>'G','G'=>'C','U'=>'A'}
 s=$<.drop(1).map(&:chomp)*''
-a=Array.new(s.length+1){[1]*(s.length+1)}
-0.step(s.length-1){|k|
-	k.step(s.length-1){|j|
+a=Array.new(s.size+1){[1]*(s.length+1)}
+0.step(s.size-1){|k|
+	k.step(s.size-1){|j|
 		i=j-k
 		t=T[s[i,1]]
 		sum=0
@@ -14,4 +14,4 @@ a=Array.new(s.length+1){[1]*(s.length+1)}
 		a[i][j]=sum
 	}
 }
-p a[0][s.length-1]%10**6
+p a[0][s.size-1]%10**6

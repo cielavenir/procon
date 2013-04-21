@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 def diff1(t,s)
 	r=0
-	t.length.times{|i|
+	t.size.times{|i|
 		r+=1 if t[i]!=s[i]
 		return false if r>1
 	}

@@ -4,11 +4,11 @@ if s=='z'*20||s=='a'
 	puts :NO
 elsif s!=s.reverse
 	puts s.reverse
-elsif s=='a'*s.length
-	puts (96+s.length).chr
-elsif s=='z'*s.length
-	puts 'z'*(s.length-1)+'ya'
-elsif s.length==1
+elsif s=='a'*s.size
+	puts (96+s.size).chr
+elsif s=='z'*s.size
+	puts 'z'*(s.size-1)+'ya'
+elsif s.size==1
 	puts (s.ord-1).chr+'a'
 else
 	x=0;y=0

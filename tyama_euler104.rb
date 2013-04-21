@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 class String
 	def pan?
-		if self.length!=9 then return false end
-		return 1.step(self.length).all?{|i|self.index(i.to_s)} ? true : false
+		if self.size!=9 then return false end
+		return 1.step(self.size).all?{|i|self.index(i.to_s)} ? true : false
 	end
 end
 a=1;b=1;i=2

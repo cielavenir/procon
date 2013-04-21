@@ -7,7 +7,7 @@ while s=gets
   elsif s[0,1]=="-" then h.delete(s[1..-1])
   else
     x=s.split(":")[1]
-    if x then n+=x.length*h.size end
+    if x then n+=x.size*h.size end
   end
 end
 puts n

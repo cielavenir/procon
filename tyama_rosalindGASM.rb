@@ -6,7 +6,7 @@ class String
 end
 a=$<.map(&:chomp)
 b=a.map(&:complement)
-l=a[0].length
+l=a[0].size
 (l-1).downto(1){|k|
 	h1={}
 	h2={}

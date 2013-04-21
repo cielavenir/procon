@@ -38,7 +38,7 @@ end
  
 def f(k)
 if false
-	[*0...k].permutation.reduce(0){|s,e|s += e.length.times.all?{|i|e[i]!=i} ? 1 : 0}
+	[*0...k].permutation.reduce(0){|s,e|s += e.size.times.all?{|i|e[i]!=i} ? 1 : 0}
 else
 	#[1,0,1,2,9,44,265,1854,14833,133496,1334961][k]
 	a=[1,0,1]

@@ -4,7 +4,7 @@ a=gets.to_i.times.map{gets.chomp}
 b=$<.map(&:to_f)
 puts a.map{|e|
 	x=[];y=[]
-	e.length.times.each{|i|
+	e.size.times.each{|i|
 		x[i]=(x[i-1]||0)+table[e[i]]
 		y[i]=(y[i-1]||0)+table[e.reverse[i]]
 	}

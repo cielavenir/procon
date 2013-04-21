@@ -13,7 +13,7 @@ end
 seqs<<seq
 seqs.size.times{|i|
 	puts seqs.size.times.map{|j|
-		l=seqs[i].length
+		l=seqs[i].size
 		l.times.count{|k|seqs[i][k,1]!=seqs[j][k,1]}.to_f/l
 	}*' '
 }

@@ -1,11 +1,8 @@
 #!/usr/bin/ruby
 require 'bio'
 Bio::NCBI.default_email='rosalind@example.com'
-a=Bio::NCBI::REST.efetch(gets.chomp,:db=>'nucleotide',:rettype=>'fasta').split("\n\n").map{|fasta|
+puts Bio::NCBI::REST.efetch(gets.chomp,:db=>'nucleotide',:rettype=>'fasta').split("\n\n").map{|fasta|
 	a=fasta.split"\n"
 	head=a.shift
 	[head,a]
-}
-r=a.min_by{|e|e[1].join.length}
-puts r[0]
-puts r[1]
+}.min_by{|e|e[1].join.size}

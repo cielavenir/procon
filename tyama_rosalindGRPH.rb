@@ -12,8 +12,8 @@ while gets
 	end
 end
 seqs<<seq
-seqs.length.times{|i|
-	seqs.length.times{|j|
+seqs.size.times{|i|
+	seqs.size.times{|j|
 		next if i==j
 		puts "#{names[i]} #{names[j]}" if seqs[i][-3..-1]==seqs[j][0..2]
 	}

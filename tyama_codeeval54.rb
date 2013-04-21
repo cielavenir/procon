@@ -2,7 +2,7 @@
 def rec2c(a,n)
 	if n==0 then []
 	else
-		a.length.times{|i|
+		a.size.times{|i|
 			if n>=a[i] && a.find{|e|(n-a[i])%e==0}
 				r=rec2c(a,n-a[i])
 				if r then return [a[i]]+r end

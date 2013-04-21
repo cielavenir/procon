@@ -5,7 +5,7 @@ print'1'
 a=[1]
 2.step(n){
 	b=[a[0]]
-	(a.length-1).times{|i|
+	(a.size-1).times{|i|
 		b<<a[i]+a[i+1]
 	}
 	b<<a.last

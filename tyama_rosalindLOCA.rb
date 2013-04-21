@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 def maximum3(a)
-	if a.length == 0 then return [nil,0] end
+	if a.size == 0 then return [nil,0] end
 	ret = [a[0],0]
-	1.step(a.length-1){|i|
+	1.step(a.size-1){|i|
 		if ret[0] < a[i] then ret = [a[i],i] end
 	}
 	return ret
@@ -10,15 +10,15 @@ end
 
 def local_alignment(x, y)
 	#initialize
-	a = Array.new(x.length+1){Array.new(y.length+1, 0)}
-	back = Array.new(x.length+1){Array.new(y.length+1, 0)}
+	a = Array.new(x.size+1){Array.new(y.length+1, 0)}
+	back = Array.new(x.size+1){Array.new(y.length+1, 0)}
 	tx = ""; ty = ""; t=""
 
 	#DP
-	1.step(a.length-1){|i| a[i][0] = a[i-1][0] - 0;back[i][0]=[i-1,0,  "a"]}
-	1.step(a[0].length-1){|j| a[0][j] = a[0][j-1] - 0;back[0][j]=[0,  j-1,"b"]}
-	1.step(a.length-1){|i|
-		1.step(a[0].length-1){|j|
+	1.step(a.size-1){|i| a[i][0] = a[i-1][0] - 0;back[i][0]=[i-1,0,  "a"]}
+	1.step(a[0].size-1){|j| a[0][j] = a[0][j-1] - 0;back[0][j]=[0,  j-1,"b"]}
+	1.step(a.size-1){|i|
+		1.step(a[0].size-1){|j|
 			z = maximum3([a[i-1][j-1]+$pam250[x[i-1].chr][y[j-1].chr], a[i-1][j]-5, a[i][j-1]-5])
 			a[i][j]=z[0];
 			if a[i][j]>0
@@ -35,8 +35,8 @@ def local_alignment(x, y)
 
 	#trace-back
 	n=0;m=0;max=0
-	(x.length+1).times{|i|
-		(y.length+1).times{|j|
+	(x.size+1).times{|i|
+		(y.size+1).times{|j|
 			if a[i][j]>max
 				max=a[i][j]
 				n=i
@@ -69,9 +69,9 @@ def local_alignment(x, y)
 end
 $pam250=Hash.new{|h,k|h[k]={}}
 strs=DATA.gets.split
-strs.length.times{|i|
+strs.size.times{|i|
 	a=DATA.gets.split[1..-1].map(&:to_i)
-	a.length.times{|j|
+	a.size.times{|j|
 		$pam250[strs[i]][strs[j]]=a[j]
 	}
 }

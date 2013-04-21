@@ -10,8 +10,8 @@ while(m,n=gets.split.map(&:to_i))!=[0,0]
 	c=0
 	1.step(n){|i|
 		s=gets.chomp
-		if a.length>1
-			if s!=fizzbuzz(i) then a.delete_at(c);c%=a.length else c=(c+1)%a.length end
+		if a.size>1
+			if s!=fizzbuzz(i) then a.delete_at(c);c%=a.size else c=(c+1)%a.length end
 		end
 	}
 	puts a*' '

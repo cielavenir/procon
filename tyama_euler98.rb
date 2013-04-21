@@ -13,7 +13,7 @@ h.each{|k,v|
 			sq=$sq.select{|e|e.size==v[i].size}
 			sq.each{|e|
 				map1={};map2={}
-				if v[i].length.times{|k|
+				if v[i].size.times{|k|
 					#break if map1[v[i][k..k]]&&map1[v[i][k..k]]!=e[k..k]
 					break if map2[e[k..k]]&&map2[e[k..k]]!=v[i][k..k]
 					#map1[v[i][k..k]]=e[k..k]

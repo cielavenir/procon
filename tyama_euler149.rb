@@ -9,16 +9,16 @@ a=[]
 (56..M*M).each{|k|a<<(a[k-1-24]+a[k-1-55]+10**6)%10**6-500000}
 b=a.each_slice(M).to_a
 r=0
-b.length.times{|i|
+b.size.times{|i|
 	d=[]
-	b[i].length.times{|j|
+	b[i].size.times{|j|
 		d<<[b[i][j],b[i][j]+d[j-1]].max
 	}
 	r=[r,d.last].max
 }
-b[0].length.times{|i|
+b[0].size.times{|i|
 	d=[]
-	b.length.times{|j|
+	b.size.times{|j|
 		d<<[b[j][i],b[j][i]+d[j-1]].max
 	}
 	r=[r,d.last].max

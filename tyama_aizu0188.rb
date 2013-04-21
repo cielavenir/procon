@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 $c=0
 def binary(a,v)
-	left=0;right=a.length-1
+	left=0;right=a.size-1
 	while left<=right
 		$c+=1
 		center=(left+right)/2

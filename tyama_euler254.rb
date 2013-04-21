@@ -42,7 +42,7 @@ a=(1..59).map{|i|p i;i.sg}.reduce(:+)
 def rec2c(a,n)
 	if n==0 then return 0
 	else
-		a.length.times{|i|
+		a.size.times{|i|
 			if n>=a[i] && a.find{|e|(n-a[i])%e==0}
 				r=rec2c(a,n-a[i])
 				if r>=0 then return r+9-i end

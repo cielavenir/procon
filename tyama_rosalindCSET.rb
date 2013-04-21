@@ -8,7 +8,7 @@ end
 spl=spl.sort_by{|e|e[0].count '1'}
 ret=spl.transpose[1]
 spl=spl.transpose[0]
-len=spl[0].length
+len=spl[0].size
 spl=spl.map{|e|e.reverse.to_i(2)}
 
 [*0..spl.size-1].combination(spl.size-1){|indexes|

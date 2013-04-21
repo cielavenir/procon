@@ -9,7 +9,7 @@ def cycle(n)
 		return 0 if x<2 || M<x
 		x=$t[x]
 		if idx=a.index(x)
-			return a.length if idx==0
+			return a.size if idx==0
 			return 0 if idx>0
 		end
 		a.push x

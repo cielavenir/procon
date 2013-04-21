@@ -13,7 +13,7 @@ def z(n)
 end
 def pelleq(n)
 	c=z(n)
-	l=c.length-1
+	l=c.size-1
 	per= l%2==0 ? l-1 : 2*l-1
 	a=c[0];a1=1;b=1;b1=0
 	1.step(per){|i|

@@ -2,7 +2,7 @@
 #wget -O - http://projecteuler.net/project/roman.txt
 s=''
 while gets do s<<$_ end
-z=s.length
+z=s.size
 s.gsub!('IIII','IV')
 s.gsub!('XXXX','XL')
 s.gsub!('CCCC','CD')

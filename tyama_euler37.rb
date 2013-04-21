@@ -7,6 +7,6 @@ p Enumerator.new{|y|
 		e=p.next
 		h[e]=1
 		s=e.to_s
-		y<<e if (s.length-1).times.all?{|i|h[s[0,i+1].to_i]&&h[s[i+1,s.length-i-1].to_i]}
+		y<<e if (s.size-1).times.all?{|i|h[s[0,i+1].to_i]&&h[s[i+1,s.length-i-1].to_i]}
 	}
 }.take(11).reduce(:+)

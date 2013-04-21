@@ -18,7 +18,7 @@ Tempfile.open('fasta','.'){|fasta|
 		io = open(%Q(| "#{MSA}" -o -b -g -c "#{File.basename cost.path}" "#{File.basename fasta.path}"))
 		until io.gets=~/Optimal/ do; end
 		io.gets
-		seqs=seqs.length.times.map{io.gets.chomp}
+		seqs=seqs.size.times.map{io.gets.chomp}
 		io.gets
 		io.gets
 		io.gets

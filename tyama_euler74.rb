@@ -20,7 +20,7 @@ N=60
 		a<<r
 		r=r.chain
 	end while !(idx=a.index(r)) &&!$r[r]
-	a.length.times{|j|
+	a.size.times{|j|
 		if a[j]<=M
 			$r[a[j]] = $r[r] ? a.size-j+$r[r] : j>=idx ? a.size-idx : a.size-j
 		end

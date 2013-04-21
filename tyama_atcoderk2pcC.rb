@@ -3,7 +3,7 @@ $a=50000.times.map{|e|e*(e+1)/2+1}
 
 class Integer
 	def toX
-		$a.length.times{|i|
+		$a.size.times{|i|
 			if $a[i]>self
 				x=$a[i]-self
 				return [x,i+1-x]
@@ -19,4 +19,4 @@ class Array
 	end
 end
 
-p gets.split.map(&:to_i).map(&:toX).reduce{|a,b|a.length.times.map{|i|a[i]+b[i]}}.toY
+p gets.split.map(&:to_i).map(&:toX).reduce{|a,b|a.size.times.map{|i|a[i]+b[i]}}.toY

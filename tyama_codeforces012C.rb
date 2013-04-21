@@ -9,7 +9,7 @@ n[1].times{|i|
 }
 g=h.values.sort.reverse
 m=M=0
-g.length.times{|i|
+g.size.times{|i|
   m+=g[i]*a[i]
   M+=g[i]*b[i]
 }

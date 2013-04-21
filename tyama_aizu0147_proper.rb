@@ -25,7 +25,7 @@ loop{
 		r<<t-q[0]*5
 		q.shift
 	end
-	break if r.length>=Z
+	break if r.size>=Z
 	t+=1
 }
 while gets

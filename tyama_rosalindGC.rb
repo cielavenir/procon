@@ -6,7 +6,7 @@ max_gc=0
 max_name=''
 while l=gets
 	if l[0,1]=='>'
-		gc=seq.scan(/[GC]/).length.to_f*100/seq.length
+		gc=seq.scan(/[GC]/).size.to_f*100/seq.length
 		if max_gc<gc
 			max_gc=gc
 			max_name=name
@@ -17,7 +17,7 @@ while l=gets
 		seq+=l.chomp
 	end
 end
-		gc=seq.scan(/[GC]/).length.to_f*100/seq.length
+		gc=seq.scan(/[GC]/).size.to_f*100/seq.length
 		if max_gc<gc
 			max_gc=gc
 			max_name=name

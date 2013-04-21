@@ -13,7 +13,7 @@ end
 a.sort!
 c=[]
 b=[a[0][1]]
-(a.length-1).times{|i|
+(a.size-1).times{|i|
 	len = (a[i+1][0]-a[i][0]).to_i
 	#puts len
 	if len>50
@@ -23,5 +23,5 @@ b=[a[0][1]]
 	b<<a[i+1][1]
 }
 c<<b.sort
-raise "len parameter is wrong for this graphviz version" if c.length!=2
+raise "len parameter is wrong for this graphviz version" if c.size!=2
 puts c.max_by(&:size)*' '

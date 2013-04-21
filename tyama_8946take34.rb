@@ -13,13 +13,13 @@ passages=[
 matrix=Hash.new{|h,k|h[k]={}}
 passages.each{|q|
 	phase2_array=q[:phase2].split('')
-	row_length_min=phase2_array.length/key_idx.length
-	row_length_max=(phase2_array.length+key_idx.length-1)/key_idx.length
-	row_length=[row_length_min]*key_idx.length
-	(phase2_array.length%key_idx.length).times{|i|row_length[i]+=1}
-	transarray=key_idx.length.times.map{|i|
-		row=phase2_array.shift(row_length[key_idx.index(i)])
-		if row.length<row_length_max then row<<' ' end
+	row_size_min=phase2_array.length/key_idx.length
+	row_size_max=(phase2_array.length+key_idx.length-1)/key_idx.length
+	row_size=[row_length_min]*key_idx.length
+	(phase2_array.size%key_idx.length).times{|i|row_length[i]+=1}
+	transarray=key_idx.size.times.map{|i|
+		row=phase2_array.shift(row_size[key_idx.index(i)])
+		if row.size<row_length_max then row<<' ' end
 		row
 	}
 	phase1=key_idx.map{|e|transarray[e]}.transpose.map(&:join).join.strip
@@ -49,13 +49,13 @@ unused='abcdefghijklmnopqrstuvwxyz0123456789'.chars.select{|e|!list[e]}
 #stage2: solve
 problem='GGAGAXVAGGVAGAVAFAGGFGVAAFGAGAGGGDFAAGAGDADVFGAXAAFAGD'
 phase2_array=problem.split('')
-row_length_min=phase2_array.length/key_idx.length
-row_length_max=(phase2_array.length+key_idx.length-1)/key_idx.length
-row_length=[row_length_min]*key_idx.length
-(phase2_array.length%key_idx.length).times{|i|row_length[i]+=1}
-transarray=key_idx.length.times.map{|i|
-	row=phase2_array.shift(row_length[key_idx.index(i)])
-	if row.length<row_length_max then row<<' ' end
+row_size_min=phase2_array.length/key_idx.length
+row_size_max=(phase2_array.length+key_idx.length-1)/key_idx.length
+row_size=[row_length_min]*key_idx.length
+(phase2_array.size%key_idx.length).times{|i|row_length[i]+=1}
+transarray=key_idx.size.times.map{|i|
+	row=phase2_array.shift(row_size[key_idx.index(i)])
+	if row.size<row_length_max then row<<' ' end
 	row
 }
 phase1=key_idx.map{|e|transarray[e]}.transpose.map(&:join).join.strip

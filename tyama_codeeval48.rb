@@ -18,9 +18,9 @@ def biggest_SS(ss_table)
     # customer_i.
 
     # On many customers
-    if ss_table.length > 1
+    if ss_table.size > 1
         # On many products
-        if ss_table[0].length > 1
+        if ss_table[0].size > 1
             delta_sses = ss_table.map {|customer_sses|
                 first_product_ss = customer_sses[0]
                 other_sses_max = customer_sses[1..-1].max
@@ -32,7 +32,7 @@ def biggest_SS(ss_table)
                 # The remaining_ss_table is the ss_table without the customer row a
                 # without the product column.
                 remaining_ss_table = []
-                (0..ss_table.length-1).each {|customer_i|
+                (0..ss_table.size-1).each {|customer_i|
                     remaining_ss_table<< ss_table[customer_i][1..-1] \
                         unless customer_i == max_delta_ss_customer_i
                 }
@@ -49,7 +49,7 @@ def biggest_SS(ss_table)
                     # The remaining_ss_table is the ss_table without the customer row
                     # and without the product column.
                     remaining_ss_table = []
-                    (0..ss_table.length-1).each {|customer_i|
+                    (0..ss_table.size-1).each {|customer_i|
                         remaining_ss_table<< ss_table[customer_i][1..-1] \
                             unless customer_i == max_delta_ss_customer_i
                     }
@@ -73,13 +73,13 @@ while gets #DATA.gets
 a,b=$_.chomp.split(';').map{|e|e.split(',').map{|f|f.tr(' ','')}}
 ss=a.map{|e|
 	customer=e.downcase
-	customer_length=customer.count('a-z')
+	customer_size=customer.count('a-z')
 	vowels=customer.count('aeiouy')
-	consonants=customer_length-vowels
+	consonants=customer_size-vowels
 	b.map{|f|
-		product_length=f.count('A-Za-z')
-		mul=customer_length.gcd(product_length)>1?1.5:1
-		mul * (product_length%2==0 ? vowels*1.5 : consonants)
+		product_size=f.count('A-Za-z')
+		mul=customer_size.gcd(product_length)>1?1.5:1
+		mul * (product_size%2==0 ? vowels*1.5 : consonants)
 	}
 }
 #O(n!) solutions are not proper.

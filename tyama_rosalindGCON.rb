@@ -1,15 +1,15 @@
 #!/usr/bin/ruby
 def alignment(x, y)
-	a=[0]+[-5]*y.length
+	a=[0]+[-5]*y.size
 	b=a.map{|e|e-5}
-	x.length.times{|i|
-		(y.length-1).downto(0){|j|
+	x.size.times{|i|
+		(y.size-1).downto(0){|j|
 			b[j+1]=[a[j+1]-5,b[j+1]].max
 			a[j+1]=[a[j],b[j]].max+$blosum62[x[i].chr][y[j].chr]
 		}
 		b[0]=[a[0]-5,b[0]].max
 		k=a[0]=-5*2
-		y.length.times{|j|
+		y.size.times{|j|
 			k=[k,a[j],b[j]].max
 			a[j+1]=[a[j+1],k-5].max
 		}
@@ -18,9 +18,9 @@ def alignment(x, y)
 end
 $blosum62=Hash.new{|h,k|h[k]={}}
 strs=DATA.gets.split
-strs.length.times{|i|
+strs.size.times{|i|
 	a=DATA.gets.split[1..-1].map(&:to_i)
-	a.length.times{|j|
+	a.size.times{|j|
 		$blosum62[strs[i]][strs[j]]=a[j]
 	}
 }

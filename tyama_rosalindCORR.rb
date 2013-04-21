@@ -13,7 +13,7 @@ end
 a.each{|e|
 	next if h[[e,e.complement].min]>1
 	s=e.dup
-	s.length.times{|j|
+	s.size.times{|j|
 		c=s[j,1]
 		break if "ACGT".chars.any?{|i|
 			next if i==c

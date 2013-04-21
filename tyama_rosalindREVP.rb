@@ -4,13 +4,13 @@ class String
 		self.reverse.tr("ATGC","TACG")
 	end
 	def indexes(str)
-		(0..self.length-str.length).select{|i|self[i,str.length]==str}
+		(0..self.size-str.length).select{|i|self[i,str.length]==str}
 	end
 end
 s=$<.drop(1).map(&:chomp)*''
-s.length.times{|i|
+s.size.times{|i|
 	[4,6,8,10,12].each{|j|
-		break if i+j>s.length
+		break if i+j>s.size
 		puts "#{i+1} #{j}" if s[i,j]==s[i,j].complement
 	}
 }

@@ -2,7 +2,7 @@
 class Array
   def sum
     ret=0
-    self.length.times{|i| ret+=self[i]}
+    self.size.times{|i| ret+=self[i]}
     return ret
   end
 end

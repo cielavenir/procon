@@ -2,7 +2,7 @@
 def lightsout(x,y)
   succ=0
   a=Array.new(x*y)
-  a.length.times{|i| a[i]=Array.new(2)}
+  a.size.times{|i| a[i]=Array.new(2)}
 
   #create problem
   x.times {|i|
@@ -47,7 +47,7 @@ EOM
 
   a.each {|b|
     print "  {"
-    a.length.times {|c|
+    a.size.times {|c|
       print "#{b[0][c]},"
     }
     print "},\n"

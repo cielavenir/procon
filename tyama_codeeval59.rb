@@ -2,7 +2,7 @@
 $h={'0'=>'0','1'=>'1','2'=>'abc','3'=>'def','4'=>'ghi','5'=>'jkl','6'=>'mno','7'=>'pqrs','8'=>'tuv','9'=>'wxyz'}
 $i=0
 def d(depth,str,ret)
-	if depth==str.length
+	if depth==str.size
 		print ',' if $i>0
 		print ret
 		$i+=1
