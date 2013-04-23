@@ -25,7 +25,6 @@ int main(int argc, char **argv){
 	b=999;
 	for(;next_permutation(v.begin()+1,v.end());){
 		for(a=i=0;i<v.size()-1;i++)a+=m[v[i]][v[i+1]];
-		
 		if(a-(long double)1e-7<b)b=a,v_min=v;
 	}
 	for(i=0;i<v.size();i++)cout<<v_min[i]+1<<endl;
