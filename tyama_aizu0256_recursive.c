@@ -1,0 +1,1 @@
+s;main(x){~scanf("%d",&x)?main(s+=x):exit(!printf("%d\n",s));}

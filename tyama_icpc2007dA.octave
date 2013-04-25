@@ -1,4 +1,4 @@
-#!/usr/bin/octave -q
+#!/usr/bin/env octave -q
 while((n=input(""))!=0)
 	ma=0;mi=1000;s=0;
 	for i = 1:n
