@@ -24,7 +24,7 @@ r=nil
 =begin
 i=0
 table.permutation{|a|
-	idx=l.times.find_all{|i|a[i]=='|'}
+	idx=l.times.select{|i|a[i]=='|'}
 	table2=[a[0...idx[0]],a[idx[0]+1...idx[1]],a[idx[1]+1...l]]
 	edge=table2.map{|e|e.reduce(:*)||1}
 	surface=edge[0]*edge[1]+edge[1]*edge[2]+edge[2]*edge[0]
