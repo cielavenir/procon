@@ -1,7 +1,7 @@
 #include <time.h>
 char S[99];
 struct tm T;
-main(Y,M,x){if(sizeof(time_t)!=8)exit(0);
+main(Y,M,x){if(sizeof(time_t)<8)exit(1);
 for(;scanf("%d/%d/%d %d:%d:%d",&Y,&M,&T.tm_mday,&T.tm_hour,&T.tm_min,&T.tm_sec),Y;){
 	scanf("%s",S),x=(1<<strlen(S))-1;
 	T.tm_year=Y-1900;
