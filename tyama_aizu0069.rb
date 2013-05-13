@@ -21,7 +21,7 @@ l.times{|j|
 		next if (i<n-2&&a[j][i+1])
 		a[j][i]=true
 		if check(a,l,m,_e,n) then puts "#{j+1} #{i+1}";raise "ok" end
-		a[j][i]=false
+		a[j][i]=nil
 	}
 }
 rescue; next end

@@ -3,9 +3,9 @@
 
 def accept(s,atm)
 	cur = 0
-	s.chars{|c|
+	s.each_char{|c|
 		cur = atm[cur][c]
-		if cur == nil then return false end
+		if !cur then return false end
 	}
 	return atm[cur][:final] == true
 end
