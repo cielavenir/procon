@@ -4,7 +4,6 @@ class String
 		count=self.length+count if count<0
 		self.slice(self.length-count,count)+self.slice(0,self.length-count)
 	end
-	def rotate!(count=1) self.replace(self.rotate(count)) end
 end
 str=gets.chomp
 len=str.size
@@ -16,11 +15,7 @@ len.times{|i|
 p (1<<len).times.map{|i|
 	a=Array.new(len)
 	c=len.times.count{|j|
-		if i&(1<<j)!=0
-			idx[j].each{|k|a[k]=1 if k<len}
-		else
-			nil
-		end
+		idx[j].each{|k|a[k]=1} if i&(1<<j)!=0
 	}
 	a.all? ? c : len+1
 }.min
