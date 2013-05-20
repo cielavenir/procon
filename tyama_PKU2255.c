@@ -1,0 +1,1 @@
+char x[99],y[99];D(f,l,F,L){int R=F;for(;x[f]-y[R];R++);F<R?D(f+1,f+R-F+1,F,R):1;R<L-1?D(f+R-F+1,l,R+1,L):1;putchar(y[R]);}main(k){for(;~scanf("%s%s",x,y);puts(""))D(0,k=strlen(x),0,k);}
