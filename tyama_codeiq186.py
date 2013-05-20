@@ -10,7 +10,7 @@ words2 = [w.lower() for w in gutenberg.words('austen-sense.txt') if w.isalpha()]
 freq=nltk.FreqDist(words2)
 s = len(words2)
 for e in freq.keys():
-  print "%s,%d,%f" % (e,freq[e],float(freq[e])/s*100)
+  print("%s,%d,%f" % (e,freq[e],float(freq[e])/s*100))
 
 '''
 keys = freq.keys() ###

@@ -7,9 +7,9 @@ freq=nltk.ConditionalFreqDist(
 	(name[-1],fileid)
 	for fileid in names.fileids()
 	for name in names.words(fileid))
-print "WordEnding,female.txt,male.txt"
+print("WordEnding,female.txt,male.txt")
 for e in freq.conditions():
-	print "%s,%d,%d" % (e,freq[e]['female.txt'],freq[e]['male.txt'])
+	print("%s,%d,%d" % (e,freq[e]['female.txt'],freq[e]['male.txt']))
 '''
 男性
 n(478)

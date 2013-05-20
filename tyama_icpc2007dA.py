@@ -1,4 +1,4 @@
-#!/usr/bin/python --
+#!/usr/bin/python
 import sys
 
 #2007 Domestic A
@@ -13,7 +13,7 @@ def judge(n):
     if x>ma:
       ma=x
     s+=x
-  print (s-ma-mi)/(n-2)
+  print((s-ma-mi)//(n-2))
 
 while 1:
   n=int(sys.stdin.readline())
