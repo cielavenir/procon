@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-p gets.to_i.times.map{gets.to_i}.min
+p$<.drop(1).map(&:to_i).min
