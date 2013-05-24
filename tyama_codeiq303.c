@@ -1,3 +1,5 @@
+//gcc -O3 tyama_codeiq303.c tyama_codeiq303_sha1.c
+
 #include <stdio.h>
 #include <string.h>
 
@@ -78,8 +80,9 @@ unsigned long long getsign(unsigned long long count,unsigned long long skips){
 	return sum;
 }
 int main(){
-	printf(LLU"\n",getsign(100000000,1000)); //7.5sec
-	//printf(LLU"\n",getsign(107374182400,16777216)); //101m42.627s
+	//printf(LLU"\n",getsign(100,10)); //284067
+	//printf(LLU"\n",getsign(100000000,1000)); //7.5sec 3276658109
+	printf(LLU"\n",getsign(107374182400,16777216)); //101m42.627s
 }
 
 /*
