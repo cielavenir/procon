@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
-a=gets.to_i.times.map{gets.split.map(&:to_i)}
+a=$<.drop(1).map{|e|e.split.map(&:to_i)}
 a.each{|e|e<<e.reduce(:+)}
 a=a.transpose
 a.each{|e|e<<e.reduce(:+)}
-a.transpose.each{|e|puts e*' '}
+puts a.transpose.map{|e|e*' '}
