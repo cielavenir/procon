@@ -32,34 +32,30 @@ static char buf[99];
 static unsigned char digest[20];
 static unsigned short GETDATA2[10];
 static struct sha1_ctxt sha1ctx;
-void getdata2(unsigned long long q){
-	sprintf(buf,LLU,q);
-	sha1_init(&sha1ctx);
-	sha1_loop(&sha1ctx,buf,strlen(buf));
-	sha1_result(&sha1ctx,digest);
-	int i=0;
-	for(i=0;i<10;i++)GETDATA2[i]=(digest[2*i]<<8)|digest[2*i+1];
-}
+static unsigned long long q_cache;
+
 unsigned short getdata(unsigned long long index){
 	unsigned long long q=index/10,r=index%10;
-	getdata2(q);
+	if(q!=q_cache){
+		sprintf(buf,LLU,q);
+		sha1_init(&sha1ctx);
+		sha1_loop(&sha1ctx,buf,strlen(buf));
+		sha1_result(&sha1ctx,digest);
+		int i=0;
+		for(i=0;i<10;i++)GETDATA2[i]=(digest[2*i]<<8)|digest[2*i+1];
+		q_cache=q;
+	}
 	return GETDATA2[r];
 }
 
 unsigned long long data[65536];
 unsigned long long getsign(unsigned long long count,unsigned long long skips){
 	memset(data,0,sizeof(data));
+	q_cache=-1; //lol
 	unsigned long long i=0,q,r;
 
 	//get data (bucket sort)
-	for(;i<count;i+=10){
-		q=i/10;
-		getdata2(q);
-		for(r=0;r<10;r++)data[GETDATA2[r]]++;
-	}
-	q=i/10;
-	getdata2(q);
-	for(r=0;r<count%10;r++)data[GETDATA2[r]]++;
+	for(;i<count;i++)data[getdata(i)]++;
 
 	//debug
 	//for(i=0;i<65536;i++)printf("[*] "LLU"\n",data[i]);
@@ -82,8 +78,8 @@ unsigned long long getsign(unsigned long long count,unsigned long long skips){
 	return sum;
 }
 int main(){
-	//printf(LLU"\n",getsign(100000000,1000)); //7.5sec
-	printf(LLU"\n",getsign(107374182400,16777216)); //101m42.627s
+	printf(LLU"\n",getsign(100000000,1000)); //7.5sec
+	//printf(LLU"\n",getsign(107374182400,16777216)); //101m42.627s
 }
 
 /*
