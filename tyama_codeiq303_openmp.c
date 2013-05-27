@@ -60,7 +60,10 @@ unsigned long long getsign(unsigned long long count,unsigned long long skips){
 		for(r=0;r<10;r++)data[omp_get_thread_num()*65536+((digest[2*r]<<8)|digest[2*r+1])]++;
 	}
 
-	{
+	//implement own reduction...
+	for(i=1;i<omp_get_max_threads();i++)for(j=0;j<65536;j++)data[j]+=data[i*65536+j];
+
+	if(count%10){
 		char buf[99];
 		unsigned char digest[20];
 		struct sha1_ctxt sha1ctx;
@@ -71,9 +74,6 @@ unsigned long long getsign(unsigned long long count,unsigned long long skips){
 		sha1_result(&sha1ctx,digest);
 		for(r=0;r<count%10;r++)data[(digest[2*r]<<8)|digest[2*r+1]]++;
 	}
-
-	//implement own reduction...
-	for(i=1;i<omp_get_max_threads();i++)for(j=0;j<65536;j++)data[j]+=data[i*65536+j];
 
 	//debug
 	//for(i=0;i<65536;i++)printf("[*] "LLU"\n",data[i]);
