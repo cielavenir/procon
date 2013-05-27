@@ -11,7 +11,7 @@ puts a.map{|e|
 	h=Hash.new(0)
 	(x+y).each{|f|
 		b.each{|g|
-			h[sprintf("%f",f-g)]+=1
+			h["%f"%[f-g]]+=1
 		}
 	}
 	[h.values.max,e]

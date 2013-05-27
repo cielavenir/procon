@@ -22,4 +22,4 @@ end
 			max_gc=gc
 			max_name=name
 		end
-printf("%s\n%f%%\n",max_name,max_gc)
+puts"%s\n%f%%"%[max_name,max_gc]

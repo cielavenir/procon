@@ -23,6 +23,6 @@ $peter.each{|kp,vp|
 		total+=vp*vc
 	}
 }
-puts sprintf("%.7f",win/total.to_f)
-#puts sprintf("%.7f",lose/total.to_f)
-#puts sprintf("%.7f",draw/total.to_f)
+puts"%.7f"%[win/total.to_f]
+#puts"%.7f"%[lose/total.to_f]
+#puts"%.7f"%[draw/total.to_f]

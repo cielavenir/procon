@@ -1,7 +1,9 @@
 #!/usr/bin/ruby
 #http://oeis.org/A014480
 N=10
-(1<<N-1).times.map{|i|[n=i^i>>1,n^((1<<N)-1)]}.flatten.rotate.each{|e|printf"%0#{N}b\n",e}
+puts (1<<N-1).times.map{|i|[n=i^i>>1,n^((1<<N)-1)]}.flatten.rotate.each{|e|"%0#{N}b"%e}
+#puts 512.times.map{|i|[n=i^i>>1,n^1023]}.flatten.rotate.each{|e|"%010b"%e}
+#a=[];(1<<N-1).times{|i|a+=[n=i^i>>1,n^((1<<N)-1)]};a.rotate.each{|e|puts"%0#{N}b"%e}
 __END__
 重複しない範囲でハミング距離ができるだけ大きくなるようなシーケンスを作成すれば良い。
 そこで思い出されるのは、グレイコードが題材であったBits問題である。
