@@ -7,10 +7,11 @@ toggle=0
 h={}
 a.each{|e|
 	n=e.to_i(2)
-	raise if h[n] #resend
+	raise "resend #{e}" if h[n]
 	h[n]=1
 	toggle+=s.times.count{|i|n[i]!=prev[i]}
 	prev=n
 }
-raise if h.size!=1<<s
+raise "line number wrong #{h.size}" if h.size!=1<<s
+raise "#{prev}: not ending with #{'0'*s}" if prev!=0
 p toggle
