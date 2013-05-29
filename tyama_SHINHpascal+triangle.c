@@ -1,1 +1,1 @@
-a[99],i;main(T){for(;*a=T<35;)printf(--i<0?i=T++,"1\n":"%d ",a[i]+=a[i-1]);}
+a[],n;main(T){for(;*a=T<35;)printf(!n--?n=T++,"1\n":"%d ",a[n]+=a[n-1]);}
