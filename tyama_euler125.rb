@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 r={}
-1.upto(1/0.0).each{|i|
+1.upto(1/0.0){|i|
 	x=i**2
 	break if x>10**8
 	(i+1..1/0.0).each{|j|
