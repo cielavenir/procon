@@ -23,13 +23,13 @@ class Integer
 	#def f() self.to_s.chars.map(&:to_i).map(&:fact).reduce(:+) end
 	#def sf() self.f.to_s.chars.map(&:to_i).reduce(:+) end
 	def g
-		#(1..1/0.0).each{|i|
+		#1.upto(1/0.0){|i|
 		#	a=i.to_s.split('')
 		#	next if a!=a.sort
 		#	p i
 		#	return i if i.sf==self
 		#}
-		(1..1/0.0).each{|i|
+		1.upto(1/0.0){|i|
 			r=d([],0,0,i,1,self)
 			if r then return r end
 		}
