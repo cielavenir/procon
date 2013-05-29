@@ -13,5 +13,5 @@ a.each{|e|
 	prev=n
 }
 raise "line number wrong #{h.size}" if h.size!=1<<s
-raise "#{prev}: not ending with #{'0'*s}" if prev!=0
+raise "#{prev.to_i(2)}: not ending with #{'0'*s}" if prev!=0
 p toggle
