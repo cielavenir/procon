@@ -62,8 +62,8 @@ phase1=key_idx.map{|e|transarray[e]}.transpose.map(&:join).join.strip
 #phase1.split('').each_slice(key_idx.size){|e|puts e*''};puts
 answer=''
 phase1.split('').each_slice(2).each_with_index{|e,i|
-	#puts e.join
-	#answer+=matrix[e[0]][e[1]]||"[#{e.join}]"
+	#puts e*''
+	#answer+=matrix[e[0]][e[1]]||"[#{e*''}]"
 	answer+=matrix[e[1]][e[0]] #bah! hineri!
 }
 puts answer

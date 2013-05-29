@@ -37,9 +37,9 @@ x.each{|a,b|
 }
 
 if mode==:codeeval49
-	puts h.select{|e|e.uniq.size>2}.map{|e|e.sort.join(', ')}.sort
+	puts h.select{|e|e.uniq.size>2}.map{|e|e.sort*', '}.sort
 else
-	puts h.map{|e|e.sort.join('=')}.sort
+	puts h.map{|e|e.sort*'=')}.sort
 end
 =begin
 A=B

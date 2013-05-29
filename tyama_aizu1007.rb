@@ -9,5 +9,5 @@ puts"Case #{t+=1}:"
 a=[];$x=$c=1
 1.step(n){|i|Z(a,i)}
 (n-1).step(1,-1){|i|Z(a,i)}
-n.times{|i|n.times{|j|printf("%3d",a[i+j].shift)};puts}
+n.times{|i|n.times{|j|$><<"%3d"%a[i+j].shift};puts}
 end

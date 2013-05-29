@@ -56,7 +56,7 @@ class TLLI
 		while t!=0
 			a=get_a(t)
 			b=get_b(t)
-			printf("%d,%d,",a,b)
+			$><<"%d,%d,"%[a,b]
 			t=get_c(t)
 		end
 		puts

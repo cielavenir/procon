@@ -7,5 +7,5 @@ r=99999
 		r=[r,Math.hypot(a[i][0]-a[j][0],a[i][1]-a[j][1])].min
 	}
 }
-printf(r<10000?"%.4f\n":"INFINITY\n",r)
+$><<(r<10000?"%.4f\n":"INFINITY\n")%r
 end

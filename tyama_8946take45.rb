@@ -8,15 +8,15 @@
 #stage2
 #key='12300000'.each_byte.map{|e|e}
 #str='7073720900020A1B'.chars.each_slice(2).map{|e|e.join.hex}
-#puts key.zip(str).map{|e,f|(e^f).chr}.join
+#puts key.zip(str).map{|e,f|(e^f).chr}*''
 # AAA902:+
 
 key='AAAAAAAA'.each_byte.map{|e|e}
 str='7073720900020A1B'.chars.each_slice(2).map{|e|e.join.hex}
-puts key.zip(str).map{|e,f|(e^f).chr}.join
+puts key.zip(str).map{|e,f|(e^f).chr}*''
 # 123HACKZ => answer: HACKZ
 
 key='123HACKZ'.each_byte.map{|e|e}
 str='66776323243A0411'.chars.each_slice(2).map{|e|e.join.hex}
-puts key.zip(str).map{|e,f|(e^f).chr}.join
+puts key.zip(str).map{|e,f|(e^f).chr}*''
 # WEPkeyOK

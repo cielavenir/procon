@@ -6,6 +6,7 @@ prev=0
 toggle=0
 h={}
 a.each{|e|
+	raise "too many chars #{e}" if e.size>s
 	n=e.to_i(2)
 	raise "resend #{e}" if h[n]
 	h[n]=1
