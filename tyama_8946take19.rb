@@ -6,7 +6,7 @@ Net::HTTP.start('www.hackerschool.jp'){|http|
 		'input_id=abcd&ymd='+Time.now.strftime('%Y/%m/%d')+'&pass='+'whitehackerz'.bytes.map{|e|((e-83)%26+0x60).chr}*'',
 		{
 			'Referer'=>uri.to_s,
-			'Cookie'=>'PHPSESSID=bcffklhro87elkfgncbufgqvm1;',
+			'Cookie'=>'PHPSESSID=',
 		}
 	)
 	puts resp.body

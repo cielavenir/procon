@@ -7,7 +7,7 @@ Net::HTTP.start(uri.host){|http|
 		'input_id[]=a',
 		{
 			'Referer'=>uri.to_s,
-			'Cookie'=>'PHPSESSID=bcffklhro87elkfgncbufgqvm1',
+			'Cookie'=>'PHPSESSID=',
 		}
 	)
 	puts resp.body
