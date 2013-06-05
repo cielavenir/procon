@@ -8,9 +8,7 @@
   stdin.on('data', function(input) {
     var i=0,len,ref,x=[];
     ref=input.split("\n");
-    for(len=ref.length;i<len;i++){
-      x.push(parseInt(ref[i]));
-    }
+    for(len=ref.length;i<len;i++)x.push(parseInt(ref[i]));
     if(x.length>2||!isNaN(x[1]))a=x;
     else a.push(x[0]);
   });

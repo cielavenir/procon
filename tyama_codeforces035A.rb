@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
-$stdin=open("input.txt","rb")
-$>=open("output.txt","wb")
+$stdin=File.open("input.txt","rb")
+$>=File.open("output.txt","wb")
 a=[0]*4
 a[gets.to_i]=1
 while gets

@@ -6,33 +6,21 @@
   stdin.setEncoding('utf8');
 
   stdin.on('data', function(input) {
-    var x;
-    x = input.split("\n");
-    if(x.length > 2 || x[1] !== '')a = x;
+    var x = input.split("\n");
+    if(x.length > 2 || x[1] != '')a = x;
     else a.push(x[0]);
   });
 
   stdin.on('end', function(z) {
-    var b, e, i, m, n, r, y, _i, _results;
+    var b, i, j, m, n, r, y;
     n = parseInt(a.shift());
-    _results = [];
-    for (i = _i = 0; 0 <= n ? _i < n : _i > n; i = 0 <= n ? ++_i : --_i) {
-      b = (function() {
-        var _j, _len, _ref, _results1;
-        _ref = a[i].split(" ");
-        _results1 = [];
-        for (_j = 0, _len = _ref.length; _j < _len; _j++) {
-          e = _ref[_j];
-          _results1.push(parseInt(e));
-        }
-        return _results1;
-      })();
+    for(i=0;i<n;i++){
+      b = a[i].split(" ");
+      for(j=0;j<b.length;j++)b[j]=parseInt(b[j]);
       y = b[0] - 1;
       m = b[1] - 1;
       r = 0;
-      if (y % 3 !== 2) {
-        r = Math.floor(m / 2);
-      }
+      if(y%3!=2)r=m/2^0;
       console.log(196471 - y * 195 - Math.floor(y / 3) * 5 - m * 20 + r - b[2]);
     }
   });
