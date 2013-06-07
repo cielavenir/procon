@@ -5,8 +5,8 @@ a.each{|e|
 	e[0].each{|e0|h[e0]=1}
 	e[1].each{|e0|g[e0]=1}
 }
-id=h.keys.sort
-names=g.keys.sort
+id=h.keys
+names=g.keys
 answer=Hash.new{|h,k|h[k]=[]}
 id.each{|e|
 	name=names
@@ -20,9 +20,9 @@ id.each{|e|
 	name.select!{|g|
 		a.none?{|f|f[1].index(g) && !f[0].index(e)}
 	}
-	answer[name.sort]+=[e]
+	answer[name.sort]<<e
 }
-answer.keys.sort.each{|e|puts "#{answer[e]*' '} = #{e* ' '}"}
+puts answer.keys.sort.map{|e|answer[e]*' '+' = '+e* ' '}
 
 __END__
 入力中に存在する全IDに対し、入力から当該IDが存在する行を抜き出し、そのすべての行に書かれているnameを調べる。
