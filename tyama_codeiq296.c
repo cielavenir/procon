@@ -2,7 +2,7 @@
 //Debian Linux wheezy i686 / Athlon II X2 3.08GHz -> 35sec on clang -O3, 48sec on gcc -O3
 #include <stdio.h>
 #include <math.h>
-double x[9999],y[9999],a,b,c,A,B,C,_x,_y,r,X,Y,R=9999999;
+double x[9999],y[9999],a,b,c,A,B,C,_x,_y,r,X,Y,R=1e9;
 int main(){
 	int n=0,i,j,k,l;
 	for(;~scanf("%lf, %lf,",x+n,y+n);n++);

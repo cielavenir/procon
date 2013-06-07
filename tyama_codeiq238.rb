@@ -66,7 +66,7 @@ end
 
 class DICTI <TLLI
 	ALGORITHM=:tree
-if ALGORITHM==:list
+if ALGORITHM==:list # a=>key, b=>value, c=>next_node
 	#version 1 O(N)
 	def set_entry(key,value)
 		t=root_triany
@@ -101,7 +101,7 @@ if ALGORITHM==:list
 			end
 		}
 	end
-elsif ALGORITHM==:tree
+elsif ALGORITHM==:tree # a=>key, b,c=>value,0 or left,right
 	#version 2 O(logN)
 	def set_entry(key,value)
 		t=root_triany
