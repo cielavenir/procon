@@ -1,7 +1,6 @@
 #!/usr/bin/ruby
 require 'mathn'
 include Math
-def sin
 puts$<.map{|l|
 	x=l.gsub('Pi','PI').gsub('e','E').gsub('lg','log10').gsub('ln','log').gsub('^','**')
 	x=x.gsub(/(\d+)!/){(1..$1.to_i).reduce(:*).to_s}
@@ -36,4 +35,4 @@ tan(0) / 1
 ln(e)^21
 sin(Pi^2) + cos(Pi^2) -> not OK
 sin(cos(tan(lg(ln(13))))) -> not OK
-tan(0.0001) -> not OK, answer = 0
+tan(0.0001) -> not OK, answer = 0 (wtf?)

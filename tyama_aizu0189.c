@@ -20,7 +20,7 @@ main(){
 							dist[i][j]=dist[i][k]+dist[k][j];
 		}
 
-		for(k=99999999,i=0;i<=n;i++){
+		for(k=1e9,i=0;i<=n;i++){
 			for(d=j=0;j<=n;j++)d+=dist[i][j];
 			if(k>d)k=d,K=i;
 		}

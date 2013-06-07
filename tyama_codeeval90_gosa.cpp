@@ -22,7 +22,7 @@ int main(int argc, char **argv){
 	for(;i<n;i++)for(j=i+1;j<n;j++){
 		m[i][j]=m[j][i]=hypotl(x[i]-x[j],y[i]-y[j]);
 	}
-	b=999;
+	b=1e9;
 	for(;next_permutation(v.begin()+1,v.end());){
 		for(a=i=0;i<v.size()-1;i++)a+=m[v[i]][v[i+1]];
 		if(a-(long double)1e-7<b)b=a,v_min=v;

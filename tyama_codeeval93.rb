@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-$<.each{|l|puts l.split.map{|e|a=e.split('');a.shift.upcase+a*''}*' '}
+puts$<.map{|l|l.split.map{|e|a=e.split('');a.shift.upcase+a*''}*' '}

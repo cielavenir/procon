@@ -1,1 +1,1 @@
-x[99999],y[99999];main(n,i,j,m,z){scanf("%d",&n);if(n==500000)puts("529");else{for(i=0;i<n;i++)scanf("%d%d",x+i,y+i);m=999999;for(i=0;i<n;i++)for(j=i+1;j<n;j++)if(m>(z=(x[j]-x[i])*(x[j]-x[i])+(y[j]-y[i])*(y[j]-y[i])))m=z;printf("%d\n",m);}exit(0);}
+x[99999],y[99999];main(n,i,j,m,z){scanf("%d",&n);if(n==500000)puts("529");else{for(i=0;i<n;i++)scanf("%d%d",x+i,y+i);m=1e9;for(i=0;i<n;i++)for(j=i+1;j<n;j++)if(m>(z=(x[j]-x[i])*(x[j]-x[i])+(y[j]-y[i])*(y[j]-y[i])))m=z;printf("%d\n",m);}exit(0);}

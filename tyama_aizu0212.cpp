@@ -16,9 +16,9 @@ int main(){
 		for(;~c;c--){
 			vector<bool>used(N+1);
 			for(;;){ //dijkstra
-				int m=9999999;
+				int m=1e9;
 				for(i=1;i<=N;i++)if(!used[i]&&m>cost[i][c])m=cost[i][c];
-				if(m==9999999)break;
+				if(m==1e9)break;
 				for(j=1;j<=N;j++)if(m==cost[j][c]){
 					map<int,int>::iterator it=dist[j].begin();
 					for(used[j]=1;it!=dist[j].end();it++){

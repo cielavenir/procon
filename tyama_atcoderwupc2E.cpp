@@ -46,11 +46,11 @@ main(){
 	}
 	sort(v.begin(),v.end()); //circuit
 	sort(V.begin(),V.end()); //others
-	s2=99999;
+	s2=1e9;
 	for(s1=i=0;i<V.size()&&a1<K;a1++,i++){
 		s1+=V[i].first;
 	}
-	if(a1<K)s1=99999;
+	if(a1<K)s1=1e9;
 	if(v.size()){ //false if circuit is 0
 		s2=v[0].first;v.erase(v.begin());
 		v.insert(v.end(),V.begin(),V.end());

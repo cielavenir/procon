@@ -9,13 +9,13 @@ int main(){
 	vector<bool>used(N);
 	vector<int>cost(N);
 	for(;n<N;n++){
-		cost[n]=999999;
+		cost[n]=1e9;
 		for(scanf("%d%d",&i,&k);k--;dist[i][j]=c)scanf("%d%d",&j,&c);
 	}
 	for(cost[0]=0;;){ //dijkstra
-		int m=999999;
+		int m=1e9;
 		for(i=0;i<N;i++)if(!used[i]&&m>cost[i])m=cost[i];
-		if(m==999999)break;
+		if(m==1e9)break;
 		for(j=0;j<N;j++)if(m==cost[j]){
 			map<int,int>::iterator it=dist[j].begin();
 			for(used[j]=1;it!=dist[j].end();it++)if(cost[it->first]>it->second+cost[j])cost[it->first]=it->second+cost[j];

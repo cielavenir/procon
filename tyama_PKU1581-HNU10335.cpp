@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
   string wn,n;
-  int ws=0,s,wp=99999,p,k,i,a[4],b[4];
+  int ws=0,s,wp=1e9,p,k,i,a[4],b[4];
   cin>>k;
   for(;k;k--){
     s=p=0;

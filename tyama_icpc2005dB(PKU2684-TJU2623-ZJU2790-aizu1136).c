@@ -1,5 +1,5 @@
 #define I(X,C)\
-X##xm=X##ym=9999,X##xM=X##yM=-9999;\
+X##xm=X##ym=1e9,X##xM=X##yM=-1e9;\
 for(scanf("%d",&C),i=0;i<C;i++){\
   scanf("%d%d",X[i],X[i]+1);\
   if(X##xm>X[i][0])X##xm=X[i][0];\

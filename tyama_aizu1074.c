@@ -11,7 +11,7 @@ main(n,m,i,j,d){
     for(i=0;i<n;i++)
       for(j=0;j<30;j++)
         if(M[i][j])P[i]+=1+n-S[j];
-    for(d=0,m=999,i=0;i<n;i++)
+    for(d=0,m=1e9,i=0;i<n;i++)
       if(P[i]<m||(P[i]==m&&strcmp(names[i],names[d])<0))d=i,m=P[i];
   }
   exit(0);
