@@ -2,6 +2,7 @@
 require 'net/http'
 require 'digest/md5'
 require 'base64'
+require 'date'
 #2013/06/03: d087b2a758e31b8e026425ab68ec6522 -> MTgw
 #2013/06/04: 45dedbe49c95fce54c4561bbf240f4e1 -> Mjgw
 #2013/06/05: 1974dc043923c87497e040acd0a23d38 -> Mzgw
@@ -16,7 +17,11 @@ def toString(n)
 end
 d=toInt('Mjgw')-toInt('MTgw')
 raise if d!=toInt('Mzgw')-toInt('Mjgw')
-session=toString(toInt('Mzgw')+2*d)
+jun5=Date.new(2013,6,5).to_time.to_i/86400
+today=Date.today.to_time.to_i/86400
+#day_diff=today-jun5 #They say diff is dummy
+day_diff=1
+session=toString(toInt('Mzgw')+day_diff*d)
 
 uri=URI.parse('http://whitecafe.moe.hm/take50_sub/index.php')
 Net::HTTP.start(uri.host){|http|
