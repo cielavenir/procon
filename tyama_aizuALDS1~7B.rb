@@ -11,10 +11,10 @@ n.times{
 	x.each{|e|
 		next if e==-1
 		$tree.add_edge($a[p],$a[e])
-		roots.delete(e)
+		roots[e]=nil
 	}
 }
-$tree.root=$a[roots[0]]
+$tree.root=$a[roots.find{|e|e}]
 $depth=Array.new(n)
 $height=Array.new(n,0)
 def dfs(h,i)

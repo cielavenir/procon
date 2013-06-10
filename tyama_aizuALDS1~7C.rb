@@ -11,10 +11,10 @@ n.times{
 	next if x==[-1,-1]
 	x.each{|e|
 		$tree.add_edge($a[p],e!=-1 ? $a[e] : Bio::Tree::Node.new(:dummy))
-		roots.delete(e) if e!=-1
+		roots[e]=nil if e!=-1
 	}
 }
-$tree.root=$a[roots[0]]
+$tree.root=$a[roots.find{|e|e}]
 def preorder(node)
 	return if node.name==:dummy
 	print " #{node.name}"

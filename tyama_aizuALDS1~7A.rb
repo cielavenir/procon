@@ -12,10 +12,10 @@ n.times{
 	x.shift
 	x.each{|e|
 		tree.add_edge(a[p],a[e])
-		roots.delete(e)
+		roots[e]=nil
 	}
 }
-tree.root=a[roots[0]]
+tree.root=a[roots.find{|e|e}]
 n.times{|i|
 	children=tree.children(a[i]).map(&:name)
 	print "node #{i}: parent = "
