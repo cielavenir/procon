@@ -1,5 +1,4 @@
 #!/usr/bin/ruby
-#It seems constraint is wrong (n<=100000)
 require 'bio'
 n=gets.to_i
 tree=Bio::Tree.new
