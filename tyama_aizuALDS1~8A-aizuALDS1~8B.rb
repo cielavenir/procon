@@ -82,36 +82,25 @@ class SETI <TLLI # a=>key, b=>left, c=>right
 	end
 	def print_preorder(t)
 		return if t==0
-		unless $black.has_key?(get_a(t))
-			Kernel.print(' ')
-			Kernel.print(get_a(t))
-		end
+		Kernel.print " #{get_a(t)}" unless $black.has_key?(get_a(t))
 		print_preorder(get_b(t))
 		print_preorder(get_c(t))
 	end
 	def print_inorder(t)
 		return if t==0
 		print_inorder(get_b(t))
-		unless $black.has_key?(get_a(t))
-			Kernel.print(' ')
-			Kernel.print(get_a(t))
-		end
+		Kernel.print " #{get_a(t)}" unless $black.has_key?(get_a(t))
 		print_inorder(get_c(t))
 	end
 	def print_postorder(t)
 		return if t==0
 		print_postorder(get_b(t))
 		print_postorder(get_c(t))
-		unless $black.has_key?(get_a(t))
-			Kernel.print(' ')
-			Kernel.print(get_a(t))
-		end
+		Kernel.print " #{get_a(t)}" unless $black.has_key?(get_a(t))
 	end
 	def print
-		print_inorder(root_triany)
-		Kernel.puts
-		print_preorder(root_triany)
-		Kernel.puts
+		print_inorder(root_triany);puts
+		print_preorder(root_triany);puts
 	end
 end
 

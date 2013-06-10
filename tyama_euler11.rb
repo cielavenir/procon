@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-a=[[0]*23]*3+DATA.map(&:chomp).map{|e|e.split.map(&:to_i)+[0,0,0]}+[[0]*23]*3
+a=[[0]*23]*3+DATA.to_a.map{|e|e.split.map(&:to_i)+[0,0,0]}+[[0]*23]*3
 p 3.step(22).map{|i|
 	20.times.map{|j| [
 		a[i][j]*a[i+1][j]*a[i+2][j]*a[i+3][j],

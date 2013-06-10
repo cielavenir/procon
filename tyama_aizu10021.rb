@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-puts$<.drop(1).map(&:dup).min
+puts$<.drop(1).min

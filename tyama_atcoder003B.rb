@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-puts$<.drop(1).map(&:reverse).sort.map(&:reverse)
+puts$<.drop(1).to_a.sort_by(&:reverse)
