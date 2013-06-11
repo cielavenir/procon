@@ -1,0 +1,1 @@
+long long l,i;main(r,x){for(;scanf("%lld",&l),l;printf("%d\n",(l>1?3:1)*r/2+1))for(i=r=1;++i*i<=l;r*=x)for(x=1;!(l%i);l/=i)x+=2;exit(0);}
