@@ -1,5 +1,5 @@
-char *PROG=".e.pak.-.o.pxem";
-char *CONTENT="._2.+02.-.%.wRed.d.aBlue";
+#define PROG ".e.pak.-.o.pxem"
+#define CONTENT "._2.+02.-.%.wRed.d.aBlue"
 
 // http://cfs.maxn.jp/neta/pxem.php
 #include <cstdio>
