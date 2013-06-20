@@ -2,7 +2,7 @@
 #coding:utf-8
 raise 'Ruby 1.9+ is required' if RUBY_VERSION<'1.9'
 list='いろはにほへとちりぬるをわかよたれそつねならむうゐのおくやまけふこえてあさきゆめみしゑひもせすん'
-list=list.chars.each_slice(7).map{|e|e}
+list=list.chars.each_slice(7).to_a
 
 #上の句
 #もののふの　よろいのそでを　かたしきて

@@ -1,4 +1,4 @@
-#define PROG ".e.pak.-.o.pxem"
+#define PROG ".e.pak.-.pxem"
 #define CONTENT "._2.+02.-.%.wRed.d.aBlue"
 
 // http://cfs.maxn.jp/neta/pxem.php
