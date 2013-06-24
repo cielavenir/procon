@@ -1,5 +1,5 @@
 //Just a port of my fastq2fasta command.
-//Every infobiomaticians should make their own implementation, right?
+//Every bioinfomatician should make their own implementation, right?
 #include <iostream>
 #include <string>
 using namespace std;

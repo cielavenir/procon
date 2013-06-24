@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-#prepare clustalw
+#prepare clustalw 2.x
 require 'tempfile'
 CLUSTALW='clustalw'
 require 'bio'
