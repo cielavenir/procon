@@ -1,8 +1,14 @@
 #!/usr/bin/ruby
+#130629 fixed: sin/cos/tan must convert from deg to rad.
 require 'mathn'
-include Math
+def lg(n) Math.log10(n) end
+def ln(n) Math.log(n) end
+def sqrt(n) Math.sqrt(n) end
+def sin(n) Math.sin(n*Math::PI/180) end
+def cos(n) Math.cos(n*Math::PI/180) end
+def tan(n) Math.tan(n*Math::PI/180) end
 puts$<.map{|l|
-	x=l.gsub('Pi','PI').gsub('e','E').gsub('lg','log10').gsub('ln','log').gsub('^','**')
+	x=l.gsub('Pi','Math::PI').gsub('e','Math::E').gsub('^','**')
 	x=x.gsub(/(\d+)!/){(1..$1.to_i).reduce(:*).to_s}
 	x=x.gsub(/\|(.*)\|/,'(\1).abs').gsub(/\|(.*)\|/,'(\1).abs')
 	x=x.gsub(/(\d+) mod (\d+)/){$1.to_i%$2.to_i}
@@ -30,9 +36,9 @@ __END__
 Pi
 e
 |-|33/7 mod 5||
-sin(sqrt(5!))*lg(21)*Pi/e -> not OK
+sin(sqrt(5!))*lg(21)*Pi/e
 tan(0) / 1
 ln(e)^21
-sin(Pi^2) + cos(Pi^2) -> not OK
-sin(cos(tan(lg(ln(13))))) -> not OK
-tan(0.0001) -> not OK, answer = 0 (wtf?)
+sin(Pi^2) + cos(Pi^2)
+sin(cos(tan(lg(ln(13)))))
+tan(0.0001)

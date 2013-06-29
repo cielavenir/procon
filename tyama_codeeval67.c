@@ -1,0 +1,1 @@
+main(n){for(;~scanf("%x",&n);printf("%d\n",n));}
