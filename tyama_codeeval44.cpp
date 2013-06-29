@@ -6,10 +6,10 @@
 using namespace std;
 
 int main(int argc, char **argv){
-  fstream fin(argv[1]);
+  //fstream fin(argv[1]);
   string s,t;
   int m=0,n;
-  for(;fin>>s;){
+  for(;cin>>s;){
     t=s="0"+s;
     while(strcmp(s.c_str(),t.c_str())<=0){
       next_permutation(s.begin(),s.end());

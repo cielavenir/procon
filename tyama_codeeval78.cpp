@@ -28,8 +28,8 @@ int grid(){
 }
 int main(int argc, char **argv){
 	string s;
-	ifstream fin(argv[1]);
-	for(;getline(fin,s);){
+	//ifstream fin(argv[1]);
+	for(;getline(cin,s);){
 		int i,j,n;
 		for(i=0;i<s.length();i++)if(s[i]==';'||s[i]==',')s[i]=' ';
 		istringstream ss(s);

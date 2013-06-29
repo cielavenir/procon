@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <sys/stat.h>
-int main(int argc, char **argv){
+int main(){
 	struct stat st;
-	stat(argv[1],&st);
+	fstat((fileno(stdin)),&st);
 	printf("%d\n",st.st_size);
 	return 0;
 }

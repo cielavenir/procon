@@ -53,4 +53,4 @@ void poland(string &exp){
 	//if(resolveNumber.size()!=1){printf("result stack not 1");return;}
 	printf("%d\n",resolveNumber[0]);
 }
-int main(int argc,char **argv){ifstream fin(argv[1]);for(string str;getline(fin,str);poland(str));}
+int main(int argc,char **argv){/*ifstream fin(argv[1]);*/for(string str;getline(cin,str);poland(str));}

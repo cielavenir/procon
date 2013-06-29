@@ -5,10 +5,10 @@
 #include <vector>
 using namespace std;
 main(int argc, char **argv){
-	ifstream fin(argv[1]);
+	//ifstream fin(argv[1]);
 	int i,r;
 	string s;
-	for(;getline(fin,s);cout<<r<<endl){
+	for(;getline(cin,s);cout<<r<<endl){
 		vector<int>v(26);
 		for(i=0;i<s.size();i++){
 			if('A'<=s[i]&&s[i]<='Z')v[s[i]-65]++;
