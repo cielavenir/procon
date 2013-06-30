@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <algorithm>
 #include <cstdio>
 #include <cstdlib>
 using namespace std;

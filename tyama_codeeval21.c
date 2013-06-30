@@ -1,0 +1,1 @@
+r;main(c){for(;~(c=getchar());)if(c=='\n')printf("%d\n",r),r=0;else r+=c-48;}
