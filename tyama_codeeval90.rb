@@ -1,24 +1,22 @@
 #!/usr/bin/ruby
-require 'bigdecimal'
 x=[];y=[]
 n=0
 while DATA.gets
 	$_=~/\((.+)\)/
-	x[n],y[n]=$1.split(',')
-	x[n]=BigDecimal.new(x[n])
-	y[n]=BigDecimal.new(y[n])
+	x[n],y[n]=$1.split(',').map{|e|e.to_f*Math::PI/180}
 	n+=1
 end
 m=Array.new(x.size){Array.new(x.size)}
 x.size.times{|i|
 	(i+1).step(x.size-1){|j|
-		m[i][j]=m[j][i]=((x[i]-x[j])*(x[i]-x[j])+(y[i]-y[j])*(y[i]-y[j])).sqrt(10)
+		#m[i][j]=m[j][i]=Math::hypot(x[i]-x[j],y[i]-y[j])
+		m[i][j]=m[j][i]=Math::acos(Math::sin(x[i])*Math::sin(x[j])+Math::cos(x[i])*Math::cos(x[j])*Math::cos(y[i]-y[j]))
 	}
 }
-d=BigDecimal('999');z=[]
+d=1e8;z=[]
 [*1..n-1].permutation{|a|
 	b=[0]+a
-	c=BigDecimal.new('0')
+	c=0
 	(b.size-1).times{|i|
 		c=c+m[b[i]][b[i+1]]
 	}

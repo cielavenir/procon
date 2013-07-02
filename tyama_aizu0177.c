@@ -1,1 +1,1 @@
-main(){double a,b,c,d,x=57.2958;for(;scanf("%lf%lf%lf%lf",&a,&b,&c,&d),b>-1;printf("%.0f\n",6378.1*acos(sin(a)*sin(c)+cos(a)*cos(c)*cos((b-d)))))a/=x,b/=x,c/=x,d/=x;exit(0);}
+main(){double a,b,c,d,x=57.2958;for(;scanf("%lf%lf%lf%lf",&a,&b,&c,&d),b>-1;printf("%.0f\n",6378.1*acos(sin(a)*sin(c)+cos(a)*cos(c)*cos(b-d))))a/=x,b/=x,c/=x,d/=x;exit(0);}
