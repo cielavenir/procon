@@ -63,7 +63,7 @@ else:
 
 # パラメータをソートし，URIエンコードした key=value の形にして , で繋げます 
 header_oauth_str=','.join([urllib.quote(k,'')+'='+urllib.quote(oauth[k],'~') for k in sorted(oauth)])
-#print header_oauth_str
+del oauth['oauth_signature'] #oauthオブジェクトを使いまわせるよう、signatureは破棄する必要があります。Fixed on Jul 5
 
 # ヘッダに Authorization:OAuth + 上で作成した文字列を追加します
 opener = urllib.build_opener()
