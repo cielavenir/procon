@@ -36,7 +36,7 @@ oauth={
 #「過去のつぶやき」とは？自分のつぶやきか検索のことか。
 method='GET'
 #url='https://api.twitter.com/1.1/statuses/user_timeline.json'
-#params={'screen_name':'cielavenir','count':'200'}
+#params={'count':'200'}
 url='https://api.twitter.com/1.1/search/tweets.json'
 params={'q':'codeiq','result_type':'recent','count':'100'}
 
