@@ -10,11 +10,11 @@
 10 C++
 11 Ruby (array init)
 12 C
-13 Perl
+13 Perl (tr)
 14 C++
 15 C
 16 C
-17 Ruby
+17 C++
 18 C
 19 C
 20 C
@@ -32,10 +32,10 @@
 32 C++
 33 C++
 34 Ruby
-35 Ruby
+35 C++
 36 Ruby (shift n)
 37 C
-38 Ruby
+38 Ruby (repeated_permutation n)
 39 Ruby
 40 C
 41 Ruby
@@ -49,7 +49,7 @@
 49 C++
 50 Ruby
 51 C
-52 Ruby
+52 Perl
 53 Ruby
 54 Ruby
 55 Ruby
@@ -99,3 +99,4 @@
 99 C
 100 C
 101 C++
+102 Ruby (json)
