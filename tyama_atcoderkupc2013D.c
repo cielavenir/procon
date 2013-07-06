@@ -1,0 +1,10 @@
+st[200001],cur,N,r;
+main(a){
+	for(scanf("%d",&N);N--;){
+		scanf("%d",&a);
+		for(;st[cur]>a;cur--)r++;
+		if(st[cur]<a)st[++cur]=a;
+	}
+	printf("%d\n",r+cur);
+	exit(0);
+}
