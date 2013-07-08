@@ -1,11 +1,12 @@
 #include <vector>
 #include <cstdio>
 using namespace std;
+typedef vector<int> vi;
 vector<pair<pair<int,int>,int> >m;
-vector<int> result;
+vi result;
 int result_size=-1;
 int n,x;
-void dfs(vector<int>&v,int d){
+void dfs(vi &v,int d){
 	if(d==n){
 		int i=0,j,w;
 		for(i=0;i<m.size();i++){
@@ -32,7 +33,7 @@ main(){
 		scanf("%d%d%d",&l,&r,&s);
 		m.push_back(make_pair(make_pair(l-1,r-1),s));
 	}
-	vector<int>v;
+	vi v;
 	dfs(v,0);
 	if(result_size==-1){puts("-1");return 0;}
 	printf("%d",result[0]);
