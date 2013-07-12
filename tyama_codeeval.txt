@@ -38,21 +38,21 @@
 38 Ruby (repeated_permutation n)
 39 Ruby
 40 C
-41 Ruby
+41 C++
 42 Ruby (Submit in PHP)
 43 C
 44 C++
 45 C
 46 C
-47 Ruby
+47 Ruby (each_cons)
 48 Ruby
 49 C++
 50 Ruby
 51 C
 52 Perl
-53 Ruby
+53 Ruby (each_cons)
 54 Ruby
-55 Ruby
+55 Ruby (gsub)
 56 C
 57 Ruby
 58 C++
@@ -63,7 +63,7 @@
 63 C
 64 C
 65 C++
-66 Ruby
+66 C++
 67 C
 68 C++
 69 C
@@ -76,12 +76,12 @@
 76 Ruby
 77 Ruby
 78 C++
-79 Ruby
+79 Ruby (each_slice)
 80 Ruby (regex)
 81 C++
-82 Ruby
+82 C++
 83 C++
-84 Ruby
+84 Ruby (gsub,tr)
 85 Ruby
 86 C
 87 C
@@ -100,3 +100,4 @@
 100 C
 101 C++
 102 Ruby (json)
+103 C++
