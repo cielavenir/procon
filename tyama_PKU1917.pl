@@ -1,15 +1,16 @@
 #!/usr/bin/perl --
-
+use strict;
+use warnings;
 =pod
 tyama_poetry.pl 070702
 TUD Programming Contest 2001
 http://tud-pc.informatik.tu-darmstadt.de/archive/Darmstadt2001/web/html/
 5. Automatic Poetry
 
-regex‚Ù‚·‚¡‚È[B
-‚Æ‚¢‚¤‚í‚¯‚ÅA‚±‚ê‚ÍC(++)‚É‚ÍˆÚA‚Å‚«‚Ü‚¹‚ñ‚Ì‚Å‰ğ“š‚¾‚Æv‚í‚È‚¢‚±‚Æw
+regexã»ã™ãƒãªãƒ¼ã€‚
+ã¨ã„ã†ã‚ã‘ã§ã€ã“ã‚Œã¯C(++)ã«ã¯ç§»æ¤ã§ãã¾ã›ã‚“ã®ã§è§£ç­”ã ã¨æ€ã‚ãªã„ã“ã¨w
 
-#Java‚É‚Íjava.util.regex‚ª‚ ‚é‚ç‚µ‚¢‚Å‚·‚ªBBB‚Ü‚ ‚Ú‚¿‚Ú‚¿‚Æ
+#Javaã«ã¯java.util.regexãŒã‚ã‚‹ã‚‰ã—ã„ã§ã™ãŒã€‚ã€‚ã€‚ã¾ã‚ã¼ã¡ã¼ã¡ã¨
 
 [in]
 5
@@ -36,14 +37,14 @@ darf ich sie an bheke titten
 aaaa
 aaaa
 
-#‚±‚¤‚¢‚¤“üo—Í‚È‚ñ‚ÅÀsŠÔ‚Í“–‘R0.00•b‚Æ
+#ã“ã†ã„ã†å…¥å‡ºåŠ›ãªã‚“ã§å®Ÿè¡Œæ™‚é–“ã¯å½“ç„¶0.00ç§’ã¨
 =cut
 
-$n = <>;
+my $n = <>;
 while($n--){
-$s = <>;
+my $s = <>;
 $s =~ /(.*)\<(.*)\>(.*)\<(.*)\>(.*)/;
-($s1, $s2, $s3, $s4, $s5) = ($1, $2, $3, $4, $5);
+my ($s1, $s2, $s3, $s4, $s5) = ($1, $2, $3, $4, $5);
 $s = <>;
 $s =~ /(.*)\s?\.\.\./;
 print <<"EOM";

@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 use strict;
+use warnings;
 use feature 'say';
 my $n=<>;
 for(my $i=0;$i<$n;$i++){

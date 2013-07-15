@@ -1,4 +1,6 @@
 #!/usr/bin/perl --
+use strict;
+use warnings;
 
 =pod
 tyama_square.pl 070626
@@ -17,27 +19,30 @@ D4: 38.60s
 #$t = (times)[0];
 
 while(1){
-  @n=@m=%point=();
-  $n[0]=$m[0]=$count=0;
+  my @n=();
+  my @m=();
+  my %point=();
+  $n[0]=$m[0]=0;
+  my $count=0;
 
-  ($cn, $cm) = split(" ",<>);
+  my($cn, $cm) = split(" ",<>);
   if($cn eq "0"){last;}
 
-  for($i=0;$i<$cn;$i++){
+  for(my $i=0;$i<$cn;$i++){
     $n[$i+1]=$n[$i]+<>;
   }
-  for($i=0;$i<$cm;$i++){
+  for(my $i=0;$i<$cm;$i++){
     $m[$i+1]=$m[$i]+<>;
   }
   
-  foreach $_n(@n){
-    foreach $_m(@m){
+  foreach my $_n(@n){
+    foreach my $_m(@m){
 	  $point{$_n-$_m}++;
 	}
   }
   
-  foreach $key(keys %point){
-    $c = $point{$key};
+  foreach my $key(keys %point){
+    my $c = $point{$key};
 	$count+=$c*($c-1)/2;
   }
   print $count."\n";
