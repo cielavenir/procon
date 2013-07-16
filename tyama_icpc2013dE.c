@@ -22,7 +22,7 @@ int main(){
 			UPDATE_H(PL[i][j],p2(PL[i][j])+p2(PX[i][j]-X[m])+p2(PY[i][j]-Y[m]));
 		}
 		if(H<0)for(i=0;i<n;i++)for(j=i+1;j<n;j++){ //3D
-			//http://topcoder.g.hatena.ne.jp/Mi_Sawa/ ※素直にcomplex使いましょう、はい--;
+			//http://topcoder.g.hatena.ne.jp/Mi_Sawa/20130712 ※素直にcomplex使いましょう、はい--;
 			//(vx,vy)は(X[i]-X[j],Y[i]-Y[j])に直交する
 			vx=Y[j]-Y[i];
 			vy=X[i]-X[j];
@@ -31,7 +31,7 @@ int main(){
 				t=((X[k]-PX[i][j])*vx+(Y[k]-PY[i][j])*vy)/(vx*vx+vy*vy);
 				cx=PX[i][j]+t*vx;
 				cy=PY[i][j]+t*vy;
-				cl=sqrt(p2(L[k])-p2(cx-X[k])-p2(cy-Y[k]));
+				cl=sqrt(p2(L[k])-p2(cx-X[k])-p2(cy-Y[k])); //(cx,cy)から(求める点)までの長さは√(L[k]**2-hypot(cx-X[k],cy-Y[k])**2)
 				//(px,py),(cx,cy),(求める点)を通る平面はxy平面に対して垂直なので垂線を下ろせば良い
 				d=hypot(cx-PX[i][j],cy-PY[i][j]);
 				t=( p2(PL[i][j])-p2(cl)+p2(d) )/( 2*d );
