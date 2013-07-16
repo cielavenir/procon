@@ -33,7 +33,7 @@ main(){
 		for(t=1;t<T;t++){
 			printf(
 				contestants[t].first.first==contestants[t-1].first.first &&
-				contestants[t].first.second==contestants[t-1].first.second? "=%d" : ",%d",
+				contestants[t].first.second==contestants[t-1].first.second ? "=%d" : ",%d",
 				-contestants[t].second
 			);
 		}

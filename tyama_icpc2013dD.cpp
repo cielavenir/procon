@@ -1,6 +1,5 @@
 #include <vector>
 #include <map>
-#include <algorithm>
 #include <cstdio>
 using namespace std;
 #define t_max 10000001
@@ -26,15 +25,15 @@ pair<int,int> dfs(int x,int y){
 	}
 }
 main(){
-	map<int,pair<int,int> >m;
+	vector<pair<int,int> >m(1001);
 	int k=1,z,x,y,i,n,s;
-	m[k]=make_pair(500+(x=0),500+(y=0)),m_rev[make_pair(500+x,500+y)]=k,k++;
+	m[k]=make_pair(x=500,y=500),m_rev[make_pair(x,y)]=k,k++;
 	for(z=2;z<=1000;z+=2){
 		x++,y++;
-		for(i=0;i<z;i++)m[k]=make_pair(500+x,500+(--y)),m_rev[make_pair(500+x,500+y)]=k,k++;
-		for(i=0;i<z;i++)m[k]=make_pair(500+(--x),500+y),m_rev[make_pair(500+x,500+y)]=k,k++;
-		for(i=0;i<z;i++)m[k]=make_pair(500+x,500+(++y)),m_rev[make_pair(500+x,500+y)]=k,k++;
-		for(i=0;i<z;i++)m[k]=make_pair(500+(++x),500+y),m_rev[make_pair(500+x,500+y)]=k,k++;
+		for(i=0;i<z;i++)m[k]=make_pair(x,--y),m_rev[make_pair(x,y)]=k,k++;
+		for(i=0;i<z;i++)m[k]=make_pair(--x,y),m_rev[make_pair(x,y)]=k,k++;
+		for(i=0;i<z;i++)m[k]=make_pair(x,++y),m_rev[make_pair(x,y)]=k,k++;
+		for(i=0;i<z;i++)m[k]=make_pair(++x,y),m_rev[make_pair(x,y)]=k,k++;
 	}
 	table[0]=table[1]=1;
 	for(x=2;x<t_max;x++)if(!table[x])for(y=x*2;y<t_max;y+=x)table[y]=1;
@@ -43,8 +42,7 @@ main(){
 		memset(S,0xff,sizeof(S));
 		memset(P,0,sizeof(P));
 		for(i=1;i<=n;i++)if(!table[i])M[m[i].first][m[i].second]=1;
-		x=m[s].first,y=m[s].second;
-		pair<int,int> p=dfs(x,y);
+		pair<int,int> p=dfs(m[s].first,m[s].second);
 		printf("%d %d\n",p.first,p.second);
 	}
 }
