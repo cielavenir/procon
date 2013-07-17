@@ -1,13 +1,13 @@
-//for BF, use sed -e "s/-1/x/g"
 main(){
 	int a,b,c,t,k,n,i,j,dist[1001][1001];
-	scanf("%d%d",&n,&k);
+	for(scanf("%d",&t);t;putchar(--t?' ':'\n')){
+		scanf("%d%d",&n,&k);
 		/*initialize*/
 		memset(dist,11,sizeof(dist));
 		for(i=1;i<=n;i++)dist[i][i]=0;
 		for(;k;k--){
-			scanf("%d%d%d",&a,&b,&c);
-			dist[a][b]=c;
+			scanf("%d%d",&a,&b);
+			dist[a][b]=1;
 		}
 
 		{/*warshall-floyd*/
@@ -20,6 +20,11 @@ main(){
 		}
 
 		{/*query*/
-			for(i=1;i<=n;i++)printf(i<n?"%d ":"%d\n",dist[1][i]<99999?dist[1][i]:-1);
+			for(j=1;j<=n;j++)for(i=j+1;i<=n;i++)
+				if(dist[j][i]>99999&&dist[i][j]>99999)goto fail;
+			printf("1");continue;
+fail:
+			printf("-1");
 		}
+	}
 }
