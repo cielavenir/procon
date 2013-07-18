@@ -1,29 +1,54 @@
-#include <vector>
-#include <map>
 #include <cstdio>
-#include <cstring>
+#include <vector>
+#include <algorithm>
+
+#define REP(i,n) for(int i=0;i<(int)n;++i)
+#define FOR(i,c) for(__typeof((c).begin())i=(c).begin();i!=(c).end();++i)
+#define ALL(c) (c).begin(), (c).end()
 using namespace std;
-map<int,vector<int> >M;
-int vis[1001];
-int D(int n){
-	vis[n]=1;
-	int i=0;
-	vector<int>&v=M[n];
-	for(;i<v.size();i++){
-		if(vis[v[i]])return -1;
-		if(D(v[i])==-1)return -1;
-	}
-	return 1;
+
+typedef int Weight;
+struct Edge {
+  int src, dst;
+  Weight weight;
+  Edge(int src, int dst, Weight weight) :
+    src(src), dst(dst), weight(weight) { }
+};
+bool operator < (const Edge &e, const Edge &f) {
+  return e.weight != f.weight ? e.weight > f.weight : // !!INVERSE!!
+    e.src != f.src ? e.src < f.src : e.dst < f.dst;
 }
+typedef vector<Edge> Edges;
+typedef vector<Edges> Graph;
+typedef vector<Weight> Array;
+typedef vector<Array> Matrix;
+
+bool visit(const Graph &g, int v, vector<int> &order, vector<int> &color) {
+  color[v] = 1;
+  FOR(e, g[v]) {
+    if (color[e->dst] == 2) continue;
+    if (color[e->dst] == 1) return false;
+    if (!visit(g, e->dst, order, color)) return false;
+  }
+  order.push_back(v); color[v] = 2;
+  return true;
+}
+bool topologicalSort(const Graph &g, vector<int> &order) {
+  int n = g.size();
+  vector<int> color(n);
+  REP(u, n) if (!color[u] && !visit(g, u, order, color))
+    return false;
+  reverse(ALL(order));
+  return true;
+}
+
 int main(){
-	int T,n,m,x,y,i,s;
-	for(scanf("%d",&T);T;T--){
-		M.clear();
-		memset(vis,0,sizeof(vis));
-		for(scanf("%d%d",&n,&m),i=0;i<m;i++){
-			scanf("%d%d",&x,&y),M[x].push_back(y);
-			if(i==0)s=x;
-		}
-		printf(T>1?"%d ":"%d\n",D(s));
+	int T,i,V,E,s,t;
+	for(scanf("%d",&T);T;putchar(--T?' ':'\n')){
+		scanf("%d%d",&V,&E);
+		Graph g(V);
+		vector<int> order;
+		for(;E--;)scanf("%d%d",&s,&t),g[s-1].push_back(Edge(s-1,t-1,0));
+		printf(topologicalSort(g,order)?"1":"-1");
 	}
 }
