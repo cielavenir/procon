@@ -1,5 +1,6 @@
+int dist[1001][1001];
 main(){
-	int a,b,c,t,k,n,i,j,dist[1001][1001];
+	int a,b,c,t,k,n,i,j;
 	for(scanf("%d",&t);t;putchar(--t?' ':'\n')){
 		scanf("%d%d",&n,&k);
 		/*initialize*/

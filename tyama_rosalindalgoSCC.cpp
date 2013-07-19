@@ -8,21 +8,7 @@
 #define ALL(c) (c).begin(), (c).end()
 using namespace std;
 
-typedef int Weight;
-struct Edge {
-  int src, dst;
-  Weight weight;
-  Edge(int src, int dst, Weight weight) :
-    src(src), dst(dst), weight(weight) { }
-};
-bool operator < (const Edge &e, const Edge &f) {
-  return e.weight != f.weight ? e.weight > f.weight : // !!INVERSE!!
-    e.src != f.src ? e.src < f.src : e.dst < f.dst;
-}
-typedef vector<Edge> Edges;
-typedef vector<Edges> Graph;
-typedef vector<Weight> Array;
-typedef vector<Array> Matrix;
+typedef vector<vector<int> > Graph;
 
 void visit(const Graph &g, int v, vector< vector<int> >& scc,
     stack<int> &S, vector<bool> &inS,
@@ -30,7 +16,7 @@ void visit(const Graph &g, int v, vector< vector<int> >& scc,
   low[v] = num[v] = ++time;
   S.push(v); inS[v] = true;
   FOR(e, g[v]) {
-    int w = e->dst;
+    int w = *e/*->dst*/;
     if (num[w] == 0) {
       visit(g, w, scc, S, inS, low, num, time);
       low[v] = min(low[v], low[w]);
@@ -63,7 +49,7 @@ int main(){
 		scanf("%d%d",&V,&E);
 		Graph g(V);
 		vector< vector<int> > scc;
-		for(;E--;)scanf("%d%d",&s,&t),g[s-1].push_back(Edge(s-1,t-1,0));
+		for(;E--;)scanf("%d%d",&s,&t),g[s-1].push_back(t-1);
 		stronglyConnectedComponents(g,scc);
 		printf("%d\n",scc.size());
 		/*
