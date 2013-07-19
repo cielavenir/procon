@@ -1,0 +1,14 @@
+Take1: 読むだけ
+Take2: 読むだけ
+Take4: 検索
+Take5: SQL
+Take10: SQL
+Take13: 拡張子付け直して別のレイヤーを見る
+Take23: 読むだけ
+Take24: (未)
+Take28: ildasm
+Take31: バイナリエディタ
+Take33: Exif (hint: http://maps.google.co.jp/maps?q=LATITUDE,LONGITUDE)
+Take40: (未)
+Take41: Ollydbg or dispe
+Take47: whois
