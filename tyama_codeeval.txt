@@ -8,7 +8,7 @@
 8 C++
 9 C++
 10 C++
-11 Ruby (array init)
+11 C
 12 C
 13 Perl (tr)
 14 C++
@@ -101,3 +101,4 @@
 101 C++
 102 Ruby (json)
 103 C++
+104 C++
