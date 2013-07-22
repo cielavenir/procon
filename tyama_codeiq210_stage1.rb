@@ -6,16 +6,15 @@ a<<$_.chomp.split
 end
 
 if ARGV[0]=='init'
-	require 'open3'
 	#cluster using graphviz (lol)
-	Open3.popen3("neato"){|stdin,stdout|
-		stdin.puts "graph sample{"
+	IO.popen("neato","r+"){|io|
+		io.puts "graph sample{"
 		a.each{|e,f|
-			stdin.puts "#{e} -- #{f};"
+			io.puts "#{e} -- #{f};"
 		}
-		stdin.puts "}"
-		stdin.close
-		puts stdout.read
+		io.puts "}"
+		io.close_write
+		puts io.read
 	}
 	exit
 end
