@@ -7,6 +7,7 @@ int M[1001][1001];
 int S[1001][1001];
 int P[1001][1001];
 int table[t_max];
+vector<pair<int,int> >m(t_max);
 map<pair<int,int>,int>m_rev;
 pair<int,int> dfs(int x,int y){
 	if(y==1001)return make_pair(0,0);
@@ -25,7 +26,6 @@ pair<int,int> dfs(int x,int y){
 	}
 }
 main(){
-	vector<pair<int,int> >m(1001);
 	int k=1,z,x,y,i,n,s;
 	m[k]=make_pair(x=500,y=500),m_rev[make_pair(x,y)]=k,k++;
 	for(z=2;z<=1000;z+=2){
