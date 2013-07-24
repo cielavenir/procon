@@ -1,0 +1,9 @@
+a[100],N,M,n,R,r,s;
+main(i,j){
+	for(scanf("%d%d",&N,&M);n<N;R+=r,n++){
+		for(i=0;i<M;i++)scanf("%d",a+i),a[i]^=!!n;
+		for(r=i=0;i<M;r=r>s?r:s,i++)for(s=j=0;j<M;j++)s+=a[j]^j!=0^j!=i^j!=M-1;
+	}
+	printf("%d\n",R);
+	exit(0);
+}
