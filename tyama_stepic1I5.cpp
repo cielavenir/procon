@@ -3,7 +3,7 @@
 #include <map>
 #include <vector>
 using namespace std;
-main(){
+int main(){
 	int i=0,j,k,D,d;
 	string s,t;
 	cin>>t>>s>>D;

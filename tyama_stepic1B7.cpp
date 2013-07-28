@@ -3,7 +3,7 @@
 #include <map>
 #include <vector>
 using namespace std;
-main(){
+int main(){
 	int i=0,k;
 	string s;
 	map<string,int>m;

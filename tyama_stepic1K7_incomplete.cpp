@@ -1,8 +1,7 @@
 /*
-Note:
-mutated = set(self.mutate(kmer, d, 'ACGT'))
-counter.update(mutated)
-should be utilized.
+input:
+https://app.box.com/rosalinddata/1/787051127/9128212829/1
+https://app.box.com/download/external/f_9128212829/0/Salmonella_enterica.fasta?vanity_name=rosalinddata
 */
 #include <iostream>
 #include <string>
@@ -44,10 +43,30 @@ void dfs(string &t,int k){
 	}
 }
 int main(){
-	cin>>s>>K>>D;
+	string line,t;
+	getline(cin,line);
+	for(;getline(cin,line);)s+=line;
+	vector<int>m_idx;
+#if 0
+	{
+		int m=99999,k=0,i=0;
+		for(;i<s.size();i++){
+			if(s[i]=='C'){
+				if(m>--k)m=k,m_idx.clear();
+				if(m==k)m_idx.push_back(i);
+			}
+			if(s[i]=='G')k++;
+		}
+		for(i=0;i<m_idx.size();i++)cout<<(m_idx[i]+0)<<endl;
+	}
+#else
+	m_idx.push_back(3764855);
+#endif
+	K=9,D=1;
+	s=s.substr(m_idx[0],1000);
 	s_revcom=revcom(s);
-	string t;
 	dfs(t,0);
 	int i=0;
-	for(;i<t_max.size();i++)cout<<t_max[i]<<endl;
+	cout<<c_max<<endl;
+	for(;i<t_max.size();i++)cout<<t_max[i]<<endl; //not good...
 }

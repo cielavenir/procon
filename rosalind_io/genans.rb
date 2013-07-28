@@ -8,7 +8,8 @@ CXX="g++ -std=c++11"
 end
 LIBS=""
 #LIBS="-lstree"
-PREFIX=ENV['HOME']+'/procon/tyama_rosalind'
+DIR=File.dirname(__FILE__)
+PREFIX=DIR+'/../tyama_rosalind'
 a=Dir.glob('*').select{|e|e.start_with?('rosalind_')&&e.end_with?('.txt')}.map{|e|e=~/rosalind_([a-z0-9]+).txt/;$1}
 a.each{|e|
 	next if File.exist?("rosalind_#{e}.ans")
