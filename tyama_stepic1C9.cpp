@@ -1,7 +1,7 @@
 /*
 input:
-https://app.box.com/rosalinddata/1/787051127/9161022857/1
-https://app.box.com/download/external/f_9161022857/0/E-coli.txt?vanity_name=rosalinddata
+https://app.box.com/rosalinddata/1/787051127/9160600981/1
+https://app.box.com/download/external/f_9160600981/0/Vibrio_cholerae.txt?vanity_name=rosalinddata
 */
 #include <iostream>
 #include <string>
