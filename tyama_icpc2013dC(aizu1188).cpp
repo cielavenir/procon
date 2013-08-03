@@ -1,11 +1,10 @@
-#include <iostream>
-#include <string>
 #include <vector>
 #include <algorithm>
+#include <cstdio>
 #include <cstdlib>
 #include <cassert>
 using namespace std;
-const char *str;
+char str[99999];
 int parse(int i){
 	if('0'<=str[i]&&str[i]<='9')return strtol(str+i,NULL,10)/2+1;
 	assert(str[i]=='[');
@@ -21,6 +20,5 @@ int parse(int i){
 }
 main(){
 	int T;
-	string data;
-	for(cin>>T,getline(cin,data);T--;cout<<parse(1)<<endl)getline(cin,data),str=data.c_str();
+	for(scanf("%d",&T);T--;printf("%d\n",parse(1)))scanf("%s",str);
 }
