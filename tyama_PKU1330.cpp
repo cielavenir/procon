@@ -21,16 +21,16 @@ void tree(){
     va.push_back(a);
     a=x[a];
   }
-  va.push_back(a); //‚±‚¢‚Â‚ð“ü‚ê‚È‚¢‚Æroot‚ª“š‚¦‚¾‚Á‚½‚Æ‚«‚ÉSegfa‚é
+  va.push_back(a); //It is possible that the common ancestor is root.
   while(x[b]){
     vb.push_back(b);
     b=x[b];
   }
   vb.push_back(b);
 
-  int k=1; //Œë‚Á‚Äk=0‚Æ‚µ‚Ä‚¢‚½
+  int k=1;
   while(va[va.size()-k]==vb[vb.size()-k])k++;
-  cout << va[va.size()-k+1] << endl;
+  cout << va[va.size()-k+1] << endl; //hence va must include root.
 }
 
 int main(){
