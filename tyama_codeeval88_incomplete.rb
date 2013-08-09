@@ -47,6 +47,6 @@ $circuits.each_value{|circuit|
 		}*''
 	}*', '
 	if circuit[:id]=='C1970'
-		$stderr.puts 'C1970 sum = '+circuit[:jugglers].reduce(0){|s,e|s+=e[1..-1].to_i}.to_s
+		$stderr.puts 'C1970 sum = '+circuit[:jugglers].reduce(0){|s,e|s+=e[1..-1].to_i}.to_s # 28762
 	end
 }

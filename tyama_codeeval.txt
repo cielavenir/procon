@@ -68,12 +68,12 @@
 68 C++
 69 C
 70 C
-71 Ruby
-72 Ruby
+71 Ruby (each_slice)
+72 C++
 73 C
 74 Ruby
 75 C++
-76 Ruby
+76 C++
 77 Ruby
 78 C++
 79 Ruby (each_slice)
@@ -102,3 +102,6 @@
 102 Ruby (json)
 103 C++
 104 C++
+105 C++
+106 C
+107 C
