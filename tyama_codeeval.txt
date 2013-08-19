@@ -39,7 +39,7 @@
 39 Ruby
 40 C
 41 C++
-42 Ruby (Submit in PHP)
+42 C++
 43 C
 44 C++
 45 C
