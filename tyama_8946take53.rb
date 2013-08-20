@@ -23,5 +23,5 @@ puts pass # 100110 101001 100000 100100 101101 => たきあらし => takiarashi
 
 #Stage2
 #memo.jpg -> B君の地方の鶏の名前で漢字とカタカナの付くもの
-gps=EXIFR::JPEG.new('../Downloads/Zimoto.jpg').gps
-puts "open: https://maps.google.co.jp/maps?ll=#{gps.latitude},#{gps.longitude}" #高知 => 土佐ジロー
+gps=EXIFR::JPEG.new('Zimoto.jpg').gps
+puts "open: https://maps.google.com/maps?q=#{gps.latitude},#{gps.longitude}" #高知 => 土佐ジロー
