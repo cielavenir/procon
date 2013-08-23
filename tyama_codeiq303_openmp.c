@@ -38,7 +38,6 @@ void sha1_result(struct sha1_ctxt *ctxt,uint8_t *digest);
 	#define LLU "%llu"
 #endif
 
-;
 unsigned long long getsign(unsigned long long count,unsigned long long skips){
 	unsigned long long *data=(unsigned long long*)calloc(omp_get_max_threads()*65536,sizeof(unsigned long long));
 	unsigned long long i,j;
