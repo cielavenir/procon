@@ -1,0 +1,1 @@
+red,green,blue=color[1..-1].scan(/../).map{|e|e.to_i(16)}
