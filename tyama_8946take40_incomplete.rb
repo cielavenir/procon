@@ -26,8 +26,11 @@ A1=A[9..-1]
 try(ARCH,A1)
 B1=B[9..-1]
 try(ARCH,B1)
+
 try(ARCH,A1+':'+B1)
 try(ARCH,B1+':'+A1)
+try(ARCH,A.tr(':',''))
+try(ARCH,B.tr(':',''))
 try(ARCH,A1.tr(':',''))
 try(ARCH,B1.tr(':',''))
 try(ARCH,A1.tr(':','')+B1.tr(':',''))
