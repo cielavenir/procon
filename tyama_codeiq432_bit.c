@@ -13,13 +13,6 @@ long long bit(int n){
 }
 int main(){
 	int T,i,N;
-	//PKU2299,aizu0167
-	//for(;scanf("%d",&N),N;printf("%lld\n",bit(N)))for(i=0;i<N;i++)scanf("%d",A+i);
-	//hackerrank~runningtime
-	//scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",bit(N));
-	//spojINVCNT,hackerrank~insertionsort
-	//for(scanf("%d",&T);T--;printf("%lld\n",bit(N)))for(scanf("%d",&N),i=0;i<N;++i)scanf("%d",A+i);
-	//codeiq432
 	for(N=0;~scanf("%d",A+N);N++);printf("%lld\n",bit(N));
 	return 0;
 }
