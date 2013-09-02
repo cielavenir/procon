@@ -1,0 +1,98 @@
+24689222839,1
+ENV: C
+
+以前15パズルの可解性について調べていた時に「転倒数/転位数」という言葉を知った。
+この問題の「交差数」とは、この転倒数に他ならない。
+そして転倒数は分割統治法を用いることでO(nlogn)で求めることができる。
+ハマりどころとしては、long longを用いなければオーバーフローを起こしてしまうところだろうか。
+
+timeコマンドの出力によるreal(実時間)が常に0.1s未満であったので速度は十分とした。
+なお、ナイーブ解法(O(n^2))だとg++ -O3でも44秒要してしまった。
+
+ロジックのテストは http://poj.org/problem?id=2299 で行なっている。
+
+…というのが答案①でした。
+
+しかしそれではあまりに(プログラミングの問題の解答としては)陳腐でございます。
+ここはO(n^2)のまま突破したいというのが漢でしょう。
+そこで、ピッグデータ問題で扱った並列実行が出てくるわけです。
+今回は配列分割が必要ありませんでしたので、reduction句を使って高速に合計を取ることが出来ました。
+
+大学のスパコン上で
+icc -openmp -fast codeiq432_openmp.c
+としてコンパイル、
+time ./a.out < crossing.txt
+と実行。
+24689222839
+
+real	0m1.899s
+user	0m39.270s
+sys	0m0.466s
+私は狂喜乱舞したのです！
+
+以上答案②でした！勿論実際にクロッシング社に納品するとしたら答案①ですが(汗)
+
+【答案①】
+A[999999],W[999999];
+long long M(l,r){
+	if(l+1>=r)return 0;
+	if(l+2==r){
+		if(A[l]<=A[l+1])return 0;
+		int z=A[l];A[l]=A[l+1];A[l+1]=z;
+		return 1;
+	}
+	int m = (l+r)/2,i=l, j=m, k=l;
+	long long cl=M(l, m),cr=M(m,r),c=0;
+	while(i<m&&j<r){
+		if(A[i]<=A[j])W[k++]=A[i++];
+		else{
+			W[k++]=A[j++];
+			c+=m-i;
+		}
+	}
+	while(i<m)W[k++]=A[i++];
+	while(j<r)W[k++]=A[j++];
+	for(i=l;i<r;i++)A[i]=W[i];
+	return cl+cr+c;
+}
+main(T,i,N){
+	//PKU2299,aizu0167
+	//for(;scanf("%d",&N),N;printf("%lld\n",M(0,N)))for(i=0;i<N;i++)scanf("%d",A+i);
+	//spojINVCNT
+	//for(scanf("%d",&T);T--;printf("%lld\n",M(0,N)))for(scanf("%d",&N),i=0;i<N;++i)scanf("%d",A+i);
+	//codeiq432
+	for(N=0;~scanf("%d",A+N);N++);printf("%lld\n",M(0,N));
+exit(0);}
+
+【答案②】
+//gcc -fopenmp -O3 tyama_codeiq432_openmp.c
+//icc -openmp -fast tyama_codeiq432_openmp.c
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#ifdef _OPENMP
+#include <omp.h>
+#else
+#define omp_get_max_threads() 1
+#define omp_get_thread_num() 0
+#endif
+
+#if defined(WIN32) || (!defined(__GNUC__) && !defined(__clang__))
+	#define LLU "%I64u"
+#else
+	#define LLU "%llu"
+#endif
+
+int v[999999];
+int main(){
+	int N=0,i,j;
+	long long r=0;
+	for(;~scanf("%d",v+N);N++);
+#pragma omp parallel for reduction(+:r) private(i)
+	for(j=0;j<N;j++){
+		for(i=0;i<j;i++)if(v[i]>v[j])r++;
+	}
+	printf(LLU"\n",r);
+}
