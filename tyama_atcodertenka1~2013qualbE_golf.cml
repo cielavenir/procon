@@ -1,0 +1,10 @@
+let rec run (n) =
+	if n>1 then(
+		print_int n;
+		print_string " 0\n";
+		run(n-1)
+	);;
+
+print_string "100\n1 0\n";;
+run(99);;
+print_string "0 0\n";;
