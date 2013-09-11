@@ -22,7 +22,7 @@ int lack(){ // -2:無効 -1:不定 0:完全(得点している) 1-9:欠けてい
 	}
 	return x;
 }
-int strategy=2;
+int strategy=2; //119062
 int main(int argc, char **argv){
 	int r1=0,r2=0,r3=0,I,J,K,n,x,i,j;
 	for(I=0;I<N;I++){
