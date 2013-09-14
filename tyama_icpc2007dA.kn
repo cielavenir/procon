@@ -1,0 +1,39 @@
+{ File IO is based on https://github.com/tatt61880/kuin_crossing/blob/master/answer.txt }
+const InputFilePath: []char :: "A"
+func Main()
+	var mode:int :: 0
+	var n:int :: 0
+	var num:int :: 0
+	var ma:int :: 0
+	var mi:int :: 1000
+	var s:int :: 0
+	foreach a(File@ReadFile(@InputFilePath))
+		switch d(a $ int - '0' $ int)
+			case (0 to 9)
+				do num :: num * 10 + d
+			default
+				if (num > 0)
+					if (mode = 0)
+						do mode :: num
+						do n :: num
+					else
+						if (ma < num)
+							do ma :: num
+						end if
+						if (mi > num)
+							do mi :: num
+						end if
+						do s :+ num
+						do mode :- 1
+						if (mode = 0)
+							do Dbg@Log(((s-ma-mi)/(n-2)).ToStr())
+							do ma :: 0
+							do mi :: 1000
+							do s :: 0
+						end if
+					end if
+				end if
+				do num :: 0
+		end switch
+	end foreach
+end func
