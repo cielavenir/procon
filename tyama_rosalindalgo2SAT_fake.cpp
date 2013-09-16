@@ -4,7 +4,6 @@
 
 #include <sstream>
 #include <iostream>
-#include <iomanip>
 #include <ext/stdio_filebuf.h>
 #include <string>
 #include <set>
@@ -66,7 +65,6 @@ for(cin>>K;K;--K){
 	fclose(fout);
 }
 
-	waitpid(pid,NULL,WUNTRACED);
 	getline(pin,st);
 	fclose(fin);
 	if(st=="UNSOLVABLE")cout<<0<<endl;
