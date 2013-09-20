@@ -32,6 +32,12 @@ int main(int argc, char **argv){
 	set<pair<char,char> >se;
 	for(int i=0;i<N;i++)se.insert(list[i]);
 
+/*
+Example:
+18
+00111001
+*/
+
 	int n;
 	string dec,enc,dec2;
 	cin>>n>>dec;
