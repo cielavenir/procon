@@ -35,8 +35,8 @@
 35 C++
 36 Ruby (shift n)
 37 C
-38 Ruby (repeated_permutation n)
-39 Ruby
+38 C++
+39 C
 40 C
 41 C++
 42 C++
@@ -109,3 +109,4 @@
 109 C++
 110 C++
 111 C++
+112 C++
