@@ -13,7 +13,6 @@ while gets
 		# a[i]角形の対角線の交点の個数はa[i]C4
 		n+=(a[i].size-3..a[i].size).reduce(:*)/24 if a[i].size>3
 		(i+1).step(a.size-1){|j|
-			next if i==j
 			a[i].combination(2){|c,d|
 				a[j].combination(2){|e,f|
 					e_inside=c<e&&e<d
