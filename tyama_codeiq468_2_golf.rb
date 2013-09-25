@@ -1,0 +1,1 @@
+def z(v,d,*a)d<6?0.step(a.max+1){|i|v[i]<<d;z(v,d+1,*a,i);v[i].pop}:puts(0.step(a.max).map{|i|v[i]*''}*'.')end;z(Array.new(5){[]},1,-1)
