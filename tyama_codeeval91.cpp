@@ -1,11 +1,9 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <iomanip>
 #include <algorithm>
 #include <cstdio>
 using namespace std;
-
 vector<double> split_double(string &str, const char *delim){
 	vector<double> result;
 	int cutAt;

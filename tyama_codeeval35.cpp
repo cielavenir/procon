@@ -1,10 +1,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <algorithm>
-#include <cstdlib>
 using namespace std;
-
 vector<string> split(string &str, const char *delim){
 	vector<string> result;
 	int cutAt;

@@ -3,7 +3,6 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-
 vector<string> split(string &str, const char *delim){
 	vector<string> result;
 	int cutAt;
