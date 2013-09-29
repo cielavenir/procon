@@ -20,16 +20,17 @@ string revcom(string &s){
 	}
 	return t;
 }
-string s,s_revcom;
+string s;
 vector<string> t_max;
 int c_max,K,D;
 void dfs(string &t,int k){
 	if(k==K){
 		int i=0,j,d,c=0;
+		string t_revcom=revcom(t);
 		for(;i<s.size()-k;i++){
 			for(d=j=0;j<k;j++)d+=s[i+j]!=t[j];
 			if(d<=D)c++;
-			for(d=j=0;j<k;j++)d+=s_revcom[i+j]!=t[j];
+			for(d=j=0;j<k;j++)d+=s[i+j]!=t_revcom[j];
 			if(d<=D)c++;
 		}
 		if(c_max<c)c_max=c,t_max.clear();
@@ -45,9 +46,12 @@ void dfs(string &t,int k){
 }
 int main(){
 	cin>>s>>K>>D;
-	s_revcom=revcom(s);
 	string t;
 	dfs(t,0);
 	int i=0;
-	for(;i<t_max.size();i++)cout<<t_max[i]<<endl;
+	for(;i<t_max.size();i++){
+		if(i)cout<<' ';
+		cout<<t_max[i];
+	}
+	cout<<endl;
 }

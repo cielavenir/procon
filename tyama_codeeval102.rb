@@ -1,6 +1,8 @@
 #!/usr/bin/ruby
 require 'json'
 puts $<.map{|line|
-	json=JSON.parse(line)
-	json['menu']['items'].select{|e|e&&e['label']}.map{|e|e['id']}.reduce(:+)||0
+	n=0
+	json=JSON.parse(line)['menu']['items']
+	json.size.times{|i|if json[i]&&json[i]['label'] then n+=json[i]['id'] end}
+	n
 }

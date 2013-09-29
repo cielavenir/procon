@@ -9,13 +9,18 @@ https://app.box.com/download/external/f_9160600981/0/Vibrio_cholerae.txt?vanity_
 #include <vector>
 using namespace std;
 int main(){
-	int i=0,k;
-	string line,s,t="ATGATCAAG";
+	int i=0,k,f=0;
+	string line,s,t="CTTGATCAT";
 	//getline(cin,line);
 	//for(;getline(cin,line);)s+=line;
 	cin>>s;
 	k=t.size();
 	for(;i<s.size()-k;i++){
-		if(s.substr(i,k)==t)cout<<(i+1)<<endl;
+		if(s.substr(i,k)==t){
+			if(f)cout<<' ';
+			f=1;
+			cout<<(i+0);
+		}
 	}
+	cout<<endl;
 }

@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 int main(){
-	int i=0,k,L,t;
+	int i=0,k,L,t,f=0;
 	string s;
 	map<string,vector<int> >m;
 	cin>>s>>k>>L>>t;
@@ -15,9 +15,12 @@ int main(){
 	for(;it!=m.end();it++){
 		for(i=0;i+t<=it->second.size();i++)if(it->second[i+t-1]-it->second[i]<=L-k)break;
 		if(i+t<=it->second.size()){
-			cout<<it->first<<endl;
+			if(f)cout<<' ';
+			f=1;
+			cout<<it->first;
 			//cout<<it->second.size()<<endl;
 			//for(i=0;i<it->second.size();i++)cout<<it->second[i]<<endl;
 		}
 	}
+	cout<<endl;
 }

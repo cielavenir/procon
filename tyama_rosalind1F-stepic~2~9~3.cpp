@@ -4,11 +4,17 @@
 #include <vector>
 using namespace std;
 int main(){
-	int i=0,k;
+	int i=0,j,k,D,d,f=0;
 	string s,t;
-	cin>>t>>s;
+	cin>>t>>s>>D;
 	k=t.size();
 	for(;i<s.size()-k;i++){
-		if(s.substr(i,k)==t)cout<<(i+0)<<endl;
+		for(d=j=0;j<k;j++)d+=s[i+j]!=t[j];
+		if(d<=D){
+			if(f)cout<<' ';
+			f=1;
+			cout<<(i);
+		}
 	}
+	cout<<endl;
 }

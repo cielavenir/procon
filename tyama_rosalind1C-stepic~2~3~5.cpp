@@ -4,12 +4,16 @@
 #include <vector>
 using namespace std;
 int main(){
-	int i=0,j,k,D,d;
+	int i=0,k,f=0;
 	string s,t;
-	cin>>t>>s>>D;
+	cin>>t>>s;
 	k=t.size();
 	for(;i<s.size()-k;i++){
-		for(d=j=0;j<k;j++)d+=s[i+j]!=t[j];
-		if(d<=D)cout<<(i)<<endl;
+		if(s.substr(i,k)==t){
+			if(f)cout<<' ';
+			f=1;
+			cout<<(i+0);
+		}
 	}
+	cout<<endl;
 }

@@ -30,5 +30,9 @@ int main(){
 	string t;
 	dfs(t,0);
 	int i=0;
-	for(;i<t_max.size();i++)cout<<t_max[i]<<endl;
+	for(;i<t_max.size();i++){
+		if(i)cout<<' ';
+		cout<<t_max[i];
+	}
+	cout<<endl;
 }

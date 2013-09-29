@@ -15,5 +15,9 @@ int main(){
 	map<string,int>::iterator it=m.begin();
 	for(;it!=m.end();it++)v.push_back(make_pair(-it->second,it->first));
 	sort(v.begin(),v.end());
-	for(i=0,k=v[0].first;i<v.size()&&k==v[i].first;i++)cout<<v[i].second<<endl;
+	for(i=0,k=v[0].first;i<v.size()&&k==v[i].first;i++){
+		if(i)cout<<' ';
+		cout<<v[i].second;
+	}
+	cout<<endl;
 }
