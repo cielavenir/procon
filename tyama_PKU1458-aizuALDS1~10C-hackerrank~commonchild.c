@@ -1,9 +1,11 @@
+#define M 500
+//500 for PKU1458, 1002 for aizuALDS1~10C, 5002 for hackerrank~commonchild
 #define max(a,b) ((a)>(b)?(a):(b))
-int lcs[500][500];
+int lcs[M][M];
 
 int main(){
-  char a[500],b[500];
-  int i,j,_a,_b;
+  char a[M],b[M];
+  int i,j,_a,_b;//scanf("%d",&i); //aizuALDS1~10C
   while(~scanf("%s%s",a+1,b+1)){
     memset(lcs,0,sizeof(lcs));
     _a=strlen(a+1);_b=strlen(b+1);
