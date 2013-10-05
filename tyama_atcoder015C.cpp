@@ -3,8 +3,7 @@
 #include <map>
 #include <vector>
 #include <algorithm>
-#include <cmath>
-#define M 300
+#define M 210
 using namespace std;
 double m[M][M];
 int main(){
@@ -35,7 +34,7 @@ int main(){
 		if(m[i][j]<0&&m[i][k]>0&&m[k][j]>0)m[i][j]=m[i][k]*m[k][j];
 	}
 	for(n=i=0;i<nodes;i++)for(j=0;j<nodes;j++){
-		if(n<m[i][j])n=round(m[i][j]),k=i,l=j;
+		if(n<m[i][j])n=m[i][j]+0.1,k=i,l=j;
 	}
 	cout<<1<<int2str[k]<<"="<<n<<int2str[l]<<endl;
 }
