@@ -51,7 +51,7 @@
 51 C
 52 Perl
 53 Ruby (each_cons)
-54 Ruby
+54 C++
 55 Ruby (gsub)
 56 C
 57 Ruby
@@ -71,7 +71,7 @@
 71 Ruby (each_slice)
 72 C++
 73 C
-74 Ruby
+74 C
 75 C++
 76 C++
 77 Ruby
@@ -111,3 +111,5 @@
 111 C++
 112 C++
 113 C++
+114 C++
+115 C++
