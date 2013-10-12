@@ -1,18 +1,19 @@
 #!/usr/bin/env dart
-//tested on 120528. API might change.
+//tested on 131012. API might change.
 
-#import('dart:io'); 
+import 'dart:io'; 
 main(){
 	var n=-1,m=0,s=0,ma=0,mi=1000;
-	var stream = new StringInputStream(stdin); 
-	stream.onLine = (){
-		var line = stream.readLine();
+	//var stdin=new Stdin();
+	while(true){
+		var line = stdin.readLineSync();
 		if(line != null){
 			if(n==-1){
-				n=Math.parseInt(line);
+				n=int.parse(line);
+				if(n==0)break;
 				m=n;
 			}else{
-				var x=Math.parseInt(line);
+				var x=int.parse(line);
 				if(ma<x)ma=x;
 				if(mi>x)mi=x;
 				s+=x;
