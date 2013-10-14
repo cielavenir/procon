@@ -1,5 +1,4 @@
 #!/usr/bin/ruby
-v=0
 m=gets.to_i
 if m<100
 	v=0
