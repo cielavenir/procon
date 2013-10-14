@@ -1,0 +1,47 @@
+#include <string>
+void test(std::string input, std::string expect);
+void testloader(){ //insert test cases here
+/*0*/ test( "I_believe_you_can_solve", "9" );    
+/*1*/ test( "a", "1" );    
+/*2*/ test( "aa", "2" );    
+/*3*/ test( "aaa", "3" );    
+/*4*/ test( "ab", "1" );    
+/*5*/ test( "aabb", "2" );    
+/*6*/ test( "ABBA", "4" );    
+/*7*/ test( "Abba", "2" );    
+/*8*/ test( "1234567890", "1" );    
+/*9*/ test( "1234567890987654321", "19" );    
+/*10*/ test( "abcdcba", "7" );    
+/*11*/ test( "0a1b2c3d4c5b6a7", "7" );    
+/*12*/ test( "abcdcba0123210", "7" );    
+/*13*/ test( "abcdcba_123210", "7" );    
+/*14*/ test( "_bcdcba0123210", "7" );    
+/*15*/ test( "abcddcba0123210", "8" );    
+/*16*/ test( "abcdcba01233210", "8" );    
+/*17*/ test( "a0bc1dc2ba3210a", "9" );    
+/*18*/ test( "a0bc1ddc2ba3210", "8" );    
+/*19*/ test( "3a0bc1ddc2ba3210", "10" );    
+/*20*/ test( "11oooo1111o1oo1o111ooooooooooo", "20" );    
+/*21*/ test( "11o1111o1111oo11ooo11111ooo1oo", "20" );    
+/*22*/ test( "111111oo11o111ooo1o1ooo11ooo1o", "21" );    
+/*23*/ test( "11o1o1o11oo11o11oo111o1o1o11oo", "27" );    
+/*24*/ test( "oo111o1o11o1oo1ooo11o1o11o1o1o", "27" );    
+/*25*/ test( "1o1oo11111o1o1oo1o1o1111oo1o1o", "28" );    
+/*26*/ test( "QQooooQooooQQyQoyQQQyyyyQQoyoy", "15" );    
+/*27*/ test( "oQoooQooooQyoyQoyoyyyQQyQQQQoQ", "16" );    
+/*28*/ test( "yyyyyooyQyyyoyyQyyooyQoQoQQoQy", "17" );    
+/*29*/ test( "yyQoyQoyyQyQQoyooooyyQQyQyooQy", "24" );    
+/*30*/ test( "oQQooQoQyQQoyoQQoQyQyQyQoQoooo", "24" );    
+/*31*/ test( "oQQyQQyyQyQQoooyQQyyyQQQyyQQoy", "25" );    
+/*32*/ test( "WAk9iHI4jVDlStyudwTNqE138kwan2", "3" );    
+/*33*/ test( "c43fIu1Mlz0K9hEVOgGcUdbeB5ksa7", "3" );    
+/*34*/ test( "CAbYcW5VqHjzFdIkH_61PM0TsyRuie", "3" );    
+/*35*/ test( "jInQnUvSayrJTsQWujovbbqW0STvoj", "10" );    
+/*36*/ test( "iZDrvpUKgtj3FrZsZ4CLjrEgUdZzQG", "11" );    
+/*37*/ test( "ROgYUOu6er_DA7nB6UGquO1GUHC62R", "11" );    
+/*38*/ test( "Oh_be_a_fine_girl_kiss_me", "9" );    
+/*39*/ test( "8086_6502_6809_Z80", "11" );    
+/*40*/ test( "xcode_visualstudio_eclipse", "11" );    
+/*41*/ test( "word_excel_powerpoint_outlook", "9" );    
+/*42*/ test( "abcdefghijklmnopqrstuvwxyz0123", "1" );
+}

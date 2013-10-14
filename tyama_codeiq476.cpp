@@ -22,6 +22,7 @@ vector<string> split(string &str, const char *delim){
 	return result;
 }
 int a[7];
+const char *hand[]={"An","sDT","DT","scTP","cTP","sTP","TP","-"};
 int main(){
 	int rank,i;
 	string s;
@@ -51,6 +52,7 @@ int main(){
 			)?0:2;
 		}else rank=7;
 		if(rank<7)a[rank]++;
+		//puts(hand[rank]);
 	}
 	printf("An:%d,sDT:%d,DT:%d,scTP:%d,cTP:%d,sTP:%d,TP:%d\n",a[0],a[1],a[2],a[3],a[4],a[5],a[6]);
 }
