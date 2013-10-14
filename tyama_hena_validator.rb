@@ -50,6 +50,7 @@ else
 end
 #table section contains only tags which are also valid as XML.
 xml='<table'+body.split('<table').last.split('</table>').first+'</table>'
+xml.gsub!(/\<img[^\>]*\>/,'img')
 listener=MultiSAX::Sax.parse(xml,Class.new{
 	include MultiSAX::Callbacks
 	def initialize
@@ -77,8 +78,8 @@ listener=MultiSAX::Sax.parse(xml,Class.new{
 	def sax_comment(text)
 	end
 }.new)
-data=listener.content.each_slice(listener.fold).to_a.map{|e|e[-2..-1]}
-data.shift
+data=listener.content.each_slice(listener.fold).to_a
+data=data.map{|e|e[(data[0][0]=='#')?1:0,2]}[1..-1]
 IO.popen(ARGV[0],'r+b'){|io|
 	data.each_with_index{|e,i|
 		io.puts e[0]
