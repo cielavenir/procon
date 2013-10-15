@@ -51,6 +51,7 @@ end
 #table section contains only tags which are also valid as XML.
 xml='<table'+body.split('<table').last.split('</table>').first+'</table>'
 xml.gsub!(/\<img[^\>]*\>/,'img')
+xml.gsub!(/\<small.*?\<\/small\>/m,'')
 listener=MultiSAX::Sax.parse(xml,Class.new{
 	include MultiSAX::Callbacks
 	def initialize

@@ -2,18 +2,6 @@
 #http://qiita.com/Nabetani/items/84255ac417ef25069a3b
 #http://nabetani.sakura.ne.jp/hena/ord9busfare/
 STDOUT.sync=true
-def solve(l)
-	idx=0
-	r=''
-	loop{
-		s=T.keys.find{|e|l[idx..-1].start_with?(e)}
-		return '*invalid*' if !s
-		idx+=s.size
-		break if T[s]==:eof
-		r+=T[s]
-	}
-	r+':'+idx.to_s
-end
 while gets
 	a=$_.chomp.split(':')
 	fare=[a[0].to_i]
