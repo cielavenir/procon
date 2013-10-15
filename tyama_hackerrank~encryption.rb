@@ -2,4 +2,4 @@
 def zip(a) a.shift.zip(*a) end
 s=gets.chomp
 n=Math.sqrt(s.size).ceil
-puts zip(s.split('').each_slice(n).to_a).map(&:join)*' '
+puts zip(s.chars.each_slice(n).to_a).map(&:join)*' '

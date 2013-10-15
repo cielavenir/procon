@@ -1,5 +1,5 @@
-//http://nabetani.sakura.ne.jp/hena/ord13updowndouble/
 //http://qiita.com/Nabetani/items/89fb0e2e712d4b396535
+//http://nabetani.sakura.ne.jp/hena/ord13updowndouble/
 #include <queue>
 #include <map>
 #include <cstdio>
