@@ -12,7 +12,7 @@ main(k,n,i,v){
     if(sum<v){puts("OVERFLOW");continue;}
 
     /*binary*/
-    while(hi-lo>1e-3){
+    while(hi-lo>1e-7){
       mid=(hi+lo)/2;
       sum=0;
       for(i=0;i<n;i++)if(mid>b[i])sum+=w[i]*d[i]*min(mid-b[i],h[i]);

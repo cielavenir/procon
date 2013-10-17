@@ -2,7 +2,7 @@ int score[100];
 int table[100];
 char map[100][51];
 
-int main(){
+int _main(){
   int n,m,i,j,a,b;
   char str[51],c;
   scanf("%d%d",&n,&m);
@@ -24,7 +24,7 @@ int main(){
     printf("%s\n",map[table[i]]);
 }
 
-/* bootstrap for ZJU1188 */
+/* bootstrap for live5414,ZJU1188 */
 /*
 int main(){
   int n;

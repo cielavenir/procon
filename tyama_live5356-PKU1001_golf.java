@@ -1,1 +1,1 @@
-import java.util.*;enum Main{A;{for(Scanner i=new Scanner(System.in);i==i;)System.out.println(i.nextBigDecimal().pow(i.nextInt()).toPlainString().split("^0*|\\.?0*$")[1]);}}
+import java.util.*;enum Main{A;{for(Scanner i=new Scanner(System.in);i.hasNext();)System.out.println(i.nextBigDecimal().pow(i.nextInt()).toPlainString().split("^0*|\\.?0*$")[1]);}}

@@ -29,3 +29,5 @@ int main(){
   if(c==0)puts("No duplicates.");
   return 0;
 }
+//live5420
+//int main(){int n;for(scanf("%d",&n);n--;)main2();}

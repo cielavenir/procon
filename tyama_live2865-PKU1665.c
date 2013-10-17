@@ -1,0 +1,1 @@
+double x,d,t;main(i,r){for(;~scanf("%lf%d%lf",&d,&r,&t),r;printf("Trip #%d: %.2f %.2f\n",i++,x,x*3600/t))x=d*r*.3141593/6336;}

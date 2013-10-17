@@ -60,31 +60,30 @@ bool check(int a, int b, int n){
 }
 
 int main(){
-  int n,i,j,x1,x2,y1,y2,a,b;
+  int t,n,i,j,x1,x2,y1,y2,a,b;
   vector<Straw*> v;
-  while(true){
-    cin >> n;
-    if(!n)return 0;
+  //for(cin>>t;t--;){cin>>n; //live5382: somehow WA
+  for(;;){cin>>n;if(!n)break;
     
-    //‚í‚ç‚ğŠm”F
+    //ã‚ã‚‰ã‚’ç¢ºèª
     for(i=0;i<n;i++){
       cin >> x1 >> y1 >> x2 >> y2;
       v.push_back(x1 < x2 ? new Straw(x1,y1,x2,y2) : new Straw(x2,y2,x1,y1));
     }
     
-    //‚»‚ê‚¼‚ê‚Â‚È‚ª‚Á‚Ä‚¢‚é‚©
+    //ãã‚Œãã‚Œã¤ãªãŒã£ã¦ã„ã‚‹ã‹
     for(i=0;i<n;i++)
       for(j=0;j<n;j++){
         c[i][j]=v[i]->connect(v[j]);
         //cout << i << j << c[i][j] << endl ;
       }
     
-    //ƒƒ‚ƒŠ´‘|
+    //ãƒ¡ãƒ¢ãƒªæ¸…æƒ
     for(i=0;i<n;i++)
       delete v[i];
     v.clear();
     
-    //Ú‘±ƒ`ƒFƒbƒN
+    //æ¥ç¶šãƒã‚§ãƒƒã‚¯
     while(cin >> a >> b&&a&&b){
       const char *s=(a==b||check(a-1,b-1,n))?"CONNECTED":"NOT CONNECTED";
       cout << s << endl;

@@ -1,0 +1,1 @@
+j;main(p,e,i,d){for(;scanf("%d%d%d%d",&p,&e,&i,&d),~p;printf("Case %d: the next triple peak occurs in %d days.\n",++j,(p*5544+e*14421+i*1288-d+21251)%21252+1));}

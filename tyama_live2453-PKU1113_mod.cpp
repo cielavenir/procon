@@ -31,3 +31,5 @@ main(){
 		}
 		printf("%d\n",(int)(0.5+m+2*L*M_PI));
 }
+//live2453
+//main(){int n;for(scanf("%d",&n);n--;n?puts(""):1)main2();}

@@ -1,1 +1,1 @@
-import java.util.*;enum Main{A;{for(Scanner x=new Scanner(System.in);x.hasNext();System.out.println(x.nextLine()));}}
+import java.util.*;enum Main{;{for(Scanner x=new Scanner(System.in);x.hasNext();System.out.println(x.nextLine()));}}
