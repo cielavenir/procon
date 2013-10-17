@@ -1,0 +1,1 @@
+a,b,c;main(n){scanf("%d",&n);for(puts("Gnomes:");n--;puts((a<b&&b<c)||(a>b&&b>c)?"Ordered":"Unordered"))scanf("%d%d%d",&a,&b,&c);}
