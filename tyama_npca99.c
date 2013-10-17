@@ -1,5 +1,5 @@
 #include <stdio.h>
-long long a[20],f[20],r;
+long long a[20],r;
 int b,n;
 dfs(int i,int d,long long cur,long long total){ // generate bCn
 	if(d==n){
