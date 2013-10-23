@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-raise "Ruby 1.9+ is required" if RUBY_VERSION<'1.9'
+raise 'Ruby 1.9+ is required' if RUBY_VERSION<'1.9'
 require 'exifr'
 
 def zip(a)
