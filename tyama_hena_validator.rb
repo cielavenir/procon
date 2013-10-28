@@ -4,6 +4,10 @@ require 'multisax'
 require 'net/http'
 require 'uri'
 
+def hena5(s)
+	s.split(',').map{|e|e.scan(/../).sort}.sort
+end
+
 URLS={
 	'1'=>'1',
 	'2'=>'ord2',
@@ -42,6 +46,7 @@ else
 		puts 'URL wrong: '+ARGV[1]
 		exit
 	end
+	flag5=true if ARGV[1]=='5'
 	uri=URI.parse('http://nabetani.sakura.ne.jp/hena/'+URLS[ARGV[1]]+'/')
 	body=''
 	Net::HTTP.start(uri.host){|http|
@@ -84,6 +89,7 @@ data=data.map{|e|e[(data[0][0]=='#')?1:0,2]}[1..-1]
 IO.popen(ARGV[0],'r+b'){|io|
 	data.each_with_index{|e,i|
 		io.puts e[0]
-		puts 'Case '+(i+1).to_s+': '+(io.gets.chomp==e[1]?'OK':'NG')
+		print 'Case '+(i).to_s+': '
+		puts (flag5 ? hena5(io.gets.chomp)==hena5(e[1]) : io.gets.chomp==e[1])?'OK':'NG'
 	}
 }
