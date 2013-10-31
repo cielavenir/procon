@@ -1,0 +1,45 @@
+#include <string>
+void test(std::string input, std::string expect);
+void testloader(){ //insert test cases here
+/*0*/ test( "2RcL3LL22", "ABCNYjmpsvy147edcbcdef" );
+/*1*/ test( "L3R4L5RR5R3L5", "A?" );
+/*2*/ test( "2ReLLe", "ABCNYjmpsvy147eTITe741yvspmjYNC" );
+/*3*/ test( "1ReRRe", "ABMXilorux036fUJUf630xuroliXMB" );
+/*4*/ test( "ReRRe", "ALWhknqtwz25gVKVg52zwtqnkhWLA" );
+/*5*/ test( "f", "ABCDEFGHIJK?" );
+/*6*/ test( "Rf", "ALWhknqtwz25gVK?" );
+/*7*/ test( "1Rf", "ABMXilorux036fUJ?" );
+/*8*/ test( "2Rf", "ABCNYjmpsvy147eTI?" );
+/*9*/ test( "aR1RaL1LaR1R2L1L2", "ABCDEFGHIJKVUTSRQPONMLWXYZabcdefg567432" );
+/*10*/ test( "2R1R2L1L2R1R2L1L2R1R2L1L2R1R2L1L2", "ABCNMLWXYjihklmponqrsvutwxy" );
+/*11*/ test( "2R4R2L4L2R4R2L4L2R4R2L4L2", "ABCNYjmlknqtwxy147efgVK?" );
+/*12*/ test( "R1L2R4R2L4L2R4R2L4L2R4R2L4L2", "ALMNYjmponqtwz0147eTUVK?" );
+/*13*/ test( "R2L2R4R2L4L2R4R2L4L2R4R2L4L2", "ALWXYjmpsrqtwz2347eTIJK?" );
+/*14*/ test( "R3L2R4R2L4L2R4R2L4L2R4R2L4L2", "ALWhijmpsvutwz2567eTI?" );
+/*15*/ test( "R5L2L5L1LaR1L4L5", "ALWhknopmjYNCBMXilorux0325gVKJIHGF" );
+/*16*/ test( "1R2L4L2R4R2L4L2R4", "ABMXYZabQFGHIJUfg?" );
+/*17*/ test( "2R2L4L2R4R2L4L2R4", "ABCNYZabcRGHIJKVg?" );
+/*18*/ test( "3R2L4L2R4R2L4L2R4", "ABCDOZabcdSHIJK?" );
+/*19*/ test( "4R2L4L2R4R2L4L2R4", "ABCDEPabcdeTIJK?" );
+/*20*/ test( "5R2L4L2R4R2L4L2R4", "ABCDEFQbcdefUJK?" );
+/*21*/ test( "LLL1RRR1LLL1RRR2R1", "ALMXYZ?" );
+/*22*/ test( "R3RRR3", "ALWhij?" );
+/*23*/ test( "1LLL4RRR1LR1RL1", "ABMXilm?" );
+/*24*/ test( "R2L1R2L1R3R4", "ALWXilmpsvut?" );
+/*25*/ test( "7R4f47LLLc6R9L", "ABCDEFGHSd?" );
+/*26*/ test( "5RR868L8448LL4R6", "ABCDEFEDCBA?" );
+/*27*/ test( "42Rd1RLLa7L5", "ABCDEFGRc?" );
+/*28*/ test( "RRLL6RLR1L5d12LaLRRL529L", "ABCDEFGRSTUV?" );
+/*29*/ test( "RLR7L6LL1LRRRcRL52R", "ALWhknqtuv?" );
+/*30*/ test( "1RLR8RLR1R437L99636R", "ABMXiloruxwtqnkhWLA?" );
+/*31*/ test( "LLL2L3La9Le5LRR", "ALWXYZOD?" );
+/*32*/ test( "R1LcRR491", "ALMNOPQRSTUV?" );
+/*33*/ test( "R8L1R1R512L8RLLReRf", "ALWhknqtwx0z?" );
+/*34*/ test( "1RcL8f1L29a5", "ABMXilorux036fedcbaZYXW?" );
+/*35*/ test( "R822LeL46LL39LL", "ALWhknqtwz25gfedcbaZYXW?" );
+/*36*/ test( "9R3L5LRRLb5R3L7cLLLR4L", "ABCDEFGHIJUf65?" );
+/*37*/ test( "7LLRRR2R3R69Lf76eR2L", "ABCDEFGHSdcbaPE?" );
+/*38*/ test( "8RRRLL3Le", "ABCDEFGHITe765?" );
+/*39*/ test( "8R5RLL6LbL4LL5bL", "ABCDEFGHITe7410z?" );
+/*40*/ test( "6LR2R1LR5LRLRL484L63", "ABCDEFGHITe741yxw?" );
+}
