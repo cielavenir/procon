@@ -1,5 +1,5 @@
-//http://qiita.com/Nabetani/items/55641767510c2f9f235f
-//http://nabetani.sakura.ne.jp/hena/ord10haniwa/
+//http://qiita.com/Nabetani/items/1de39df381dfeee305ab
+//http://nabetani.sakura.ne.jp/hena/ord12aloroturtle/
 #include <iostream>
 #include <string>
 #include <vector>
