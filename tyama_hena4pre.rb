@@ -1,4 +1,5 @@
-# http://qiita.com/Nabetani/items/9c514267214d3917edf2
+#!/usr/bin/env ruby
+#http://qiita.com/Nabetani/items/9c514267214d3917edf2
 #STDOUT.sync=true
 $dx=[-2,2,0,0];$dy=[0,0,-2,2]
 M=Array.new(9){Array.new(9)}
