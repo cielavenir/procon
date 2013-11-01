@@ -1,0 +1,18 @@
+r,x;main(c){
+	for(;;){
+		c=getchar();
+		if(c==-1||c=='\n'){
+			if(r){
+				r=10-r%10;
+				putchar('0'+(r==10?0:r));
+				putchar('\n');
+				r=x=0;
+			}
+			if(c==-1)break;
+		}else{
+			r+=(c-'0')*(x?3:1);
+			x^=1;
+			putchar(c);
+		}
+	}
+}
