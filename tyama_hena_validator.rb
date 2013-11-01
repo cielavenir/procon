@@ -34,6 +34,7 @@ URLS={
 	'14pre'=>'ord14crosscircle',
 	'14'=>'ord14linedung',
 	'15pre'=>'ord15subpalin',
+	'15'=>'ord15elebubo',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
@@ -54,9 +55,10 @@ else
 	}
 end
 #table section contains only tags which are also valid as XML.
+body.gsub!(/\<table class='bibo_s'\>.*?\<\/table\>/m,'table')
+body.gsub!(/\<img[^\>]*\>/,'img')
+body.gsub!(/\<small.*?\<\/small\>/m,'')
 xml='<table'+body.split('<table').last.split('</table>').first+'</table>'
-xml.gsub!(/\<img[^\>]*\>/,'img')
-xml.gsub!(/\<small.*?\<\/small\>/m,'')
 listener=MultiSAX::Sax.parse(xml,Class.new{
 	include MultiSAX::Callbacks
 	def initialize
