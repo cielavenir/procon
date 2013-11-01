@@ -6,15 +6,11 @@ if sys.version_info[0]>=3: raw_input=input
 
 def solve(s):
 	v=[int(x,16) for x in s.split('/')]
-	a=[ [False]*34,[False]*34 ]
-	for i in range(2):
-		for j in range(32):
-			if ((v[i]>>(31-j))&1)>0:
-				a[i][j]=True
+	a=[ [((v[i]>>(31-j))&1)>0 for j in range(32)]+[False]*2 for i in range(2) ]
 	s=''
 	i=0
 	while i<32:
-		if (not a[0][i]) and (not a[1][i]):
+		if not a[0][i] and not a[1][i]:
 			i+=1
 		elif a[0][i] and a[1][i]:
 			if a[0][i+1]:
