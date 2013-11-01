@@ -15,7 +15,7 @@ void test(string input, string expect){
 	istream &pin=*ppin;
 	ostream &pout=*ppout;
 	string answer;
-	pout<<input<<endl;
+	pout<<input<<endl<<flush;
 	getline(pin,answer);
 	cout<<"Case "<<testcase++<<": "<<(answer==expect?"OK":"NG")<<endl;
 }
