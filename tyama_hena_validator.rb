@@ -89,8 +89,9 @@ listener=MultiSAX::Sax.parse(xml,Class.new{
 data=listener.content.each_slice(listener.fold).to_a
 data=data.map{|e|e[(data[0][0]=='#')?1:0,2]}[1..-1]
 IO.popen(ARGV[0],'r+b'){|io|
+	data.each{|e|io.puts e[0]}
+	io.close_write
 	data.each_with_index{|e,i|
-		io.puts e[0]
 		print 'Case '+(i).to_s+': '
 		puts (flag5 ? hena5(io.gets.chomp)==hena5(e[1]) : io.gets.chomp==e[1])?'OK':'NG'
 	}
