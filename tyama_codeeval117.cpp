@@ -39,6 +39,7 @@ int main(){
 	vector<int>hole(2);
 	vector<int>box(3);
 	for(;getline(cin,line);){
+		vector<int>result;
 		f=0;
 		vector<string>a=split(line,"|");
 		{
@@ -66,12 +67,16 @@ int main(){
 			box[2]=abs(a2[0][2]-a2[1][2]);
 			sort(box.begin(),box.end());
 			if(box[0]<=hole[0]&&box[1]<=hole[1]){
-				if(f)cout<<',';
-				f=1;
-				cout<<b1[0];
+				//if(f)cout<<',';
+				//f=1;
+				//cout<<b1[0];
+				result.push_back(strtol(b1[0].c_str(),NULL,10));
 			}
 		}
-		if(!f)cout<<'-';
-		cout<<endl;
+		sort(result.begin(),result.end()); //this sort is mandatory; or you will fail 1 case.
+		if(result.empty())cout<<'-'<<endl;
+		else for(i=0;i<result.size();i++)cout<<result[i]<<(i==result.size()-1 ? '\n' : ',');
+		//if(!f)cout<<'-';
+		//cout<<endl;
 	}
 }

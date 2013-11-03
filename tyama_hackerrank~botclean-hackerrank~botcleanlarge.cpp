@@ -6,8 +6,8 @@
 using namespace std;
 typedef pair<int,int> pii;
 typedef pair<pair<int,int>,int> ppiii;
-int D[4][2]={{-1,0},{0,-1},{1,0},{0,1}};
-string dir[]={"UP","LEFT","DOWN","RIGHT"};
+int D[4][2]={{1,0},{0,-1},{0,1}};
+string dir[]={"DOWN","LEFT","RIGHT"};
 
 map<pii,pair<pii,string> >back;
 void backtrack(pii cur){
@@ -20,14 +20,20 @@ void backtrack(pii cur){
 
 char s;
 int main(){
-	int n=5,m=5,i,j;
-	pii start=make_pair(-1,-1),goal;
-	scanf("%d%d",&i,&i);getchar();
+	int n,m,i,j;
+	pii start=make_pair(-1,-1),goal=make_pair(-1,-1);
+	scanf("%d%d",&i,&i);
+#if 0
+	n=5,m=5;
+#else
+	scanf("%d%d",&m,&n);
+#endif
+	getchar();
 	for(i=0;i<m;getchar(),i++)for(j=0;j<n;j++){
 		s=getchar();
 		switch(s){
 			case 'b':start=make_pair(i,j);break;
-			case 'd':goal=make_pair(i,j);break;
+			case 'd':if(goal==make_pair(-1,-1))goal=make_pair(i,j);break;
 		}
 	}
 	if(start==make_pair(-1,-1))puts("CLEAN"),exit(0);
@@ -39,7 +45,7 @@ int main(){
 	back[start]=make_pair(start,"");
 	for(;!q.empty();){
 		ppiii cur=q.front();q.pop();
-		for(i=0;i<4;i++){
+		for(i=0;i<3;i++){
 			int nexty=cur.first.first+D[i][0];
 			int nextx=cur.first.second+D[i][1];
 			pii next=make_pair(nexty,nextx);
@@ -60,5 +66,5 @@ int main(){
 		}
 	}
 	//queue exhausted
-	puts("Fail");
+	puts("UP"); //fixme...
 }
