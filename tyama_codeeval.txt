@@ -44,7 +44,7 @@
 44 C++
 45 C
 46 C
-47 Ruby (each_cons)
+47 C++
 48 Ruby
 49 C++
 50 Ruby
@@ -68,7 +68,7 @@
 68 C++
 69 C
 70 C
-71 Ruby (each_slice)
+71 C++
 72 C++
 73 C
 74 C
@@ -76,7 +76,7 @@
 76 C++
 77 Ruby
 78 C++
-79 Ruby (each_slice)
+79 C++
 80 Ruby (regex)
 81 C++
 82 C++
