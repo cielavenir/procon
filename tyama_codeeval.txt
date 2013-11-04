@@ -50,7 +50,7 @@
 50 Ruby
 51 C
 52 Perl
-53 Ruby (each_cons)
+53 C++
 54 C++
 55 Ruby (gsub)
 56 C
