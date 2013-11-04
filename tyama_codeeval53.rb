@@ -9,7 +9,7 @@ a=$_.chomp.split('')
 		c=b.each_cons(j).map(&:join)
 		t=c.shift
 		l=c.count{|e|e==t}
-		if l>0&&m<(l+1)*t.size then m=(l+1)*t.size;s=t end
+		if l>0&&m<(l+1)*j then m=(l+1)*j;s=t end
 	}
 }
 puts s&&s!=' '?s:'NONE'
