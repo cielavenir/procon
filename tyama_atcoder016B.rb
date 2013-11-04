@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-p $<.drop(1).map{|e|e.chomp.split('')}.transpose.map{|e|e.join.gsub(/o+/,'o').gsub('.','').size}.reduce(:+)||0
+gets;p$<.map{|e|e.split('')}.transpose.map{|e|e.join.gsub(/o+/,?o).tr('^ox','').size}.reduce(:+)
