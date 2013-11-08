@@ -10,3 +10,4 @@ Take31: バイナリエディタ
 Take40: (未)
 Take41: Ollydbg or dispe
 Take47: whois
+Take59: Reflector/バイナリエディタ or autoclicker
