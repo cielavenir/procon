@@ -1,0 +1,1 @@
+m;main(x,y,b,p,n){for(gets(&x);m=~scanf("%d%d%d%d",&x,&y,&b,&p);printf("%d\n",n<m?n:m))n=x*b+y*p,m=(x*(b>5?b:5)+y*(p>2?p:2))*4/5;}

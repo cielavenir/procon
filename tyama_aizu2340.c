@@ -1,1 +1,1 @@
-long long a;main(d,c){for(gets(&d);~scanf("%d%s%d",&d,&c,&d);puts(a?"No":"Yes"))a+=c&1?d:-d;exit(0);}
+long long a;z;main(d,c){for(gets(&d);z=~scanf("%d%s%d",&d,&c,&d);puts(a?"No":"Yes"))a+=c&1?d:-d;}

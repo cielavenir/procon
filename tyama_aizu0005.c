@@ -1,1 +1,1 @@
-int g(x,y){return y?g(y,x%y):x;}main(x,y,z){for(;~scanf("%d%d",&x,&y);printf("%d %d\n",z,x/z*y))z=x>y?g(x,y):g(y,x);exit(0);}
+int g(x,y){return y?g(y,x%y):x;}z;main(x,y){for(;z=~scanf("%d%d",&x,&y);printf("%d %d\n",z,x/z*y))z=g(x,y);}

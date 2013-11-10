@@ -1,1 +1,1 @@
-main(a,b){for(;~scanf("%d%d",&a,&b);printf("%d\n",(int)log10(a+b)+1));exit(0);}
+z;main(a,b){for(;z=~scanf("%d%d",&a,&b);printf("%d\n",(int)log10(a+b)+1));}

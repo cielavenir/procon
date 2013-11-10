@@ -1,0 +1,1 @@
+f;main(n,i,r,x){for(;scanf("%d",&n),f=n;printf(f?"%d\n":"NA\n",r+1))for(f=r=i=0;i<n;i++)if(scanf("%d",&x),x)if(r++,x>1)f=1;}

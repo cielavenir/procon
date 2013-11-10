@@ -1,1 +1,1 @@
-main(n,r,z){for(scanf("%d",&n),r=1e5,z=1e3;n--;r=r%z?(r/z+1)*z:r)r+=r/20;printf("%d\n",r);exit(0);}
+r;main(n,z){for(scanf("%d",&n),r=1e5,z=1e3;n--;r=r%z?(r/z+1)*z:r)r+=r/20;r=!printf("%d\n",r);}
