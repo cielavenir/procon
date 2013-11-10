@@ -1,4 +1,2 @@
 #!/usr/bin/ruby
-require'rational';while gets
-a,b=$_.split.map &:to_i
-puts a.gcdlcm(b)*' 'end
+require'rational';puts$<.map{|e|a,b=e.split.map &:to_i;a.gcdlcm(b)*' '}
