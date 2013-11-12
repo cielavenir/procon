@@ -14,4 +14,6 @@ enum Main{A;{
 			{j=k;k+=st.pop();d+=ch.get(code.indexOf(t.substring(j,k)));}
 		System.out.println(++i+": "+d);
 	}
-}}
+}
+	public static void main(String[] args){}
+}

@@ -12,7 +12,7 @@ int main(){
 
   scanf("%d",&n);
   for(;n;n--){
-    scanf("%s",&s);
+    scanf("%s",s);
     for(i=c=x=0;c<7;i++){
       if(s[i]=='-')continue;
       if(between('A',s[i],'Z')){
