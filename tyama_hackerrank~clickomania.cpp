@@ -1,11 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib>
 using namespace std;
-void output(int i,int j){
-	cout<<i<<' '<<j<<endl;
-	exit(0);
-}
 int main(){
 	int y,x,k,i,j;
 	cin>>y>>x>>k;
@@ -18,10 +13,16 @@ int main(){
 
 	//logic
 	for(i=y-1;i>=0;i--){
-		for(int j=0;j<x;j++){
+		for(j=0;j<x;j++){
 			if(grid[i][j]=='-')continue;
-			if(j<x-1&&grid[i][j+1]==grid[i][j])output(i,j);
-			if(i>0&&grid[i-1][j]==grid[i][j])output(i,j);
+			if((
+				j<x-1&&grid[i][j+1]==grid[i][j]
+			)||(
+				i>0&&grid[i-1][j]==grid[i][j]
+			)){
+				cout<<i<<' '<<j<<endl;
+				return 0;
+			}
 		}
 	}
 	return 1;
