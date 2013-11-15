@@ -1,8 +1,12 @@
+//ported from ICPC2012rF
+#include <iostream>
+#include <string>
 #include <vector>
-#include <cstdio>
+#include <map>
 #define SENTINEL 99999999
 using namespace std;
 typedef pair<int,int> pii;
+map<int,int>h;
 class union_find{
 	vector<pii>parent;
 	pii root(int a){
@@ -20,21 +24,25 @@ public:
 	int unite(int a,int b,int w){
 		pii x=root(a),y=root(b);
 		if(x.first==y.first)return 0;
-		parent[x.first]=make_pair(y.first,y.second-x.second+w);
+		parent[x.first]=make_pair(y.first,y.second-x.second -w-h[a]+h[b]); ///
 		return 1;
 	}
 };
 int main(){
-	char s[2];
 	int N,Q,a,b,w;
-	for(;scanf("%d%d",&N,&Q),N;)for(union_find uf(N);Q--;){
-		scanf("%s",s);if(*s=='!'){
-			scanf("%d%d%d",&a,&b,&w),a--,b--;
+	string s;
+	cin>>N>>Q;
+	union_find uf(N);
+	for(;Q--;){
+		cin>>s>>a>>b,a--,b--;
+		if(s=="IN"){
+			cin>>w;
+			h[a]+=w,h[b]+=w;
 			uf.unite(a,b,w);
 		}else{
-			scanf("%d%d",&a,&b),a--,b--;
 			w=uf.dist(a,b);
-			printf(w==SENTINEL?"UNKNOWN\n":"%d\n",w);
+			if(w==SENTINEL)cout<<"WARNING"<<endl;
+			else cout<< -w-h[a]+h[b]<<endl; ///
 		}
 	}
 }

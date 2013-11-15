@@ -2,33 +2,21 @@
 module Main where
 
 -- http://d.hatena.ne.jp/g940425/20110804/1312434821
-getIntLine :: IO Int
-getIntLine = do
-	n <- getLine
-	return(read n::Int)
-putAnsLn :: (Show a) => a -> IO ()
-putAnsLn ans = putStrLn(show ans)
 getIntLines :: Int -> IO [Int]
-getIntLines n =
-	if n>0
-		then do
-			l <- getIntLine
-			ls <- getIntLines (n-1)
-			return (l:ls)
-		else
-			return []
+getIntLines 0 = return []
+getIntLines n = do
+	l <- readLn
+	ls <- getIntLines (n-1)
+	return (l:ls)
 
-mysum :: [Int] -> Int -> Int -> Int -> Int -> Int -> Int
-mysum a n ma mi s z =
-	if n==0
-		then floor(fromIntegral(s-ma-mi)/fromIntegral(z-2))
-		else mysum a (n-1) (max ma (a !! (n-1))) (min mi (a !! (n-1))) (s+(a !! (n-1))) z
+mysum :: [Int] -> Int -> Int -> Int -> Int -> Int
+mysum [] ma mi s z = (div (s-ma-mi) (z-2))
+mysum a  ma mi s z = mysum (tail a) (max ma $ head a) (min mi $ head a) (s+(head a)) z
 
 main = do
-	n<-getIntLine
-	if n/=0
-		then do
-			a<-getIntLines n -- need to use list? lol
-			putAnsLn(mysum a n 0 1000 0 n);
-			main
-		else putStr "" --dummy
+	n<-readLn
+	if n/=0 then do
+		a<-getIntLines n -- need to use list? lol
+		print $ mysum a 0 1000 0 n
+		main
+	else return ()
