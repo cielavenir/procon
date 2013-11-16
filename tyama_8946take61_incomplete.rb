@@ -8,3 +8,4 @@ h.delete("\n")
 h.delete("\r")
 freq=h.sort_by{|e|-e.last}
 p freq
+#p s.tr(freq.map(&:first)[0,T.size]*'',T)

@@ -17,7 +17,9 @@ while s.size>1
 	end
 	s<<s[k[1]]+s[k[2]][k[0]..-1]
 	s[k[1]]=s[k[2]]=nil
-	s.select!{|e|e}
+	#s.select!{|e|e}
+	s.delete_at([k[1],k[2]].max)
+	s.delete_at([k[1],k[2]].min)
 end
 puts s[0]
 end
