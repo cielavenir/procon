@@ -27,8 +27,8 @@ main(){
 		while(s.size()>1){
 			pair<int,pair<int,int> >k=make_pair(0,make_pair(-1,-1));
 			for(i=0;i<s.size();i++)for(j=0;j<s.size();j++)if(i!=j){
-				int n=min(s[i].size(),s[j].size());
-				for(;n>0&&s[i].substr(s[i].size()-n)!=s[j].substr(0,n);)n--;
+				int n=min(s[i].size(),s[j].size())-4;
+				for(;n>k.first&&s[i].substr(s[i].size()-n)!=s[j].substr(0,n);)n--;
 				if(n>k.first)k=make_pair(n,make_pair(i,j));
 			}
 			if(k.first==0){
