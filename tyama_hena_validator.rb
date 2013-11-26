@@ -9,32 +9,35 @@ def hena5(s)
 end
 
 URLS={
-	'1'=>'1',
-	'2'=>'ord2',
-	'3'=>'ord3ynode',
-	'4'=>'ord4tetroid',
-	'5pre'=>'ord5railsontiles',
-	'5'=>'ord5dahimi',
-	'6pre'=>'ord6lintersection',
-	'6'=>'ord6kinship',
-	'7pre'=>'ord7xysort',
-	'7'=>'ord7selectchair',
-	'8pre'=>'ord8entco',
-	'8'=>'ord8biboma',
-	'9pre'=>'ord9nummake',
-	'9'=>'ord9busfare',
-	'10pre'=>'ord10pokarest',
-	'10'=>'ord10haniwa',
-	'11pre'=>'ord11arithseq',
-	'11'=>'ord11bitamida',
-	'12pre'=>'ord12aloroturtle',
-	'12'=>'ord12rotdice',
-	'13pre'=>'ord13updowndouble',
-	'13'=>'ord13blocktup',
-	'14pre'=>'ord14crosscircle',
-	'14'=>'ord14linedung',
-	'15pre'=>'ord15subpalin',
-	'15'=>'ord15elebubo',
+	'codeiq2'=>'codeiq/tetromino_bingo',
+
+	'1'=>'hena/1',
+	'2'=>'hena/ord2',
+	'3'=>'hena/ord3ynode',
+	'4'=>'hena/ord4tetroid',
+	'5pre'=>'hena/ord5railsontiles',
+	'5'=>'hena/ord5dahimi',
+	'6pre'=>'hena/ord6lintersection',
+	'6'=>'hena/ord6kinship',
+	'7pre'=>'hena/ord7xysort',
+	'7'=>'hena/ord7selectchair',
+	'8pre'=>'hena/ord8entco',
+	'8'=>'hena/ord8biboma',
+	'9pre'=>'hena/ord9nummake',
+	'9'=>'hena/ord9busfare',
+	'10pre'=>'hena/ord10pokarest',
+	'10'=>'hena/ord10haniwa',
+	'11pre'=>'hena/ord11arithseq',
+	'11'=>'hena/ord11bitamida',
+	'12pre'=>'hena/ord12aloroturtle',
+	'12'=>'hena/ord12rotdice',
+	'13pre'=>'hena/ord13updowndouble',
+	'13'=>'hena/ord13blocktup',
+	'14pre'=>'hena/ord14crosscircle',
+	'14'=>'hena/ord14linedung',
+	'15pre'=>'hena/ord15subpalin',
+	'15'=>'hena/ord15elebubo',
+	'16pre'=>'hena/ord16lcove',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
@@ -48,7 +51,7 @@ else
 		exit
 	end
 	flag5=true if ARGV[1]=='5'
-	uri=URI.parse('http://nabetani.sakura.ne.jp/hena/'+URLS[ARGV[1]]+'/')
+	uri=URI.parse('http://nabetani.sakura.ne.jp/'+URLS[ARGV[1]]+'/')
 	body=''
 	Net::HTTP.start(uri.host){|http|
 		body=http.get(uri.path).body
