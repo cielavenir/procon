@@ -1,5 +1,4 @@
 #!/usr/bin/runhugs
-
 run n
 	| n>1 = do
 		putStr (show n)

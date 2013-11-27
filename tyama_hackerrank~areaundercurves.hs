@@ -1,3 +1,4 @@
+#!/usr/bin/runhugs
 import Text.Printf (printf)
 
 d = 0.001
