@@ -1,2 +1,2 @@
 char *T="ynficwlbkuomxsevzpdrjgthaq",a[200],*p;
-main(i,n,j,s){for(i=1,scanf("%d",&n),getchar();i<=n;printf("%s\n",i++,a)){for(s=0;a[s]=getchar();s++)if(a[s]=='\n'){a[s]=0;break;}for(j=0;j<s;j++)if(p=strchr(T,a[j]))a[j]=97+(p-T);}}
+main(i,n,j,s){for(i=1,scanf("%d",&n),getchar();i<=n;printf("Case #%d: %s\n",i++,a)){for(s=0;a[s]=getchar();s++)if(a[s]=='\n'){a[s]=0;break;}for(j=0;j<s;j++)if(p=strchr(T,a[j]))a[j]=97+(p-T);}}
