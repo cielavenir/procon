@@ -11,3 +11,4 @@ Take40: (未)
 Take41: Ollydbg or dispe
 Take47: whois
 Take60: Reflector/バイナリエディタ or autoclicker
+Take63: Dump HTTP body
