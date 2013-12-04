@@ -1,11 +1,12 @@
 #include <map>
-#include <queue>
+#include <vector>
+#include <stack>
 #include <cstdio>
 using namespace std;
 typedef pair<int,int> pii;
 typedef pair<pair<int,int>,int> ppiii;
 int M[1001][1001];
-int D[4][2]={{-1,0},{0,-1},{1,0},{0,1}};
+int D[4][2]={{-1,0},{0,-1},{0,1},{1,0}};
 
 map<pii,pii>back;
 void backtrack(int d,pii cur){
@@ -31,14 +32,22 @@ int main(){
 			case '%':M[i][j]=1;break;
 		}
 	}
-
-	queue<ppiii> q;
+	vector<pii> v;
+	stack<ppiii> q;
 	map<pii,int>visit;
 	q.push(make_pair(start,0));
 	visit[start]=0;
 	back[start]=start;
 	for(;!q.empty();){
-		ppiii cur=q.front();q.pop();
+		ppiii cur=q.top();q.pop();
+		v.push_back(cur.first);
+		if(cur.first==goal){
+			printf("%d\n",v.size());
+			for(j=0;j<v.size();j++)printf("%d %d\n",v[j].first,v[j].second);
+			backtrack(0,goal);
+			//printf("%d\n",cur.second+1);
+			return 0;
+		}
 		for(i=0;i<4;i++){
 			int nexty=cur.first.first+D[i][0];
 			int nextx=cur.first.second+D[i][1];
@@ -52,11 +61,6 @@ int main(){
 				q.push(make_pair(next,cur.second+1));
 				visit[next]=cur.second+1;
 				back[next]=cur.first;
-				if(next==goal){
-					backtrack(0,goal);
-					//printf("%d\n",cur.second+1);
-					return 0;
-				}
 			}
 		}
 	}

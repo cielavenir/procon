@@ -1,11 +1,13 @@
 #!/usr/bin/ruby
 n,p,l,k,utmost=gets.split.map(&:to_i)
+#k=5 #oracle5: fixme...
 cnt=gets.to_i
 raise if n%2==1
 a=$<.map(&:chomp)
 head=[0,0]
 maj=Array.new(k+2){[]};maj[1]=[0]
 min=Array.new(k+2){[]};min[0]=0.step(n-1).to_a
+maj[k]=min[k-1]
 a.each{|e|
 	b=e.split
 	idx=1.step(k).find{|i|head[i]==b[0].to_i}

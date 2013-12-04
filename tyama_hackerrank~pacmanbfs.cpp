@@ -5,7 +5,7 @@ using namespace std;
 typedef pair<int,int> pii;
 typedef pair<pair<int,int>,int> ppiii;
 int M[1001][1001];
-int D[4][2]={{-1,0},{0,-1},{1,0},{0,1}};
+int D[4][2]={{-1,0},{0,-1},{0,1},{1,0}};
 
 map<pii,pii>back;
 void backtrack(int d,pii cur){
@@ -31,9 +31,10 @@ int main(){
 			case '%':M[i][j]=1;break;
 		}
 	}
-
+	vector<pii> v;
 	queue<ppiii> q;
 	map<pii,int>visit;
+	v.push_back(start);
 	q.push(make_pair(start,0));
 	visit[start]=0;
 	back[start]=start;
@@ -49,10 +50,13 @@ int main(){
 				!M[nexty][nextx] &&
 				visit.find(next)==visit.end()
 			){
+				v.push_back(next);
 				q.push(make_pair(next,cur.second+1));
 				visit[next]=cur.second+1;
 				back[next]=cur.first;
 				if(next==goal){
+					printf("%d\n",v.size());
+					for(j=0;j<v.size();j++)printf("%d %d\n",v[j].first,v[j].second);
 					backtrack(0,goal);
 					//printf("%d\n",cur.second+1);
 					return 0;
