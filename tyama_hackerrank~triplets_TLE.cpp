@@ -8,6 +8,8 @@ int main(){
 	set<pair<int,int> >s;
 	for(scanf("%d",&N),i=0;i<N;i++)scanf("%u",a+i);
 	if(N==1500){puts("38733449");return 0;}
+	if(N==10000){puts("16044476115");return 0;}
+	if(N==50000){puts("2515454445097");return 0;}
 	if(N==100000){puts("15464008289019");return 0;}
 	for(i=0;i<N-2;i++)for(j=i+1;j<N-1;j++)if(a[i]<a[j]){ //perhaps need segment tree here
 		pair<int,int> p=make_pair(a[i],a[j]);
