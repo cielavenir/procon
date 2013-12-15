@@ -33,7 +33,7 @@ class Parser:
 
 reader = io.open(sys.stdin.fileno(),'rb',0)
 xml=reader.readall()
-reader.close
+reader.close()
 parser=XMLParser(target=Parser())
 parser.feed(xml)
 parser.close()
