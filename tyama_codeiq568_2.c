@@ -1,0 +1,1 @@
+n;main(f){~scanf("%d",&n)&&main(!f&&!printf("%d\n",n<<8|255));}

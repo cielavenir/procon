@@ -1,0 +1,1 @@
+main(){system("sed 1,1d|mawk '{print $1*256+255}'");}
