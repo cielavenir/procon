@@ -1,15 +1,15 @@
 #include <algorithm>
 #include <cstdio>
-int x[9999],d[9999],c[9999];
+int x[100000],d[100000],c[100000];
 
 int lis(int n){
-	std::reverse(x,x+n);
 	int i,j,I;
 /*
 	for(i=-1;I=0,++i<n;d[i]=I+1)
 		for(j=i-1;~j;j--)
 			if(x[j]<x[i]&&I<d[j])I=d[j];
 */
+	// http://stackoverflow.com/questions/6129682/longest-increasing-subsequenceonlogn
 	int sz = 1;
 	c[1] = x[0];
 	d[0] = 1;
@@ -32,11 +32,8 @@ int lis(int n){
 	return d[j];
 }
 
-int main(int n){
-	int T=0;
-	for(;n;){
-		for(n=0;d[n]=c[n]=0,scanf("%d",x+n);n++)
-			if(x[n]==-1)break;
-		if(n)printf("Test #%d:\n  maximum possible interceptions: %d\n\n",++T,lis(n));
-	}
+int n,i;
+int main(){
+	for(scanf("%d",&n);i<n;i++)scanf("%d",x+i);
+	printf("%d\n",lis(n));
 }

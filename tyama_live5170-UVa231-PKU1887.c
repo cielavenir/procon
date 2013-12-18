@@ -10,10 +10,13 @@ int lis(n){
   return d[j];
 }
 
-main(c,n){
+c;main(n){
   for(;n;){
     for(n=0;d[n]=0,scanf("%d",x+n);n++)
       if(x[n]==-1)break;
-    if(n)printf("Test #%d:\n  maximum possible interceptions: %d\n\n",c++,lis(n));
+    if(n){
+		if(c)puts("");
+		printf("Test #%d:\n  maximum possible interceptions: %d\n\n",++c,lis(n));
+	}
   }
 }

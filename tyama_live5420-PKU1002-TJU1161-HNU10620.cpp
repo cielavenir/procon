@@ -1,4 +1,3 @@
-// Cannot I use iostream?
 #include <map>
 #include <cstdio>
 #define between(a,x,b) ((a)<=(x)&&(x)<=(b))
@@ -30,4 +29,4 @@ int main(){
   return 0;
 }
 //live5420
-//int main(){int n;for(scanf("%d",&n);n--;)main2();}
+//int main(){int i=0,n;for(scanf("%d",&n);i<n;main2())if(i++)puts("");}
