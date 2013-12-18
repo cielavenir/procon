@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #http://qiita.com/Nabetani/items/6a9f5593d0f3d7e0568c
 #http://nabetani.sakura.ne.jp/hena/ord16boseg/
-import sys,itertools
+import sys
 if sys.version_info[0]>=3:
 	from functools import reduce
 	raw_input=input

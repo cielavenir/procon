@@ -1,3 +1,4 @@
+#!/usr/bin/ruby
 require 'zlib'
 require 'base64'
 prog=gets.chomp

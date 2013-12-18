@@ -21,7 +21,7 @@ int backtrack(i){
 	if(~p[i])backtrack(p[i]);
 	printf(~p[i]?" %d":"%d",x[i]);
 }
-main(c,n,i){
+main(n,i){
 	for(scanf("%d",&n),i=0;i<n;i++)scanf("%d",x+i);
 	backtrack(lis(n));
 	puts("");
