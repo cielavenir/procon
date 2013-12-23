@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <vector>
 #include <algorithm>
-#include <queue>
+
 #define REP(i,n) for(int i=0;i<(int)n;++i)
 #define FOR(i,c) for(__typeof((c).begin())i=(c).begin();i!=(c).end();++i)
 #define ALL(c) (c).begin(), (c).end()
@@ -24,28 +24,27 @@ typedef vector<Edges> Graph;
 typedef vector<Weight> Array;
 typedef vector<Array> Matrix;
 
-typedef pair<Weight, int> Result;
-Result visit(int p, int v, const Graph &g) {
-  Result r(0, v);
-  FOR(e, g[v]) if (e->dst != p) {
-    Result t = visit(v, e->dst, g);
-    t.first += e->weight;
-    if (r.first < t.first) r = t;
-  }
-  return r;
-}
-Weight diameter(const Graph &g) {
-  Result r = visit(-1, 0, g);
-  Result t = visit(-1, r.second, g);
-  return t.first; // (r.second, t.second) is farthest pair
+int M=INF;
+void salesman(const Graph g,int s, int w,vector<int>path) {
+	if(path.size()==g.size()){
+		if(s==0&&M>w)M=w;
+		return;
+	}
+	FOR(e,g[s])if(w+e->weight<M&&find(path.begin(),path.end(),e->dst)==path.end()){
+		path.push_back(e->dst);
+		salesman(g,e->dst,w+e->weight,path);
+		path.pop_back();
+	}
 }
 
 int main(){
-	int i,V,E,s,t,e;
+	int T,V,E,s,t,e;
 	//for(scanf("%d",&T);T;putchar(--T?' ':'\n')){
-		scanf("%d",&V);
+		scanf("%d%d",&V,&E);
 		Graph g(V);
-		for(;V>1;V--)scanf("%d%d%d",&s,&t,&e),g[s].push_back(Edge(s,t,e)),g[t].push_back(Edge(t,s,e));
-		printf("%d\n",diameter(g));
+		for(;E--;)scanf("%d%d%d",&s,&t,&e),g[s].push_back(Edge(s,t,e));
+		vector<int>path;
+		salesman(g,0,0,path);
+		printf("%d\n",M==INF?-1:M);
 	//}
 }
