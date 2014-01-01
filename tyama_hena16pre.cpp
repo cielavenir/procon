@@ -21,7 +21,7 @@ set<int> split_int(string &str, const char *delim){
 	return result;
 }
 
-main(){
+int main(){
 	string line;
 	int i,j,x,y,z,end;
 	for(;getline(cin,line);){

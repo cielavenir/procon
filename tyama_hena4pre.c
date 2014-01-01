@@ -1,4 +1,5 @@
 // http://qiita.com/Nabetani/items/9c514267214d3917edf2
+#include <stdio.h>
 dx[]={-2,2,0,0},dy[]={0,0,-2,2},r;
 int M[9][9];
 D(x,y,d){
@@ -16,4 +17,5 @@ main(){
 	M[0][0]=1;
 	D(0,0,0);
 	printf("%d\n",r);
+	fflush(stdout);
 }

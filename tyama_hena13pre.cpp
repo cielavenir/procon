@@ -28,5 +28,4 @@ int main(){
 	for(;~scanf("%d",&n);){
 		printf("%d\n",count[n]);fflush(stdout);
 	}
-	return 0;
 }
