@@ -9,6 +9,7 @@
 #include <cstdlib>
 #include <climits>
 #include <ctime>
+#include <unistd.h>
 using namespace std;
 
 #define lrotl(val,rot) (( (val)<<(rot) )|( (val)>>(sizeof(val)*CHAR_BIT-(rot)) ))
@@ -100,6 +101,8 @@ wa:
 
 //Reactive
 int main(int argc, char **argv){
+	cin.tie(0);
+	ios::sync_with_stdio(false);
 	if(argc<2){
 		cerr<<"<input.txt validator [program]"<<endl;
 		cerr<<"program must be chmod +x"<<endl;

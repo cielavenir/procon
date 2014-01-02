@@ -4,6 +4,7 @@
 #include <set>
 #include <vector>
 #include <algorithm>
+#include <unistd.h>
 using namespace std;
 
 const char *cmd;
@@ -21,6 +22,8 @@ void test(string input, string expect){
 }
 
 int main(int argc, char **argv){
+	cin.tie(0);
+	ios::sync_with_stdio(false);
 	if(argc<2){
 		cerr<<"validator [program]"<<endl;
 		cerr<<"program must be chmod +x"<<endl;

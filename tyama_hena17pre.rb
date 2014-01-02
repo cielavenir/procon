@@ -4,13 +4,13 @@
 STDOUT.sync=true
 while gets
 	n=$_.to_i
-	puts n<3 ? '-' : (2.step((n-1)/2).select{|i|
+	puts n<3 ? '-' : ((2..(n-1)/2).select{|i|
 		n0=n
-		a=[]
+		n1=0
 		while n0>0
-			a<<n0%i
+			n1=n1*i+n0%i
 			n0/=i
 		end
-		a==a.reverse
+		n1==n
 	}+[n-1])*','
 end
