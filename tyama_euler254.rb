@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 #answer is confirmed on http://wonderfl.net/c/sDkG
 $fact={}
-10.times{|i|$fact[i]=(2..i).reduce(:*)||1}
+10.times{|i|$fact[i]=(2..i).reduce(1,:*)}
 def d(a,s,depth,n,c,t)
 	if depth==n
 		if s.to_s.chars.map(&:to_i).reduce(:+)==t
@@ -19,7 +19,7 @@ def d(a,s,depth,n,c,t)
 end
 
 class Integer
-	#def fact() (2..self).reduce(:*)||1 end
+	#def fact() (2..self).reduce(1,:*) end
 	#def f() self.to_s.chars.map(&:to_i).map(&:fact).reduce(:+) end
 	#def sf() self.f.to_s.chars.map(&:to_i).reduce(:+) end
 	def g

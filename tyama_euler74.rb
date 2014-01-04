@@ -3,7 +3,7 @@ $h={}
 class Integer
 	def chain() self.to_s.chars.reduce(0){|s,e|s+=$h[e.to_i]} end
 end
-10.times{|i|$h[i]=(2..i).reduce(:*)||1}
+10.times{|i|$h[i]=(2..i).reduce(1,:*)}
 
 $r={}
 x=0
