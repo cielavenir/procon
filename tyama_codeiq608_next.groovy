@@ -1,4 +1,4 @@
-#!/usr/bin/groovy
+#!/usr/bin/env groovy
 def next_permutation(a,n=a.size){
 	if(n<0||a.size<n)return false
 	if(n<a.size)a[0..a.size()-1]=a[0..n-1]+a[n..-1].reverse()

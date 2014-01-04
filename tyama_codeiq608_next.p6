@@ -30,8 +30,10 @@ my @e0;
 my @f0;
 my $i;
 my $r=0;
-loop ($i=0;$i < $N;$i++) {@e0[$i]=@f0[$i]=0;}
-loop ($i=0;$i < $N;$i++) {@e0[$N+$i]=@f0[$N+$i]=1;}
+loop ($i=0;$i < $N;$i++) {
+	@e0[$i]=@f0[$i]=0;
+	@e0[$N+$i]=@f0[$N+$i]=1;
+}
 my @e=(0);
 my @f=(0);
 repeat {
