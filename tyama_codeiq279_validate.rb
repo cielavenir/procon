@@ -7,7 +7,7 @@ DATA.each{|e|
 }
 a=26.times.map{gets.chomp.split':'}
 0.step(a.size-1){|i|
-	raise "format error #{a[i][1]}" if a[i][1].chars.any?{|e|!CODES.find{|f|f==e}}
+	raise "format error #{a[i][1]}" if a[i][1].chars.any?{|e|!CODES.include?(e)}
 }
 0.step(a.size-1){|i|
 	0.step(a.size-1){|j|

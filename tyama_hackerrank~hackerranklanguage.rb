@@ -1,6 +1,5 @@
 #!/usr/bin/ruby
 t='C:CPP:JAVA:PYTHON:PERL:PHP:RUBY:CSHARP:HASKELL:CLOJURE:BASH:SCALA:ERLANG:CLISP:LUA:BRAINFUCK:JAVASCRIPT:GO:D:OCAML:R:PASCAL:SBCL:DART:GROOVY:OBJECTIVEC'.split(':')
 gets.to_i.times{
-	s=gets.chomp.split[1]
-	puts t.find{|e|e==s} ? 'VALID' : 'INVALID'
+	puts t.include?(gets.chomp.split[1]) ? 'VALID' : 'INVALID'
 }

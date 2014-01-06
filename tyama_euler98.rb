@@ -22,7 +22,7 @@ h.each{|k,v|
 					vjx=v[j].dup
 					#map1.each{|k,v|vjx.gsub!(k,v)}
 					map2.each{|k,v|vjx.gsub!(v,k)}
-					num=sq.find{|f|f==vjx}
+					num=sq.include?(vjx)
 					if num
 						#p [e,num]
 						m=[m,num.to_i,e.to_i].max
