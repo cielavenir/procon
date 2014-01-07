@@ -70,6 +70,10 @@ end
 
 require 'rational'
 while gets #DATA.gets
+if $_.start_with?(';')||$_.end_with?(';')
+	puts "0.00"
+	next
+end
 a,b=$_.chomp.split(';').map{|e|e.split(',').map{|f|f.tr(' ','')}}
 ss=a.map{|e|
 	customer=e.downcase

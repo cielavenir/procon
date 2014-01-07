@@ -6,7 +6,7 @@
 #include <cmath>
 #include <cstdio>
 using namespace std;
-double x[19],y[19],m[19][19],a,b,rad=.0175,eps=1e-8;
+double x[19],xs[19],xc[19],y[19],m[19][19],a,b,rad=.01745329,eps=1e-9;
 int main(){
 	string s;
 	double a,b;
@@ -19,9 +19,10 @@ int main(){
 		x[n]=a*rad,y[n]=b*rad;
 		v.push_back(n);
 	}
-	for(;i<n;i++)for(j=i+1;j<n;j++){
-		m[i][j]=m[j][i]=acos(sin(x[i])*sin(x[j])+cos(x[i])*cos(x[j])*cos(y[i]-y[j]));
-		//hypotl(x[i]-x[j],y[i]-y[j]);
+	for(;i<n;i++)sincos(x[i],xs+i,xc+i);
+	for(i=0;i<n;i++)for(j=i+1;j<n;j++){
+		m[i][j]=m[j][i]=acos(xs[i]*xs[j]+xc[i]*xc[j]*cos(y[i]-y[j]));
+		//hypot(x[i]-x[j],y[i]-y[j]);
 	}
 	b=1e8;
 	for(;next_permutation(v.begin()+1,v.end());){

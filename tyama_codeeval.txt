@@ -25,15 +25,15 @@
 25 C
 26 C
 27 C
-28 Ruby (regex)
+28 Perl (regex)
 29 C++
 30 C++
 31 C++
 32 C++
-33 C++
+33 C
 34 C++
 35 C++
-36 Ruby (shift n)
+36 C++
 37 C
 38 C++
 39 C
@@ -47,9 +47,9 @@
 47 C++
 48 Ruby
 49 C++
-50 Ruby
+50 Perl
 51 C
-52 Perl
+52 C++
 53 C++
 54 C++
 55 Ruby (gsub)
@@ -82,10 +82,10 @@
 82 C++
 83 C++
 84 C++
-85 Ruby
+85 C++
 86 C
 87 C
-88 (Ruby)
+88 (Ruby) (Submit in C)
 89 C
 90 C++
 91 C++
