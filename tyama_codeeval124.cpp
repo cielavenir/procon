@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
 #include <cstdio>
@@ -27,8 +28,6 @@ int main(){
 	for(;getline(cin,line);){
 		vector<int>a=split_int(line,",");
 		sort(a.begin(),a.end());
-		cout<<a[1]-a[0];
-		for(i=1;i<a.size()-1;i++)cout<<','<<a[i+1]-a[i];
-		cout<<endl;
+		for(i=0;i<a.size()-1;i++)printf(i<a.size()-2?"%d,":"%d\n",a[i+1]-a[i]);
 	}
 }

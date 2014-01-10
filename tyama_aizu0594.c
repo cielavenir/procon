@@ -7,5 +7,5 @@ r;main(i,N,X,Y,x,y){
 		else r+=abs(x-X)+abs(y-Y);
 		X=x,Y=y;
 	}
-	printf("%d\n",r);
+	r=!printf("%d\n",r);
 }
