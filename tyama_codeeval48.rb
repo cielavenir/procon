@@ -70,7 +70,7 @@ end
 
 require 'rational'
 while gets #DATA.gets
-if $_.start_with?(';')||$_.end_with?(';')
+if $_.start_with?(';')||$_.chomp.end_with?(';')
 	puts "0.00"
 	next
 end

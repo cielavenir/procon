@@ -1,48 +1,51 @@
-#include <iostream>
-#include <string>
-#include <vector>
 #include <algorithm>
+#include <cstdio>
+#include <cstring>
 using namespace std;
-typedef vector<int> vi;
-int M;
-int alignment(string &x, string &y){
-	vector<vi>a(x.length()+1,vi(y.length()+1));
-	int i,j,k;
-	for(i=1;i<a.size();i++){a[i][0]=a[i-1][0]-1;}
-	for(j=1;j<a[0].size();j++){a[0][j]=a[0][j-1]-1;}
-	for(i=1;i<a.size();i++){
-		for(j=1;j<a[0].size();j++){
-			int Z[]={x[i-1]==y[j-1]?a[i-1][j-1]:(a[i-1][j-1]-1),a[i-1][j]-1,a[i][j-1]-1};
-			int *z=max_element(Z,Z+3);
-			a[i][j]=*z;
+#define hi(n) ((n)>>16)
+#define lo(n) ((n)&0xffff)
+
+char a[51][51],s[51],d[301];
+int l;
+
+int alignment(char *x, char *y){
+	int i,j;
+	for(i=1;i<=l;i++){a[i][0]=a[i-1][0]-1;}
+	for(j=1;j<=l;j++){a[0][j]=a[0][j-1]-1;}
+	for(i=1;i<=l;i++){
+		for(j=1;j<=l;j++){
+			a[i][j]=max(x[i-1]==y[j-1]?a[i-1][j-1]:(a[i-1][j-1]-1),max(a[i-1][j]-1,a[i][j-1]-1));
 		}
 	}
-	return -a[x.length()][y.length()];
+	return -a[l][l];
 }
-//int alignment(string &x, string &y){
+//int alignment(char *x, char *y){
 //	int m=0,j=0;
-//	for(;j<x.size();j++)m+=x[j]!=y[j];
+//	for(;j<l;j++)m+=x[j]!=y[j];
 //	return m;
 //}
+struct Less{
+	bool operator()(const int &a, const int &b){
+		return hi(a)!=hi(b) ? hi(a)<hi(b) : memcmp(d+lo(a),d+lo(b),l)<0;
+	}
+};
+int v[280];
 int main(){
-	cin.tie(0);
-	ios::sync_with_stdio(false);
-	int m,L,l,i,j;
-	string S,D;
-	for(;cin>>S>>M>>D;){
-		l=S.size();
-		L=D.size();
-		vector<pair<int,string> >v;
-		for(i=0;i<=L-l;i++){
-			string D0=D.substr(i,l);
-			if((m=alignment(S,D0))<=M)v.push_back(make_pair(m,D0));
+	int M,m,L,i,j,n;
+	for(;~scanf("%s%d%s",s,&M,d);){
+		l=strlen(s);
+		L=strlen(d);
+		for(n=i=0;i<=L-l;i++){
+			if((m=alignment(s,d+i))<=M)v[n++]=m<<16|i;
 		}
-		if(v.empty()){
-			cout<<"No match\n";
+		if(!n){
+			puts("No match");
 		}else{
-			sort(v.begin(),v.end());
-			//v.erase(unique(v.begin(),v.end()),v.end());
-			for(i=0;i<v.size();i++)cout<<v[i].second<<(i<v.size()-1?" ":"\n");
+			sort(v,v+n,Less());
+			for(i=0;i<n;i++){
+				for(j=0;j<l;j++)putchar(d[lo(v[i])+j]);
+				putchar(i<n-1?' ':'\n');
+			}
 		}
 	}
 }
