@@ -4,7 +4,7 @@
 using namespace std;
 typedef pair<int,int>P;
 #define Z(a,b)v.push_back(make_pair(a,b))
-struct C{bool operator()(P a,P b){return a.first*a.second<b.first*b.second;}};
+struct C{bool operator()(P &a,P &b){return a.first*a.second<b.first*b.second;}};
 int main(){
 	int n,w,d,p,s;
 	for(;scanf("%d%d%d",&n,&w,&d),w;puts("")){

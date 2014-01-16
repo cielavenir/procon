@@ -25,7 +25,7 @@ int alignment(char *x, char *y){
 //	return m;
 //}
 struct Less{
-	bool operator()(const int &a, const int &b){
+	bool operator()(const int a, const int b){
 		return hi(a)!=hi(b) ? hi(a)<hi(b) : memcmp(d+lo(a),d+lo(b),l)<0;
 	}
 };

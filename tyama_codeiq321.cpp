@@ -7,7 +7,6 @@
 using namespace std;
 template <size_t N>
 struct BITSET: public bitset<N>{
-public:
 	bool operator<(const BITSET<N> &R) const{
 		for(unsigned int i=0;i<this->size();i++)
 			if(this->test(i)){

@@ -1,68 +1,63 @@
 //pku 2041
-//std::string‚Ì‚ê‚ñ‚µ‚£‚Å‚µ‚ã
-
+//std::stringã®ã‚Œã‚“ã—ã…ã§ã—ã‚…
+ 
 #include <iostream>
 #include <algorithm>
 #define between(n,x,m) (((n)<=(x))&&((x)<=(m)))
-
 using namespace std;
-string filter,str;
 
-void J(){rotate(str.begin(),str.begin()+(str.length()-1),str.end());}
-void C(){rotate(str.begin(),str.begin()+1,str.end());}
-void E(){
-  int i=(str.length())/2;
-  string tmp=str;
-  str.replace(0,i,tmp,str.length()-i,i);
-  str.replace(str.length()-i,i,tmp,0,i);
+void J(string &str){rotate(str.begin(),str.begin()+(str.size()-1),str.end());}
+void C(string &str){rotate(str.begin(),str.begin()+1,str.end());}
+void E(string &str){
+	int i=(str.size())/2;
+	string tmp=str;
+	str.replace(0,i,tmp,str.length()-i,i);
+	str.replace(str.length()-i,i,tmp,0,i);
 }
 
-void A(){reverse(str.begin(),str.end());}
+void A(string &str){reverse(str.begin(),str.end());}
 
-void P(){
-  int i=str.length();
-  char *p=(char*)str.data();
-  for(;i>=0;--i){
-    if(between('0',p[i],'9')){
-	  p[i]--;
-	  if(p[i]=='/')p[i]='9';
+void P(string &str){
+	int i=str.size();
+	for(;i>=0;--i){
+		if(between('0',str[i],'9')){
+			str[i]--;
+			if(str[i]=='/')str[i]='9';
+		}
 	}
-  }
 }
 
-void M(){
-  int i=str.length();
-  char *p=(char*)str.data();
-  for(;i>=0;--i){
-    if(between('0',p[i],'9')){
-	  p[i]++;
-	  if(p[i]==':')p[i]='0';
+void M(string &str){
+	int i=str.size();
+	for(;i>=0;--i){
+		if(between('0',str[i],'9')){
+			str[i]++;
+			if(str[i]==':')str[i]='0';
+		}
 	}
-  }
 }
 
 
 struct x{
-  void operator()(char c){
-    switch(c){
-	  case 'J': J();break;
-	  case 'C': C();break;
-	  case 'E': E();break;
-	  case 'A': A();break;
-	  case 'P': P();break;
-	  default:  M();break;
+	string &str;
+	x(string &_str):str(_str){}
+	void operator()(char c){
+		switch(c){
+			case 'J': J(str);break;
+			case 'C': C(str);break;
+			case 'E': E(str);break;
+			case 'A': A(str);break;
+			case 'P': P(str);break;
+			default:  M(str);break;
+		}
 	}
-  }
 };
 
 int main(){
-  int n;
-  cin >> n;
-  while(n--){
-    cin >> filter;
-	cin >> str;
-	for_each(filter.rbegin(), filter.rend(), x());
-	cout << str << endl;
-  }
-  return 0;
+	string filter,str;
+	int n;
+	for(cin>>n;n--;cout<<str<<endl){
+		cin>>filter>>str;
+		for_each(filter.rbegin(), filter.rend(), x(str));
+	}
 }

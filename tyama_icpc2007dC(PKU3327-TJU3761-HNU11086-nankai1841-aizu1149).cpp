@@ -1,11 +1,12 @@
 //tyama_C_fast.cpp
 //much faster!
 
-//Perl‚Å‚à‘‚¯‚é‚¯‚Ç‘½•ª‚â‚ç‚È‚¢B
+//Perlã§ã‚‚æ›¸ã‘ã‚‹ã‘ã©å¤šåˆ†ã‚„ã‚‰ãªã„ã€‚
 
 #include <cstdio>
 #include <vector>
 #include <algorithm>
+#include <sstream>
 using namespace std;
 
 #define hi(x) ((x)>>16)
@@ -76,10 +77,9 @@ inline void solve(int n, int w, int d){
 	}
 	
 	sort(v.begin(), v.end(), comp());
-	while(v.size()){
-		printf("%d", hi(v.at(0))*lo(v.at(0)));
-		v.erase(v.begin());
-		if(v.size())printf(" "); //‚±‚Ì•Ó‚ÍPerl‚¾‚Æjoin‚ªg‚¦‚é‚¨B
+	for(int i=0;i<v.size();i++){
+		if(i)putchar(' ');
+		printf("%d", hi(v.at(i))*lo(v.at(i)));
 	}
 	printf("\n");
 }

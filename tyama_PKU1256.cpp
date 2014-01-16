@@ -8,9 +8,8 @@ char table[]="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
 int fact[]={1,1,2,6,24,120,720,5040,40320,362880,3628800,39916800,479001600};
 int a[256];
 
-class P{
-public:
-  bool operator()(char i,char j){
+struct P{
+  bool operator()(const char i,const char j){
     int r=strchr(table,i)-strchr(table,j);
     return r<0;
   }

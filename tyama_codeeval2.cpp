@@ -5,7 +5,7 @@
 #include <cstdio>
 #include <cstdlib>
 using namespace std;
-struct C{bool operator()(string a,string b){return a.size()>b.size();}};
+struct C{bool operator()(string &a,string &b){return a.size()>b.size();}};
 main(){
 	vector<string>v;
 	string s;

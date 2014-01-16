@@ -3,8 +3,7 @@
 #include <string>
 #include <iostream>
 using namespace std;
-class Len{
-public:
+struct Len{
 	bool operator()(const string& x, const string& y) const {return x.length()<y.length();}
 };
 int main(){
