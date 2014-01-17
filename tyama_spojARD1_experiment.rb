@@ -1,0 +1,22 @@
+#!/usr/bin/ruby
+o=Enumerator.new{|yielder|
+	a=-1
+	b=1
+	c=5
+	d=3
+	yielder<<[a,b,c,d]
+	d+=c
+	yielder<<[a,b,c,d]
+	c+=a
+	d+=c
+	yielder<<[a,b,c,d]
+	loop{
+		c+=b
+		d+=c
+		a,b=b,a+b
+		yielder<<[a,b,c,d]
+	}
+}
+o.take(100).each{|e|
+	p e
+}
