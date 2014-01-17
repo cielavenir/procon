@@ -1,0 +1,1 @@
+char s[99];main(n){for(scanf("%d",&n);n--;puts(strchr(s,'D')?"You shall not pass!":"Possible"))scanf("%s",s);}
