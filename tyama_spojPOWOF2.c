@@ -1,0 +1,1 @@
+t;main(x){for(scanf("%d",&t);t--;puts(x&&__builtin_clz(x)+__builtin_ctz(x)==31?"YES":"NO"))scanf("%d",&x);exit(0);}

@@ -1,0 +1,1 @@
+require'zlib';puts Zlib.inflate'eJzF0jsOwCAMA9DdR/GlcoTcf2ulNlA7UKlTw8DwiDCfiEcxtCBI7pUZyZ2eGMZQNIagd0PRGDNQ1ILJl9L2pfYOfNk30hiKxrBOZRTefddc/CWVMxruUnXGAjVVw8FYYjHqedpg2K+rG/ET/axpegCqeSnc'.unpack('m')[0]

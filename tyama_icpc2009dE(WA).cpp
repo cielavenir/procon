@@ -4,8 +4,7 @@
 #include <functional>
 using namespace std;
 
-int gcd2(int x,int y){return y?gcd2(y,x%y):x;} //x>y
-int gcd(int x,int y){return x>y?gcd2(x,y):gcd2(y,x);}
+int gcd(int x,int y){return y?gcd(y,x%y):x;}
 
 int solve(vector<int> &a, vector<int> &b){ //a.size()<b.size()
   int f=1,r=0,i=0,j;

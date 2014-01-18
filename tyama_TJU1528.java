@@ -1,8 +1,7 @@
 import java.io.*;
 import java.util.*;
 class Main{
-  public static int gcd(int x,int y){if(x>y)return gcd2(y,x);return gcd2(x,y);}
-  public static int gcd2(int x,int y){if(y>0)return gcd2(y,x%y);return x;}
+  public static int gcd(int x,int y){return y>0 ? gcd(y,x%y) : x;}
 
   public static void main(String[]a){
     BufferedReader br=new BufferedReader(new InputStreamReader(System.in));

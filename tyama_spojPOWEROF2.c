@@ -1,0 +1,1 @@
+t;main(x){for(scanf("%d",&t);t--;printf("%d\n",1<<(32-x)))scanf("%d",&x),x=x?__builtin_clz(x):32;exit(0);}
