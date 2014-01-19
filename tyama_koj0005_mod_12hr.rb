@@ -9,7 +9,7 @@ m=a.pop
 g=a.shift(2)
 fizzbuzz=g[0].lcm(g[1])
 a=a.map{|e|fizzbuzz.lcm(e)/fizzbuzz}.uniq
-if a.any?{|e|e==1} then puts :NA;next end
+if a.include?(1) then puts :NA;next end
 if a.all?{|e|e>m} then puts fizzbuzz*m%1000003;next end
 #a.select!{|e|e<=m}
 c=d=0
