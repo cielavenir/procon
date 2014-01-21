@@ -4,9 +4,9 @@
 #include <cstdio>
 #include <cstdlib>
 using namespace std;
-char A[9],B[9];
+char B[9];
 #define I(s)strtol(s.c_str(),NULL,10)
-string S(int i,int L){sprintf(A,"%%0%dd",L),sprintf(B,A,i);return B;}
+string S(int i,int L){sprintf(B,"%0*d",L,i);return B;}
 int main(){
 	int a,i;
 	for(;scanf("%d",&a),a;printf(a?"%d\n":"NA\n",i)){
