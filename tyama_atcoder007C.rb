@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 class String
 	def rotate(count=1)
-		count=self.length+count if count<0
-		self.slice(self.length-count,count)+self.slice(0,self.length-count)
+		count+=self.length if count<0
+		self.slice(count,self.length-count)+self.slice(0,count)
 	end
 end
 str=gets.chomp

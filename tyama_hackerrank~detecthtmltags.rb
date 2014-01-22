@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
-puts gets.to_i.times.map{
+puts gets.to_i.times.flat_map{
 	a=gets.chomp.split('<')
 	a.shift
-	a.map{|e|e.lstrip.scan(/[0-9a-z]+/).first}
-}.flatten.sort.uniq*';'
+	a.flat_map{|e|e.lstrip.scan(/[0-9a-z]+/).first}
+}.sort.uniq*';'

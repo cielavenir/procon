@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 #http://oeis.org/A014480
 N=10
-puts (1<<N-1).times.map{|i|[n=i^i>>1,n^((1<<N)-1)]}.flatten.rotate.map{|e|"%0#{N}b"%e}
-#puts 512.times.map{|i|[n=i^i>>1,n^1023]}.flatten.rotate.map{|e|"%010b"%e}
+puts (1<<N-1).times.flat_map{|i|[n=i^i>>1,n^((1<<N)-1)]}.rotate.map{|e|"%0#{N}b"%e}
+#puts 512.times.flat_map{|i|[n=i^i>>1,n^1023]}.rotate.map{|e|"%010b"%e}
 #a=[];(1<<N-1).times{|i|a+=[n=i^i>>1,n^((1<<N)-1)]};a.rotate.each{|e|puts"%0#{N}b"%e}
 __END__
 ENV: Ruby (73bytes in Golf mode)

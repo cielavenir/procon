@@ -3,9 +3,9 @@
 #http://nabetani.sakura.ne.jp/hena/ord6lintersection/
 STDOUT.sync=true
 def z(a,b)
-	([a[0],b[0]].min..[a[0],b[0]].max).map{|f|
-		([a[1],b[1]].min..[a[1],b[1]].max).map{|g|f*10+g}
-	}.flatten
+	([a[0],b[0]].min..[a[0],b[0]].max).flat_map{|f|
+		([a[1],b[1]].min..[a[1],b[1]].max).flat_map{|g|f*10+g}
+	}
 end
 while gets
 	p $_.split(',').map{|e|
