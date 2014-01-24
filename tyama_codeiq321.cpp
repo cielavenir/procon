@@ -4,20 +4,22 @@
 #include <string>
 #include <vector>
 #include <map>
-using namespace std;
-template <size_t N>
-struct BITSET: public bitset<N>{
-	bool operator<(const BITSET<N> &R) const{
-		for(unsigned int i=0;i<this->size();i++)
-			if(this->test(i)){
-				if(!R.test(i))return false;
-			}else{
-				if(R.test(i))return true;
+namespace std{
+	template<size_t N>
+	struct less<bitset<N> > : binary_function <bitset<N>,bitset<N>,bool>{
+		bool operator()(const bitset<N> &L, const bitset<N> &R) const{
+			for(unsigned int i=0;i<L.size();i++)
+				if(L.test(i)){
+					if(!R.test(i))return false;
+				}else{
+					if(R.test(i))return true;
+			}
+			return false; //same
 		}
-		return false; //same
-	}
-};
-typedef BITSET<4096> bs; //more than the number of lines (wc -l)
+	};
+}
+using namespace std;
+typedef bitset<4096> bs; //more than the number of lines (wc -l)
 int main(){
 	map<string,bs>id_bits,name_bits;
 	int i=0,idx;
