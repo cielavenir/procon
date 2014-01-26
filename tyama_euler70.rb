@@ -3,7 +3,7 @@ require 'prime'
 require 'enumerable/lazy' if RUBY_VERSION<'2.0'
 class Integer
 	def totient2
-		r=self.prime_division.reduce(1){|s,e|s*=(e[0]-1)*e[0]**(e[1]-1)}
+		r=self.prime_division.reduce(1){|s,e|s*(e[0]-1)*e[0]**(e[1]-1)}
 		a=self.to_s.chars.map(&:to_i)
 		b=r.to_s.chars.map(&:to_i)
 		10.times{|i|

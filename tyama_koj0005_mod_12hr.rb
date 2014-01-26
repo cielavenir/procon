@@ -1,8 +1,5 @@
 #!/usr/bin/ruby
 require 'rational'
-class Integer
-	def lcm(n) self/self.gcd(n)*n end
-end
 while(a=gets.split.map(&:to_i)).size>1
 a.shift
 m=a.pop

@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-def seq(n) n.to_s.chars.reduce(0){|s,e|s+=e.to_i**2} end
+def seq(n) n.to_s.chars.reduce(0){|s,e|s+e.to_i**2} end
 a=Array.new(200,-1)
 a[1]=1
 2.step(199){|i|

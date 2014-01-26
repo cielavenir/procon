@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 require 'prime'
 M=999999
-$t=[1,1]+2.step(M).map{|i|i.prime_division.reduce(1){|s,e|s=s*(e[0]**(e[1]+1)-1)/(e[0]-1)}-i}
+$t=[1,1]+2.step(M).map{|i|i.prime_division.reduce(1){|s,e|s*(e[0]**(e[1]+1)-1)/(e[0]-1)}-i}
 $c=[];11.times{|i|$c<<[0,i]}
 def cycle(n)
 	a=[n,x=$t[n]]

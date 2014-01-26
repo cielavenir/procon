@@ -16,6 +16,6 @@ else
 	puts a[a.size/2]
 end
 puts h.sort_by{|k,v|[-v,k]}[0][0]
-sd=Math.sqrt(a.reduce(0){|s,e|s+=(ave-e)**2}/(a.size))
+sd=Math.sqrt(a.reduce(0){|s,e|s+(ave-e)**2}/(a.size))
 puts sd
 puts [-Z,Z].map{|e|ave+e*sd/Math.sqrt(a.size)}*' '

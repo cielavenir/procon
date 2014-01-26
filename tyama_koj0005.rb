@@ -4,7 +4,7 @@ while(a=gets.split.map(&:to_i)).size>1
 a.shift
 m=a.pop
 g=a.shift(2)
-fizzbuzz=g[0]/g[0].gcd(g[1])*g[1]
+fizzbuzz=g[0].lcm(g[1])
 if a.any?{|e|fizzbuzz%e==0} then puts :NA;next end
 c=d=0
 while c<m
