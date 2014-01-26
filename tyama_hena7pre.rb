@@ -31,5 +31,5 @@ F={
 	'F'=>lambda{|a|a.transpose.stable_sort(5).transpose},
 }
 while gets
-	puts $_.chomp.chars.reduce(A){|s,e|s=F[e][s]}[0]*''
+	puts $_.chomp.chars.reduce(A){|s,e|F[e][s]}[0]*''
 end

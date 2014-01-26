@@ -21,5 +21,5 @@ while gets
 		end
 		x
 	}.reverse
-	puts (0..8).map{|e|a.reduce(e){|s,f|s=f.has_key?(s)?f[s]:s}}*''
+	puts (0..8).map{|e|a.reduce(e){|s,f|f.has_key?(s)?f[s]:s}}*''
 end

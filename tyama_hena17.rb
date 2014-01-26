@@ -9,12 +9,12 @@ RIGHT={
 	'tr'=>lambda{|t,b,l,r|t*r},
 }
 LEFT={
-	'L'=>lambda{|h,v,t,b,l,r|[h*2,v,t,b,h,l+r]},
-	'R'=>lambda{|h,v,t,b,l,r|[h*2,v,t,b,l+r,h]},
-	'T'=>lambda{|h,v,t,b,l,r|[h,v*2,v,t+b,l,r]},
-	'B'=>lambda{|h,v,t,b,l,r|[h,v*2,t+b,v,l,r]},
+	'L'=>lambda{|t,b,l,r|[t,b,l+r+1,l+r]},
+	'R'=>lambda{|t,b,l,r|[t,b,l+r,l+r+1]},
+	'T'=>lambda{|t,b,l,r|[t+b+1,t+b,l,r]},
+	'B'=>lambda{|t,b,l,r|[t+b,t+b+1,l,r]},
 }
 while gets
 	l,r=$_.chomp.split('-')
-	p RIGHT[r][ *l.chars.reduce([1,1,0,0,0,0]){|s,e|s=LEFT[e][*s]}[2,4] ]
+	p RIGHT[r].call(*l.chars.reduce([0,0,0,0]){|s,e|LEFT[e][*s]})
 end
