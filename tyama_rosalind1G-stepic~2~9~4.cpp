@@ -10,7 +10,7 @@ int c_max,K,D;
 void dfs(string &t,int k){
 	if(k==K){
 		int i=0,j,d,c=0;
-		for(;i<s.size()-k;i++){
+		for(;i<=s.size()-k;i++){
 			for(d=j=0;j<k;j++)d+=s[i+j]!=t[j];
 			if(d<=D)c++;
 		}

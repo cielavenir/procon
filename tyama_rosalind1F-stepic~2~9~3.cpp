@@ -8,7 +8,7 @@ int main(){
 	string s,t;
 	cin>>t>>s>>D;
 	k=t.size();
-	for(;i<s.size()-k;i++){
+	for(;i<=s.size()-k;i++){
 		for(d=j=0;j<k;j++)d+=s[i+j]!=t[j];
 		if(d<=D){
 			if(f)cout<<' ';

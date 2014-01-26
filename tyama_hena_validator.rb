@@ -40,7 +40,8 @@ URLS={
 	'16pre'=>'hena/ord16lcove',
 	'16'=>'hena/ord16boseg',
 	'17pre'=>'hena/ord17scheherazade',
-	'17'=>'hena/ord17foldcut'
+	'17'=>'hena/ord17foldcut',
+	'18pre'=>'hena/ord18mafovafo',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
