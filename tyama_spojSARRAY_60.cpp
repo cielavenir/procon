@@ -14,7 +14,7 @@ struct SAComp{
 char t[100010];
 int main(){
 	scanf("%s",t);
-	int n=strlen(t)+1;
+	int n=strlen(t)+1; //include last \0
 	int g[n],b[n];
 	int suff[n];
 	for(int i=0;i<n;i++)suff[i]=i,g[i]=t[i];
