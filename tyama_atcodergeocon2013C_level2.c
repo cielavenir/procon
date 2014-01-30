@@ -27,10 +27,9 @@ main(t,i,j,k){
 			}
 			for(i=0;i<N;i++)for(j=i+1;j<N;j++)for(k=j+1;k<N;k++){
 				o=Z[i][j],p=Z[j][k],q=Z[k][i];
-				//(3) 面積同士を掛け算するとオーバーフローするので、flg1=(o*p>0&&p*q>0)とすることはできない
-				flg1=(o<0&&p<0&&q<0)||(o>0&&p>0&&q>0);
+				flg1=(o^p)>0&&(p^q)>0;
 				o=W[i][j],p=W[j][k],q=W[k][i];
-				flg2=(o<0&&p<0&&q<0)||(o>0&&p>0&&q>0);
+				flg2=(o^p)>0&&(p^q)>0;
 				if(flg1!=flg2)goto danger;
 			}
 			puts("SAFE");continue;

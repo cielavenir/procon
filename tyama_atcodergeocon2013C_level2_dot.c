@@ -1,7 +1,7 @@
 #define C(x,y,a,b,c,d)(a-x)*(d-y)-(c-x)*(b-y)
 #define D(x,y,a,b,c,d)(a-x)*(c-x)+(b-y)*(d-y)
 char s[9];
-//(1) 入力上限は10**8であるので、整数乗算で面積(sinθの正負)を出したい場合long longである必要がある
+//入力上限は10**8であるので、整数乗算で面積(sinθの正負)を出したい場合long longである必要がある
 long long X[1999],Y[1999],Z[1999][1999],W[1999][1999],x,y,o,p,q;
 main(){
 	int N,T,flg1,flg2,t,i,j,k;
@@ -23,10 +23,9 @@ main(){
 			}
 			for(i=0;i<N;i++)for(j=i+1;j<N;j++)for(k=j+1;k<N;k++){
 				o=Z[i][j],p=Z[j][k],q=Z[k][i];
-				//(3) 面積同士を掛け算するとオーバーフローするので、flg1=(o*p>0&&p*q>0)とすることはできない
-				flg1=(o<0&&p<0&&q<0)||(o>0&&p>0&&q>0);
+				flg1=(o^p)>0&&(p^q)>0;
 				o=W[i][j],p=W[j][k],q=W[k][i];
-				flg2=(o<0&&p<0&&q<0)||(o>0&&p>0&&q>0);
+				flg2=(o^p)>0&&(p^q)>0;
 				if(flg1!=flg2)goto danger;
 			}
 			puts("SAFE");continue;
