@@ -9,7 +9,9 @@ def hena5(s)
 end
 
 URLS={
+	#'codeiq1'=>'codeiq/cardgame',
 	'codeiq2'=>'codeiq/tetromino_bingo',
+	#'codeiq3'=>'codeiq/octahedron', # from codeiq3, IO is provided via text.
 
 	'1'=>'hena/1',
 	'2'=>'hena/ord2',
@@ -42,6 +44,7 @@ URLS={
 	'17pre'=>'hena/ord17scheherazade',
 	'17'=>'hena/ord17foldcut',
 	'18pre'=>'hena/ord18mafovafo',
+	'18'=>'hena/ord18notfork',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
