@@ -28,7 +28,7 @@ int d(vector<int>&v){
 int main(){
 	int x;
 	vector<int>v;
-	for(;~scanf("%d",&x);)v.push_back(x);
+	for(;~scanf("%d",&x);)if(x>0)v.push_back(x);
 	sort(v.begin(),v.end());
 	p.push_back(0);
 	p.push_back(s=v[v.size()-1]);
