@@ -2,6 +2,7 @@
 #gemstring fast solution
 #based on https://gist.github.com/tatt61880/8958003
 
+=begin
 class Array
 
 	# yields all Arrays with enumerating "all elements from each elements".
@@ -21,6 +22,7 @@ class Array
 	end
 
 end
+=end
 
 class Integer
 	def fact() (1..self).reduce(:*)||1 end
@@ -35,7 +37,8 @@ desired.each{|n|
 	n.times{|i|
 		counts[i]-=1
 		val=counts.values.map{|e|[*0..e]}
-		val.choices{|e|
+		#val.choices{|e|
+		val[0].product(*val[1..-1]).each{|e|
 			r+=e.reduce(:+).fact / e.map(&:fact).reduce(:*)
 		}
 		counts[i]+=1
