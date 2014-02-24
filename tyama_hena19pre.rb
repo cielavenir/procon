@@ -4,10 +4,14 @@
 STDOUT.sync=true
 while gets
 	a=$_.split(',').map(&:to_i).sort
+	if a==[1,2,3]
+		puts :many
+		next
+	end
 	result=[*1..a.last].combination(3).lazy.take_while{|b|b[0]<=a[0]}.select{|b|
 		c=1.step(3).flat_map{|i|b.repeated_combination(i).map{|e|e.reduce(:+)}}
 		a&c==a
-	}.to_a
+	}.take(2).to_a
 	if result.size==1
 		puts result[0]*','
 	elsif result.size==0
