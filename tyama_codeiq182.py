@@ -24,7 +24,7 @@ for x in sell: a[len(set(x)&set(atari))]+=1
 mymatch=len(set(mynum)&set(atari))
 a[mymatch]+=mycnt
 
-print("atari="+(','.join([str(x) for x in atari])))
+print("atari="+(','.join(str(x) for x in atari)))
 for x in range(3):
 	if a[5-x]==0:
 		print("prize %d=0"%(x+1))

@@ -12,7 +12,7 @@ def solve(s):
 			z=['1' if e[y][x]!=e[y+1][x] else ' ' for x in range(6)]
 			for f in ''.join(z).split():
 				r[len(f)]+=1
-	print(','.join([str(e) for e in r[1:]]))
+	print(','.join(str(e) for e in r[1:]))
 	sys.stdout.flush()
 
 try:

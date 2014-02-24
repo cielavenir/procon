@@ -48,7 +48,7 @@ for k,v in params.items():
 	oauth[k]=params[k]
 
 # パラメータをソートし，URIエンコードした key=value の形にして & で繋げます
-oauth_str='&'.join([urllib.quote(key,'')+'='+urllib.quote(oauth[key],'~') for key in sorted(oauth)])
+oauth_str='&'.join(urllib.quote(key,'')+'='+urllib.quote(oauth[key],'~') for key in sorted(oauth))
 for k in params.keys(): del oauth[k] #Fixed on Jun 6
 
 # メソッド，URIエンコードした URL,上で作ったパラメータ文字列を & で繋げます 
@@ -62,7 +62,7 @@ else:
 	oauth['oauth_signature'] = base64.b64encode(signature)
 
 # パラメータをソートし，URIエンコードした key=value の形にして , で繋げます 
-header_oauth_str=','.join([urllib.quote(k,'')+'='+urllib.quote(oauth[k],'~') for k in sorted(oauth)])
+header_oauth_str=','.join(urllib.quote(k,'')+'='+urllib.quote(oauth[k],'~') for k in sorted(oauth))
 del oauth['oauth_signature'] #oauthオブジェクトを使いまわせるよう、signatureは破棄する必要があります。Fixed on Jul 5
 
 # ヘッダに Authorization:OAuth + 上で作成した文字列を追加します

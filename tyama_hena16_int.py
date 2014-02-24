@@ -12,7 +12,7 @@ def solve(s):
 	for e in (a,[reduce(lambda s,f: s+(((a[f]>>e)&1)<<f),range(len(a)),0) for e in range(len(a))]):
 		for y in range(len(a)-1):
 			for f in format(e[y]^e[y+1],'b').split('0'): r[len(f)]+=1
-	print(','.join([str(e) for e in r[1:]]))
+	print(','.join(str(e) for e in r[1:]))
 	sys.stdout.flush()
 
 try:
