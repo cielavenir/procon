@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
-SESSION=''
-USER_AGENT='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.22 Safari/537.36'
+SESSION='s702huov4kj5slre9p1to9svt1'
+USER_AGENT='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.11 Safari/537.36'
 
 CODE={
 	53=>"#!",
@@ -9,6 +9,8 @@ CODE={
 	129=>"NO\n",
 	134=>"48\n",
 	149=>"666848483\n",
+	156=>"1\n",
+	160=>"Hard\n",
 }
 question=ARGV[0].to_i
 code=CODE[question]
