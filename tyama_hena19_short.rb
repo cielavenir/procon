@@ -6,8 +6,7 @@ $h=Hash.new{|h,k|h[k]=[]}
 	(8*m).times{|i|
 		edges=[]
 		if m>1
-			d=i/m
-			r=i%m
+			d,r=i.divmod(m)
 			if r==0
 				edges<<(m-1)*100+d*(m-1)
 			else
