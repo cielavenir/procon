@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define MM 3
 #define M 3
-int m[MM*MM][MM*MM],f[MM*MM][MM*MM],z[MM*MM+1];
+int m[MM*MM][MM*MM],z[MM*MM+1];
 int grid(int I,int J){
 	int i,j,x,y;
 	i=I;//for(i=0;i<M*M;i++){
@@ -23,7 +23,7 @@ int dfs(int n){
 	int i,j,k;
 	if(n==M*M*M*M)return 1;
 	i=n/(M*M),j=n%(M*M);
-	if(!f[i][j])return dfs(n+1);
+	if(m[i][j])return dfs(n+1);
 	for(k=1;k<=M*M;k++){
 		m[i][j]=k;
 		if(grid(i,j)&&dfs(n+1))return 1;
@@ -38,8 +38,8 @@ int main(){
 			for(j=0;j<M*M;j++){
 				c=getchar();
 				if(c=='e')return 0;
-				if(c=='.')m[i][j]=0,f[i][j]=1;
-				else m[i][j]=c-'0',f[i][j]=0;
+				if(c=='.')m[i][j]=0;
+				else m[i][j]=c-'0';
 			}
 		}
 		if(!dfs(0))return 1;
