@@ -1,3 +1,5 @@
+//Note: this still fails in some test cases.
+
 #include <iostream>
 #include <string>
 #include <queue>
@@ -56,9 +58,10 @@ int main(){
 				vector<string>b=split(A[i],"=");
 				vector<int>c=split_int(b[1].substr(1),",");
 				for(j=0;j<c.size();j++){
-					//printf("%d\n",c[j]);
-					edges[(i<<16)+c[j]].push_back(make_pair((i<<16)+c[(j+1)%c.size()],7));
-					//edges[(i<<16)+c[(j+1)%c.size()]].push_back(make_pair((i<<16)+c[j],7));
+					if(j<c.size()-1){
+						edges[(i<<16)+c[j]].push_back(make_pair((i<<16)+c[j+1],7));
+						edges[(i<<16)+c[j+1]].push_back(make_pair((i<<16)+c[j],7));
+					}
 					transfer[c[j]].push_back((i<<16)+c[j]);
 					if(c[j]==start)q.push((i<<16)+c[j]),depth[(i<<16)+c[j]]=0;
 					if(c[j]==goal)goals.push_back((i<<16)+c[j]);
