@@ -1,0 +1,1 @@
+i;main(j){for(puts("40");++i<41;puts(""))for(j=0;++j<41;)putchar(i-j&&(i<6||j<6)?89:78);exit(0);}
