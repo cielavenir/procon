@@ -1,0 +1,1 @@
+main(n){scanf("%d%d",&n);printf("%d\n",(n+5)/10*10);exit(0);}

@@ -14,11 +14,6 @@ V &Mx(const V &_x){
 	for(;i<n;i++)for(j=0;j<n;j++)z[i*n+j]=(_x[slice(i*n,n,1)]*_x[slice(j,n,n)]).sum()%m;
 	return z;
 }
-void O(const V &r,const V &s){
-	int i=0;
-    for(;i<n-1;i++)printf("%d ",(r[slice(i*n,n,1)]*s).sum()%m);
-    printf("%d\n",(r[slice(i*n,n,1)]*s).sum()%m);
-}
 main(){
 	int T;
 	long long t,t0;

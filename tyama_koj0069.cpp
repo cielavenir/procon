@@ -11,9 +11,9 @@ int main(){
 	scanf("%d%d",&N,&B);
 	item.resize(N);
 	bag.resize(B+1);bag[0]=1;
-	for(i=0;i<N;i++)scanf("%d%d",&item[i].first.first,&item[i].first.second),item[i].second=i;
+	for(i=0;i<N;i++)scanf("%d%d",&item[i].first.second,&item[i].first.first),item[i].second=i;
 	for(i=0;i<N;i++){
-		for(j=B;j>=item[i].first.second;j--){
+		for(j=item[i].first.second;j<=B;j++){
 			if(bag[j-item[i].first.second]&&bag[j]<bag[j-item[i].first.second]+item[i].first.first){
 				bag[j]=bag[j-item[i].first.second]+item[i].first.first;
 			}
