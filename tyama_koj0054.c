@@ -1,0 +1,1 @@
+s,i;main(x){for(;~scanf("%d",&x);)if(s+=x,++i>6)s=i=!printf("%d\n",10-s/200);exit(0);}

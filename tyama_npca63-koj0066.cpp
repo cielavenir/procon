@@ -52,6 +52,6 @@ int main(){
 		vector<int> prev;
 		for(;E--;)scanf("%d%d",&s,&t),g[s].push_back(Edge(s,t,1));
 		shortestPath(g,0,dist,prev);
-		printf("%d\n",dist[V-1]);
+		printf("%d\n",dist[V-1]!=INF ? dist[V-1] : -1);
 	//}
 }

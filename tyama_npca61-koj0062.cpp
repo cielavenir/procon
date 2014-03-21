@@ -16,4 +16,5 @@ int main(){
 		}
 	}
 	puts(bag[B]?"YES":"NO");
+	//puts(bag[B]?"Yes":"No"); //koj0062
 }
