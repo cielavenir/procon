@@ -1,5 +1,5 @@
 object Solution{
-	def main(args: Array[String]){
+	def main(args:Array[String]){
 		val n=1000
 		val a=new Array[Int](n+1)
 		for(i<-0 to n)a(i)=1

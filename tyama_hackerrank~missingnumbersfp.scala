@@ -1,5 +1,5 @@
-object Solution {
-	def main(args: Array[String]): Unit = {
+object Solution{
+	def main(args:Array[String]){
 		readLine()
 		val a=readLine().split(' ').map(_.toInt)
 		readLine()

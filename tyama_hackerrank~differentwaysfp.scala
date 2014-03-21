@@ -1,5 +1,5 @@
 object Solution{
-	def main(args: Array[String]){
+	def main(args:Array[String]){
 		val s=readInt()
 		for(i<-1 to s){
 			val Array(n,k)=readLine().split(" ").map(_.toInt)
