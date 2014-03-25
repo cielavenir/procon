@@ -1,0 +1,21 @@
+a[99];main(n,N,w,h,i,j,r,s){
+	scanf("%d%d%d",&N,&w,&h);
+	r=-1;
+	for(i=0;i<h;i++){
+		for(j=0;j<w;j++)scanf("%d",a+j);
+		for(j=n=s=0;j<w;j++){
+			if(a[j]>=0){
+				s+=a[j];
+				n++;
+				if(n>N){
+					n--;
+					s-=a[j-n];
+				}
+				if(n==N&&r<s)r=s;
+			}else{
+				s=n=0;
+			}
+		}
+	}
+	printf("%d\n",r);
+}
