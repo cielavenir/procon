@@ -44,13 +44,17 @@ bool shortestPath(const Graph g, int s,
 }
 
 int main(){
-	int T,V,E,s,t,e;
+	int r,T,V,E,s,t,e,i;
 	//for(scanf("%d",&T);T;putchar(--T?' ':'\n')){
-		scanf("%d%d",&V,&E);
+		scanf("%d%d%d",&V,&E,&r);
 		Graph g(V);
 		vector<Weight> dist;
 		vector<int> prev;
-		for(;E--;)scanf("%d%d",&s,&t),g[s].push_back(Edge(s,t,-1));
-		puts(shortestPath(g,0,dist,prev)?"0":"1");
+		for(;E--;)scanf("%d%d%d",&s,&t,&e),g[s].push_back(Edge(s,t,e));
+		if(!shortestPath(g,r,dist,prev))puts("NEGATIVE CYCLE");
+		else for(i=0;i<V;i++){
+			if(dist[i]>=INF)puts("INF");
+			else printf("%d\n",dist[i]);
+		}
 	//}
 }

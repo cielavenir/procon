@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <vector>
 #include <algorithm>
-
+#include <queue>
 #define REP(i,n) for(int i=0;i<(int)n;++i)
 #define FOR(i,c) for(__typeof((c).begin())i=(c).begin();i!=(c).end();++i)
 #define ALL(c) (c).begin(), (c).end()
@@ -24,33 +24,37 @@ typedef vector<Edges> Graph;
 typedef vector<Weight> Array;
 typedef vector<Array> Matrix;
 
-bool shortestPath(const Graph g, int s,
+void shortestPath(const Graph &g, int s,
     vector<Weight> &dist, vector<int> &prev) {
   int n = g.size();
-  dist.assign(n, INF+INF); dist[s] = 0;
-  prev.assign(n, -2);
-  bool negative_cycle = false;
-  REP(k, n) REP(i, n) FOR(e,g[i]) {
-    if (dist[e->dst] > dist[e->src] + e->weight) {
-      dist[e->dst] = dist[e->src] + e->weight;
-      prev[e->dst] = e->src;
-      if (k == n-1) {
-        dist[e->dst] = -INF;
-        negative_cycle = true;
+  dist.assign(n, INF); dist[s] = 0;
+  prev.assign(n, -1);
+  priority_queue<Edge> Q; // "e < f" <=> "e.weight > f.weight"
+  for (Q.push(Edge(-2, s, 0)); !Q.empty(); ) {
+    Edge e = Q.top(); Q.pop();
+    if (prev[e.dst] != -1) continue;
+    prev[e.dst] = e.src;
+    FOR(f,g[e.dst]) {
+      if (dist[f->dst] > e.weight+f->weight) {
+        dist[f->dst] = e.weight+f->weight;
+        Q.push(Edge(f->src, f->dst, e.weight+f->weight));
       }
     }
   }
-  return !negative_cycle;
 }
 
 int main(){
-	int T,V,E,s,t,e;
+	int r,i,V,E,s,t,e;
 	//for(scanf("%d",&T);T;putchar(--T?' ':'\n')){
-		scanf("%d%d",&V,&E);
+		scanf("%d%d%d",&V,&E,&r);
 		Graph g(V);
 		vector<Weight> dist;
 		vector<int> prev;
-		for(;E--;)scanf("%d%d",&s,&t),g[s].push_back(Edge(s,t,-1));
-		puts(shortestPath(g,0,dist,prev)?"0":"1");
+		for(;E--;)scanf("%d%d%d",&s,&t,&e),g[s].push_back(Edge(s,t,e));
+		shortestPath(g,r,dist,prev);
+		for(i=0;i<V;i++){
+			if(dist[i]>=INF)puts("INF");
+			else printf("%d\n",dist[i]);
+		}
 	//}
 }
