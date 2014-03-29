@@ -13,7 +13,7 @@ int main(){for(int n,k;cin>>n>>k,n;){
 	do{
 		m[accumulate(v.begin(),v.begin()+k,string(),[](string x,string y){return x+y;})]=1;
 		//next_partial_permutation: http://origin.googlecode.com/svn-history/r366/trunk/core/include/origin/algorithm/boost_combination.hpp
-		if(v.begin()==v.begin()+k)break;
+		if(!k)break;
 		reverse(v.begin()+k,v.end());
 	}while(next_permutation(v.begin(),v.end()));
 	cout<<m.size()<<endl;

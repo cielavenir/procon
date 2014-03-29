@@ -32,7 +32,7 @@ if(M==0){
 		for(;i<P;i++)d+=plus[idx[i]].first;
 		if(D>d)D=d;
 		//next_partial_permutation: http://origin.googlecode.com/svn-history/r366/trunk/core/include/origin/algorithm/boost_combination.hpp
-		//if(idx.begin()==idx.begin()+M)break;
+		//if(!M)break;
 		reverse(idx.begin()+M,idx.end());
 	}while(next_permutation(idx.begin(),idx.end()));
 }
