@@ -55,8 +55,8 @@ int main(){
 				visit[next]=cur.second+1;
 				back[next]=cur.first;
 				if(next==goal){
-					printf("%d\n",v.size());
-					for(j=0;j<v.size();j++)printf("%d %d\n",v[j].first,v[j].second);
+					//printf("%d\n",v.size());
+					//for(j=0;j<v.size();j++)printf("%d %d\n",v[j].first,v[j].second);
 					backtrack(0,goal);
 					//printf("%d\n",cur.second+1);
 					return 0;
