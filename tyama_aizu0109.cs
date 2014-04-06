@@ -4,8 +4,8 @@ using System.Text.RegularExpressions;
 // (5-(6/2/2+50*3/2/3*6/4)/9*2-(6/2/2+50*3/2/3*6)-36)*2-1=
 
 class AOJ0109{
-	static Regex addsub = new Regex("^(.*?)(-?\\d+)([+Z])(-?\\d+)(.*)$",RegexOptions.Compiled);
-	static Regex muldiv = new Regex("^(.*?)(-?\\d+)([*/])(-?\\d+)(.*)$",RegexOptions.Compiled);
+	static readonly Regex addsub = new Regex("^(.*?)(-?\\d+)([+Z])(-?\\d+)(.*)$",RegexOptions.Compiled);
+	static readonly Regex muldiv = new Regex("^(.*?)(-?\\d+)([*/])(-?\\d+)(.*)$",RegexOptions.Compiled);
 
 	static String process(String s){
 		//analyze parens

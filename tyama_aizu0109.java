@@ -4,8 +4,8 @@ import java.util.regex.*;
 // (5-(6/2/2+50*3/2/3*6/4)/9*2-(6/2/2+50*3/2/3*6)-36)*2-1=
 
 class Main{
-	private static Pattern addsub = Pattern.compile("^(.*?)(-?\\d+)([+Z])(-?\\d+)(.*)$");
-	private static Pattern muldiv = Pattern.compile("^(.*?)(-?\\d+)([*/])(-?\\d+)(.*)$");
+	private final static Pattern addsub = Pattern.compile("^(.*?)(-?\\d+)([+Z])(-?\\d+)(.*)$");
+	private final static Pattern muldiv = Pattern.compile("^(.*?)(-?\\d+)([*/])(-?\\d+)(.*)$");
 
 	private static String process(String s){
 		//analyze parens

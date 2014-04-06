@@ -47,6 +47,7 @@ URLS={
 	'18'=>'hena/ord18notfork',
 	'19pre'=>'hena/ord19sanwa',
 	'19'=>'hena/ord19nebasec',
+	'20'=>'hena/ord20meetime',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
