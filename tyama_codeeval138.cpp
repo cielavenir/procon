@@ -8,6 +8,9 @@
 using namespace std;
 
 int main(int argc, char **argv){
+	cin.tie(0);
+	ios::sync_with_stdio(false);
+
 	vector<pair<double,double> > course;
 	{
 		string line;
@@ -17,16 +20,22 @@ int main(int argc, char **argv){
 	}
 
 	vector<pair<double,int> >cars;
+	//加速度 = (加速後速度-加速前速度)/時間
+	//距離 = 加速前速度*時間 + 加速度*時間*時間/2
 	{
 		int number;
-		double mph,start,end,prevangle=180;
-		for(;cin>>number>>mph>>start>>end;){
-			double mps=mph/3600,T=0;
+		double mph,timeaccel,timebreak;
+		for(;cin>>number>>mph>>timeaccel>>timebreak;){
+			double mps=mph/3600,T=0,prevangle=180;
 			for(int i=0;i<course.size();i++){
-				double start2=start*sqrt((prevangle)/180);
-				double end2=end*sqrt((course[i].second)/180);
-				double t=course[i].first/mps-start2/2.9-end2/2.9;
-				T+=t+start2+end2;
+				double timeaccel1=timeaccel*(prevangle)/180;
+				double timebreak1=timebreak*(course[i].second)/180;
+				double accel1=timeaccel1 ? (mps-mps*(180-prevangle)/180)/timeaccel1 : 0;
+				double break1=timebreak1 ? (mps*(180-course[i].second)/180-mps)/timebreak1 : 0;
+				double distaccel1=mps*(180-prevangle)/180*timeaccel1 + accel1*timeaccel1*timeaccel1/2;
+				double distbreak1=mps*timebreak1 + break1*timebreak1*timebreak1/2;
+				double t=(course[i].first-distaccel1-distbreak1)/mps;
+				T+=t+timeaccel1+timebreak1;
 				prevangle=course[i].second;
 			}
 			cars.push_back(make_pair(T,number));
