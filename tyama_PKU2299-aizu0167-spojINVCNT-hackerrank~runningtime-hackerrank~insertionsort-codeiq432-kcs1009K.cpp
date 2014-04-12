@@ -37,6 +37,9 @@ int main(){
 	//for(scanf("%d",&T);T--;printf("%lld\n",merge_and_count(0,N)))for(scanf("%d",&N),i=0;i<N;++i)scanf("%d",A+i);
 	//codeiq432
 	for(N=0;~scanf("%d",A+N);N++);printf("%lld\n",merge_and_count(0,N));
+	//kcs1009K
+	//for(i=0;~(N=getchar());)if('0'<N&&N<'9')A[i++]=N-'0';
+	//puts(merge_and_count(0,i)%2?"lmpossible":"Possible"); //lol
 }
 
 /*
