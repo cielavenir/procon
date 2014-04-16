@@ -3,9 +3,9 @@
 #include <cstdio>
 using namespace std;
 
-// 最初のsampleではpref_m[’a’] は BAC... (先頭N文字だけ使い,他はnull)
+// 最初のsampleではpref_m[’a’] は BAC... (先頭N文字だけ使い,他はnull)
 char pref_m[128][128]={{0}}, pref_f[128][128]={{0}};
-// 女性f が,男性aを男性bを好む場合に真
+// 女性fが,男性aを男性bを好む場合に真
 bool better(char f, char a, char b){
 	int orda = find(pref_f[f], pref_f[f]+128, a)-pref_f[f]; // a のリスト内の順位
 	int ordb = find(pref_f[f], pref_f[f]+128, b)-pref_f[f]; // b
@@ -28,7 +28,7 @@ void solve(string &name_m, string &name_f) {
 				proposed[man]++;
 				char mate = f2m[f];
 				if(!mate || better(f, man, mate)){
-					if(mate)m2f[mate]=0; // mateとfはペアでなくなった
+					if(mate)m2f[mate]=0; // mateとfはペアでなくなった
 					m2f[man]=f,f2m[f]=man;
 					man_id=0; // 初めから見直す
 				}
