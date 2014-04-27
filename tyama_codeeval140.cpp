@@ -46,6 +46,11 @@ int main(){
 			vector<string> a=split(line,";");
 			vector<string> b=split(a[0]," ");
 			vector<int> c=split_int(a[1]," ");
+			if(b.size()>c.size()){
+				vector<int> d=c;
+				sort(d.begin(),d.end());
+				for(i=1;i<=b.size();i++)if(d[i-1]!=i){c.push_back(i);break;}
+			}
 			for(i=0;i<b.size();i++)v.push_back(make_pair(c[i],b[i]));
 		}
 		sort(v.begin(),v.end());
