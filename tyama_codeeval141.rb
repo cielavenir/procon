@@ -86,13 +86,15 @@ end
 listener=MultiSAX::Sax.parse($_+$<.read,Class.new{
 	include MultiSAX::Callbacks
 	def initialize
+		@ids=[]
+		@i_ids=-1
 		@names=[]
 		@confirmation=[]
 		@timestamp=[]
 		@coor=[]
 		@current_tag=[]
 	end
-	attr_reader :names,:confirmation,:timestamp,:coor
+	attr_reader :ids,:names,:confirmation,:timestamp,:coor
 
 	def sax_tag_start(tag,attrs)
 		@current_tag.push(tag)
@@ -103,6 +105,7 @@ listener=MultiSAX::Sax.parse($_+$<.read,Class.new{
 	def sax_text(txt)
 		if @current_tag==['kml','Document','Folder','Placemark','name']
 			@names<<txt
+			@ids<<(@i_ids+=1)
 		elsif @current_tag==['kml','Document','Folder','Placemark','TimeStamp','when']
 			@timestamp<<Time.parse(txt).to_f
 		elsif @current_tag==['kml','Document','Folder','Placemark','Point','coordinates']
@@ -119,13 +122,13 @@ listener=MultiSAX::Sax.parse($_+$<.read,Class.new{
 	end
 }.new)
 
-a=listener.confirmation.zip(listener.timestamp,listener.coor,listener.names).sort_by{|confirmation,timestamp,coor2,name|
-	[-confirmation,-timestamp]
+a=listener.confirmation.zip(listener.timestamp,listener.ids,listener.coor,listener.names).sort_by{|confirmation,timestamp,id,coor2,name|
+	[-confirmation,-timestamp,id]
 }
 query.each{|radius,coor1|
 	result=[]
 	num=nil
-	a.each{|confirmation,timestamp,coor2,name|
+	a.each{|confirmation,timestamp,id,coor2,name|
 		if radius>=6378.137*Math::acos( (Math::sin(coor1[1])*Math::sin(coor2[1])+Math::cos(coor1[1])*Math::cos(coor2[1])*Math::cos(coor1[0]-coor2[0])) )
 			break if num&&num>confirmation
 			result<<name
