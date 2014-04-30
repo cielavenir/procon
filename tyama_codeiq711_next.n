@@ -1,0 +1,55 @@
+using System;
+using System.Array;
+using Nemerle.Imperative;
+
+public class CodeIQRoute{
+	static next_permutation[T](a:array[T],n:int):bool where T : IComparable[T]{
+		when(n<0||a.Length<n)return false;
+		mutable i:int=0;
+		Reverse(a,n,a.Length-n);
+		for(i=a.Length-2;i>=0;i--)when(a[i].CompareTo(a[i+1])<0)break;
+		when(i<0){
+			Reverse(a,0,a.Length);
+			return false;
+		}
+		def k:int=i;
+		for(i=a.Length-1;i>=k+1;i--)when(a[k].CompareTo(a[i])<0)break;
+		def l:int=i;
+		def z=a[k];a[k]=a[l];a[l]=z;
+		Reverse(a,k+1,a.Length-(k+1));
+		return true;
+	}
+
+	public static Main(): void{
+		def N=6;
+		mutable r:int=0;
+		mutable i:int;
+		def e0=array(N*2);
+		def f0=array(N*2);
+		for(i=0;i<N;i++){
+			e0[i]=0;f0[i]=0;
+			e0[N+i]=1;f0[N+i]=1;
+		}
+		Sort(e0);
+		Sort(f0);
+		do{
+			do{
+				mutable flg:int=0;
+				mutable zero1:int=0;
+				mutable zero2:int=N;
+				mutable one1:int=0;
+				mutable one2:int=N;
+				for(i=0;i<N*2;i++){
+					when(e0[i]==0)zero1++;
+					when(e0[i]==1)one1++;
+					when(f0[N*2-1-i]==0)zero2--;
+					when(f0[N*2-1-i]==1)one2--;
+					when(zero1==zero2)flg++;
+					when(one1==one2)flg++;
+				}
+				when(flg>=2)r++;
+			}while(next_permutation(f0,f0.Length));
+		}while(next_permutation(e0,e0.Length));
+		Console.WriteLine(r);
+	}
+}
