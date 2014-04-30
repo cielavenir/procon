@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 module Spacetalky
 	def self.encode(s)
+		return '?' if s.empty? || s!=s.downcase
 		r=''
 		s.each_char.chunk{|e|e}.each{|e|
 			n=e[1].size
