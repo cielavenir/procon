@@ -18,6 +18,6 @@ class Main{
         }
         System.out.println(l);
       }
-    }catch(Exception e){}
+    }catch(IOException e){}
   }
 }

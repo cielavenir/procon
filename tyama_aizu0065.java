@@ -19,6 +19,6 @@ class Main{
         int a=m.getValue()/100,b=m.getValue()%100;
         if(a>0&&b>0)System.out.println(m.getKey()+" "+(a+b));
       }
-    }catch(Exception e){}
+    }catch(IOException e){}
   }
 }

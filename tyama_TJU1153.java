@@ -17,6 +17,6 @@ enum Main{A;
         }
         System.out.println();
       }
-    }catch(Exception e){}
+    }catch(IOException e){}
   }
 }

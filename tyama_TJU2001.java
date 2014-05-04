@@ -15,6 +15,6 @@ class Main{
         System.out.println("Case "+i+": This list contains "+s+" sheep.");
         if(i<n)System.out.println();
       }
-    }catch(Exception e){}
+    }catch(IOException e){}
   }
 }

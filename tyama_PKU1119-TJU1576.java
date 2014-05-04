@@ -1,5 +1,5 @@
 //PKU1119
-//‚Ç‚¤‚µ‚Ä‚à³‹K•\Œ»‚ğg‚¢‚½‚­‚Ä‹êè‚ÈJava‚Å^^;
+//ã©ã†ã—ã¦ã‚‚æ­£è¦è¡¨ç¾ã‚’ä½¿ã„ãŸãã¦è‹¦æ‰‹ãªJavaã§^^;
 import java.io.*;
 import java.util.*;
 import java.util.regex.*;
@@ -16,53 +16,49 @@ class Main{
   }
 
   public static String[] parse(String s){ //Java is ByRef, so this func is destructive... But it is OK.
-    //•¶šíC³
+    //æ–‡å­—ç¨®ä¿®æ­£
     s=g(s,"[^0-9a-zA-Z ]","");
 
-    //æ“ª‹ó”’íœ
+    //å…ˆé ­ç©ºç™½å‰Šé™¤
     s=g(s,"^\\s*","");
 
     if(s.equals(""))return null;
 
     pattern = Pattern.compile(" +");
-    return pattern.split(s.toLowerCase()); //case-insensitive‚Å‚·‚©‚¢B
+    return pattern.split(s.toLowerCase()); //case-insensitiveã§ã™ã‹ã„ã€‚
   }
 
   public static void main(String[] args){
     int i,j;
 
     cin=new Scanner(System.in);
-    cin.useDelimiter("----------"); //•¡”s‚àOK‚Æ‚ÍBBB‚ÜA‚±‚Ì•Ó‚ÍPerl‚Ì\/‚İ‚½‚¢‚È‹Z–@‚Åw
+    cin.useDelimiter("----------"); //è¤‡æ•°è¡Œã‚‚OKã¨ã¯ã€‚ã€‚ã€‚ã¾ã€ã“ã®è¾ºã¯Perlã®\/ã¿ãŸã„ãªæŠ€æ³•ã§w
     String[] ss=parse(cin.next());
     int[] ii=new int[ss.length];
 
-    for(;;){
-      try{
-        Arrays.fill(ii,0);
-        String s=cin.next();
+    for(;cin.hasNext();){
+      Arrays.fill(ii,0);
+      String s=cin.next();
 
-        String[] terms=parse(s);
-        if(terms==null)continue;
+      String[] terms=parse(s);
+      if(terms==null)continue;
 
-        //WŒv
-        for(i=0;i<ss.length;i++)
-          for(j=0;j<terms.length;j++)
-            if(ss[i].equals(terms[j]))ii[i]++;
+      //é›†è¨ˆ
+      for(i=0;i<ss.length;i++)
+        for(j=0;j<terms.length;j++)
+          if(ss[i].equals(terms[j]))ii[i]++;
 
-        //d•¡’PŒê‚Ì“_‚ğ‚Ü‚Æ‚ß‚é
-        for(i=0;i<ss.length;i++)
-          for(j=i+1;j<ss.length;j++)
-            if(ss[i].equals(ss[j])){
-              ii[i]+=ii[j];
-              ii[j]=0;
-            }
+      //é‡è¤‡å˜èªã®ç‚¹ã‚’ã¾ã¨ã‚ã‚‹
+      for(i=0;i<ss.length;i++)
+        for(j=i+1;j<ss.length;j++)
+          if(ss[i].equals(ss[j])){
+            ii[i]+=ii[j];
+            ii[j]=0;
+          }
 
-        float f=0;
-        for(i=0;i<ss.length;i++)f+=Math.sqrt(ii[i]);
-        System.out.printf("%.2f\n",f);
-      }catch(NoSuchElementException e){
-        return; //EOF^^;
-      }
+      float f=0;
+      for(i=0;i<ss.length;i++)f+=Math.sqrt(ii[i]);
+      System.out.printf("%.2f\n",f);
     }
   }
 }

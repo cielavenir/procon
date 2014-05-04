@@ -13,6 +13,6 @@ class Main{
         if(y!=0){System.out.println("0");continue;}
         System.out.println((x+11)%24+1);
       }
-    }catch(Exception e){}
+    }catch(IOException e){}
   }
 }
