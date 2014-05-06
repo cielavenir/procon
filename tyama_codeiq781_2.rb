@@ -124,6 +124,7 @@ end
 	})
 =end
 
+=begin
 	#解説を見た後に
 	test(Enumerator.new{|y|
 		cur=_s # correct seed is 234.
@@ -135,6 +136,16 @@ end
 		}
 	})
 	#まあ、最もなことを言えば、今回キーストリームの連結ではなくストレッチングの方に思考が行ってしまった時点で運が悪かったということになりましょうか。
+=end
+	test(Enumerator.new{|y|
+		cur=_s # correct seed is 234.
+		sha1=Digest::SHA1.new
+		loop{
+			y<<cur
+			sha1.update(cur.chr)
+			cur=sha1.digest[-1].ord
+		}
+	})
 }
 #}
 puts 'No luck...'

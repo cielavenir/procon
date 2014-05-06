@@ -1,6 +1,7 @@
 /*1734-1830*/
 /*TLE in Online Judge. Should be optimized more.*/
 #include <cstdio>
+#include <cstdlib>
 #include <set>
 #include <map>
 #include <algorithm>
@@ -44,9 +45,9 @@ int main(){
       }
       z=0;
       for(i=0;i<n-1;i++){
-        z+=atoi(x[i]);
+        z+=strtol(x[i],NULL,10);
       }
-      if(z==atoi(x[n-1]))r++;
+      if(z==strtol(x[n-1],NULL,10))r++;
       next:;
       next_permutation(t,t+10);
     }

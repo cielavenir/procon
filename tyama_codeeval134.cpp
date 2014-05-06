@@ -6,6 +6,7 @@
 #include <map>
 #include <algorithm>
 #include <cstdio>
+#include <cstdlib>
 using namespace std;
 
 vector<string> split(string &str, const char *delim){

@@ -26,7 +26,7 @@ int main(){
 		istringstream ss(s);
 		for(j=0;j<N;j++){
 			getline(ss,t,',');
-			if(i<j&&t!="-")a[k]=i,b[k]=j,S+=node[k].first=atoi(t.c_str()),node[k].second=k,k++;
+			if(i<j&&t!="-")a[k]=i,b[k]=j,S+=node[k].first=strtol(t.c_str(),NULL,10),node[k].second=k,k++;
 		}
 	}
 	sort(node,node+k);

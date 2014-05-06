@@ -31,8 +31,8 @@ int main(int argc, char **argv){
 			vector<string> a=split(line,";");
 			for(int i=1;i<a.size();i++)a[i]=a[i].substr(1);
 			for(int i=0;i<a.size();i++){
-				int j=(atoi(a[i].substr(4,4).c_str())-1990)*12+distance(months,find(months,months+12,a[i].substr(0,3)));
-				int k=(atoi(a[i].substr(13,4).c_str())-1990)*12+distance(months,find(months,months+12,a[i].substr(9,3)));
+				int j=(strtol(a[i].substr(4,4).c_str(),NULL,10)-1990)*12+distance(months,find(months,months+12,a[i].substr(0,3)));
+				int k=(strtol(a[i].substr(13,4).c_str(),NULL,10)-1990)*12+distance(months,find(months,months+12,a[i].substr(9,3)));
 				for(;j<=k;j++)v[j]=1;
 			}
 		}

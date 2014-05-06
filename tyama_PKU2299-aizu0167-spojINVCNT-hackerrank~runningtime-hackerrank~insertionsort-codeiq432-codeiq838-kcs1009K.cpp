@@ -47,7 +47,7 @@ int main(){
 	printf("%d\n",T); //573
 	//kcs1009K: Nパズルの可解性
 	//for(i=0;~(N=getchar());)if('0'<N&&N<'9')A[i++]=N-'0';
-	//puts(merge_and_count(0,i)%2?"lmpossible":"Possible"); //lol
+	//puts(merge_and_count(0,i)%2?"lmpossible":"Possible"); //"l"? lol!
 }
 
 /*

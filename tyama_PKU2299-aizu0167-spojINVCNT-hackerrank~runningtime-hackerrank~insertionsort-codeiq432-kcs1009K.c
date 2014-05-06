@@ -33,6 +33,6 @@ int main(){
 	for(N=0;~scanf("%d",A+N);N++);printf("%lld\n",M(0,N));
 	//kcs1009K
 	//for(i=0;~(N=getchar());)if('0'<N&&N<'9')A[i++]=N-'0';
-	//puts(M(0,i)%2?"lmpossible":"Possible"); //lol
+	//puts(M(0,i)%2?"lmpossible":"Possible"); //"l"? lol!
 	return 0;
 }
