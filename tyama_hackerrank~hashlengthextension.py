@@ -448,11 +448,12 @@ def md5(arg=None):
 def main():
 	for i in range(int(raw_input())):
 		l,m,h,s=raw_input().strip().split()
-		length=int(l)
+		length=int(l)+len(s)
 		pad = ''
-		n0 = ((56 - (length+1)%64) % 64)
-		pad+= '\x80' #pad 1
-		pad+= '\x00'*n0 + struct.pack('Q', length*8)
+		#n0 = ((56 - (length+1)%64) % 64)
+		n0 = (56 - length - 1 + 64)%64
+		#pad+= '\x80' #pad 1
+		#pad+= '\x00'*n0 + struct.pack('Q', length*8)
 		length+= 1 + n0 + 8
 		#print "Payload: ", (repr(pad+s))
 		md5_special = MD5(h, length)
