@@ -1,0 +1,21 @@
+答え：把握するまでの最短時間＝7分、先生が電話する回数＝7回
+解き方：
+以下をマインドマップビュワー(https://www.text2mindmap.com/ など)に貼り付けたものが全てです。
+基本的には連絡網の高さを揃えて葉の数を減らすのがセオリーなのですが、最後の人が先生と話す場合はかけ直す必要が無いため、枝の１つを切断して繋ぎ直すことで圧縮が可能な場合があります。
+とりあえず、疲れました。
+
+Teacher
+	Student1
+		Student2
+			Student3
+				Student4
+					Student5
+		Student6
+			Student7
+				Student8
+					Student9
+	Student10
+		Student11
+			Student12
+	Student13
+	Student14
