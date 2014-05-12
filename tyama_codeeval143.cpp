@@ -17,6 +17,9 @@ vector<string> split(string &str, const char *delim){
 	//if(str.length() > 0){
 		result.push_back(str);
 	//}
+	for(cutAt=result.size()-1;cutAt>=0;cutAt--){
+		if(result[cutAt].size()==0)result.erase(result.begin()+cutAt);
+	}
 	return result;
 }
 
