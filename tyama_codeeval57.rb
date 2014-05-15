@@ -3,7 +3,7 @@ while gets
 h,w,a=$_.chomp.split(';')
 h=h.to_i
 w=w.to_i
-a=a.chomp.split
+a=a.split
 f=(h+2).times.map{[nil]*(w+2)}
 d=[[1,0],[0,1],[-1,0],[0,-1]]
 1.step(h){|i|

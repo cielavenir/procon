@@ -11,7 +11,7 @@ def dfs(t,n,h)
 	h[s]=1
 	s
 end
-leaves=gets.chomp.split
+leaves=gets.split
 $leaf={}
 leaves.each_with_index{|e,i|$leaf[e]=1<<i}
 t1=Bio::FlatFile.open(Bio::Newick,StringIO.new(gets.chomp)).next_entry.tree

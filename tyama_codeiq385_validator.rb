@@ -13,7 +13,7 @@ ng=0
 File.open(ARGV[0],'rb'){|f|
 	while f.gets
 		_f=$_.split[2].to_f
-		line=$stdin.gets.chomp.split
+		line=$stdin.gets.split
 		if (line[2].to_f-_f).abs>0.2
 			ng+=1
 			puts (line+[_f])*' '

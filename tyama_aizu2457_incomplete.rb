@@ -34,7 +34,7 @@ end
 
 n,m=gets.split.map(&:to_i)
 a=[]
-n.times{gets.chomp.split.each{|e|a<<e}}
+n.times{gets.split.each{|e|a<<e}}
 b=m.times.map{gets.chomp}
 r=0
 a.each{|e|

@@ -3,7 +3,7 @@ s=[]
 siz=0
 Q,L=gets.split.map(&:to_i)
 Q.times{
-	query=gets.chomp.split
+	query=gets.split
 	if query[0]=='Push'
 		s<<[query[2].to_i,query[1].to_i]
 		siz+=query[1].to_i

@@ -9,7 +9,7 @@ def diff1(t,s):
 		if r>1: return False
 	return True
 
-f,l=raw_input().rstrip().split()
+f,l=raw_input().split()
 a=list(set([raw_input().rstrip() for i in range(int(raw_input()))]))
 if f==l:
 	print(0)

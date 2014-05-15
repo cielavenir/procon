@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 gets.to_i.times{
-	a,b=gets.chomp.split
+	a,b=gets.split
 	a=a.to_i
 	s=''
 	s+='Fizz' if a%3==0

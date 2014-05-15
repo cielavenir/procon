@@ -1,9 +1,9 @@
 #!/usr/bin/ruby
-n=gets.chomp.to_i
+n=gets.to_i
 h=Hash.new(0)
 a=[]
 n.times{|z|
-  s=gets.chomp.split
+  s=gets.split
   h[s[0]]+=s[1].to_i
   a<<s
 }

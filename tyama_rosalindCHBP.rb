@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 require 'bio'
-leaves=gets.chomp.split
+leaves=gets.split
 spl=[]
 while gets
 	s=$_.chomp
@@ -33,7 +33,7 @@ a b c d e f
 011000
 000110
 
-leaves=gets.chomp.split
+leaves=gets.split
 spl=[]
 while gets
 	s=$_.chomp

@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-s=gets.chomp.split
+s=gets.split
 h={}
 while gets
 a=$_.size.times.select{|i|$_[i,1]=='0'}

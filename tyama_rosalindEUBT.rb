@@ -16,7 +16,7 @@ def x(a)
 	}
 	r
 end
-a=gets.chomp.split
+a=gets.split
 s=a.shift
 x(a).each{|e|
 	puts "(#{e})#{s};"

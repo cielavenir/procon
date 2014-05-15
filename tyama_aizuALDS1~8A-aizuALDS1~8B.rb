@@ -106,7 +106,7 @@ end
 
 seti=SETI.new
 $<.drop(1).each{|l|
-	a=l.chomp.split
+	a=l.split
 	if a[0]=='insert'
 		seti.set_entry(a[1].to_i)
 	elsif a[0]=='find'

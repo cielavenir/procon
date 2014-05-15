@@ -7,10 +7,10 @@ class Array
   end
 end
 
-s=gets.chomp.split(" ").map!{|i|i=i.to_i}
+s=gets.split.map(&:to_i)
 a=Array.new(s[0])
 s[0].times{|j|
-  a[j]=gets.chomp.split(" ").map!{|i|i=i.to_i}
+  a[j]=gets.split.map(&:to_i)
 }
 m=a.transpose[0].sum
 M=a.transpose[1].sum

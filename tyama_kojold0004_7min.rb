@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 loop{
-	a,b,n,s=gets.chomp.split
+	a,b,n,s=gets.split
 	if n=='0' then break end
 	a=a.to_i;b=b.to_i
 	ans=''

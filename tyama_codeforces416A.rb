@@ -3,7 +3,7 @@ A=['>','<','<=','>=']
 min=-10**9-1
 max=10**9+1
 gets.to_i.times{
-line=gets.chomp.split
+line=gets.split
 line[0]=A.index(line[0])
 line[0]^=2 if line[2]=='N'
 line[1]=line[1].to_i

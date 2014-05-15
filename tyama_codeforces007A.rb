@@ -9,7 +9,7 @@ end
 
 a=Array.new(8)
 8.times{|i|
-  a[i]=gets.chomp.unpack("C*").map!{|i|i-=87}
+  a[i]=gets.chomp.unpack("C*").map{|i|i-87}
 }
 m=M=0
 8.times{|i|

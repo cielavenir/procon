@@ -2,7 +2,7 @@
 #Usage: ruby tyama_codeiq210_stage1.rb init | ruby tyama_codeiq210_stage2.rb | ruby tyama_codeiq210_stage1.rb
 a=[]
 while DATA.gets
-a<<$_.chomp.split
+a<<$_.split
 end
 
 if ARGV[0]=='init'
@@ -22,7 +22,7 @@ end
 s="Anesuma Anewatry Anioc Bapomely Baricema Bebacorry Bebary Camin Carabaic Carapertah Caratah Chimonma Chitamary Choopaly Chooperaly Ciocitotah Ciogoist Cito Draat Drama Draxuoly Floic Ginima Glaat Gotah Jachooor Junisooc Junitah Laboc Labor Labry Limeachioly Limelicotah Limetal Loveaniic Masema Maserior Matapermin Minnlabic Minnoc Monwatmin Muly Munillaist Mupermin Mupopoc Mury Nerstamin Nige Nillawatat Nutscinmin Nutslemoist Nutssery Paic Paor Peracassist Peratal Peregrama Pertah Pomeat Popxuoor Primonmin Pripriist Riceturic Rinacassoc Rinagla Rinawatry Rose Roselabtal Rosetal Ruginitah Rury Sesaist Soanior Somutah Soxuooc Spicesesaoc Stacarary Staoc Suma Sumabebatah Sumaloveat Tamamin Tamariic Tamastaat Tary Tatah Turcardoist Turry Tursesaly Xuoma Zamacetal Zaor Zaroseor Zaspiceoc"
 b={}
 s.split.each{|e|b[e]=1}
-#gets.chomp.split.each{|e|b[e]=1}
+#gets.split.each{|e|b[e]=1}
 
 score1=score2=0
 a.each{|e,f|

@@ -18,7 +18,7 @@ def tocell(n)
   return r
 end
 
-n=gets.chomp.to_i
+n=gets.to_i
 n.times{|z|
   s=gets.chomp
   if s=~/^([A-Z]+)(\d+)$/ then puts "R"+$2.to_s+"C"+fromcell($1).to_s end

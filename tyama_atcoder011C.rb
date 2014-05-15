@@ -7,7 +7,7 @@ def diff1(t,s)
 	}
 	true
 end
-f,l=gets.chomp.split
+f,l=gets.split
 a=gets.to_i.times.map{gets.chomp}.uniq
 if f==l then p 0;puts f;puts l;exit end
 h={f=>nil}

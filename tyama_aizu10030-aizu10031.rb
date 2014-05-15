@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-gets;s=gets.chomp.split;gets;p (gets.chomp.split&s).size
+gets;s=gets.split;gets;p (gets.split&s).size

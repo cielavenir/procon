@@ -6,7 +6,7 @@ x=[]
 if mode==:codeeval49
 	h=Hash.new{|h,k|h[k]={}}
 	while gets
-		a=$_.chomp.split
+		a=$_.split
 		h[a[-2]][a[-1]]=1
 		x<<[a[-1],a[-2]] if h[a[-1]][a[-2]]
 	end

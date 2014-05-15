@@ -4,7 +4,7 @@ class Array
 	def mirrorUD() return self.transpose.map{|e|e.reverse}.transpose end
 end
 h={'R'=>[1,0],'L'=>[-1,0],'U'=>[0,-1],'D'=>[0,1],'RU'=>[1,-1],'RD'=>[1,1],'LU'=>[-1,-1],'LD'=>[-1,1]}
-a=gets.chomp.split;x=a[0].to_i+7;y=a[1].to_i+7;w=a[2]
+a=gets.split;x=a[0].to_i+7;y=a[1].to_i+7;w=a[2]
 m=Array.new(9).map{|e|Array.new}
 m[4]=9.times.map{gets.chomp.split('')}
 m[0]=m[2]=m[6]=m[8]=m[4].mirrorLR.mirrorUD

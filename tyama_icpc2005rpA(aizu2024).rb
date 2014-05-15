@@ -4,8 +4,8 @@ gets.to_i.times{
 	s=0
 	ace=false
 	m['A']=11
-	gets.chomp.split.each{|e|s+=m[e];if e=='A'&&m[e]==11 then ace=true;m[e]=1 end}
-	a=gets.chomp.split
+	gets.split.each{|e|s+=m[e];if e=='A'&&m[e]==11 then ace=true;m[e]=1 end}
+	a=gets.split
 	if s==21 then puts 'blackjack';next end
 	a.each{|e|
 		if s>17||(s==17&&!ace) then break end

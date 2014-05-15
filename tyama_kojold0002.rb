@@ -2,7 +2,7 @@
 loop{
 	a=3
 	b=5
-	n,s=gets.chomp.split
+	n,s=gets.split
 	if n=='0' then break end
 	ans=''
 	f=nil

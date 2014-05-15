@@ -6,7 +6,7 @@ require 'tempfile'
 WATER='water'
 require 'mechanize'
 mech=Mechanize.new
-seqs=gets.chomp.split.map{|e|
+seqs=gets.split.map{|e|
 	mech.get('http://www.uniprot.org/uniprot/'+e+'.fasta')
 	mech.page.body
 }

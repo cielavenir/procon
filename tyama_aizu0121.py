@@ -50,7 +50,7 @@ while len(q)>0:
 
 try:
 	while True:
-		v=raw_input().rstrip().split()
+		v=raw_input().split()
 		print(m[''.join(v)][1])
 except EOFError:
 	pass

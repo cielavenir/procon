@@ -4,7 +4,7 @@ require 'stringio'
 r=[]
 while gets
 newick = Bio::FlatFile.open(Bio::Newick,StringIO.new($_.chomp)).next_entry
-a,b=gets.chomp.split
+a,b=gets.split
 gets
 tree = newick.tree
 tree.each_edge{|s,t,e|e.distance=1}

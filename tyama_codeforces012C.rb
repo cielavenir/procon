@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
-n=gets.chomp.split.map(&:to_i)
-a=gets.chomp.split.map(&:to_i).sort
+n=gets.split.map(&:to_i)
+a=gets.split.map(&:to_i).sort
 b=a.reverse
 h={}
 h.default=0
