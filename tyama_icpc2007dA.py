@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import sys
+if sys.version_info[0]>=3: raw_input=input
 
 #2007 Domestic A
 def judge(n):
@@ -7,7 +8,7 @@ def judge(n):
   mi=1000
   s=0
   for i in range(0,n):
-    x=int(sys.stdin.readline())
+    x=int(raw_input())
     if x<mi:
       mi=x
     if x>ma:
@@ -16,7 +17,7 @@ def judge(n):
   print((s-ma-mi)//(n-2))
 
 while 1:
-  n=int(sys.stdin.readline())
+  n=int(raw_input())
   if n==0:
     break
   judge(n)

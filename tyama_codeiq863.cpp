@@ -17,7 +17,7 @@ int main(){
 	sort(data.begin(),data.end(),[](pspii &a,pspii &b){return a.second.second<b.second.second;});
 	int f=0;
 	for(int i=0;i<data.size();i++){
-		if(data[i].second.first>f){
+		if(data[i].second.first>f){ //終端は閉区間。開区間なら>=になる。
 			ma.push_back(data[i].first);
 			f=data[i].second.second;
 		}
