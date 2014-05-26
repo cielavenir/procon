@@ -30,6 +30,6 @@ def shellSort(a)
 end
 
 a=gets.to_i.times.map{gets.to_i}
-shellSort(a,a.size)
+shellSort(a)
 p $cnt
 puts a
