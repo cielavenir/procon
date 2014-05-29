@@ -33,18 +33,18 @@ int main(){
 	int T,i,N;
 	//PKU2299,aizu0167: バブルソートの交換回数
 	//for(;scanf("%d",&N),N;printf("%lld\n",merge_and_count(0,N)))for(i=0;i<N;i++)scanf("%d",A+i);
-	//hackerrank~runningtime
-	//scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",merge_and_count(0,N));
+	//hackerrank~runningtime,aizuALDS1~5D
+	scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",merge_and_count(0,N));
 	//spojINVCNT,hackerrank~insertionsort
 	//for(scanf("%d",&T);T--;printf("%lld\n",merge_and_count(0,N)))for(scanf("%d",&N),i=0;i<N;++i)scanf("%d",A+i);
 	//codeiq432: 光線の交差数
 	//for(N=0;~scanf("%d",A+N);N++);printf("%lld\n",merge_and_count(0,N));
 	//codeiq838: あみだくじの最小本数
-	T=0,N=7;
-	std::vector<int>v(N);
-	std::iota(v.begin(),v.end(),1);
-	do{std::copy(v.begin(),v.end(),A);if(merge_and_count(0,N)==10)T++;}while(std::next_permutation(v.begin(),v.end()));
-	printf("%d\n",T); //573
+	//T=0,N=7;
+	//std::vector<int>v(N);
+	//std::iota(v.begin(),v.end(),1);
+	//do{std::copy(v.begin(),v.end(),A);if(merge_and_count(0,N)==10)T++;}while(std::next_permutation(v.begin(),v.end()));
+	//printf("%d\n",T); //573
 	//kcs1009K: Nパズルの可解性
 	//for(i=0;~(N=getchar());)if('0'<N&&N<'9')A[i++]=N-'0';
 	//puts(merge_and_count(0,i)%2?"lmpossible":"Possible"); //"l"? lol!

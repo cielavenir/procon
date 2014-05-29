@@ -25,7 +25,7 @@ int main(){
 	int T,i,N;
 	//PKU2299,aizu0167
 	//for(;scanf("%d",&N),N;printf("%lld\n",M(0,N)))for(i=0;i<N;i++)scanf("%d",A+i);
-	//hackerrank~runningtime
+	//hackerrank~runningtime,aizuALDS1~5D
 	//scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",M(0,N));
 	//spojINVCNT,hackerrank~insertionsort
 	//for(scanf("%d",&T);T--;printf("%lld\n",M(0,N)))for(scanf("%d",&N),i=0;i<N;++i)scanf("%d",A+i);
