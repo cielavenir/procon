@@ -5,7 +5,7 @@
 #define REP(i,n) for(int i=0;i<(int)n;++i)
 #define FOR(i,c) for(__typeof((c).begin())i=(c).begin();i!=(c).end();++i)
 #define ALL(c) (c).begin(), (c).end()
-#define INF 999999999
+#define INF 2100000000
 using namespace std;
 
 typedef int Weight;
@@ -27,8 +27,8 @@ typedef vector<Array> Matrix;
 bool shortestPath(const Graph &g,
     Matrix &dist, vector<vector<int> > &prev) {
   int n = g.size();
-  Array h(n+1);
-  REP(k,n) REP(i,n) FOR(e,g[i]) {
+  Array h(n);
+  REP(k,n) REP(i,n) if(h[i]<0) FOR(e,g[i]) {
     if (h[e->dst] > h[e->src] + e->weight) {
       h[e->dst] = h[e->src] + e->weight;
       if (k == n-1) return false; // negative cycle
@@ -50,7 +50,10 @@ bool shortestPath(const Graph &g,
         }
       }
     }
-    REP(u, n) dist[s][u] += h[u] - h[s];
+    REP(u, n) {
+      dist[s][u] += h[u] - h[s];
+      if(s==u&&dist[s][s]<0)return false;
+    }
   }
   return true;
 }
@@ -62,11 +65,12 @@ int main(){
 		Graph g(V);
 		Matrix dist;
 		Matrix prev;
+		for(i=0;i<V;i++)g[i].push_back(Edge(i,i,0));
 		for(;E--;)scanf("%d%d%d",&s,&t,&e),g[s].push_back(Edge(s,t,e));
 		if(!shortestPath(g,dist,prev))puts("NEGATIVE CYCLE");
 		else for(i=0;i<V;i++)for(j=0;j<V;j++){
-			if(i==j)printf("0");
-			else if(dist[i][j]>=INF)printf("INF");
+			/*if(i==j)printf("0");
+			else*/ if(dist[i][j]>=INF)printf("INF");
 			else printf("%d",dist[i][j]);
 			printf(j<V-1?" ":"\n");
 		}
