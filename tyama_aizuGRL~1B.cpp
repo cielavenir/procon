@@ -27,10 +27,10 @@ typedef vector<Array> Matrix;
 bool shortestPath(const Graph g, int s,
     vector<Weight> &dist, vector<int> &prev) {
   int n = g.size();
-  dist.assign(n, INF+INF); dist[s] = 0;
+  dist.assign(n, INF); dist[s] = 0;
   prev.assign(n, -2);
   bool negative_cycle = false;
-  REP(k, n) REP(i, n) FOR(e,g[i]) {
+  REP(k, n) REP(i, n) if(dist[i]<INF) FOR(e,g[i]) {
     if (dist[e->dst] > dist[e->src] + e->weight) {
       dist[e->dst] = dist[e->src] + e->weight;
       prev[e->dst] = e->src;
