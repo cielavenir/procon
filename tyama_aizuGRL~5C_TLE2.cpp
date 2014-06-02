@@ -25,23 +25,21 @@ typedef vector<Array> Matrix;
 
 struct UnionFind {
   vector<int> data;
-  UnionFind(int size) : data(size, -1) { }
+  UnionFind(int size) : data(size) {for(int i=0;i<size;i++)data[i]=i;}
   bool unionSet(int x, int y) {
     x = root(x); y = root(y);
-    if (x != y) {
-      if (data[y] < data[x]) swap(x, y);
-      data[x] += data[y]; data[y] = x;
-    }
+    //if (x != y) {
+      //if (data[y] < data[x]) swap(x, y);
+      //data[x] += data[y];
+	  data[y] = x;
+    //}
     return x != y;
   }
   bool findSet(int x, int y) {
     return root(x) == root(y);
   }
   int root(int x) {
-    return data[x] < 0 ? x : data[x] = root(data[x]);
-  }
-  int size(int x) {
-    return -data[root(x)];
+    return data[x]==x ? x : (data[x] = root(data[x]));
   }
 };
 
