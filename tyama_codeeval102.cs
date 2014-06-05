@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 
 class CodeEval102{
-	static void Main(string[] args){
+	static void Main(){
 		string str;
 		for(;(str=Console.ReadLine())!=null;){
 			var serializer = new DataContractJsonSerializer(typeof(Data));

@@ -17,7 +17,7 @@ class CodeIQRoute{
 			a.Reverse(k+1,a.Count-(k+1));
 		}
 	}
-	public static void Main(){
+	static void Main(){
 		long i=0;
 		if(false){
 			foreach(List<char> e in Permutation(new List<char>("aaabcc".ToCharArray()))){

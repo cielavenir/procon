@@ -24,7 +24,7 @@ class CodeIQRoute{
 		}
 	}
 	const int N=6;
-	public static void Main(){
+	static void Main(){
 		int r=0,i;
 		List<int>e0=new List<int>(),f0=new List<int>();
 		for(i=0;i<N;i++){e0.Add(0);f0.Add(0);}

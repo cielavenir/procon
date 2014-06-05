@@ -41,7 +41,7 @@ class AOJ0109{
 		return s;
 	}
 
-	public static void Main(string[]z){
+	static void Main(){
 		int n=int.Parse(Console.ReadLine());
 		for(;n>0;n--){
 			string s=Console.ReadLine().Replace("-","Z");

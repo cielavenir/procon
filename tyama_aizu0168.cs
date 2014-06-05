@@ -1,6 +1,6 @@
 using System;
 class AOJ0168{
-	public static void Main(){
+	static void Main(){
 		int i,n;
 		int[] a=new int[31];
 		a[0]=a[1]=1;a[2]=2;
