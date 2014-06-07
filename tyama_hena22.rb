@@ -22,8 +22,9 @@ while gets
 	while !m[_y][_x] # 右下が埋まるまで
 		1.step(_y){|y|
 			1.step(_x){|x|
+				next if m[y][x] # 既に埋まっていたらスキップ
 				#1x1のセルでなければ
-				if (cell=cells.find{|e|e[:x1]<=x&&x<e[:x2] && e[:y1]<=y&&y<e[:y2]})
+				if cell=cells.find{|e|e[:x1]<=x&&x<e[:x2] && e[:y1]<=y&&y<e[:y2]}
 					#セルの右上を見ている時に限り左・上隣を見る
 					if cell[:x1]==x && cell[:y1]==y
 						cells_for_val=[]
