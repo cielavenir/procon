@@ -49,6 +49,7 @@ URLS={
 	'19'=>'hena/ord19nebasec',
 	'20'=>'hena/ord20meetime',
 	#'21'=>'http://d.hatena.ne.jp/torazuka/20140509/yhpg', #HTML on Blogs not supported.
+	'22'=>'hena/ord22irrpas',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
