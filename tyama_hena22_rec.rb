@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 #http://qiita.com/Nabetani/items/34bf2a05099a47e193b6
 #http://nabetani.sakura.ne.jp/hena/ord22irrpas/
-STDOUT.sync=true
 class Hena22
 	def initialize(cells)
 		@cells=cells
@@ -43,6 +42,7 @@ class Hena22
 end
 
 if $0==__FILE__
+	STDOUT.sync=true
 	while gets
 		a,b=$_.chomp.split(':')
 		column,row=a.split('x').map(&:to_i)
