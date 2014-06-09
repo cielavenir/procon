@@ -63,5 +63,5 @@ while gets
 			}
 		}
 	end
-	puts "%02d"%m[row][column]
+	puts '%02d'%m[row][column]
 end
