@@ -50,7 +50,7 @@ int main(){
 			cmyk(a,b,c,d);
 		}else if(s[2]=='L'){
 			sscanf(s,"HSL(%lf,%lf,%lf)",&a,&b,&c);
-			hsl(a,c/100,b/100); //
+			hsl(a,b/100,c/100);
 		}else if(s[2]=='V'){
 			sscanf(s,"HSV(%lf,%lf,%lf)",&a,&b,&c);
 			hsv(a,b/100,c/100);
