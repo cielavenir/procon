@@ -1,0 +1,1 @@
+main(w,h,x,y,r){scanf("%d%d%d%d%d",&w,&h,&x,&y,&r);puts(0<=x-r&&x+r<=w&&0<=y-r&&y+r<=h?"Yes":"No");exit(0);}
