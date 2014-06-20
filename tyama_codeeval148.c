@@ -17,8 +17,8 @@ void hsl(double h,double s,double l){
 	double x=c*(1-fabs(mod(h,2)-1));
 	double r[3];
 	r[0]=r[1]=r[2]=0;
-	int cidx=mod(h+1,6)/2;
-	int xidx=(int)mod(h,3)^1;
+	int cidx=(int)(h+1)%6/2;
+	int xidx=(4-((int)h%3))%3;
 	r[cidx]+=c;
 	r[xidx]+=x;
 	double m=l-c/2;
@@ -31,8 +31,8 @@ void hsv(double h,double s,double v){
 	double x=c*(1-fabs(mod(h,2)-1));
 	double r[3];
 	r[0]=r[1]=r[2]=v-c;
-	int cidx=mod(h+1,6)/2;
-	int xidx=(int)mod(h,3)^1;
+	int cidx=(int)(h+1)%6/2;
+	int xidx=(4-((int)h%3))%3;
 	r[cidx]+=c;
 	r[xidx]+=x;
 	printf("RGB(%.0f,%.0f,%.0f)\n",r[0]*255,r[1]*255,r[2]*255);
