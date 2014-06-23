@@ -11,7 +11,8 @@ end
 URLS={
 	#'codeiq1'=>'codeiq/cardgame',
 	'codeiq2'=>'codeiq/tetromino_bingo',
-	#'codeiq3'=>'codeiq/octahedron', # from codeiq3, IO is provided via text.
+	#'codeiq3'=>'codeiq/octahedron', # IO is provided via text
+	#'codeiq4'=>'codeiq/increasing',
 
 	'1'=>'hena/1',
 	'2'=>'hena/ord2',
