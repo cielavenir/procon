@@ -1,5 +1,6 @@
 #include <iostream>
-#include <string>
+#include <vector>
+#include <set>
 using namespace std;
 
 // http://www.prefield.com/algorithm/misc/dice.html
@@ -24,6 +25,11 @@ public:
 	void roll_west() { roll(TOP, RIGHT, BOTTOM, LEFT); }
 	void roll_right() { roll(FRONT, LEFT, BACK, RIGHT); }
 	void roll_left() { roll(FRONT, RIGHT, BACK, LEFT); }
+	void all_rolls(set<long long> &s){
+		for (int k = 0; k < 6; (k&1?roll_east():roll_north()),++k)
+			for (int i = 0; i < 4; roll_right(), ++i)
+				s.insert(((long long)id[TOP]<<40) | ((long long)id[FRONT]<<32) | (id[RIGHT]<<24) | (id[LEFT]<<16) | (id[BACK]<<8) | (id[BOTTOM]<<0));
+	}
 private:
 	void roll(FACE a, FACE b, FACE c, FACE d){
 		int tmp = id[a];
@@ -34,17 +40,20 @@ private:
 };
 
 int main(){
-	int n;
-	string s;
-	for(;cin>>n,n;){
-		dice di(1,5,4,3,2,6);
-		for(;n--;){
-			cin>>s;
-			if(s[0]=='n')di.roll_north();
-			if(s[0]=='e')di.roll_east();
-			if(s[0]=='w')di.roll_west();
-			if(s[0]=='s')di.roll_south();
+	int n,d[6];
+	cin>>n;
+	int i,j;
+	set<long long>s;
+	for(i=0;i<n;i++){
+		for(j=0;j<6;j++)cin>>d[j];
+		long long x=((long long)d[0]<<40) | ((long long)d[1]<<32) | (d[2]<<24) | (d[3]<<16) | (d[4]<<8) | (d[5]<<0);
+		if(s.find(x)!=s.end()){
+			cout<<"No"<<endl;
+			return 0;
+		}else{
+			dice di(d[0],d[1],d[2],d[3],d[4],d[5]);
+			di.all_rolls(s);
 		}
-		cout<<di[TOP]<<endl;
 	}
+	cout<<"Yes"<<endl;
 }

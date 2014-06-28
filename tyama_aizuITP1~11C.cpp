@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <vector>
 using namespace std;
 
 // http://www.prefield.com/algorithm/misc/dice.html
@@ -24,6 +24,12 @@ public:
 	void roll_west() { roll(TOP, RIGHT, BOTTOM, LEFT); }
 	void roll_right() { roll(FRONT, LEFT, BACK, RIGHT); }
 	void roll_left() { roll(FRONT, RIGHT, BACK, LEFT); }
+	bool equivalent_to(const dice& di){
+		for (int k = 0; k < 6; (k&1?roll_east():roll_north()),++k)
+			for (int i = 0; i < 4; roll_right(), ++i)
+				if (*this == di) return true;
+		return false;
+	}
 private:
 	void roll(FACE a, FACE b, FACE c, FACE d){
 		int tmp = id[a];
@@ -34,17 +40,10 @@ private:
 };
 
 int main(){
-	int n;
-	string s;
-	for(;cin>>n,n;){
-		dice di(1,5,4,3,2,6);
-		for(;n--;){
-			cin>>s;
-			if(s[0]=='n')di.roll_north();
-			if(s[0]=='e')di.roll_east();
-			if(s[0]=='w')di.roll_west();
-			if(s[0]=='s')di.roll_south();
-		}
-		cout<<di[TOP]<<endl;
-	}
+	int d[6];
+	for(int i=0;i<6;i++)cin>>d[i];
+	dice di(d[0],d[1],d[2],d[3],d[4],d[5]);
+	for(int i=0;i<6;i++)cin>>d[i];
+	dice di2(d[0],d[1],d[2],d[3],d[4],d[5]);
+	cout<<(di.equivalent_to(di2) ? "Yes" : "No")<<endl;
 }
