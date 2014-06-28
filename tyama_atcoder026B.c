@@ -1,8 +1,9 @@
 #include <math.h>
 
 //(1+「2以上sqrt(n)未満」まででnを割り切った数i+n/iの全て)と(nが平方数ならsqrt(n)、さもなくば0)の和
-int solve(int n){
-  int sum=1,i=2;
+long long solve(long long n){
+  long long sum=1;
+  int i=2;
   double s=sqrt(n);
   if(n<6)return -1;
   for(;i<s;i++){
@@ -13,12 +14,11 @@ int solve(int n){
 }
 
 int main(){
-  int n,r;
-  for(;scanf("%d",&n),n;){
-    r=solve(n);
-    if(r<0)puts("deficient number");
-    if(r==0)puts("perfect number");
-    if(r>0)puts("abundant number");
-  }
+  long long n,r;
+  scanf("%lld",&n);
+  r=solve(n);
+  if(r<0)puts("Deficient");
+  if(r==0)puts("Perfect");
+  if(r>0)puts("Abundant");
   return 0;
 }
