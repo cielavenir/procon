@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h> //strtol
-#include <math.h> //fabs,fmin
-double mod(double n,double d){
-	return n-(int)(n/d)*d;
-}
+#include <math.h> //fabs,fmin,fmod
+//double mod(double n,double d){
+//	return n-(int)(n/d)*d;
+//}
 void cmyk(double c,double m,double y,double k){
 	double r[3];
 	r[0]=1-fmin(1,c*(1-k)+k);
@@ -14,7 +14,7 @@ void cmyk(double c,double m,double y,double k){
 void hsl(double h,double s,double l){
 	double c=s*(1-fabs(2*l-1));
 	h/=60;
-	double x=c*(1-fabs(mod(h,2)-1));
+	double x=c*(1-fabs(fmod(h,2)-1));
 	double r[3];
 	r[0]=r[1]=r[2]=0;
 	int cidx=(int)(h+1)%6/2;
@@ -28,7 +28,7 @@ void hsl(double h,double s,double l){
 void hsv(double h,double s,double v){
 	double c=s*v;
 	h/=60;
-	double x=c*(1-fabs(mod(h,2)-1));
+	double x=c*(1-fabs(fmod(h,2)-1));
 	double r[3];
 	r[0]=r[1]=r[2]=v-c;
 	int cidx=(int)(h+1)%6/2;
