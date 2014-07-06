@@ -1,7 +1,4 @@
-#include <sstream>
 #include <iostream>
-#include <iomanip>
-#include <ext/stdio_filebuf.h>
 #include <string>
 #include <set>
 #include <vector>
@@ -10,6 +7,7 @@
 #include <climits>
 #include <ctime>
 #include <unistd.h>
+#include "streambuf_fromfile.h"
 using namespace std;
 
 #define lrotl(val,rot) (( (val)<<(rot) )|( (val)>>(sizeof(val)*CHAR_BIT-(rot)) ))
@@ -137,8 +135,8 @@ int main(int argc, char **argv){
 	close(fd_out[1]);
 	FILE *fout=fdopen(fd_in[1],"w");
 	FILE *fin=fdopen(fd_out[0],"r");
-	__gnu_cxx::stdio_filebuf<char> bout(fout, ios_base::out);
-	__gnu_cxx::stdio_filebuf<char> bin(fin, ios_base::in);
+	streambuf_fromfile_out(bout,fout);
+	streambuf_fromfile_in(bin,fin);
 	ostream pout(&bout);
 	istream pin(&bin);
 	_main(pout,pin);

@@ -1,10 +1,10 @@
 #include <iostream>
-#include <ext/stdio_filebuf.h>
 #include <string>
 #include <set>
 #include <vector>
 #include <algorithm>
 #include <unistd.h>
+#include "streambuf_fromfile.h"
 using namespace std;
 
 #define N 16
@@ -73,12 +73,12 @@ Example:
 	close(fd_in[0]);
 	close(fd_out[1]);
 	FILE *fin=fdopen(fd_out[0],"r");
-	__gnu_cxx::stdio_filebuf<char> bin(fin, ios_base::in);
+	streambuf_fromfile_in(bin,fin);
 	istream pin(&bin);
 
 	{
 		FILE *fout=fdopen(fd_in[1],"w");
-		__gnu_cxx::stdio_filebuf<char> bout(fout, ios_base::out);
+		streambuf_fromfile_out(bout,fout);
 		ostream pout(&bout);
 		pout<<"encode"<<endl;
 		pout<<dec.size()<<endl;
@@ -125,12 +125,12 @@ Example:
 	close(fd_in[0]);
 	close(fd_out[1]);
 	FILE *fin=fdopen(fd_out[0],"r");
-	__gnu_cxx::stdio_filebuf<char> bin(fin, ios_base::in);
+	streambuf_fromfile_in(bin,fin);
 	istream pin(&bin);
 
 	{
 		FILE *fout=fdopen(fd_in[1],"w");
-		__gnu_cxx::stdio_filebuf<char> bout(fout, ios_base::out);
+		streambuf_fromfile_out(bout,fout);
 		ostream pout(&bout);
 		pout<<"decode"<<endl;
 		pout<<enc.size()<<endl;
