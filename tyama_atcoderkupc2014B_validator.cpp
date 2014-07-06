@@ -40,61 +40,56 @@ void xor_srand(unsigned int seed){
 
 static unsigned int _random(unsigned int max){return xor_rand()%max;}
 
+#define MAX 1000
 int _main(ostream &pout,istream &pin){ //actual validator
 	xor_srand((unsigned int)time(NULL)^(getpid()<<16));
 	string TAG="[Validator] ";
 
-	string line;
-	int x,M,i,s,g,p,q;
-	vector<int>dice,N;
-	cin>>M;pout<<M<<endl;
-	for(i=0;i<6;i++){
-		if(i>0)pout<<' ';
-		cin>>x,dice.push_back(x);
-		pout<<x;
+	int answer=_random(MAX)+1;
+	int num,test;
+	string op;
+	cerr<<TAG<<"answer = "<<answer<<endl<<flush;
+	for(test=0;;){
+		test++;
+		if(test>1000){
+			cerr<<TAG<<"Verdict:"<<endl<<flush;
+			cout<<"QueryLimitExceeded"<<endl;
+			return 0;
+		}
+		pin>>op;
+		if(op=="?"){
+			cerr<<TAG<<"<Test>"<<flush;
+			pin>>num;
+			if(num<1||MAX<num){
+				cerr<<TAG<<"Verdict:"<<endl<<flush;
+				cout<<"RuntimeError"<<endl;
+				return 0;
+			}
+			cerr<<' '<<num<<" ("<<(answer%num?"N":"Y")<<")"<<endl<<flush;
+			pout<<(answer%num?"N":"Y")<<endl<<flush;
+		}else if(op=="!"){
+			cerr<<TAG<<"<Challenge> "<<flush;
+			pin>>num;
+			cerr<<num<<endl<<flush;
+			if(num<1||MAX<num){
+				cerr<<TAG<<"Verdict:"<<endl<<flush;
+				cout<<"RuntimeError"<<endl;
+				return 0;
+			}
+			if(answer!=num){
+				cerr<<TAG<<"Verdict:"<<endl<<flush;
+				cout<<"WrongAnswer"<<endl;
+				return 0;
+			}
+			cerr<<TAG<<"Verdict:"<<endl<<flush;
+			cout<<(test<=200?"AC (Level2)":"AC (Level1)")<<endl;
+			return 0;
+		}else{
+			cerr<<TAG<<"Verdict:"<<endl<<flush;
+			cout<<"RuntimeError"<<endl;
+			return 0;
+		}
 	}
-	pout<<endl;
-	cin>>s>>g;pout<<s<<' '<<g<<endl;s--,g--;
-	for(i=0;i<M;i++){
-		if(i>0)pout<<' ';
-		cin>>x,N.push_back(x);
-		pout<<x;
-	}
-	pout<<endl;
-	pout<<flush;
-
-	int test,action;
-
-	//cerr<<TAG<<"Listening."<<endl<<flush;
-	for(test=0;test<3000;test++){
-		int rnd=xor_rand()%6;
-		pout<<(rnd+1)<<endl<<flush;
-		pin>>action;
-		cerr<<TAG<<"dice="<<(rnd+1)<<" action="<<action<<endl<<flush;
-		if(action==-1){
-			s-=dice[rnd];
-			if(s<0||M<=s)goto wa;
-			s+=N[s];
-		}else if(action==1){
-			s+=dice[rnd];
-			if(s<0||M<=s)goto wa;
-			s+=N[s];
-		}else if(action)goto wa;
-		cerr<<TAG<<"new coor="<<(s+1)<<endl<<flush;
-		if(s==g){test++;break;}
-	}
-	if(test<3000){
-		cerr<<TAG<<"Verdict:"<<endl<<flush;
-		cout<<"Accepted"<<endl;
-	}else{
-		cerr<<TAG<<"Verdict:"<<endl<<flush;
-		cout<<"QueryLimitExceeded"<<endl;
-	}
-	return 0;
-wa:
-	cerr<<TAG<<"Verdict:"<<endl<<flush;
-	cout<<"WrongAnswer"<<endl;
-	return 0;
 }
 
 //Reactive
@@ -102,7 +97,7 @@ int main(int argc, char **argv){
 	cin.tie(0);
 	ios::sync_with_stdio(false);
 	if(argc<2){
-		cerr<<"<input.txt validator [program]"<<endl;
+		cerr<<"<validator [program]"<<endl;
 		cerr<<"program must be chmod +x"<<endl;
 		return 0;
 	}

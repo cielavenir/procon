@@ -12,7 +12,7 @@ URLS={
 	#'codeiq1'=>'codeiq/cardgame',
 	'codeiq2'=>'codeiq/tetromino_bingo',
 	#'codeiq3'=>'codeiq/octahedron', # IO is provided via text
-	#'codeiq4'=>'codeiq/increasing',
+	#'codeiq4'=>'codeiq/incseq',
 
 	'1'=>'hena/1',
 	'2'=>'hena/ord2',
@@ -51,6 +51,7 @@ URLS={
 	'20'=>'hena/ord20meetime',
 	#'21'=>'http://d.hatena.ne.jp/torazuka/20140509/yhpg', #HTML on Blogs not supported.
 	'22'=>'hena/ord22irrpas',
+	'23'=>'hena/ord23snakemoinc',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
