@@ -1,0 +1,1 @@
+i,r;main(n){scanf("%d",&n);for(i=0;i<10000;i++)r+=n-i/100-i%100==0;printf("%d\n",r);}
