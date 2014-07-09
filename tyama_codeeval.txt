@@ -57,7 +57,7 @@
 57 C++
 58 C++
 59 C++
-60 Ruby (Submit in C)
+60 C++
 61 C
 62 C
 63 C

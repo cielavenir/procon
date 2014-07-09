@@ -37,7 +37,7 @@ $jugglers.each_value{|juggler|
 $circuits.each_value{|circuit|
 =begin
 	puts "#{circuit[:id]} "+circuit[:jugglers].map{|juggler_id|
-	juggler_id.to_s+$jugglers[juggler_id][:preferences].map{|preference|
+		juggler_id.to_s+$jugglers[juggler_id][:preferences].map{|preference|
 			" #{preference}:"+calculateScore($jugglers[juggler_id],$circuits[preference]).to_s
 		}*''
 	}*', '
