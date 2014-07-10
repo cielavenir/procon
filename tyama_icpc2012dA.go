@@ -1,5 +1,3 @@
-//tested with gccgo-4.6
-
 package main
 import(
 	"fmt"

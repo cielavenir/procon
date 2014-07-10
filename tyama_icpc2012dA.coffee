@@ -4,11 +4,23 @@ stdin.setEncoding 'utf8'
 
 a=[]
 
+input_fragment=''
 stdin.on 'data', (input) ->
-	x=input.split("\n")
-	if x.length>2 || x[1]!='' then a=x else a.push(x[0])
+		ref=(input_fragment+input).split("\n")
+		input_fragment=ref.pop()
+		for i in [0...ref.length]
+			if ref[i]==''
+				continue
+			a.push(ref[i])
 
 stdin.on 'end', (z) ->
+	if input_fragment
+		ref=(input_fragment+"\n").split("\n")
+		input_fragment=ref.pop()
+		for i in [0...ref.length]
+			if ref[i]==''
+				continue
+			a.push(ref[i])
 	n=parseInt(a.shift())
 	for i in [0...n]
 		b=(parseInt(e) for e in a[i].split(" "))

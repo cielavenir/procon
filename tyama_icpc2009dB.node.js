@@ -11,17 +11,16 @@
       rec(x-1,y-1),rec(x+1,y-1),rec(x-1,y+1),rec(x+1,y+1);
   }
 
+  var input_fragment="";
   stdin.on('data', function(input) {
-    var i=0,len,ref,x=[];
-    ref=input.split("\n");
-    for(len=ref.length;i<len;i++){
-    	if(ref[i]=='')continue;
-    	var y=ref[i].split(" ");
+	var ref=(input_fragment+input).split("\n");
+	input_fragment=ref.pop();
+	for(var i=0;i<ref.length;i++){
+		if(ref[i]=='')continue;
+		var y=ref[i].split(" ");
     	for(var j=0;j<y.length;j++)y[j]=parseInt(y[j])
-    	x.push(y);
-    }
-    if(x.length>2||!isNaN(x[1]))S=x;
-    else S.push(x[0]);
+		S.push(y);
+	}
   });
 
   stdin.on('end', function(z) {

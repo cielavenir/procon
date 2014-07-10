@@ -27,9 +27,14 @@ proc = (s) ->
 			s=m[1]+(parseInt(m[2])-parseInt(m[4]))+m[5]
 	return s
 
+input_fragment=''
 stdin.on 'data', (input) ->
-	x=(e for e in input.split("\n"))
-	if x.length>2 || !isNaN(x[1]) then a=x else a.push(x[0]) # x might be [num,'']
+		ref=(input_fragment+input).split("\n")
+		input_fragment=ref.pop()
+		for i in [0...ref.length]
+			if ref[i]==''
+				continue
+			a.push(ref[i])
 
 stdin.on 'end', (z) ->
 	n=parseInt(a[0])
