@@ -15,5 +15,5 @@ while gets
 		end
 	}.group_by{|e|e[0]}
 	a.default=[]
-	p (a['A'].map(&:last).reduce(:+)||0)+(a['C'].map(&:last).reduce(:+)||0)+(a['I'].map(&:last).sort[0..-1-a['A'].size*2].reduce(:+)||0)
+	p a['A'].map(&:last).reduce(0,:+)+a['C'].map(&:last).reduce(0,:+)+a['I'].map(&:last).sort[0..-1-a['A'].size*2].reduce(0,:+)
 end

@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 require 'rational'
-def fact(n) (1..n).reduce(:*)||1 end
+def fact(n) (1..n).reduce(1,:*) end
 
 n,d=gets.split.map(&:to_i)
 x,y=gets.split.map(&:to_i)

@@ -52,5 +52,5 @@ end
 raise if depth || amount>0
 
 water=water1+water2.reverse
-p water.reduce(:+)||0
+p water.reduce(0,:+)
 puts water.size.to_s+water.map{|e|' '+e.to_s}*''
