@@ -45,7 +45,7 @@
 45 C
 46 C
 47 C++
-48 (Ruby) (Submit in PHP)
+48 C++
 49 C++
 50 Perl
 51 C

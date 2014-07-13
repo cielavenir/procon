@@ -5,10 +5,10 @@
 #define REP(i,n) for(int i=0;i<(int)n;++i)
 #define FOR(i,c) for(__typeof((c).begin())i=(c).begin();i!=(c).end();++i)
 #define ALL(c) (c).begin(), (c).end()
-#define INF 2100000000
+#define INF 2000000000000LL
 using namespace std;
 
-typedef int Weight;
+typedef long long Weight;
 struct Edge {
   int src, dst;
   Weight weight;
@@ -29,7 +29,7 @@ bool shortestPath(const Graph &g,
   int n = g.size();
   Array h(n);
   REP(k,n) REP(i,n) if(h[i]<0) FOR(e,g[i]) {
-    if (h[e->dst] > h[e->src] + e->weight) {
+    if (h[e->src]<INF && e->weight<INF && h[e->dst] > h[e->src] + e->weight) {
       h[e->dst] = h[e->src] + e->weight;
       if (k == n-1) return false; // negative cycle
     }
@@ -44,7 +44,7 @@ bool shortestPath(const Graph &g,
       if (prev[s][e.dst] != -2) continue;
       prev[s][e.dst] = e.src;
       FOR(f,g[e.dst]) {
-        if (dist[s][f->dst] > e.weight + f->weight) {
+        if (e.weight<INF && f->weight<INF && dist[s][f->dst] > e.weight + f->weight) {
           dist[s][f->dst] = e.weight + f->weight;
           Q.push(Edge(f->src, f->dst, e.weight + f->weight));
         }
@@ -64,7 +64,7 @@ int main(){
 		scanf("%d%d",&V,&E);
 		Graph g(V);
 		Matrix dist;
-		Matrix prev;
+		vector<vector<int> > prev;
 		for(i=0;i<V;i++)g[i].push_back(Edge(i,i,0));
 		for(;E--;)scanf("%d%d%d",&s,&t,&e),g[s].push_back(Edge(s,t,e));
 		if(!shortestPath(g,dist,prev))puts("NEGATIVE CYCLE");
