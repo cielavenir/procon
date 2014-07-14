@@ -24,16 +24,19 @@ typedef vector<Edges> Graph;
 typedef vector<Weight> Array;
 typedef vector<Array> Matrix;
 
-bool shortestPath(const Graph &g,
+bool shortestPath(Graph &g,
     Matrix &dist, vector<vector<int> > &prev) {
-  int n = g.size();
-  Array h(n);
-  REP(k,n) REP(i,n) if(h[i]<0) FOR(e,g[i]) {
+  int n = g.size()-1;
+  Array h(n+1);
+  h.assign(n,INF);
+  REP(i,n) g[n].push_back(Edge(n,i,0));
+  REP(k,n+1) REP(i,n+1) FOR(e,g[i]) {
     if (h[e->src]<INF && e->weight<INF && h[e->dst] > h[e->src] + e->weight) {
       h[e->dst] = h[e->src] + e->weight;
-      if (k == n-1) return false; // negative cycle
+      if (k == n) return false; // negative cycle
     }
   }
+  REP(i,n) FOR(e,g[i]) e->weight += h[i] - h[e->dst];
   dist.assign(n, Array(n, INF));
   prev.assign(n, vector<int>(n, -2));
   REP(s, n) {
@@ -51,8 +54,7 @@ bool shortestPath(const Graph &g,
       }
     }
     REP(u, n) {
-      dist[s][u] += h[u] - h[s];
-      if(s==u&&dist[s][s]<0)return false;
+      if(dist[s][u]<INF)dist[s][u] += h[u] - h[s];
     }
   }
   return true;
@@ -62,7 +64,7 @@ int main(){
 	int r,T,V,E,s,t,e,i,j;
 	//for(scanf("%d",&T);T;putchar(--T?' ':'\n')){
 		scanf("%d%d",&V,&E);
-		Graph g(V);
+		Graph g(V+1);
 		Matrix dist;
 		vector<vector<int> > prev;
 		for(i=0;i<V;i++)g[i].push_back(Edge(i,i,0));
@@ -71,7 +73,7 @@ int main(){
 		else for(i=0;i<V;i++)for(j=0;j<V;j++){
 			/*if(i==j)printf("0");
 			else*/ if(dist[i][j]>=INF)printf("INF");
-			else printf("%d",dist[i][j]);
+			else printf("%lld",dist[i][j]);
 			printf(j<V-1?" ":"\n");
 		}
 	//}
