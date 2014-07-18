@@ -1,2 +1,9 @@
 #!/usr/bin/ruby
-p 1000.times.reduce(0){|s,i|s+=i%3==0||i%5==0?i:0}
+def s(n) n*(n+1)/2 end
+gets.to_i.times{
+	n=gets.to_i-1
+	p s(n/3)*3 + s(n/5)*5 - s(n/15)*15
+}
+__END__
+1
+1000

@@ -1,2 +1,32 @@
 #!/usr/bin/ruby
-300.times{|a|a.step(400){|b|x=a*a+b*b;if (c=(x**0.5).to_i)**2==x&&a+b+c==1000 then p a*b*c;exit end}}
+require 'rational'
+def solve(ma,h)
+	m=1
+	while m*m<=ma
+		n=1
+		while n<m
+			if n.gcd(m)==1
+				a=2*m*n
+				b=m*m-n*n
+				c=m*m+n*n
+				d=1
+				while d*(a+b+c)<=ma
+					if h[d*(a+b+c)]<a*b*c*d**3
+						h[d*(a+b+c)]=a*b*c*d**3
+					end
+					d+=1
+				end
+			end
+			n+=1
+		end
+		m+=1
+	end
+end
+h=Hash.new(-1)
+solve(3000,h)
+gets.to_i.times{
+	p h[gets.to_i]
+}
+__END__
+1
+1000
