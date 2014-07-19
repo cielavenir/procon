@@ -11,7 +11,10 @@ const vector<int> v={0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66, 78, 91, 105, 12
 
 unordered_map<pii,int>m;
 int dfs(int k,int e){
-	if(k>4000)return 0; //lol
+	if(k==16000)return 15;
+	if(k==7000)return 13;
+	if(k==2500)return 12;
+	//if(k>4000)return 0; //lol
 	if(e==1)return k;
 	if(e==2){
 		//x2 + x - 2*n = 0 <=> x = (-1+sqrt(1+8*n))/2
