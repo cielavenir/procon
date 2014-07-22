@@ -11,4 +11,10 @@ class Integer
 		return ret
 	end
 end
-p 40.comb(20)
+gets.to_i.times{
+	a,b=gets.split.map(&:to_i)
+	p (a+b).comb(b)%1000000007
+}
+__END__
+1
+20 20
