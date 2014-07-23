@@ -10,7 +10,7 @@ def diff1(t,s):
 	return True
 
 f,l=raw_input().split()
-a=list(set([raw_input().rstrip() for i in range(int(raw_input()))]))
+a=list({raw_input().rstrip() for i in range(int(raw_input()))})
 if f==l:
 	print(0)
 	print(f)
