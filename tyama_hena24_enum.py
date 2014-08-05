@@ -2,9 +2,9 @@
 #http://qiita.com/Nabetani/items/1c83005a854d2c6cbb69
 #http://nabetani.sakura.ne.jp/hena/ord24eliseq/
 import sys
-import math
 import itertools
 from functools import partial,reduce
+from math import sqrt
 from scipy.special import cbrt # thx @ryosy383
 
 '''
@@ -15,58 +15,41 @@ def generate():
 		i+=1
 '''
 
-def drop_prev_square(prev):
+def drop_prev(check,prev):
 	a=next(prev)
 	b=next(prev)
 	while True:
-		if int(math.sqrt(float(b)))**2!=b: yield a
+		if not check(b): yield a
 		a,b=b,next(prev)
 
-def drop_next_square(prev):
-	a=next(prev)
-	b=next(prev)
-	yield a
-	while True:
-		if int(math.sqrt(float(a)))**2!=a: yield b
-		a,b=b,next(prev)
-
-def drop_prev_cubic(prev):
-	a=next(prev)
-	b=next(prev)
-	while True:
-		if int(cbrt(float(b)))**3!=b: yield a
-		a,b=b,next(prev)
-
-def drop_next_cubic(prev):
+def drop_next(check,prev):
 	a=next(prev)
 	b=next(prev)
 	yield a
 	while True:
-		if int(cbrt(float(a)))**3!=a: yield b
+		if not check(a): yield b
 		a,b=b,next(prev)
 
-def drop_num(n,prev):
+def drop_n(check,n,prev):
 	i=0
 	while True:
 		i+=1
 		a=next(prev)
-		if i%n!=0: yield a
+		if not check(i,n): yield a
 
-def drop_cnt(n,prev):
-	i=0
-	while True:
-		i+=1
-		a=next(prev)
-		if i>n: yield a
+is_sq=lambda n: int(sqrt(float(n)))**2==n
+is_cb=lambda n: int(cbrt(float(n)))**3==n
+is_multiple=lambda i,n: i%n==0
+is_le=lambda i,n: i<=n
 
 f={
-	'S': drop_next_square,
-	's': drop_prev_square,
-	'C': drop_next_cubic,
-	'c': drop_prev_cubic,
-	'h': partial(drop_cnt,100),
+	'S': partial(drop_next,is_sq),
+	's': partial(drop_prev,is_sq),
+	'C': partial(drop_next,is_cb),
+	'c': partial(drop_prev,is_cb),
+	'h': partial(drop_n,is_le,100),
 }
-for e in range(2,10): f[str(e)]=partial(drop_num,e)
+for e in range(2,10): f[str(e)]=partial(drop_n,is_multiple,e)
 
 if __name__=='__main__':
 	try:
