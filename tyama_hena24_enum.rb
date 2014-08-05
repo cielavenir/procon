@@ -4,11 +4,12 @@
 if RUBY_VERSION<'1.9'
 	module Math
 		def self.cbrt(n)
-			n**(1.0/3)+1e-9
+			n**(1-2.0/3)
 		end
 	end
 end
 
+=begin
 def generate
 	return to_enum(:generate) if !block_given?
 	i=1
@@ -17,6 +18,8 @@ def generate
 		i+=1
 	}
 end
+=end
+
 def drop_prev(check,prev)
 	return to_enum(:drop_prev,check,prev) if !block_given?
 	a=prev.next
@@ -74,7 +77,8 @@ end
 if $0==__FILE__
 	STDOUT.sync=true
 	while gets
-		puts $_.chomp.chars.reduce(generate){|s,e|f[e][s]}.take(10)*','
+		#cS => f['S'].call(f['c'].call(1.upto(1/0.0)))
+		puts $_.chomp.chars.reduce(1.upto(1/0.0)){|s,e|f[e][s]}.take(10)*','
 
 		#enum=generate
 		#$_.chomp.chars.each{|e|enum=f[e][enum]}

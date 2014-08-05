@@ -86,6 +86,7 @@ class Hena24{
 		string line;
 		for(;(line=Console.ReadLine())!=null;){
 			bool first=true;
+			//cS => f['S'](f['c'](generate()))
 			foreach(int n in line.Aggregate(generate(),(s,e)=>f[e](s)).Take(10)){
 				if(!first)Console.Write(',');
 				first=false;

@@ -4,8 +4,14 @@
 import sys
 import itertools
 from functools import partial,reduce
+
 from math import sqrt
-from scipy.special import cbrt # thx @ryosy383
+try:
+	from scipy.special import cbrt # thx @ryosy383
+except ImportError:
+	cbrt=lambda n: n**(1-2.0/3)
+
+if sys.version_info[0]>=3: raw_input=input
 
 '''
 def generate():
@@ -54,6 +60,7 @@ for e in range(2,10): f[str(e)]=partial(drop_n,is_multiple,e)
 if __name__=='__main__':
 	try:
 		while True:
+			#cS => f['S'](f['c'](itertools.count(1)))
 			print(','.join(
 				map(str,itertools.islice(
 					reduce(lambda s,e:f[e](s),raw_input().rstrip(),itertools.count(1)),
