@@ -54,10 +54,10 @@ for e in range(2,10): f[str(e)]=partial(drop_n,is_multiple,e)
 if __name__=='__main__':
 	try:
 		while True:
-			print(','.join(map(str,
-				list(itertools.islice(
+			print(','.join(
+				map(str,itertools.islice(
 					reduce(lambda s,e:f[e](s),raw_input().rstrip(),itertools.count(1)),
 				10))
-			)))
+			))
 	except EOFError:
 		pass

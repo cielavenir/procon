@@ -1,3 +1,6 @@
+// http://qiita.com/Nabetani/items/1c83005a854d2c6cbb69
+// http://nabetani.sakura.ne.jp/hena/ord24eliseq/
+
 package main
 import (
 	"fmt"
