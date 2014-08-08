@@ -48,6 +48,10 @@ from __future__ import print_function
 import base64
 dna='*'
 print(base64.b64decode(dna).replace(chr(42),dna),end='')
+>py
+import base64
+dna='*'
+quine=lambda:base64.b64decode(dna.encode('utf-8')).decode('utf-8').replace(chr(42),dna)
 >java
 class Main{
 	final static String table="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
