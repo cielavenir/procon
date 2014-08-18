@@ -6,7 +6,7 @@ const char *CODE=
 	" PAdId"
 	" PAr0"
 	" P?#2%y3Ar/m2:1:"
-	" PO+++++196471 *y-195 (*/y-3 5) *m-20 r -d"
+	" PO+++++196471 *y-195 *5/y-3 *m-20 r -d"
 	" OMc10"
 ;
 
