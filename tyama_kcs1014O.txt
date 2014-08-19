@@ -1,6 +1,5 @@
 AsIs
-AnId
-RinPApId
+RiIdPApId
    PAtIs
    Uspt
 Os

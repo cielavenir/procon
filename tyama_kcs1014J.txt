@@ -1,4 +1,2 @@
-AnId
-RinAVai:Id
-An+Id-1
-OVan:
+RiIdAVai:Id
+OVa+Id-1:
