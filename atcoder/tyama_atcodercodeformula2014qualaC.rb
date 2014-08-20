@@ -10,10 +10,10 @@ n.times{|i_heat|
 		k_prev=k
 		(i_heat+1).times{|current_search|
 			while current_search+n*next_idx[current_search]<k
-				if winner.include?(m[current_search][next_idx[current_search]])
+				person=m[current_search][next_idx[current_search]]
+				if winner.include?(person)
 					k+=1
 				else
-					person=m[current_search][next_idx[current_search]]
 					winner_in_this_heat<<person
 					winner[person]=1
 				end
