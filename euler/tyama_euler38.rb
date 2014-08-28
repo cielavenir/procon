@@ -1,12 +1,16 @@
 #!/usr/bin/ruby
-def pan(n)
+def pan(n,b)
 	m=''
-	1.step(9){|i|
+	1.step(b){|i|
 		x=m+(n*i).to_s
-		if x.size>9 then break end
+		break if x.size>b
 		m=x
 	}
-	1.step(9){|i| unless m.index(i.to_s) then return 0 end}
+	1.step(b){|i| return nil unless m.index(i.to_s)}
 	return m.to_i
 end
-p 10.step(9999).map{|e|pan(e)}.max
+n,b=gets.split.map(&:to_i)
+#p 2.step(n-1).map{|e|pan(e,b)}.compact.max
+puts 2.step(n-1).select{|e|pan(e,b)}
+__END__
+10000 9
