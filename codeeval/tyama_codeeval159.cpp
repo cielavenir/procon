@@ -82,7 +82,7 @@ int main(){
 			for(;ss>>s;){
 				int idx=s.find_first_of(';');
 				const string ident=s.substr(0,idx);
-				double angle=strtod(s.substr(idx+1).c_str(),NULL)*M_PI/180;
+				double angle=(-strtod(s.substr(idx+1).c_str(),NULL)+90)*M_PI/180;
 				_wifi[ident].push_back(make_pair(P(x,y),angle));
 			}
 		}
@@ -95,26 +95,21 @@ int main(){
 
 		const L x=L(
 			it->second[0].first,
-			it->second[0].first+P(cos(it->second[0].second),sin(it->second[0].second))*100.0
+			it->second[0].first+P(cos(it->second[0].second),sin(it->second[0].second))
 		);
 		const L y=L(
 			it->second[1].first,
-			it->second[1].first+P(cos(it->second[1].second),sin(it->second[1].second))*100.0
+			it->second[1].first+P(cos(it->second[1].second),sin(it->second[1].second))
 		);
 		const P p=crosspoint(x,y);
 		//cout<<p<<endl;
 		for(auto it2=building.begin();it2!=building.end();++it2){
 			if(result.find(it2->first)==result.end() && contains(it2->second,p)==IN){
-				cout<<it2->first<<endl;
 				result.insert(it2->first);
 			}
 		}
 	}
-	//for(auto it=result.begin();it!=result.end();++it){
-	//	cout<<*it<<endl;
-	//}
-	for(auto it=building.begin();it!=building.end();++it){
-		//fake... fake...
-		cout<<it->first<<endl;
+	for(auto it=result.begin();it!=result.end();++it){
+		cout<<*it<<endl;
 	}
 }
