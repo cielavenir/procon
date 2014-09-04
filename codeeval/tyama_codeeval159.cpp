@@ -88,28 +88,28 @@ int main(){
 		}
 	}
 	set<string>result;
-	for(auto it=_wifi.begin();it!=_wifi.end();++it){
-		if(it->second.size()<2)continue;
-		//cout<<it->second[0].first<<' '<<it->second[0].second<<endl;
-		//cout<<it->second[1].first<<' '<<it->second[1].second<<endl;
+	for(auto &it:_wifi){
+		if(it.second.size()<2)continue;
+		//cout<<it.second[0].first<<' '<<it.second[0].second<<endl;
+		//cout<<it.second[1].first<<' '<<it.second[1].second<<endl;
 
 		const L x=L(
-			it->second[0].first,
-			it->second[0].first+P(cos(it->second[0].second),sin(it->second[0].second))
+			it.second[0].first,
+			it.second[0].first+P(cos(it.second[0].second),sin(it.second[0].second))
 		);
 		const L y=L(
-			it->second[1].first,
-			it->second[1].first+P(cos(it->second[1].second),sin(it->second[1].second))
+			it.second[1].first,
+			it.second[1].first+P(cos(it.second[1].second),sin(it.second[1].second))
 		);
 		const P p=crosspoint(x,y);
 		//cout<<p<<endl;
-		for(auto it2=building.begin();it2!=building.end();++it2){
-			if(result.find(it2->first)==result.end() && contains(it2->second,p)==IN){
-				result.insert(it2->first);
+		for(auto &it2:building){
+			if(result.find(it2.first)==result.end() && contains(it2.second,p)==IN){
+				result.insert(it2.first);
 			}
 		}
 	}
-	for(auto it=result.begin();it!=result.end();++it){
-		cout<<*it<<endl;
+	for(auto &it:result){
+		cout<<it<<endl;
 	}
 }
