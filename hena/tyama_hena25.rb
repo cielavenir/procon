@@ -17,10 +17,10 @@ if $0==__FILE__
 			x=minx
 			y=miny
 			rotaters=[]
-			rotaters+=[[x+=1,y]] while x<maxx
-			rotaters+=[[x,y+=1]] while y<maxy
-			rotaters+=[[x-=1,y]] while x>minx
-			rotaters+=[[x,y-=1]] while y>miny
+			rotaters<<[x+=1,y] while x<maxx
+			rotaters<<[x,y+=1] while y<maxy
+			rotaters<<[x-=1,y] while x>minx
+			rotaters<<[x,y-=1] while y>miny
 			rotaters=rotaters.select{|x,y|0<=y&&y<area.size && 0<=x&&x<area[y].size}
 			str=rotaters.map{|x,y|area[y][x]}.rotate(-1)
 			rotaters.each_with_index{|(x,y),i|area[y][x]=str[i]}
