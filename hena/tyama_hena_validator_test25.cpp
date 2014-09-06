@@ -1,0 +1,44 @@
+#include <string>
+void test(std::string input, std::string expect);
+void testloader(){ //insert test cases here
+/*0*/ test( "ab,gg,uj,pt,an,ir,rr", "hpqsvwxy" );    
+/*1*/ test( "gs,ok", "abcdftvwxy" );    
+/*2*/ test( "gs,sg,ok", "none" );    
+/*3*/ test( "aa,bb,hh,nn", "hiostwxy" );    
+/*4*/ test( "ae,ko,uy,cw", "bdgilnqsvx" );    
+/*5*/ test( "am,gs,am,gs,am,gs,am,gs", "cfhkmqrvwx" );    
+/*6*/ test( "ay", "none" );    
+/*7*/ test( "gs,ay", "defjkoptuv" );    
+/*8*/ test( "bx,ay", "none" );    
+/*9*/ test( "ft,ay", "defjkoptuv" );    
+/*10*/ test( "ab,cd,ef,gh,ij,kl,mn,op,qr,st,uv,wx", "cdjmnry" );    
+/*11*/ test( "wx,uv,st,qr,op,mn,kl,ij,gh,ef,cd,ab", "kmoxy" );    
+/*12*/ test( "am,cj,ac,em,ss,cy,aa,ee,ff,vp", "none" );    
+/*13*/ test( "uf,oq,gn,ss,ca,hv,ej", "none" );    
+/*14*/ test( "cc,wk,uu,ws,bk,aa,vv", "bei" );    
+/*15*/ test( "tr,ou,ll,pp,jh,vf,yy,nr,rr,oo", "rxy" );    
+/*16*/ test( "ky,ov,ri,qm,nn,ee,ws,em,ca,ak", "biju" );    
+/*17*/ test( "ty", "nosx" );    
+/*18*/ test( "ll,uh,hq,ss,nx,ry,ku,ab,jj", "efouv" );    
+/*19*/ test( "yl,mu,qj,ss,ep", "mnqru" );    
+/*20*/ test( "kj,ee,qk", "fglruv" );    
+/*21*/ test( "xi,wd,hf", "ciknqr" );    
+/*22*/ test( "fx,ak,cc,ce", "bdhijnp" );    
+/*23*/ test( "li,jf,pp,qm,hg,sf", "akntuwx" );    
+/*24*/ test( "jw", "bcdeglqv" );    
+/*25*/ test( "uk,oe,xr", "dglmoqsy" );    
+/*26*/ test( "bb,ov,pd,dd,xk,is,hh,xd,xx,kq,pp,ku", "cfhjopqvy" );    
+/*27*/ test( "iq,fn,il,ww,ox,la,or,ga,wg,ef,us", "cfgjopvxy" );    
+/*28*/ test( "km,po", "abcdenqrst" );    
+/*29*/ test( "tc,mh,cw", "abefjkoptu" );    
+/*30*/ test( "fm,jx,xx,pi,gs,au,uq,ut,ap,vb", "cdghjmortux" );    
+/*31*/ test( "ik,xl,si", "abcdflorvwx" );    
+/*32*/ test( "nu,cc,lv,bu,tt,ww,xk,ia,in,sa,my", "abcefgpqrstu" );    
+/*33*/ test( "tt,ak,xh,tk,oo,yr,na,yv,gm,vh", "degiklmnquwx" );    
+/*34*/ test( "kk,ob,kk,fm,xk", "acdegjlopqruy" );    
+/*35*/ test( "uq,ko,pf,yy,ig,tu,ve,ve,qy,mh,oo,dv", "befjkoqrtuwxy" );    
+/*36*/ test( "aj,hb,ar,ii,np,ki,hg,vd", "cefhjlmopqtwxy" );    
+/*37*/ test( "vv,sf,ww,my,mm,sq,fb,ly,fu,ls", "bfghkmnptuvwxy" );    
+/*38*/ test( "jj,bp,gs", "abdefijkprtuvwxy" );    
+/*39*/ test( "sv,sn,mn,gn,gi", "abcdefhjnpqtuvxy" );
+}
