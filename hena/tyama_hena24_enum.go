@@ -91,6 +91,7 @@ func main(){
 	_line,_,_:=sin.ReadLine()
 	line:=string(_line)
 	for line!="" {
+		//cS => f['S'](f['c'](generate()))
 		ch := generate()
 		for _,c:=range(line) {
 			ch=f[int(c)](ch)
@@ -101,6 +102,7 @@ func main(){
 			fmt.Printf("%d",a)
 		}
 		fmt.Println()
+		os.Stdout.Sync()
 		_line,_,_=sin.ReadLine()
 		line=string(_line)
 	}

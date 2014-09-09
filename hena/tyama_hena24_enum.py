@@ -66,5 +66,6 @@ if __name__=='__main__':
 					reduce(lambda s,e:f[e](s),raw_input().rstrip(),itertools.count(1)),
 				10))
 			))
+			sys.stdout.flush()
 	except EOFError:
 		pass
