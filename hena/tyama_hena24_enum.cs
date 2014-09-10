@@ -93,6 +93,7 @@ class Hena24{
 				Console.Write(n);
 			}
 			Console.WriteLine();
+			Console.Out.Flush();
 		}
 	}
 }
