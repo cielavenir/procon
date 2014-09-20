@@ -8,7 +8,7 @@ require 'date'
 #2013/06/05: 1974dc043923c87497e040acd0a23d38 -> Mzgw
 T=[*'0'..'9']+[*'A'..'Z']+[*'a'..'z']+['+','/']
 def toInt(s)
-	#s.chars.each_with_index.map{|e,i|T.index(e)*T.size**(s.size-1-i)}.reduce(:+)
+	#s.each_char.with_index.map{|e,i|T.index(e)*T.size**(s.size-1-i)}.reduce(:+)
 	Base64.decode64(s).to_i
 end
 def toString(n)

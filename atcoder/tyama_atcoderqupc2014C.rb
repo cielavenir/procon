@@ -2,7 +2,7 @@
 n,m,q=gets.split.map(&:to_i)
 h={}
 n.times{|i|
-	gets.chomp.chars.each_with_index{|c,j|
+	gets.chomp.each_char.with_index{|c,j|
 		if c!='*'
 			h[c]=[i+1,j+1]
 		end

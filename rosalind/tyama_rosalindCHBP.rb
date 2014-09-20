@@ -44,7 +44,7 @@ a=Array.new(leaves.size)
 r=''
 spl.each{|e|
 	x=[]
-	e.enum_for(:chars).each_with_index{|e,i|
+	e.each_char.with_index{|e,i|
 		if !a[i]&&e=='1'
 			x<<leaves[i]
 			a[i]=1
@@ -53,7 +53,7 @@ spl.each{|e|
 	r="(#{x*','}#{r=='' ? '' : ','}#{r})" if x.size>0
 }
 	x=[]
-	spl.last.enum_for(:chars).each_with_index{|e,i|
+	spl.last.each_char.with_index{|e,i|
 		if !a[i]&&e=='0'
 			x<<leaves[i]
 			a[i]=1

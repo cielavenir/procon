@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 h={''=>' '}
 DATA.each_with_index{|s,i|
-	s.chomp.chars.each_with_index{|e,j|
+	s.chomp.each_char.with_index{|e,j|
 		h[i.downto(0).map{|k|j[k]==0?'.':'-'}*'']=e
 	}
 }
