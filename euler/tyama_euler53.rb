@@ -11,10 +11,13 @@ class Integer
 		return ret
 	end
 end
+N,K=gets.split.map(&:to_i)
 s=0
-101.times{|n|
-	n.times{|r|
-		if n.comb(r) > 1000000 then s+=1 end
+0.step(N){|n|
+	0.step(n){|r|
+		s+=1 if n.comb(r) > K
 	}
 }
 p s
+__END__
+100 1000000

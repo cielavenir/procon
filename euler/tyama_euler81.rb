@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-#wget -O - http://projecteuler.net/project/matrix.txt
+#wget -O - https://projecteuler.net/project/resources/p081_matrix.txt
 a=[]
 while l=gets do a<<l.split(',').map(&:to_i) end
 1.step(79){|i|a[0][i]+=a[0][i-1];a[i][0]+=a[i-1][0]}
