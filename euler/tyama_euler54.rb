@@ -2,8 +2,7 @@
 T={'2'=>2,'3'=>3,'4'=>4,'5'=>5,'6'=>6,'7'=>7,'8'=>8,'9'=>9,'T'=>10,'J'=>11,'Q'=>12,'K'=>13,'A'=>14}
 def solve(_cards)
 	cards=_cards.map{|e|[T[e[0,1]],e[1,1]]}.sort
-	number=cards.map{|e|e[0]}.uniq
-	if cards.none?{|e|e[1]!=[0][1]} #flash
+	if cards.none?{|e|e[1]!=cards[0][1]} #flash
 		if cards[0][0]==10&&cards[1][0]==11&&cards[2][0]==12&&cards[3][0]==13&&cards[4][0]==14
 			return [0,cards.reverse.map(&:first)]
 		elsif 4.times.all?{|i|cards[i+1][0]-cards[i][0]==1}
@@ -31,11 +30,17 @@ def solve(_cards)
 end
 
 if __FILE__==$0
-	r=0
-	while gets
-		a=$_.split
-		x,y=a.each_slice(5).map{|e|solve(e)}
-		r+=1 if (x<=>y)==1 # x is bigger than y literally
+	if false
+		r=0
+		while gets
+			x,y=$_.split.each_slice(5).map{|e|solve(e)}
+			r+=1 if (x<=>y)==1 # x is bigger than y literally
+		end
+		p r
+	else
+		gets.to_i.times{
+			x,y=gets.split.each_slice(5).map{|e|solve(e)}
+			puts 'Player '+((-(x<=>y)+1)/2+1).to_s
+		}
 	end
-	p r
 end
