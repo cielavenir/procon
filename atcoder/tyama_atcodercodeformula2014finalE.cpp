@@ -22,10 +22,10 @@ int search(int level,int start){
 		if(x>=0)return x*2;
 	}
 	if(s.substr(start,fib[level-2])==s.substr(start+fib[level-3]+fib[level-2],fib[level-2])){
-		x=search(level-1,start+fib[level-2]);
-		if(x>=0)return x*2+1;
 		x=search(level-1,start);
 		if(x>=0)return x*2;
+		x=search(level-1,start+fib[level-2]);
+		if(x>=0)return x*2+1;
 	}
 	return -1;
 }
