@@ -1,0 +1,16 @@
+#!/usr/bin/env julia
+N=100
+
+#1250x1250には収まるらしい。
+function dfs(n,x,y,my)
+	if n>0
+		if x+n*2>1250
+			dfs(n,0,my+n,my+n*2)
+		else
+			dfs(n-1,x+n*2,y,my)
+			@printf("%d %d\n",x+n,y)
+		end
+	end
+end
+
+dfs(N,0,N,N*2)

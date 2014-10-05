@@ -54,6 +54,7 @@ URLS={
 	'23'=>'hena/ord23snakemoinc',
 	'24'=>'hena/ord24eliseq',
 	'25'=>'hena/ord25rotcell',
+	'26'=>'hena/ord26tribo',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
