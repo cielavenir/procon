@@ -12,7 +12,11 @@ URLS={
 	#'codeiq1'=>'codeiq/cardgame',
 	'codeiq2'=>'codeiq/tetromino_bingo',
 	#'codeiq3'=>'codeiq/octahedron', # IO is provided via text
+	#below, IO is provided via text and you need to answer the false line.
 	#'codeiq4'=>'codeiq/incseq',
+	#'codeiq5'=>'codeiq/sumseq',
+	#'codeiq6'=>'codeiq/unit',
+	#'codeiq7'=>'codeiq/triangle',
 
 	'1'=>'hena/1',
 	'2'=>'hena/ord2',

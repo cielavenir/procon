@@ -129,8 +129,7 @@ int main(int argc, char **argv){
 	cin.tie(0);
 	ios::sync_with_stdio(false);
 	if(argc<2){
-		cerr<<"validator [program]"<<endl;
-		cerr<<"program must be chmod +x"<<endl;
+		cerr<<"validator program/interpreter..."<<endl;
 		return 0;
 	}
 	const char *cmd=argv[1];
@@ -154,7 +153,11 @@ int main(int argc, char **argv){
 		close(fd_in[1]);
 		close(fd_out[0]);
 		close(fd_out[1]);
-		execl(cmd,cmd,NULL);
+		char **args=(char**)malloc(sizeof(char*)*argc);
+		for(int i=1;i<argc;i++)args[i-1]=argv[i];
+		args[argc-1]=NULL;
+		execvp(cmd,args); //execvp is required; cmd might be interpreter name
+		free(args);
 		return 0;
 	}
 	//parent
