@@ -1,5 +1,4 @@
-//tested with gccgo-4.6
-
+//usr/bin/env go run $0 $@;exit
 package main
 import(
 	"fmt"
