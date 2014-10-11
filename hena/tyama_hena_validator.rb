@@ -18,6 +18,8 @@ URLS={
 	#'codeiq6'=>'codeiq/unit',
 	#'codeiq7'=>'codeiq/triangle',
 
+	'yokohamarb201410'=>'yokohamarb/2014.10.rotcell',
+
 	'1'=>'hena/1',
 	'2'=>'hena/ord2',
 	'3'=>'hena/ord3ynode',
@@ -104,8 +106,10 @@ listener=MultiSAX::Sax.parse(xml,Class.new{
 	end
 	def sax_text(text)
 		text.strip!
-		@content << text if text.size>0
-		@fold+=1 if @first
+		if !text.empty?
+			@content << text
+			@fold+=1 if @first
+		end
 	end
 	def sax_comment(text)
 	end
