@@ -16,7 +16,8 @@ URLS={
 	#'codeiq4'=>'codeiq/incseq',
 	#'codeiq5'=>'codeiq/sumseq',
 	#'codeiq6'=>'codeiq/unit',
-	#'codeiq7'=>'codeiq/triangle',
+	#'codeiq7'=>'codeiq/clatri',
+	#'codeiq8'=>'codeiq/',
 
 	'yokohamarb201410'=>'yokohamarb/2014.10.rotcell',
 
