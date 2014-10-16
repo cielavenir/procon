@@ -1,3 +1,4 @@
+//usr/bin/env scala $0 $@;exit
 object Solution{
 	def _query(a:Int,b:Int,k:Int,l:Int,r:Int,minval:Array[Int]):Int = {
 		if(r<=a||b<=l)return 999999999

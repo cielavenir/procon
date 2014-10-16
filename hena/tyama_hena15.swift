@@ -1,4 +1,6 @@
-#!/usr/bin/env xcrun -sdk macosx10.10 swift
+//usr/bin/env xcrun swift $0 $@;exit
+
+//#!/usr/bin/env xcrun swift
 //http://qiita.com/Nabetani/items/cba03c96d1ea55f6e861
 //http://nabetani.sakura.ne.jp/hena/ord15elebubo/
 import Darwin

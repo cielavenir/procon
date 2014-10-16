@@ -1,3 +1,4 @@
+//usr/bin/env scala $0 $@;exit
 object Solution{
 	def gcd(x:Int, y:Int): Int = {
 		if(y==0) x else gcd(y,x%y)

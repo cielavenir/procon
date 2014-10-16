@@ -1,3 +1,4 @@
+//usr/bin/env scala $0 $@;exit
 import scala.util.control.Breaks
 object Main{
 	def reverse[T](a: Array[T],start: Int,size: Int) = {

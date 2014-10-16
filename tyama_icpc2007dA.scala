@@ -1,5 +1,4 @@
-#!/usr/bin/scala
-!#
+//usr/bin/env scala $0 $@;exit
 
 object icpc2007dA{
 	def judge(n:Int){
@@ -21,4 +20,3 @@ object icpc2007dA{
 		}
 	}
 }
-icpc2007dA.main(args)

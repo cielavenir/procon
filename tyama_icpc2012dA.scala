@@ -1,5 +1,4 @@
-#!/usr/bin/scala
-!#
+//usr/bin/env scala $0 $@;exit
 
 object icpc2012dA{
 	def main(args: Array[String]){
@@ -13,4 +12,3 @@ object icpc2012dA{
 		}
 	}
 }
-icpc2012dA.main(args)

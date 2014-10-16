@@ -4,11 +4,11 @@ module icpc2007dA
         n=Console.ReadLine()
         for i=1 to n
 			dim s(3) as string
-			dim a(3) as integer
+			dim y,m,d as integer
 			s=Split(Console.ReadLine())
-			a(0)=s(0):a(1)=s(1):a(2)=s(2)
-			a(0)-=1:a(1)-=1
-			Console.WriteLine(196471-a(0)*195-int(a(0)/3)*5-a(1)*20+if(a(0) mod 3<>2,int(a(1)/2),0)-a(2))
+			y=s(0):m=s(1):d=s(2)
+			y-=1:m-=1
+			Console.WriteLine(196471-y*195-int(y/3)*5-m*20+if(y mod 3<>2,int(m/2),0)-d)
 		next
 	end sub
 end module
