@@ -14,6 +14,7 @@ CODE={
 	156=>"1\n",
 	160=>"Hard\n",
 	193=>"A+B\n",
+	209=>"1\n"
 }
 question=ARGV[0].to_i
 code=CGI.escape(CODE[question])
