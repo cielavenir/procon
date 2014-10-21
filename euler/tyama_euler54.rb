@@ -1,17 +1,24 @@
 #!/usr/bin/ruby
 T={'2'=>2,'3'=>3,'4'=>4,'5'=>5,'6'=>6,'7'=>7,'8'=>8,'9'=>9,'T'=>10,'J'=>11,'Q'=>12,'K'=>13,'A'=>14}
+def straight(cards)
+	if 4.times.all?{|i|cards[i+1][0]-cards[i][0]==1}
+		return cards.reverse.map(&:first)
+	elsif cards.map(&:first)==[2,3,4,5,14]
+		return [5,4,3,2,1]
+	end
+end
 def solve(_cards)
 	cards=_cards.map{|e|[T[e[0,1]],e[1,1]]}.sort
 	if cards.none?{|e|e[1]!=cards[0][1]} #flash
 		if cards[0][0]==10&&cards[1][0]==11&&cards[2][0]==12&&cards[3][0]==13&&cards[4][0]==14
 			return [0,cards.reverse.map(&:first)]
-		elsif 4.times.all?{|i|cards[i+1][0]-cards[i][0]==1}
-			return [-1,cards.reverse.map(&:first)]
+		elsif x=straight(cards)
+			return [-1,x]
 		else
 			return [-4,cards.reverse.map(&:first)]
 		end
-	elsif 4.times.all?{|i|cards[i+1][0]-cards[i][0]==1}
-		return [-5,cards.reverse.map(&:first)]
+	elsif x=straight(cards)
+		return [-5,x]
 	end
 	size=cards.group_by{|e|e[0]}.map{|k,v|[v.size,k]}.sort
 	if size.map(&:first)==[1,4]
