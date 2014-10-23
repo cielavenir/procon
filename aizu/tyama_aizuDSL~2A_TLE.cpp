@@ -18,7 +18,7 @@ int *buildRMQ(int *a, int n) {
   return r;
 }
 int minimum(int x, int y, int *rmq, int n) {
-  int z = y - x, k = 0, e = 1, s; // y - x >= e = 2^k なる最大 k
+  int z = y - x, k = 0, e = 1, s; // max k where y - x >= e = 2^k
   s = ( (z & 0xffff0000) != 0 ) << 4; z >>= s; e <<= s; k |= s;
   s = ( (z & 0x0000ff00) != 0 ) << 3; z >>= s; e <<= s; k |= s;
   s = ( (z & 0x000000f0) != 0 ) << 2; z >>= s; e <<= s; k |= s;
