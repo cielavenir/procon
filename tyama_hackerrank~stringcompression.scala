@@ -5,7 +5,7 @@ object Solution{
 		val a=Array[Char](1)
 		val n=Array[Int](1)
 		a(0)=s(0)
-		for(i<-1 to s.length-1){
+		for(i<-1 until s.length){
 			if((a(0)!=s(i))){
 				print(a(0))
 				a(0)=s(i)

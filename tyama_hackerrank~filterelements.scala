@@ -19,11 +19,11 @@ object Solution{
 			val a=readLine().split(' ').map(_.toInt)
 			val b=readLine().split(' ').map(_.toInt)
 			val c=scala.collection.mutable.Map.empty[Int,Int]
-			for(i<-0 to b.length-1){
+			for(i<-0 until b.length){
 				c(b(i))=c.getOrElse(b(i),0)+1
 			}
 			val r=scala.collection.mutable.ListBuffer[Int]()
-			for(i<-0 to b.length-1){
+			for(i<-0 until b.length){
 				if(c(b(i))>=a(1)){
 					r+=b(i)
 					c(b(i))=0

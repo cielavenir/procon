@@ -3,7 +3,7 @@ import scala.util.control.Breaks
 object Main{
 	def reverse[T](a: Array[T],start: Int,size: Int) = {
 		val end=start+size-1
-		for(i <- 0 to size/2-1){
+		for(i <- 0 until size/2){
 			val z=a(start+i)
 			a(start+i)=a(end-i)
 			a(end-i)=z

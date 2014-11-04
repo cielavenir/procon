@@ -3,7 +3,7 @@ import scala.util.control.Breaks
 object Main{
 	def reverse[T](a: Array[T],start: Int,size: Int) = {
 		val end=start+size-1
-		for(i <- 0 to size/2-1){
+		for(i <- 0 until size/2){
 			val z=a(start+i)
 			a(start+i)=a(end-i)
 			a(end-i)=z
@@ -49,7 +49,7 @@ object Main{
 				var zero2=N
 				var one1=0
 				var one2=N
-				for(i<-0 to N*2-1){
+				for(i<-0 until N*2){
 					if(e0(i)==0)zero1+=1
 					if(e0(i)==1)one1+=1
 					if(f0(N*2-1-i)==0)zero2-=1

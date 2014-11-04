@@ -8,7 +8,7 @@ object icpc2007rA{
 			val k=cin.nextInt()
 			val m=cin.nextInt()
 			var r=0
-			for(i<-1 to n-1)r=(r+k)%i
+			for(i<-1 until n)r=(r+k)%i
 			println((r+m)%n+1)
 			n=cin.nextInt()
 		}

@@ -34,14 +34,14 @@ object Solution{
 		val a=readLine().split(' ').map(_.toInt)
 		val siz=getSize(a(0))
 		val minval=new Array[Int](2*siz-1)
-		for(i<-0 to minval.length-1){
+		for(i<-0 until minval.length){
 			minval(i)=999999999
 		}
 		val v=readLine().split(' ').map(_.toInt)
-		for(i<-0 to v.length-1){
+		for(i<-0 until v.length){
 			update(i,v(i),siz,minval)
 		}
-		for(i<-0 to a(1)-1){
+		for(i<-0 until a(1)){
 			val x=readLine().split(' ').map(_.toInt)
 			println(query(x(0),x(1)+1,siz,minval))
 		}
