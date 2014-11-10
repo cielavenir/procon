@@ -1,0 +1,1 @@
+n;main(k){scanf("%d%d",&n,&k);n=!puts(n<=2*k+1||(n&1)?"first":"second");}

@@ -1,0 +1,1 @@
+n;main(m){scanf("%d%d",&n,&m);n=!puts(n<m?"Enjoy another semester...":"Congratulations!");}

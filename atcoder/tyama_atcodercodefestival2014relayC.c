@@ -1,0 +1,1 @@
+n;main(m){scanf("%d%d",&n,&m);n=!printf("%d\n",n/(m+1));}
