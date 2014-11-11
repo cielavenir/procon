@@ -17,14 +17,19 @@ T=[
 		["bc","fgc","fghi"],
 	],
 ]
+
+require 'lambda_driver'
+module Enumerable
+	def none_with_proc?(proc) none?(&proc) end
+end
+
 if $0==__FILE__
 	STDOUT.sync=true
 	while gets
 		result=T.flat_map.with_index(1){|e,i|
 			e.map.with_index(4).select{|f,j|
-				f.any?{|g|
-					g.chars.none?(&$_.method(:include?))
-				}
+				f.any?(&:chars >> (:none_with_proc?.with_args($_._(:include?))))
+				#f.any?{|g|g.chars.none?(&$_.method(:include?))}
 			}.map{|f,j|i.to_s+j.to_s}
 		}*','
 		puts result.empty? ? '-' : result

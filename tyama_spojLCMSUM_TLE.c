@@ -1,4 +1,4 @@
-long long gcd(long x,long y){return y?gcd(y,x%y):x;}
+long long gcd(long long x,long long y){return y?gcd(y,x%y):x;}
 main(){
 	int t;
 	long long x,y,r;
