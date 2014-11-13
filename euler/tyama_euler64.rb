@@ -11,4 +11,6 @@ def z(n)
 	end while sf!=1
 	return r
 end
-p 2.step(10000).count{|i|z(i).size%2==0}
+p 2.step(gets.to_i).count{|i|z(i).size%2==0}
+__END__
+10000
