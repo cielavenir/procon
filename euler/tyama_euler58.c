@@ -1,11 +1,11 @@
 #include <stdio.h>
-#define M 50000000
+#define M 85000000
 
 int t[M];
 int main(){
 	int N,p,q,i=3;
 	t[0]=t[1]=1;
-	for(p=2;p<M;p++)if(!t[p])for(q=p*2;q<M;q+=p)t[q]=1;
+	for(p=2;p*p<M;p++)if(!t[p])for(q=p*2;q<M;q+=p)t[q]=1;
 	p=0,q=1;
 	scanf("%d",&N);
 	for(;;i+=2){
