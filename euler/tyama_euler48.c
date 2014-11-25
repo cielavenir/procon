@@ -1,15 +1,10 @@
 #include <stdio.h>
 typedef unsigned long long ull;
 ull pow_binary_mod(ull x,ull y,ull m){
-	x%=m;
 	ull z = 1;
-	for(;y;){
-		for(;!(y&1);){
-			x = (__int128_t)x * x % m;
-			y >>= 1;
-		}
-		y--;
-		z = (__int128_t)z * x % m;
+	for(;y;y>>=1){
+		if(y&1)z = (__int128_t)z * x % m;
+		x = (__int128_t)x * x % m;
 	}
 	return z;
 }

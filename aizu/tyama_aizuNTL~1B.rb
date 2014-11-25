@@ -1,16 +1,13 @@
 #!/usr/bin/ruby
-class Fixnum
+MOD=1000000007
+class Integer
 	def pow_binary_mod(y)
 		x = self
 		z = 1
-		while y != 0
-			while y % 2 == 0
-				x = x * x % 1000000007
-				#y = y / 2
-				y = y >> 1
-			end
-			y = y - 1
-			z = z * x % 1000000007
+		while y!=0
+			z=z*x%MOD if y&1!=0
+			x=x*x%MOD
+			y>>=1
 		end
 		z
 	end

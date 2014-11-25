@@ -11,13 +11,9 @@ int main(){
 		unsigned long long y=bin(n),x,z;
 		x = 4;
 		z = 1;
-		for(;y;){
-			for(;!(y&1);){
-				x = x * x % mod;
-				y = y >> 1;
-			}
-			y--;
-			z = z * x % mod;
+		for(;y;y>>=1){
+			if(y&1)z=z*x%mod;
+			x=x*x%mod;
 		}
 		printf("%llu\n",z);
 	}

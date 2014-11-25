@@ -3,13 +3,10 @@ MOD=1000000007
 
 def pow_binary(x,y)
 	z = 1
-	while y != 0
-		while y % 2 == 0
-			x = x * x % MOD
-			y = y / 2
-		end
-		y = y - 1
-		z = z * x % MOD
+	while y!=0
+		z=z*x%MOD if y&1!=0
+		x=x*x%MOD
+		y>>=1
 	end
 	z
 end

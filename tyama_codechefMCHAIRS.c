@@ -7,13 +7,9 @@ int main(){
 		long long x,z;
 		x = 2;
 		z = 1;
-		for(;y;){
-			for(;!(y&1);){
-				x = x * x % mod;
-				y = y >> 1;
-			}
-			y--;
-			z = z * x % mod;
+		for(;y;y>>=1){
+			if(y&1)z=z*x%mod;
+			x=x*x%mod;
 		}
 		printf("%lld\n",(z+mod-1)%mod);
 	}

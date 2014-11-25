@@ -4,15 +4,10 @@ using namespace std;
 typedef unsigned long long ull;
 
 ull pow_binary_mod(ull x,ull y,ull m){
-	x%=m;
-	ull z = 1;
-	for(;y;){
-		for(;!(y&1);){
-			x = x * x % m;
-			y >>= 1;
-		}
-		y--;
-		z = z * x % m;
+	ull z=1;
+	for(;y;y>>=1){
+		if(y&1)z=z*x%m;
+		x=x*x%m;
 	}
 	return z;
 }

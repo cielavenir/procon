@@ -4,13 +4,10 @@ class Integer
 	def pow_binary_mod(y,m)
 		x = self
 		z = 1
-		while y != 0
-			while y & 1 == 0
-				x = x * x % m # if I use C, this "x*x" causes overflow...
-				y >>= 1
-			end
-			y = y - 1
-			z = z * x % m
+		while y!=0
+			z=z*x%m if y&1!=0
+			x=x*x%m # if I use C, this "x*x" causes overflow...
+			y>>=1
 		end
 		z
 	end
