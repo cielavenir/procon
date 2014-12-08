@@ -45,13 +45,15 @@ class Main{
 
 	public static void main(String[]z){
 		Scanner x=new Scanner(System.in);
-		String s=x.next().replaceAll("-","Z");
-		String ans=x.next();
-		boolean a=process(s).equals(ans);
-		boolean b=process2(s).equals(ans);
-		if(a&&b)System.out.println("U");
-		if(a&&!b)System.out.println("M");
-		if(!a&&b)System.out.println("L");
-		if(!a&&!b)System.out.println("I");
+		for(;x.hasNext();){
+			String s=x.next().replaceAll("-","Z");
+			String ans=x.next();
+			boolean a=process(s).equals(ans);
+			boolean b=process2(s).equals(ans);
+			if(a&&b)System.out.println("U");
+			if(a&&!b)System.out.println("M");
+			if(!a&&b)System.out.println("L");
+			if(!a&&!b)System.out.println("I");
+		}
 	}
 }

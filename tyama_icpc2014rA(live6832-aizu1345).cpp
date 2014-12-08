@@ -2,9 +2,7 @@
 #include <map>
 #include <cstdio>
 using namespace std;
-int main(){
-	int n,m;
-	scanf("%d%d",&n,&m);
+void solve(int n,int m){
 	vector<int>start(n),end1(n),end2(n);
 	for(int i=0;i<n;i++)scanf("%d",&start[i]);
 	{
@@ -30,10 +28,16 @@ int main(){
 				d-=it->second;
 				if(d<0)d=-d;
 				printf("%d\n",d-1);
-				return 0;
+				return;
 			}
 			swap(cur[i],cur[i+1]);
 		}
 	}
 	puts("0");
+}
+int main(){
+	int n,m;
+	for(;~scanf("%d%d",&n,&m);){
+		solve(n,m);
+	}
 }
