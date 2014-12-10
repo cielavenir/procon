@@ -1,4 +1,2 @@
 #!/usr/bin/ruby
-gets
-a=gets.split.map(&:to_i).group_by{|e|e}.map{|k,v|[-v.size,-k]}.sort
-p -a[0][1]
+gets;p gets.split.map(&:to_i).group_by{|e|e}.sort_by{|k,v|[-v.size,-k]}[0][0]
