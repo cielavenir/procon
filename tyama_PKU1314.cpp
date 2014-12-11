@@ -1,10 +1,10 @@
 //tyama_rect.cpp Varient 2
 
-//�Escanf�����������B�����ňꎞ�Ԉ�����������(�T�B)�̂�iostream�ɐ؂�ւ��B
-//�E����Ɠ����ɁAC�ł̊ȈՂȎ����ɂ��Ă�����PInt���N���X��^^;
-//vector���Ɓu�z�񎩑́v�����Ȃ�����qsort���g���Ȃ���ł����(�T)�B
-//�E���Ă����̂͂�߂�std::sort�ɁB
-//���ƁA�_�̍��W���r������@���Ƃ��܂������Ȃ����Ƃ��킩����(���)�̂ō��W�ɑ΂��ē_�̂���Ȃ��Ŕ��f���邱�ƂɁB�B�B
+//・scanfがおかしい。そこで一時間引っかかった(鬱。)のでiostreamに切り替え。
+//・それと同時に、C版の簡易な実装にしてあったPIntをクラス化^^;
+//vectorだと「配列自体」を取れないためqsortが使えないんですよね(鬱)。
+//・っていうのはやめてstd::sortに。
+//あと、点の座標を比較する方法だとうまくいかないことがわかった(苦笑)ので座標に対して点のあるなしで判断することに。。。
 //Thx Mr Hisaka.
 
 #include <iostream>

@@ -22,4 +22,6 @@ def pelleq(n)
 	}
 	return a
 end
-p 2.step(1000).map{|i|[pelleq(i),i]}.max[1]
+p 2.step(gets.to_i).map{|i|[pelleq(i),i]}.max[1]
+__END__
+1000
