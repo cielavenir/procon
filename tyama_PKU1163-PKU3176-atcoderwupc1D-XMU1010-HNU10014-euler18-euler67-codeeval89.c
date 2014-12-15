@@ -6,8 +6,7 @@
 int x[M][M];
 int s[M][M];
 
-main(int argc,char **argv){
-  if(argc>1)freopen(argv[1],"rb",stdin);
+int main(){
   int n,i,j;
   //scanf("%d",&n);
   //n=15; //euler18
@@ -22,7 +21,7 @@ main(int argc,char **argv){
   for(i=1;i<=n;i++)
     j=max(j,s[n][i]);
   printf("%d\n",j);
-  exit(0);
+  return 0;
 }
 
 //bootstrap for HNU10014
