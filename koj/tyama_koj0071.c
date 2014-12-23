@@ -13,9 +13,9 @@ main(int argc, char **argv){
   if(argc>1)freopen(argv[1],"rb",stdin);
   int i,j,_a,_b;
   scanf("%d%d%s%s",&i,&i,a+1,b+1);
-    _a=strlen(a+1);_b=strlen(b+1);
-    for(i=1;i<=_a;i++)
-      for(j=1;j<=_b;j++)
-        lcs[i][j]=max(max(lcs[i-1][j],lcs[i][j-1]),lcs[i-1][j-1]+(a[i]==b[j]));
-    printf("%d\n",lcs[_a][_b]);exit(0);
+  _a=strlen(a+1);_b=strlen(b+1);
+  for(i=1;i<=_a;i++)
+    for(j=1;j<=_b;j++)
+      lcs[i][j]=max(max(lcs[i-1][j],lcs[i][j-1]),lcs[i-1][j-1]+(a[i]==b[j]));
+  printf("%d\n",lcs[_a][_b]);exit(0);
 }

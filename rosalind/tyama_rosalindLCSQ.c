@@ -15,9 +15,9 @@ main(int argc, char **argv){
   strcpy(a,"*"),strcpy(b,"*"),F(l,999,stdin);
   for(;F(l,999,stdin),l[0]!='>';)strcat(a,l);
   for(;F(l,999,stdin);)strcat(b,l);
-    _a=strlen(a+1);_b=strlen(b+1);
-    for(i=1;i<=_a;i++)
-      for(j=1;j<=_b;j++)
-        lcs[i][j]=max(max(lcs[i-1][j],lcs[i][j-1]),lcs[i-1][j-1]+(a[i]==b[j]));
-    backtrack(_a,_b);puts("");
+  _a=strlen(a+1);_b=strlen(b+1);
+  for(i=1;i<=_a;i++)
+    for(j=1;j<=_b;j++)
+      lcs[i][j]=max(max(lcs[i-1][j],lcs[i][j-1]),lcs[i-1][j-1]+(a[i]==b[j]));
+  backtrack(_a,_b);puts("");
 }

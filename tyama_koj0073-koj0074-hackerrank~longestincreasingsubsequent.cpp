@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <cstdio>
-int x[100001],d[100001],c[100001];
+int x[1000001],d[1000001],c[1000001];
 
 int lis(int n){
 	int i,j,I;
