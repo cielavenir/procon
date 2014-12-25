@@ -17,7 +17,7 @@ int main(){
 			int d=distance(v1.begin(),it1);
 			for(;v1.size()>d+1;){
 				v2.push_back(v1[v1.size()-1]);
-				v1.erase(v1.begin()+v1.size()-1);
+				v1.pop_back();
 				result.push_back(make_pair(1,2));
 			}
 			v1.erase(v1.begin()+d);
@@ -26,7 +26,7 @@ int main(){
 			int d=distance(v2.begin(),it2);
 			for(;v2.size()>d+1;){
 				v1.push_back(v2[v2.size()-1]);
-				v2.erase(v2.begin()+v2.size()-1);
+				v2.pop_back();
 				result.push_back(make_pair(2,1));
 			}
 			v2.erase(v2.begin()+d);
