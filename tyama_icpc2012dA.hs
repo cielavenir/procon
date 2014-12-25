@@ -1,4 +1,4 @@
-#!/usr/bin/runhugs
+#!/usr/bin/env runghc
 import Control.Applicative
 
 run n

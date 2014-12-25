@@ -1,4 +1,4 @@
-#!/usr/bin/runhugs
+#!/usr/bin/env runghc
 import Control.Monad
 
 mysum :: [Int] -> Int -> Int -> Int -> Int -> Int
