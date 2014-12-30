@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 STDOUT.sync = true
-LX, LY, TX, TY = gets.split(" ").collect {|x| x.to_i}
+LX, LY, TX, TY = gets.split.map(&:to_i)
 
 x=LX-TX
 y=LY-TY

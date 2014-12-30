@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 STDOUT.sync = true
 loop{
-	sx, sy = gets.split(" ").collect {|x| x.to_i}
+	sx, sy = gets.split.map(&:to_i)
 	mh=8.times.map{gets.to_i}
 
 	x=mh.each_with_index.max_by{|e,i|e}[1]
