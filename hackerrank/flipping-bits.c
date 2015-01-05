@@ -1,0 +1,1 @@
+main(i){for(gets(&i);~scanf("%u",&i);printf("%u\n",~i));}
