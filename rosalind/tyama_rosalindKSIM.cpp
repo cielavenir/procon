@@ -1,5 +1,5 @@
 //g++ -O3 -msse2 -o ksim tyama_rosalindKSIM.cpp
-//This algorithm is O(kst). 3mins with clang++ -O3 -msse2.
+//This algorithm is O(kst). 2mins with clang++ -O3 -msse2.
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -32,6 +32,7 @@ int main(){
 		for(j=max(0,slen-k);j<=min(slen+k,tlen-i);j++){
 			if(a[slen][j]>=-k)cout<<(i+1)<<' '<<j<<endl;
 		}
-		cerr<<i<<endl;
+		if(i%100==0)cerr<<i<<endl;
 	}
+	cerr<<i<<endl;
 }

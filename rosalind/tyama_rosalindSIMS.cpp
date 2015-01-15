@@ -47,13 +47,17 @@ void alignment(string &x, string &y){
 			case 1: tx+='-';   ty+=y[j++];break;
 		}
 	}
-	for(i=0;i<ty.length();i++)if(ty[i]!='-')break;
+	i=0;
+	for(i=0;i<ty.length();i++)if(ty[i]!='-')break; //SIMS
+	//tx+=x.substr(n),ty+=string(x.size()-n,'-'); //SMGB
 	cout<<a[z-alast.begin()][y.length()]<<endl;
 	cout<<tx.substr(i)<<endl;
 	cout<<ty.substr(i)<<endl;
 }
 int main(){
-	string s,t;
-	cin>>s>>t;
+	string l,s,t;
+	cin>>l;
+	for(;cin>>l,l[0]!='>';)s+=l;
+	for(;cin>>l;)t+=l;
 	alignment(s,t);
 }

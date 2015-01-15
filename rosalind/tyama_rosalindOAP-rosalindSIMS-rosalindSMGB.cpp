@@ -9,53 +9,80 @@ using namespace std;
 typedef pair<int,int> pii;
 typedef vector<pii> vpii;
 
-void alignment(const string &x,const string &y,bool flocal,int d,int e,function<int(char,char)> matcher){
-	//Needleman-Wunsch-Gotoh
-	//Smith-Waterman-Gotoh
+enum{
+	mode_oap,
+	mode_sims,
+	mode_smgb,
+};
+const int MODE=mode_smgb;
+
+pair<string,string> alignment(const string &x,const string &y,bool foap,bool ftruncate,int d,int e,int &score,function<int(char,char)> matcher){
 	vector<vpii>M(x.size()+1,vpii(y.size()+1));
 	vector<vpii>X(x.size()+1,vpii(y.size()+1));
 	vector<vpii>Y(x.size()+1,vpii(y.size()+1));
-	int i,j,k;
 	M[0][0]={0,-1};
-	X[0][0]=Y[0][0]={flocal?0:INT_MIN/2,-1};
-	for(i=1;i<=x.size();i++){
-		M[i][0]={flocal?0:INT_MIN/2,-1};
-		X[i][0]={d+e*(i-1),1};
-		Y[i][0]={flocal?0:INT_MIN/2,-1};
+	X[0][0]={0,-1};
+	Y[0][0]={INT_MIN/2,-1};
+	for(int i=1;i<=x.size();i++){
+		M[i][0]={INT_MIN/2,-1};
+		X[i][0]={0,ftruncate?-1:1};
+		Y[i][0]={INT_MIN/2,-1};
 	}
-	for(j=1;j<=y.size();j++){
-		M[0][j]={flocal?0:INT_MIN/2,-1};
-		X[0][j]={flocal?0:INT_MIN/2,-1};
+	for(int j=1;j<=y.size();j++){
+		M[0][j]={INT_MIN/2,-1};
+		X[0][j]={INT_MIN/2,-1};
 		Y[0][j]={d+e*(j-1),2};
 	}
 	pair<pii,int> result={{0,-1},-1};
 	int curx=x.size(),cury=y.size();
-	for(i=1;i<=x.size();i++){
-		for(j=1;j<=y.size();j++){
-			vpii Z={{M[i-1][j-1].first,0},{X[i-1][j-1].first,1},{Y[i-1][j-1].first,2}};
+	for(int i=1;i<=x.size();i++){
+		for(int j=1;j<=y.size();j++){
+			vpii Z={{M[i-1][j-1].first,0|8},{X[i-1][j-1].first,1},{Y[i-1][j-1].first,2}};
 			M[i][j]=*max_element(Z.begin(),Z.end());
 			M[i][j].first+=matcher(x[i-1],y[j-1]);
-			X[i][j]=max(pii({M[i-1][j].first+d,0}),pii({X[i-1][j].first+e,1}));
-			Y[i][j]=max(pii({M[i][j-1].first+d,0}),pii({Y[i][j-1].first+e,2}));
-			if(flocal){
-				if(M[i][j].first<0)M[i][j]={0,-1};
-				if(X[i][j].first<0)X[i][j]={0,-1};
-				if(Y[i][j].first<0)Y[i][j]={0,-1};
-				if(result.first<M[i][j])result={M[i][j],0},curx=i,cury=j;
-				if(result.first<X[i][j])result={X[i][j],1},curx=i,cury=j;
-				if(result.first<Y[i][j])result={Y[i][j],2},curx=i,cury=j;
+			M[i][j].second&=3;
+			X[i][j]=max(pii({M[i-1][j].first+d,0|8}),max(pii({X[i-1][j].first+e,1}),pii({Y[i-1][j].first+d,2})));
+			X[i][j].second&=3;
+			Y[i][j]=max(pii({M[i][j-1].first+d,0|8}),max(pii({X[i][j-1].first+d,1}),pii({Y[i][j-1].first+e,2})));
+			Y[i][j].second&=3;
+		}
+	}
+	if(foap){
+		for(int i=0;i<=y.size();i++){
+			vector<pair<pii,int>> Z={{M[x.size()][i],0|8},{X[x.size()][i],1},{Y[x.size()][i],2}};
+			auto &m=*max_element(Z.begin(),Z.end());
+			if(result<m){
+				result=m;
+				cury=i;
+			}
+		}
+	}else{
+		for(int i=0;i<=x.size();i++){
+			vector<pair<pii,int>> Z={{M[i][y.size()],0|8},{X[i][y.size()],1},{Y[i][y.size()],2}};
+			auto &m=*max_element(Z.begin(),Z.end());
+			if(result<m){
+				result=m;
+				curx=i;
 			}
 		}
 	}
-	if(!flocal){
-		vector<pair<pii,int>> Z={{M[x.size()][y.size()],0},{X[x.size()][y.size()],1},{Y[x.size()][y.size()],2}};
-		result=*max_element(Z.begin(),Z.end());
-	}
-	cout<<result.first.first<<endl;
+	result.second&=3;
+	score=result.first.first;
 
 	//Backtrack
 	int nxtmat=result.first.second,curmat=result.second;
 	string a,b;
+	if(!ftruncate){
+		if(foap){
+			a=string(y.size()-cury,'-');
+			b=y.substr(cury);
+			reverse(b.begin(),b.end());
+		}else{
+			a=x.substr(curx);
+			b=string(x.size()-curx,'-');
+			reverse(a.begin(),a.end());
+		}
+	}
 	for(;nxtmat>=0;){
 		auto &MAT=nxtmat==0?M:nxtmat==1?X:Y;
 		if(curmat==0){
@@ -77,8 +104,7 @@ void alignment(const string &x,const string &y,bool flocal,int d,int e,function<
 	}
 	reverse(a.begin(),a.end());
 	reverse(b.begin(),b.end());
-	cout<<a<<endl;
-	cout<<b<<endl;
+	return {a,b};
 }
 vector<pair<string,string>> parsefasta(istream &in){
 	vector<pair<string,string>> ret;
@@ -170,15 +196,42 @@ int main(){
 		{'W',{{'A',1},{'B',-3},{'C',-4},{'D',-1},{'G',-4},{'H',-1},{'K',-2},{'M',-2},{'N',-1},{'R',-2},{'S',-4},{'T',1},{'U',1},{'V',-3},{'W',-1},{'Y',-2},}},
 		{'Y',{{'A',-4},{'B',-1},{'C',1},{'D',-3},{'G',-4},{'H',-1},{'K',-2},{'M',-2},{'N',-1},{'R',-4},{'S',-2},{'T',1},{'U',1},{'V',-3},{'W',-2},{'Y',-1},}},
 	};
+
 	auto fasta=parsefasta(cin);
-	//glob
-	//alignment(fasta[0].second,fasta[1].second,false,-5,-5,[&](const char &a,const char &b)->int{return blosum62[a][b];});
-	//gcon
-	//alignment(fasta[0].second,fasta[1].second,false,-5,0,[&](const char &a,const char &b)->int{return blosum62[a][b];});
-	//gaff
-	//alignment(fasta[0].second,fasta[1].second,false,-11,-1,[&](const char &a,const char &b)->int{return blosum62[a][b];});
-	//loca
-	//alignment(fasta[0].second,fasta[1].second,true,-5,-5,[&](const char &a,const char &b)->int{return pam250[a][b];});
-	//laff
-	alignment(fasta[0].second,fasta[1].second,true,-11,-1,[&](const char &a,const char &b)->int{return blosum62[a][b];});
+	int score;
+	pair<string,string> res;
+	if(MODE==mode_smgb){
+		//do it 4 times
+		int maxscore=0;
+		auto mres=res;
+		res=alignment(fasta[0].second,fasta[1].second,true,false,-1,-1,score,[&](const char &a,const char &b)->int{return a==b ? 1 : -1;});
+		if(score>maxscore){
+			maxscore=score;
+			mres=res;
+		}
+		res=alignment(fasta[1].second,fasta[0].second,true,false,-1,-1,score,[&](const char &a,const char &b)->int{return a==b ? 1 : -1;});
+		if(score>maxscore){
+			maxscore=score;
+			mres={res.second,res.first};
+		}
+		res=alignment(fasta[0].second,fasta[1].second,false,false,-1,-1,score,[&](const char &a,const char &b)->int{return a==b ? 1 : -1;});
+		if(score>maxscore){
+			maxscore=score;
+			mres=res;
+		}
+		res=alignment(fasta[1].second,fasta[0].second,false,false,-1,-1,score,[&](const char &a,const char &b)->int{return a==b ? 1 : -1;});
+		if(score>maxscore){
+			maxscore=score;
+			mres={res.second,res.first};
+		}
+		cout<<maxscore<<endl;
+		cout<<mres.first<<endl;
+		cout<<mres.second<<endl;
+	}else{
+		if(MODE==mode_oap)res=alignment(fasta[0].second,fasta[1].second,true,true,-2,-2,score,[&](const char &a,const char &b)->int{return a==b ? 1 : -2;});
+		if(MODE==mode_sims)res=alignment(fasta[0].second,fasta[1].second,false,true,-1,-1,score,[&](const char &a,const char &b)->int{return a==b ? 1 : -1;});
+		cout<<score<<endl;
+		cout<<res.first<<endl;
+		cout<<res.second<<endl;
+	}
 }
