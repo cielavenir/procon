@@ -1,0 +1,1 @@
+v=25637;main(n){scanf(&v,&n);printf(&v,n*n*3/2);}

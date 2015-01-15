@@ -1,0 +1,7 @@
+html:5>div[class=class_div$ id=id_div$]{inner_div$}*5+hr+table>(tr[class=row$]>td[class=col$]{inner_column$}*5)*2
+
+!>.class_div$#id_div${inner_div$}*5+hr+table>(.row$>.col${inner_column$}*5)*2
+
+!>.class_div$#id_div${inner_div$}*5+hr+table>(.col${inner_column$}*5).row$*2
+
+!>.class_div$#id_div${inner_div$}*5+hr+table>.row$*2>.col${inner_column$}*5
