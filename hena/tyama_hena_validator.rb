@@ -20,6 +20,7 @@ URLS={
 	#'codeiq8'=>'codeiq/',
 
 	'yokohamarb201410'=>'yokohamarb/2014.10.rotcell',
+	'kanagawarb_evalex'=>'kanagawa.rb/evalex',
 
 	'1'=>'hena/1',
 	'2'=>'hena/ord2',
