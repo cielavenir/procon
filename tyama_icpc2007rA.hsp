@@ -1,0 +1,18 @@
+repeat
+	input buf,1,1
+	split buf," ",n,k,m
+	n=int(n)
+	k=int(k)
+	m=int(m)
+	if n==0: break
+	r=0
+	i=1
+	repeat
+		if i==n: break
+		r+=k
+		r\=i
+		i++
+	loop
+	mes (r+m)\n+1
+loop
+end

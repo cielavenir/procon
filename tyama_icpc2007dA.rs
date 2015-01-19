@@ -1,27 +1,31 @@
-//tested on rustc 0.2
-import core::io::reader_util;
-import core::io::writer_util;
+//tested on rustc 1.0alpha
 
-fn getint() -> int{
-	ret option::get(int::from_str(core::io::stdin().read_line()));
+fn getint() -> i32{
+	let __res=std::io::stdin().read_line();
+	let mut __str=__res.unwrap();
+	let l=__str.len();
+	__str.truncate(l-1);
+	return std::num::from_str_radix(__str.as_slice(),10).unwrap();
 }
 
-fn judge(n:int){
-	let mut ma:int=0,mi:int=1000,s:int=0,i:int=0;
+fn judge(n:i32){
+	let mut ma:i32=0;
+	let mut mi:i32=1000;
+	let mut s:i32=0;
+	let mut i:i32=0;
 	while i<n{
-		let x:int=getint();
+		let x:i32=getint();
 		if x<mi{mi=x;}
 		if x>ma{ma=x;}
 		s+=x;
 		i+=1;
 	}
-	//although there is println function, let's do in primitive way.
-	core::io::stdout().write_line(#fmt("%d",(s-ma-mi)/(n-2)));
+	println!("{}",(s-ma-mi)/(n-2));
 }
 
 fn main(){
-	let mut n:int=0;
-	while true{
+	let mut n:i32=0;
+	loop{
 		n=getint();
 		if n==0{break;}
 		judge(n);
