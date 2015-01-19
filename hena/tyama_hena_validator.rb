@@ -67,9 +67,15 @@ URLS={
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
+	puts 'validator --list'
 	puts 'If identifier is not present, I will use stdin.'
+	exit
 end
 if ARGV.size<2
+	if ARGV[0]=='--list'
+		URLS.each_key{|e|puts e}
+		exit
+	end
 	body=STDIN.read
 else
 	if !URLS.has_key?(ARGV[1])
