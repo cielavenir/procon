@@ -80,6 +80,7 @@ var main=function(){
 
 /// IO ///
 if(typeof process!=='undefined'){
+	//node.js
 	var print=function(x){
 		console.log(x);
 	}
@@ -115,5 +116,6 @@ if(typeof process!=='undefined'){
 		};
 	})();
 }else{
+	//v8
 	main();
 }

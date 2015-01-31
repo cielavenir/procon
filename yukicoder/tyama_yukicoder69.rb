@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-puts gets.chomp.split('').sort==gets.chomp.split('').sort ? :YES : :NO
+a,b=$<.map{|e|e.chars.sort};puts a==b ?:YES: :NO

@@ -9,8 +9,8 @@ def checkio(exp,div)
 		#raise if exp[-1]!=0
 		exp.pop
 	end
-	exp.pop() while exp.size>1 && exp[-1]==0
-	puts exp.size-1
+	exp.pop while exp.size>1&&exp[-1]==0
+	p exp.size-1
 	puts exp*' '
 end
 
