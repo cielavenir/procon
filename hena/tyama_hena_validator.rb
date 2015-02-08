@@ -64,6 +64,7 @@ URLS={
 	'25'=>'hena/ord25rotcell',
 	'26'=>'hena/ord26tribo',
 	'27'=>'hena/ord27raswi',
+	'28'=>'hena/ord28spirwa',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
@@ -92,6 +93,7 @@ end
 #table section contains only tags which are also valid as XML.
 body.gsub!(/\<table class='bibo_s'\>.*?\<\/table\>/m,'table')
 body.gsub!(/\<img[^\>]*\>/,'img')
+body.gsub!(/\<a.*?\<\/a\>/m,'')
 body.gsub!(/\<small.*?\<\/small\>/m,'')
 xml='<table'+body.split('<table').last.split('</table>').first+'</table>'
 listener=MultiSAX::Sax.parse(xml,Class.new{
