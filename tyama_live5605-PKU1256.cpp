@@ -17,7 +17,7 @@ struct P{
 
 int main(){
   int i,j,n,f;
-  char p[13],c;
+  char p[99],c;
   scanf("%d",&n);
   for(;n;n--){
     memset(a,0,sizeof(a));

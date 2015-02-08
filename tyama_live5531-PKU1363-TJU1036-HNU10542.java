@@ -9,7 +9,7 @@ class Main{
     if(x==0)return -1;
     for(;i<=n;i++){
       l.add(i);
-      while(l.size()>0&&l.get(l.size()-1)==x){l.remove(l.size()-1);c++;if(c==n)return 0;x=cin.nextInt();}
+      while(l.size()>0&&l.get(l.size()-1)==x){l.remove(l.size()-1);c++;if(c==n){cin.nextLine();return 0;}x=cin.nextInt();}
     }
     //for(c++;c<n;c++)cin.nextInt();
     cin.nextLine();
