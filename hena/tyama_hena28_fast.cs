@@ -5,7 +5,11 @@ using System;
 using System.Runtime.InteropServices;
 
 class Hena28{
+#if __MonoCS__
 	[DllImport("c", CallingConvention = CallingConvention.Cdecl)]
+#else
+	[DllImport("msvcr80", CallingConvention = CallingConvention.Cdecl)]
+#endif
 	private static extern int scanf(string format, out int a, out int b, out int c, out int d, out long e);
 
 	static void Main(){
