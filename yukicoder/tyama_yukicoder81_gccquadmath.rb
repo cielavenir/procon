@@ -1,6 +1,15 @@
 #!/usr/bin/ruby
 IO.popen('gcc -xc -ozzz - -lquadmath','w'){|io|
-io.puts <<EOM
+	io.puts DATA.read
+}
+IO.popen('./zzz','r+'){|io|
+	io.write $<.read
+	io.close_write
+	puts io.read
+}
+File.unlink('zzz')
+
+__END__
 #include <stdio.h>
 #include <quadmath.h>
 char buf[99];
@@ -16,11 +25,3 @@ int main(){
 	puts(buf);
 	return 0;
 }
-EOM
-}
-IO.popen('./zzz','r+'){|io|
-	io.write $<.read
-	io.close_write
-	puts io.read
-}
-File.unlink('zzz')
