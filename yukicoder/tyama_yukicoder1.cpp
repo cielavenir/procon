@@ -24,6 +24,6 @@ int main(){
 			dist[j+routes[i].second.first][routes[i].first.second]=dist[j][routes[i].first.first]+routes[i].second.second;
 	}
 	int mi=1<<20;
-	for(int i=0;i<=C;i++)if(dist[i][N-1]>0&&mi>dist[i][N-1])mi=dist[i][N-1]-1;
+	for(int i=0;i<=C;i++)if(dist[i][N-1]>0&&mi>=dist[i][N-1])mi=dist[i][N-1]-1;
 	printf("%d\n",mi==(1<<20)?-1:mi);
 }
