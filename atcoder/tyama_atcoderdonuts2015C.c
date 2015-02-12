@@ -1,0 +1,1 @@
+S[99999],d;main(t){for(gets(&t);~scanf("%d",&t);S[d++]=t)for(printf("%d\n",d);d&&S[d-1]<t;)d--;exit(0);}
