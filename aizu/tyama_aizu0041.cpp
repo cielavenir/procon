@@ -13,12 +13,12 @@ int reversepoland(string &exp){
 	vector<string> resolveString;
 	for(i=0;i<token.size();i++){
 		char *p=NULL;
-		double d=strtod(token[i].c_str(),&p);
+		int d=strtol(token[i].c_str(),&p);
 		if(p-token[i].c_str()==token[i].size()){
 			resolveNumber.push_back(d);
 			resolveString.push_back(token[i]);
 		}else{
-			//if(resolveNumber.size()<2){printf("stack few\n");return;}
+			//if(resolveNumber.size()<2){printf("stack few\n");return 0;}
 			int d2=resolveNumber[resolveNumber.size()-1],d1=resolveNumber[resolveNumber.size()-2];
 			resolveNumber.pop_back(),resolveNumber.pop_back();
 			string s2=resolveString[resolveString.size()-1],s1=resolveString[resolveString.size()-2];
@@ -31,13 +31,13 @@ int reversepoland(string &exp){
 			//else if(token[i]=="/"){ret=d1/d2;}
 			//else if(token[i]=="%"){ret=d1%d2;}
 			//else if(token[i]=="**"){ret=pow(d1,d2);}
-			//else{printf("unknown OP %s\n",token[i].c_str());return;}
+			//else{printf("unknown OP %s\n",token[i].c_str());return 0;}
 			
 			resolveNumber.push_back(ret);
 			resolveString.push_back("("+s1+token[i]+s2+")"); //this won't emit "optimized" expression. full of parens.
 		}
 	}
-	//if(resolveNumber.size()!=1){printf("result stack not 1");return;}
+	//if(resolveNumber.size()!=1){printf("result stack not 1");return 0;}
 	if(resolveNumber[0]!=10)return 0;
 	printf("%s\n",resolveString[0].c_str());
 	return 1;
