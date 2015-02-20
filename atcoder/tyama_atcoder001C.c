@@ -5,7 +5,7 @@ int grid(){
 	for(;i<9;i++)for(j=1;j<9;j++)if(m[i][j]=='Q')for(k=0;k<4;k++)for(l=1;m[i+D[k][0]*l][j+D[k][1]*l];l++)if(m[i+D[k][0]*l][j+D[k][1]*l]=='Q')return 0;
 	return 1;
 }
-dfs(int depth){
+void dfs(int depth){
 	if(!grid())return;
 	int i=1,j;
 	if(depth==8){for(;i<9;i++)puts(m[i]+1);exit(0);}
