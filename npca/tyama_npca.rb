@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 require 'cgi'
 SESSION=''
-USER_AGENT='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.67 Safari/537.36'
+USER_AGENT='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.64 Safari/537.36'
 
 CODE={
 	53=>"#!",
@@ -14,7 +14,8 @@ CODE={
 	156=>"1\n",
 	160=>"Hard\n",
 	193=>"A+B\n",
-	209=>"1\n"
+	209=>"1\n",
+	211=>"YES\n",
 }
 question=ARGV[0].to_i
 code=CGI.escape(CODE[question])
@@ -22,6 +23,7 @@ code=CGI.escape(CODE[question])
 require 'net/https'
 http=Net::HTTP.new('judge.npca.jp',443)
 http.use_ssl=true
+#http.verify_mode=OpenSSL::SSL::VERIFY_NONE #lol
 http.start{|http|
 	resp=http.post(
 		'/submissions/submit/'+question.to_s+'/',
