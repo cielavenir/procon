@@ -23,16 +23,18 @@ long long M(int l,int r){
 }
 int main(){
 	int T,i,N;
-	//PKU2299,aizu0167
+	//PKU2299,aizu0167: バブルソートの交換回数
 	//for(;scanf("%d",&N),N;printf("%lld\n",M(0,N)))for(i=0;i<N;i++)scanf("%d",A+i);
 	//hackerrank~runningtime,aizuALDS1~5D
 	//scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",M(0,N));
 	//spojINVCNT,hackerrank~insertionsort
 	//for(scanf("%d",&T);T--;printf("%lld\n",M(0,N)))for(scanf("%d",&N),i=0;i<N;++i)scanf("%d",A+i);
-	//codeiq432
+	//codeiq4322: 光線の交差数
 	for(N=0;~scanf("%d",A+N);N++);printf("%lld\n",M(0,N));
-	//kcs1009K
+	//kcs1009KK: Nパズルの可解性
 	//for(i=0;~(N=getchar());)if('0'<N&&N<'9')A[i++]=N-'0';
 	//puts(M(0,i)%2?"lmpossible":"Possible"); //"l"? lol!
+	//atcoderutpc2014F: パリティ
+	//for(scanf("%d",&T),getchar();T--;printf("%lld\n",M(0,N)%2))for(N=0;~(A[N]=getchar())&&A[N]!='\n';N++);
 	return 0;
 }

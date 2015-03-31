@@ -1,0 +1,14 @@
+a[100];
+main(n,r,s,ma,mi,i){
+	for(;~scanf("%d",&n);printf("%d\n",r)){
+		for(ma=i=0,r=mi=1<<29;i<n;i++){
+			scanf("%d",a+i);
+			if(ma<a[i])ma=a[i];
+			if(mi>a[i])mi=a[i];
+		}
+		for(;mi<=ma;mi++){
+			for(s=i=0;i<n;i++)s+=abs(a[i]-mi);
+			if(r>s)r=s;
+		}
+	}
+}
