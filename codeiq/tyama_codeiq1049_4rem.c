@@ -1,1 +1,0 @@
-main(n){scanf("%d",&n);printf("%d",n*n*3/2);}

@@ -1,1 +1,0 @@
-a[99]={0,1},T;main(i){for(;++T<21;puts(""))for(i=T;i;)printf("%d ",a[i]+=a[--i]);}

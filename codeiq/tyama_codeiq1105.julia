@@ -1,7 +1,0 @@
-#!/usr/bin/env julia
-#juliaで解こうと思いましたが、バッジがかかっているのでやめておきます。
-#ところでcompileonline.comで試そうと思ったらsh: julia: command not foundと出ました。楽しいですね…。
-for i = 5:7
-	for j in 0:i-1 println(string( repeat("*",j+1),repeat(" ",i-j-1),repeat("*",i-j),repeat(" ",j)  )) end
-	for j in 0:i-1 println(string( repeat(" ",i-j-1),repeat("*",j+1),repeat(" ",j),repeat("*",i-j)  )) end
-end

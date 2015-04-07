@@ -1,2 +1,0 @@
-for(w=55,y=34;--y;r='')for(x=54;--x;D[x+w*y]=1)function D(z){for(var q=[0,1,2,3],o=24;q.length;)N=[-1,-w,1,w][q.splice((3+z%w)*(5+z/w|0)*7%o/(o=o+3>>2),1)],D[Z=N*2+z]&&D(Z,D[Z]=D[N+z]=0)}for(D(270);y<35;)r+="　■\n"[x<w?D[x+++w*y]^0:(x=0,y++,2)]
-return r

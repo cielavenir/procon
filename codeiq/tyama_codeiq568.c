@@ -1,1 +1,0 @@
-main(j,v){for(gets(&j);~scanf("%d",&v);printf("%d\n",v))for(j=9;--j;)v+=v+1;}

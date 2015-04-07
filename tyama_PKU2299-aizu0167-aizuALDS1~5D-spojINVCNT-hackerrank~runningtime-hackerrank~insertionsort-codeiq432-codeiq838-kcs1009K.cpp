@@ -49,7 +49,9 @@ int main(){
 	//for(i=0;~(N=getchar());)if('0'<N&&N<'9')A[i++]=N-'0';
 	//puts(merge_and_count(0,i)%2?"lmpossible":"Possible"); //"l"? lol!
 	//atcoderutpc2014F: パリティ
-	for(scanf("%d",&T),getchar();T--;printf("%lld\n",merge_and_count(0,N)%2))for(N=0;~(A[N]=getchar())&&A[N]!='\n';N++);
+	//for(scanf("%d",&T),getchar();T--;printf("%lld\n",merge_and_count(0,N)%2))for(N=0;~(A[N]=getchar())&&A[N]!='\n';N++);
+	//kcs1031A
+	scanf("%d%d",&N,&T);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",std::max(merge_and_count(0,N)-T,0LL));
 }
 
 /*

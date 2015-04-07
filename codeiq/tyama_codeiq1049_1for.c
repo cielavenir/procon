@@ -1,1 +1,0 @@
-s,c;main(n){for(scanf("%d",&n);n;)++c%2&&c%3?s+=c,n--:1;printf("%d",s);}

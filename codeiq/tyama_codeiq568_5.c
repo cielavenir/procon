@@ -1,1 +1,0 @@
-n=-1;main(){for(;~scanf("%d",(char*)&n+1);n>>15&&printf("%d\n",n));}

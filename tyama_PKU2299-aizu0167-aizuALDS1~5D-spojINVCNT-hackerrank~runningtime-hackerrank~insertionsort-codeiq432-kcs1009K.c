@@ -36,5 +36,7 @@ int main(){
 	//puts(M(0,i)%2?"lmpossible":"Possible"); //"l"? lol!
 	//atcoderutpc2014F: パリティ
 	//for(scanf("%d",&T),getchar();T--;printf("%lld\n",M(0,N)%2))for(N=0;~(A[N]=getchar())&&A[N]!='\n';N++);
+	//kcs1031A
+	scanf("%d%d",&N,&T);for(i=0;i<N;i++)scanf("%d",A+i);N=M(0,N)-T;printf("%d\n",N>0?N:0);
 	return 0;
 }

@@ -1,1 +1,0 @@
-main(n){scanf("%d",&n);printf("%d",(n%2?n*3-2:0)+(n/=2)*n*6);}

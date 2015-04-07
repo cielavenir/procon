@@ -1,1 +1,0 @@
-def z(d,*a)d<6?0.step(a.max[0]+1){|e|z(d+1,*a,[e,d])}:puts(a.group_by{|e,i|e}.map{|k,v|v.map(&:last)*''}*'.')end;z(2,[0,1])

@@ -1,3 +1,0 @@
-#!/usr/bin/env octave -q
-a=primes(541)
-for i=1:length(a);printf("%d\n",a(i));endfor

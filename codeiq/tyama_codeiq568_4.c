@@ -1,1 +1,0 @@
-main(i,n){for(;~scanf("%d",&n);--i&&printf("%d\n",n<<8|255));}

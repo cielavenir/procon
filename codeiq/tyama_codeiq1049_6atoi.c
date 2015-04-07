@@ -1,1 +1,0 @@
-main(n){printf("%d",atoi(gets(&n))*atoi()*3/2);}
