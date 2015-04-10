@@ -11,7 +11,10 @@ class Main{
 			if(vmax<a)vmax=a;
 			if(tmax<b)tmax=b;
 		}
-		Collections.sort(v,new PairComparator<Integer,Integer>());
+		Collections.sort(v,
+			(x,y) -> new Integer(x.getKey()+x.getValue()).compareTo(y.getKey()+y.getValue())
+			/*new PairComparator<Integer,Integer>()*/
+		);
 		int[] bag=new int[tmax+vmax+1];
 		bag[0]=1;
 		for(int i=0;i<n;i++){
@@ -23,6 +26,7 @@ class Main{
 		}
 	}
 }
+/*
 class PairComparator<T extends Comparable<? super T>,S extends Comparable<? super S>>
 implements Comparator<Pair<T,S>>{
 	@Override
@@ -32,3 +36,4 @@ implements Comparator<Pair<T,S>>{
 		return arg0.getValue().compareTo(arg1.getValue());
 	}
 }
+*/
