@@ -1,0 +1,1 @@
+main(a,b,n){for(;scanf("%d",&n),a=n&-n;)b=n+a,printf("%d\n",b+(n^b)/a/4);}

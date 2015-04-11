@@ -1,0 +1,1 @@
+n,r;main(i){for(scanf("%d",&n);n/i;i+=2)n%i||++r;printf("%d\n",r);}

@@ -1,0 +1,1 @@
+main(n,k){for(scanf("%d",&n);n--;)scanf("%d",&k),printf("%d %d\n",1|k&k-1,k|k-1);}
