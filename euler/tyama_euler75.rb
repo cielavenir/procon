@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 require 'rational'
-M=1500000
+gets.to_i.times{
+M=gets.to_i
 h=Hash.new{|h,k|h[k]=0}
 2.step(Math.sqrt(M/2).to_i){|m|
 	1.step(m-1){|n|
@@ -12,3 +13,7 @@ h=Hash.new{|h,k|h[k]=0}
 }
 #p h
 p h.count{|k,v|v==1}
+}
+__END__
+1
+1500000

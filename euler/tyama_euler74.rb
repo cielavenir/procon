@@ -5,13 +5,13 @@ class Integer
 end
 10.times{|i|$h[i]=(2..i).reduce(1,:*)}
 
+gets.to_i.times{
 $r={}
-x=0
-M=999999
-N=60
-1.step(M){|i|
+x=[]
+M,N=gets.split.map(&:to_i)
+0.step(M){|i|
 	if $r[i]
-		x+=1 if $r[i]==N 
+		x<<i if $r[i]==N 
 		next
 	end
 	a=[]
@@ -25,6 +25,11 @@ N=60
 			$r[a[j]] = $r[r] ? a.size-j+$r[r] : j>=idx ? a.size-idx : a.size-j
 		end
 	}
-	x+=1 if $r[i]==N 
+	x<<i if $r[i]==N 
 }
-p x
+puts x.empty? ? -1 : x*' '
+p $r
+}
+__END__
+1
+999999 60
