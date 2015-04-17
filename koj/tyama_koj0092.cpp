@@ -22,7 +22,7 @@ int main(){
 	int n,q,c,x,y;
 	scanf("%d%d",&n,&q);
 	fenwick_tree<long long> f(n);
-	for(int i=0;i<n;i++)scanf("%d",&c),f.add(i,c);
+	for(x=0;x<n;x++)scanf("%d",&y),f.add(x,y);
 	for(;q--;){
 		scanf("%d%d%d",&c,&x,&y);
 		if(c==1)printf("%lld\n",f.sum(x-1,y-1));
