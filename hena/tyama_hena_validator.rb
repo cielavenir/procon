@@ -66,6 +66,7 @@ URLS={
 	'27'=>'hena/ord27raswi',
 	'28'=>'hena/ord28spirwa',
 	'29'=>'hena/ord29devdice',
+	'30'=>'hena/ord30taxi',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
