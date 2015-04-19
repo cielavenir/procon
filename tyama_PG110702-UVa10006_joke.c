@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int solve(unsigned num){
-//Ql•¶Œ£:http://www.research.att.com/~njas/sequences/A002997
+//å‚è€ƒæ–‡çŒ®:http://www.research.att.com/~njas/sequences/A002997
  switch(num){
 case 561:
 case 1105:
