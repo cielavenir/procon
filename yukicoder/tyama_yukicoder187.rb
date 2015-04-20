@@ -22,7 +22,8 @@ g,a,b=f[y,x%y]
 [g,b,a-x/y*b]}
 gets
 a=$<.map{|e|e.split.map &:to_i}
-p (r=a.reduce([0,1]){|(a,m),(b,n)|g,x,y=f[m,n]
+p (r=a.reduce{|(a,m),(b,n)|g,x,y=f[m,n]
 break if(b-=a)%g>0
 n*=m/g
-[(a+b/g*x*m)%n,n]})?r[r[0]==0?1:0]%1000000007:-1
+[(a+b/g*x*m)%n,n]})?r[r[0]>0?0:1]%(10**9+7):-1
+#[(a+b/g*x*m)%n,n]})?r[~(0<=>r[0])]%(10**9+7):-1
