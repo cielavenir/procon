@@ -6,7 +6,7 @@ def egcd(x,y)
 end
 def chinese(a)
 	return nil if !a||a.empty?
-	a.reduce([0,1]){|(a1,m1),(a2,m2)|
+	a.reduce{|(a1,m1),(a2,m2)|
 		g,x,y=egcd(m1,m2)
 		break if (a2-a1)%g>0
 		l=m1/g*m2
