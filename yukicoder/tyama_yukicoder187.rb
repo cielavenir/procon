@@ -23,6 +23,6 @@ g,a,b=f[y,x%y]
 gets
 a=$<.map{|e|e.split.map &:to_i}
 p (r=a.reduce([0,1]){|(a,m),(b,n)|g,x,y=f[m,n]
-break if(b-=a)/g*g<b
+break if(b-=a)%g>0
 n*=m/g
 [(a+b/g*x*m)%n,n]})?r[r[0]==0?1:0]%1000000007:-1
