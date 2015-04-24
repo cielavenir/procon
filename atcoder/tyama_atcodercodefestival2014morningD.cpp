@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <deque>
 #include <algorithm>
 #include <cstdio>
 using namespace std;
@@ -8,7 +9,7 @@ int main(){
 	int n,m;
 	cin>>n>>m;
 	vector<pii>person(n);
-	vector<int>pillows(m);
+	deque<int>pillows(m);
 	for(int i=0;i<n;i++)cin>>person[i].first>>person[i].second;
 	for(int i=0;i<m;i++)cin>>pillows[i];
 	sort(person.begin(),person.end(),[](const pii &a,const pii &b)->bool{
