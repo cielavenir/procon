@@ -1,4 +1,4 @@
-//usr/bin/env picoc $0 $@;exit
+//usr/bin/env picoc $0 - $@;exit
 
 #include <stdio.h>
 int i,n,s,M,m,S;
