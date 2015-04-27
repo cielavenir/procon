@@ -1,0 +1,1 @@
+def scoring(array) array.each{|e|e.is_admin?||e.update_score} end
