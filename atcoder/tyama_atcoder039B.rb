@@ -31,7 +31,5 @@ else
 end
 end
 
-n,k=$<.map(&:to_i)
-n+=k-1
-k=n-k if k>n/2
-p comb(n,k)
+n,k=gets.split.map(&:to_i)
+p n>k ? comb(n+k-1,n-1) : comb(n,k%n)
