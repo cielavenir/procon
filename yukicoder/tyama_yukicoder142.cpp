@@ -18,11 +18,11 @@ int main(){
 			if(S%64)B[i]|=A[S/64+i+1]<<(64-S%64);
 		}
 		if(V=(T-S)%64)B[L-1]=B[L-1]<<(64-V)>>(64-V);
-		for(int i=0;i<L;i++){
+		for(;L--;){
 			A[U/64+i]^=B[i]<<U%64;
 			if(U%64)A[U/64+i+1]^=B[i]>>(64-U%64);
 		}
 	}
-	for(int i=0;i<N;i++)putchar((A[i/64]>>(i%64)&1)?'O':'E');
+	for(;++L<N;)putchar((A[L/64]>>(L%64)&1)?'O':'E');
 	putchar('\n');
 }
