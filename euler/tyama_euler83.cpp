@@ -17,29 +17,29 @@ dir dirs[]={
 };
 #define MAX 80
 
-vector<int> split_int(string &str, const char *delim){
-	vector<int> result;
+vector<long long> split_int(string &str, const char *delim){
+	vector<long long> result;
 	int cutAt;
 	while( (cutAt = str.find_first_of(delim)) != str.npos ){
 		if(cutAt > 0){
-			result.push_back(strtol(str.substr(0, cutAt).c_str(),NULL,10));
+			result.push_back(strtoll(str.substr(0, cutAt).c_str(),NULL,10));
 		}
 		str = str.substr(cutAt + 1);
 	}
 	if(str.length() > 0){
-		result.push_back(strtol(str.c_str(),NULL,10));
+		result.push_back(strtoll(str.c_str(),NULL,10));
 	}
 	return result;
 }
 
-int D[MAX][MAX];
+long long D[MAX][MAX];
 int main(){
-	vector<vector<int> >M;
+	vector<vector<long long> >M;
 	{
 		string line;
 		for(;getline(cin,line);)M.push_back(split_int(line,","));
 	}
-	for(int y=0;y<MAX;y++)for(int x=0;x<MAX;x++)D[y][x]=1<<29;
+	for(int y=0;y<MAX;y++)for(int x=0;x<MAX;x++)D[y][x]=1LL<<62;
 	D[0][0]=M[0][0];
 	queue<pii> q;
 	q.push(make_pair(0,0));
