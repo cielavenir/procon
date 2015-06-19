@@ -1,11 +1,11 @@
-//tested on rustc 1.0alpha
+//tested on rustc 1.0.0
 
 fn getint() -> i32{
-	let __res=std::io::stdin().read_line();
-	let mut __str=__res.unwrap();
+	let mut __str=String::new();
+	std::io::stdin().read_line(&mut __str);
 	let l=__str.len();
 	__str.truncate(l-1);
-	return std::num::from_str_radix(__str.as_slice(),10).unwrap();
+	return i32::from_str_radix(&__str,10).unwrap();
 }
 
 fn judge(n:i32){
@@ -24,9 +24,8 @@ fn judge(n:i32){
 }
 
 fn main(){
-	let mut n:i32=0;
 	loop{
-		n=getint();
+		let n=getint();
 		if n==0{break;}
 		judge(n);
 	}
