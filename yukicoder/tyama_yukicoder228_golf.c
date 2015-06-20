@@ -1,0 +1,1 @@
+A[15],x,y,z,p;main(k){for(;~scanf("%d",&k);x++)if(k)for(A[++y]=--k,p|=(abs(x/4-k/4)+abs(x%4-k%4)>1)*2,z=0;z<y;z++)p^=A[z]>k;else p^=abs(x/4-3)%2;x=!puts(p?"No":"Yes");}

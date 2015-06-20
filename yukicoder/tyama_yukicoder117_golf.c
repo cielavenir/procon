@@ -1,0 +1,2 @@
+#define L 2000000
+long long I[L],F[L],R[L];C,T,K,M=1000000007;main(N){for(*I=*F=*R=I[1]=F[1]=R[1]=1;++N<L;)I[N]=(M-M/N)*I[M%N]%M,F[N]=N*F[N-1]%M,R[N]=I[N]*R[N-1]%M;for(scanf("%d",&T);T--;)if(scanf("\n%c(%d,%d)",&C,&N,&K),C-80)printf("%lld\n",N==-1&&!K?1:N<K?0:(__int128_t)F[N]*R[K]*R[N-K]%M,N=C-67?N+K-1:N);else printf("%lld\n",N<K?0:F[N]*R[N-K]%M);}
