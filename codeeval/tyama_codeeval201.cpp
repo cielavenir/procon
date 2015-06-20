@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include <vector>
 #include <list>
-#include <algorithm>
-#include <cstdio>
+#include <cstring>
 #include <cassert>
+#include <climits>
 using namespace std;
 
 #define MODE 1
