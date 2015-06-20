@@ -11,4 +11,5 @@ main(){
 		}
 		getchar();
 	}
+	return 0;
 }
