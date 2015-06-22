@@ -16,7 +16,7 @@ enum{
 };
 const int MODE=mode_smgb;
 
-pair<string,string> alignment(const string &x,const string &y,bool foap,bool ftruncate,int d,int e,int &score,function<int(char,char)> matcher){
+pair<string,string> alignment(const string &x,const string &y,bool foap,bool ftruncate,int d,int e,int &score,const function<int(char,char)> &matcher){
 	vector<vpii>M(x.size()+1,vpii(y.size()+1));
 	vector<vpii>X(x.size()+1,vpii(y.size()+1));
 	vector<vpii>Y(x.size()+1,vpii(y.size()+1));

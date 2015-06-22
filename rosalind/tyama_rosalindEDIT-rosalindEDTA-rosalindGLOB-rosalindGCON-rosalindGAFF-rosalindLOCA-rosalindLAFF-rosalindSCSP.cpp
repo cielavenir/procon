@@ -21,7 +21,7 @@ enum{
 };
 const int MODE=mode_scsp;
 
-pair<string,string> alignment(const string &x,const string &y,bool flocal,int d,int e,int &score,function<int(char,char)> matcher){
+pair<string,string> alignment(const string &x,const string &y,bool flocal,int d,int e,int &score,const function<int(char,char)> &matcher){
 	//Needleman-Wunsch-Gotoh
 	//Smith-Waterman-Gotoh
 	vector<vpii>M(x.size()+1,vpii(y.size()+1));
