@@ -3,17 +3,17 @@
 using namespace std;
 typedef unsigned long long ull;
 int main(){
-	int N,S,T,U,V,Q;
+	int N,S,T,U,V,Q,L,i;
 	scanf("%d%d%d%d%d%d",&N,&S,&T,&U,&V,&Q);
 	vector<ull>A((N+127)/64),B((N+127)/64);
-	for(int i=0;i<N;i++){
+	for(i=0;i<N;i++){
 		A[i/64]|=(ull)S%2<<(i%64);
 		S=((ull)S*T+U)%V;
 	}
 	for(;Q--;){
 		scanf("%d%d%d%d",&S,&T,&U,&V);S--,U--;
-		int L=(T-S+63)/64;
-		for(int i=0;i<L;i++){
+		L=(T-S+63)/64;
+		for(i=0;i<L;i++){
 			B[i]=A[S/64+i]>>S%64;
 			if(S%64)B[i]|=A[S/64+i+1]<<(64-S%64);
 		}

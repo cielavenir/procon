@@ -17,8 +17,8 @@ vector<dir>D={
 };
 
 const int H=8,W=8;
-vector<function<bool(tiii,tiii)> >sorter={//{num,x,y}
-	[](tiii a,tiii b)->bool{
+vector<function<bool(const tiii&,const tiii&)> >sorter={//{num,x,y}
+	[](const tiii &a,const tiii &b)->bool{
 		if(get<0>(a)<get<0>(b))return true;
 		if(get<0>(a)>get<0>(b))return false;
 		if(get<2>(a)>get<2>(b))return true;
@@ -27,7 +27,7 @@ vector<function<bool(tiii,tiii)> >sorter={//{num,x,y}
 		if(get<1>(a)<get<1>(b))return false;
 		return false;
 	},
-	[](tiii a,tiii b)->bool{
+	[](const tiii &a,const tiii &b)->bool{
 		if(get<0>(a)<get<0>(b))return true;
 		if(get<0>(a)>get<0>(b))return false;
 		if(get<2>(a)<get<2>(b))return true;

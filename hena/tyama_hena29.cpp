@@ -25,7 +25,7 @@ string rev(string s){ //参照渡し不可
 	return s;
 }
 
-bool enum_patterns(set<string>&pattern,const function<bool(string)>&blk,const string &c="146/53D"){
+bool enum_patterns(set<string>&pattern,const function<bool(const string&)>&blk,const string &c="146/53D"){
 	if(pattern.find(c)!=pattern.end())return true;
 	pattern.insert(c);
 	if(!blk(c))return false;
@@ -43,7 +43,7 @@ int main(){
 		string answer;
 		set<string>pattern;
 
-		if(!enum_patterns(pattern,[&](string s)->bool{
+		if(!enum_patterns(pattern,[&](const string &s)->bool{
 			if(regex_match(s,re)){
 				if(answer.empty()){answer=s;return true;}
 				return false;

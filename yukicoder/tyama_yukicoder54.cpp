@@ -10,7 +10,7 @@ int main(){
 		if(vmax<v[i].first)vmax=v[i].first;
 		if(tmax<v[i].second)tmax=v[i].second;
 	}
-	std::sort(v.begin(),v.end(),[](std::pair<int,int> &a,std::pair<int,int> &b)->bool{return a.first+a.second<b.first+b.second;});
+	std::sort(v.begin(),v.end(),[](const std::pair<int,int> &a,const std::pair<int,int> &b)->bool{return a.first+a.second<b.first+b.second;});
 	std::vector<int>bag(tmax+vmax+1);
 	bag[0]=1;
 	for(int i=0;i<n;i++){

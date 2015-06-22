@@ -9,7 +9,7 @@ string fractal(int depth,int n){
 	string s=fractal(depth-1,n/10);
 	return s+(char)(n%10+'0')+s;
 }
-bool seq(int K,const function<bool(string)> &f){
+bool seq(int K,const function<bool(const string&)> &f){
 	int M=1,L=0;
 	for(;K>0;K/=2){
 		if((K&1)==0)return false;
@@ -27,7 +27,7 @@ int main(){
 	int N,K;
 	string S;
 	cin>>N>>K>>S;
-	if(!seq(K,[&](string sub){
+	if(!seq(K,[&](const string &sub){
 		for(int i=0,j=0;i<N;i++){
 			if(S[i]==sub[__builtin_ctz(j+1)] && ++j==K){
 				puts("Found");
