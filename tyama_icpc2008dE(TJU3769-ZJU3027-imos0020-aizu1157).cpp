@@ -95,8 +95,9 @@ val_t distanceSP(const VP &s,const P &p){
 bool intersectSS(const VP &l,const VP &m){
 	val_t a=cross(l[1]-l[0],m[1]-m[0]);
 	val_t b=cross(l[1]-l[0],l[1]-m[0]);
-	//VP pt=abs(a)<EPS ? abs(b)<EPS ? {l[0],l[1],m[0],m[1]} : VP() : {m[0]+b/a*(m[1]-m[0])};
-	VP pt=vector<VP>{{l[0],l[1],m[0],m[1]},{},{m[0]+b/a*(m[1]-m[0])}}[abs(a)<EPS?abs(b)<EPS?0:1:2];
+	VP pt=abs(a)<EPS ? abs(b)<EPS ? VP({l[0],l[1],m[0],m[1]}) : VP() : VP({m[0]+b/a*(m[1]-m[0])});
+	//VP pt=abs(a)<EPS ? abs(b)<EPS ? initializer_list<P>{l[0],l[1],m[0],m[1]} : initializer_list<P>{} : initializer_list<P>{m[0]+b/a*(m[1]-m[0])};
+	//VP pt=vector<VP>{{l[0],l[1],m[0],m[1]},{},{m[0]+b/a*(m[1]-m[0])}}[abs(a)<EPS?abs(b)<EPS?0:1:2];
 	return accumulate(pt.begin(),pt.end(),false,[&](bool S,const P &e){
 		return S||(dot(l[0]-e,l[1]-e)<EPS && dot(m[0]-e,m[1]-e)<EPS);
 	});
