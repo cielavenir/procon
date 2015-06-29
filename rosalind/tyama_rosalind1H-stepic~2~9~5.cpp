@@ -8,6 +8,8 @@ should be utilized.
 #include <string>
 #include <map>
 #include <vector>
+#include <algorithm>
+#include <cstring>
 using namespace std;
 const char *bases="ATGC";
 const char *cbases="TACG";

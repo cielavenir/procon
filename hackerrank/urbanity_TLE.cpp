@@ -10,7 +10,7 @@ int main(){
 	for(int i=0;i<N;i++)scanf("%d",&v[i]);
 	for(int i=0;i<N;i++){
 		double r=0;
-		for(int j=0;j<N;j++)if(i!=j)r+=pow(a,abs(v[i]-v[j]));
+		for(int j=0;j<N;j++)if(i!=j)r+=pow(A,abs(v[i]-v[j]));
 		printf("%f\n",r);
 	}
 }

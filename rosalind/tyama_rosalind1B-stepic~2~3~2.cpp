@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <cstring>
 using namespace std;
 const char *bases="ATGC";
 const char *cbases="TACG";
