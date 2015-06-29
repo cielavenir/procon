@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-#wget -O - http://projecteuler.net/project/names.txt
+#wget -O - https://projecteuler.net/project/resources/p022_names.txt
 require 'json'
 s=gets.chomp
 a=JSON.parse('['+s+']').sort

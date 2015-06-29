@@ -1,4 +1,4 @@
-//wget -O - http://projecteuler.net/project/sudoku.txt
+//wget -O - https://projecteuler.net/project/resources/p096_sudoku.txt
 #include <stdio.h>
 #define MM 3
 #define M 3

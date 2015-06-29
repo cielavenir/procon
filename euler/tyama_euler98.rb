@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-#wget -O - http://projecteuler.net/project/words.txt
+#wget -O - https://projecteuler.net/project/resources/p098_words.txt
 require 'json'
 a=JSON.parse('['+gets.chomp+']')
 h=Hash.new{|h,k|h[k]=[]}

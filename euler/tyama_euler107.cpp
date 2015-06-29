@@ -1,4 +1,4 @@
-//wget -O - http://projecteuler.net/project/network.txt
+//wget -O - https://projecteuler.net/project/resources/p107_network.txt
 //kruskal tree
 #include <vector>
 #include <string>
