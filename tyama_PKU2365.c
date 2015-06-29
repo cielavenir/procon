@@ -2,7 +2,7 @@ main(){
   int n,i=1;
   float r,x1,y1,x2,y2,xh,yh,l=0;
   scanf("%d%f",&n,&r);
-  if(n==0){puts("0.00");
+  if(n==0){puts("0.00");exit(0);}
   scanf("%f%f",&x1,&y1);
   xh=x1;yh=y1;
   for(;i<n;i++){

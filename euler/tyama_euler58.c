@@ -9,7 +9,8 @@ int main(){
 	p=0,q=1;
 	scanf("%d",&N);
 	for(;;i+=2){
-		for(int j=i*i;j>=i*i-3*i+3;j+=-i+1){
+		int j=i*i;
+		for(;j>=i*i-3*i+3;j+=-i+1){
 			if(!t[j])p+=1;
 			else q+=1;
 		}
