@@ -51,7 +51,7 @@ public:
 	I denominator() const{return den;}
 	rational reverse() const{return rational(den,num);}
 
-	//artithmetic
+	//arithmetic
 	//To avoid license issue, we use ruby/rational.c implementation.
 	rational& operator+=(const rational<I> &other){
 		I g=gcd(den,other.den);
