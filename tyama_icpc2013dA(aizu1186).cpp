@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 typedef pair<int,int> pii;
-struct C{bool operator()(pii &a,pii &b){
+struct C{bool operator()(const pii &a,const pii &b){
 	int x=a.first*a.first+a.second*a.second;
 	int y=b.first*b.first+b.second*b.second;
 	if(x!=y)return x<y;

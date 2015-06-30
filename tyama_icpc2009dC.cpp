@@ -5,6 +5,7 @@
 #include <set>
 #include <map>
 #include <algorithm>
+#include <cstring>
 using namespace std;
 
 char s[12][9],x[12][9];

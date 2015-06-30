@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <string>
 #include <vector>
+#include <cstring>
 using namespace std;
 
 int x[100][26];

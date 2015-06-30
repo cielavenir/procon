@@ -28,8 +28,9 @@ int main(){
   int m,n,i,x;
   for(;scanf("%d%d",&m,&n),m|n;){
     vector<int> b,r,x,y;
-    for(i=0;i<m;i++)scanf("%d",&x),b.push_back(x);
-    for(i=0;i<n;i++)scanf("%d",&x),r.push_back(x);
+	int z;
+    for(i=0;i<m;i++)scanf("%d",&z),b.push_back(z);
+    for(i=0;i<n;i++)scanf("%d",&z),r.push_back(z);
     sort(b.begin(),b.end());
     sort(r.begin(),r.end());
     //sort(b.begin(),b.end(),greater<int>());

@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-  char *table[10]={"th","st","nd","rd","th","th","th","th","th","th"};
+  const char *table[10]={"th","st","nd","rd","th","th","th","th","th","th"};
   set<int> s;
   int x,i=0;
   s.insert(1);

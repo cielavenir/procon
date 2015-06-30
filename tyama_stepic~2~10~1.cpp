@@ -2,6 +2,8 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <algorithm>
+#include <cstring>
 using namespace std;
 const char *bases="atgc";
 const char *cbases="tacg";

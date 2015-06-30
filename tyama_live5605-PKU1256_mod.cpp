@@ -3,7 +3,7 @@
 #include <cstring>
 using namespace std;
 
-char *table=" AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
+const char *table=" AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
 int main(){
 	int i,n,l;
 	char p[99];

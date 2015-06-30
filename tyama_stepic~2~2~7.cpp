@@ -2,6 +2,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <algorithm>
 using namespace std;
 int main(){
 	int i=0,k;

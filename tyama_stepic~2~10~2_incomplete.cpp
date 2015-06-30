@@ -7,6 +7,8 @@ https://app.box.com/download/external/f_9128212829/0/Salmonella_enterica.fasta?v
 #include <string>
 #include <map>
 #include <vector>
+#include <algorithm>
+#include <cstring>
 using namespace std;
 const char *bases="ATGC";
 const char *cbases="TACG";
