@@ -18,7 +18,7 @@ bool gauss(vector<vector<double> > &a){
 					break;
 				}
 			}
-			if(j<n)return false;
+			if(j==n)return false;
 		}
 		for(int j=0;j<n;j++)if(i!=j){
 			double r=a[j][i]/a[i][i];

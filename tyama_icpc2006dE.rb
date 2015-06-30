@@ -1,9 +1,9 @@
 #!/usr/bin/ruby
-def dfs(s)
+def dfs(s,_l,_r)
 	r=''
-	i=0
+	i=_l
 	n=nil
-	while i<s.size
+	while i<_r
 		if ('0'..'9').include?(s[i])
 			if !n
 				n=s[i].to_i
@@ -23,9 +23,9 @@ def dfs(s)
 				end
 				j+=1
 			end
-			_r=dfs(s[i+1..j-2])
+			r0=dfs(s,i+1,j-1)
 			n.times{
-				r+=_r
+				r+=r0
 				return r if r.size>$n
 			}
 			n=nil
@@ -44,6 +44,6 @@ loop{
 	s,_=gets.split
 	break if s=='0'
 	$n=_.to_i
-	r=dfs(s)
+	r=dfs(s,0,s.size)
 	puts r.size>$n ? r[$n] : '0'
 }

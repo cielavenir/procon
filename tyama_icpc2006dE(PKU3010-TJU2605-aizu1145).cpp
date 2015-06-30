@@ -4,11 +4,11 @@
 using namespace std;
 
 int N;
-string dfs(string s){
+string dfs(const string &s,int L,int R){
 	string r;
-	int i=0;
+	int i=L;
 	long long n=-1;
-	for(;i<s.size();){
+	for(;i<R;){
 		if('0'<=s[i]&&s[i]<='9'){
 			if(n<0)
 				n=s[i]-'0';
@@ -25,7 +25,7 @@ string dfs(string s){
 					cnt--;
 				j++;
 			}
-			string r0=dfs(s.substr(i+1,j-1-i-1));
+			string r0=dfs(s,i+1,j-1);
 			for(int _=0;_<n;_++){
 				r+=r0;
 				if(r.size()>N)return r;
@@ -47,7 +47,7 @@ int main(){
 		string s;
 		cin>>s>>N;
 		if(s=="0")break;
-		string r=dfs(s);
+		string r=dfs(s,0,s.size());
 		printf("%c\n",r.size()>N?r[N]:'0');
 	}
 }
