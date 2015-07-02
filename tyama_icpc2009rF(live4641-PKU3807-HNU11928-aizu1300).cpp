@@ -100,8 +100,8 @@ namespace std{
 	//cpp_inspect compat
 	template<typename I>
 	ostream& operator<<(ostream& out,const rational<I> &r){
-    	return out<<r.numerator()<<"/"<<r.denominator();
-    }
+		return out<<r.numerator()<<"/"<<r.denominator();
+	}
 }
 template<typename I>
 rational<I> abs(const rational<I> &r){
