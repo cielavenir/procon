@@ -17,4 +17,6 @@ class Integer
 		end
 	end
 end
-p 1.step(10000000).count(&:cycle)
+p 1.step(10**gets.to_i).count(&:cycle)
+__END__
+7
