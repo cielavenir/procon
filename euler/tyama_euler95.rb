@@ -1,8 +1,6 @@
 #!/usr/bin/ruby
 require 'prime'
-M=999999
-$t=[1,1]+2.step(M).map{|i|i.prime_division.reduce(1){|s,e|s*(e[0]**(e[1]+1)-1)/(e[0]-1)}-i}
-$c=[];11.times{|i|$c<<[0,i]}
+
 def cycle(n)
 	a=[n,x=$t[n]]
 	loop{
@@ -15,6 +13,12 @@ def cycle(n)
 		a.push x
 	}
 end
-11.step(M){|i|$c<<[cycle(i),i]}
+M=gets.to_i-1
+$t=[1,1]+2.step(M).map{|i|i.prime_division.reduce(1){|s,e|s*(e[0]**(e[1]+1)-1)/(e[0]-1)}-i}
+$c=[]
+6.times{|i|$c<<[cycle(i),i]}
+6.step(M){|i|$c<<[cycle(i),i]}
 m=$c.max
 p $c.select{|e|e[0]==m[0]}[0][1]
+__END__
+1000000
