@@ -7,13 +7,13 @@ using namespace std;
 set<int>result;
 set<pair<int,int> >memo;
 
-void dfs(/*const*/ vector<map<int,vector<int> > >&v,const vector<int> &d,int cur,int depth){
+void dfs(const vector<map<int,vector<int> > >&v,const vector<int> &d,int cur,int depth){
 	if(depth==d.size()){
 		result.insert(cur+1);
 	}else{
 		pair<int,int> x=make_pair(cur,depth);
 		if(memo.find(x)!=memo.end())return;
-		for(auto &it:v[cur][d[depth]]){
+		for(auto &it:v[cur].at(d[depth])){
 			dfs(v,d,it,depth+1);
 		}
 		memo.insert(x);

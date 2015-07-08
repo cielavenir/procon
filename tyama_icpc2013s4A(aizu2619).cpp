@@ -6,10 +6,10 @@
 using namespace std;
 //#define FLOAT
 
-void dfs(int id,int depth,map<int,string>&id2name,map<int,deque<int> >&children){
-	cout<<string(depth,'.')<<id2name[id]<<endl;
-	for(int i=0;i<children[id].size();i++){
-		dfs(children[id][i],depth+1,id2name,children);
+void dfs(int id,int depth,const map<int,string>&id2name,const map<int,deque<int> >&children){
+	cout<<string(depth,'.')<<id2name.at(id)<<endl;
+	if(children.find(id)!=children.end())for(auto &e:children.at(id)){
+		dfs(e,depth+1,id2name,children);
 	}
 }
 
