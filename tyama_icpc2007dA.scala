@@ -1,6 +1,6 @@
 //usr/bin/env scala $0 $@;exit
 
-object icpc2007dA{
+object Main{
 	def judge(n:Int){
 		var ma=0;var mi=1000;var s=0
 		for(i <- 0 until n){

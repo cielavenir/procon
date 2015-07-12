@@ -1,6 +1,6 @@
 //usr/bin/env scala $0 $@;exit
 
-object icpc2007rA{
+object Main{
 	def main(args: Array[String]){
 		val cin=new java.util.Scanner(System.in)
 		var n=cin.nextInt()
