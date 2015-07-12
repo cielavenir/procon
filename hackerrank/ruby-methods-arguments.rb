@@ -1,0 +1,1 @@
+def take(a,n=1) a.drop(n) end

@@ -1,0 +1,1 @@
+def full_name(*a) a*' ' end
