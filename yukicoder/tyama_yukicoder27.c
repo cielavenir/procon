@@ -1,0 +1,2 @@
+#define Z(i)for(X[i]=X[i-1];X[i]<31;X[i]++)
+B[99],V[4],X[4],T=98,R,i;main(j){scanf("%d%d%d%d",V,V+1,V+2,V+3);R=T;Z(1)Z(2)Z(3){for(j=-1;++j<T;)B[j]=!j;for(i=4;--i;)for(j=X[i];j<T;j++)if(B[j-X[i]]*!B[j])B[j]=B[j-X[i]]+1;for(i=j=0;i<4&&B[V[i]];)j+=B[V[i++]]-1;if(i>3&&R>j)R=j;}R=!printf("%d\n",R);}
