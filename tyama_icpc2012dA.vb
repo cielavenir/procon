@@ -1,8 +1,8 @@
 module icpc2007dA
-    sub Main(ByVal args() as String)
-        dim i,n as integer
-        n=Console.ReadLine()
-        for i=1 to n
+	sub Main(ByVal args() as String)
+		dim i,n as integer
+		n=Console.ReadLine()
+		for i=1 to n
 			dim s(3) as string
 			dim y,m,d as integer
 			s=Split(Console.ReadLine())

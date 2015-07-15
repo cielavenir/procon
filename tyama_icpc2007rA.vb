@@ -1,7 +1,7 @@
 module icpc2007rA
-    sub Main(ByVal args() as String)
-        dim n,k,m,r,i as integer
-        while true
+	sub Main(ByVal args() as String)
+		dim n,k,m,r,i as integer
+		while true
 			dim s(3) as string
 			s=Split(Console.ReadLine())
 			n=s(0):k=s(1):m=s(2):r=0
