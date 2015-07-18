@@ -1,0 +1,1 @@
+b[100001],a,C,N,i;main(m){for(scanf("%d%d",&C,&N);N--;)for(*b=scanf("%d",&a),m=a;m<=C;m++)if(b[m-a]&&(!b[m]||b[m-a]<b[m]))b[m]=b[m-a]+1;C=!printf("%d\n",b[C]-1);}
