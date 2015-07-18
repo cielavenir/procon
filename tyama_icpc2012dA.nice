@@ -1,0 +1,11 @@
+void main(String[]args){
+	java.io.BufferedReader R = new java.io.BufferedReader (new java.io.InputStreamReader (System.in));
+	for(int T=Integer.parseInt(notNull(R.readLine()));T>0;T--){
+		String[] a=java.lang.String.split(notNull(R.readLine())," ");
+		int y=Integer.parseInt(a[0]);
+		int m=Integer.parseInt(a[1]);
+		int d=Integer.parseInt(a[2]);
+		if(y==0)break;
+		System.out.println(196471-(--y)*195-y/3*5-(--m)*20+(y%3!=2?m/2:0)-d);
+	}
+}

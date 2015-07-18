@@ -6,7 +6,7 @@ do while(.true.)
 	r=0
 	do i=1,n-1
 		r=mod(r+k,i)
-	end do
+	enddo
 	write(*,"(i0)"),mod(r+m,n)+1
-end do
+enddo
 end

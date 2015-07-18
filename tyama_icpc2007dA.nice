@@ -1,0 +1,13 @@
+void main(String[]args){
+	java.io.BufferedReader R = new java.io.BufferedReader (new java.io.InputStreamReader (System.in));
+	int i,n,s,ma,mi;
+	for(;(n=Integer.parseInt(R.readLine()))>0;System.out.println((s-ma-mi)/(n-2))){
+		ma=0;mi=1000;
+		for(s=i=0;i<n;i++){
+			int x=Integer.parseInt(R.readLine());
+			if(ma<x)ma=x;
+			if(mi>x)mi=x;
+			s+=x;
+		}
+	}
+}

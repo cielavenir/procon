@@ -8,11 +8,11 @@
 
 (define sum (lambda(n ma mi s _n)
   (if (zero? n) (truncate (/ (- s (+ ma mi)) (- _n 2)))
-    (let ((x (read (standard-input-port)))) ;the same as (set! x (...)) (cond ...), but...
+    (let ((x (read (current-input-port)))) ;the same as (set! x (...)) (begin ...), but...
       (sum (- n 1) (max ma x) (min mi x) (+ s x) _n)))))
 
 (while #t
-  (let ((n (read (standard-input-port))))
+  (let ((n (read (current-input-port))))
      (if (zero? n) (exit))
      (write (sum n 0 1000 0 n))
      (newline)

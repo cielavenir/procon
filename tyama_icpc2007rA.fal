@@ -1,0 +1,15 @@
+#!/usr/bin/env falcon
+while true
+	a=input().split(' ')
+	n=int(a[0])
+	k=int(a[1])
+	m=int(a[2])
+	if n==0
+		break
+	end
+	r=0
+	for i in [1:n]
+		r=(r+k)%i
+	end
+	>((r+m)%n+1)
+end

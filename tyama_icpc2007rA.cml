@@ -1,0 +1,9 @@
+#!/usr/bin/ocaml
+
+let rec calc r i n k =
+	if i==n then r else (calc ((r+k) mod i) (i+1) n k);;
+
+while true do
+	Scanf.sscanf (read_line ()) "%d %d %d" (fun n k m ->
+		if n==0 then exit(0) else (print_int ((((calc 0 1 n k)+m) mod n)+1); print_string "\n")
+	) done;;

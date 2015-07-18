@@ -18,7 +18,7 @@
 
 (define run (lambda(n)
 	(if (not (zero? n))
-		(let ((y (read (standard-input-port))) (m (read (standard-input-port))) (d (read (standard-input-port))))
+		(let ((y (read (current-input-port))) (m (read (current-input-port))) (d (read (current-input-port))))
 			(write (+ (- (if (and (not (zero? (modulo y 3))) (zero? (modulo m 2))) 20 21) d) (month y (+ m 1)) (year (+ y 1)))) ;add 3 numbers
 			(newline)
 			(run (- n 1))
@@ -26,6 +26,6 @@
 	)
 ))
 
-(let ((n (read (standard-input-port))))
+(let ((n (read (current-input-port))))
 	(run n)
 )

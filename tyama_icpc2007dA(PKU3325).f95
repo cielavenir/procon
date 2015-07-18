@@ -8,7 +8,7 @@ do while(.true.)
     exit
   endif
   tmp=judge(n)
-end do
+enddo
 end
 
 integer function judge(n)
@@ -28,7 +28,7 @@ integer function judge(n)
     endif
     s=s+x
     i=i+1
-  end do
+  enddo
   result=(s-ma-mi)/(n-2)
   write(*,"(i0)"),result
   judge=0

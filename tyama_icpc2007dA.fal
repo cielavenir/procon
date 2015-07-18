@@ -1,0 +1,21 @@
+#!/usr/bin/env falcon
+while true
+	n=int(input())
+	if n==0
+		break
+	end
+	s=0
+	mi=1000
+	ma=0
+	for i in [0:n]
+		x=int(input())
+		if x<mi
+			mi=x
+		end
+		if x>ma
+			ma=x
+		end
+		s+=x
+	end
+	>int((s-ma-mi)/(n-2))
+end

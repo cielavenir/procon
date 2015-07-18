@@ -1,0 +1,13 @@
+#!/usr/bin/env falcon
+n=int(input())
+for i in [0:n]
+	a=input().split(' ')
+	y=int(a[0])-1
+	m=int(a[1])-1
+	d=int(a[2])
+	x=0
+	if y%3<2
+		x=int(m/2)
+	end
+	>(196471-y*195-int(y/3)*5-m*20+x-d)
+end

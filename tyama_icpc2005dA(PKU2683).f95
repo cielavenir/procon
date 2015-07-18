@@ -6,7 +6,7 @@ integer::n,i,tmp
 read(*,*),n
 do i=1,n
   tmp=data()
-end do
+enddo
 end
 
 integer function data()
@@ -18,8 +18,8 @@ integer function data()
     x=parse(m0,y)
     if(x>r) then
       r=x
-    end if
-  end do
+    endif
+  enddo
   write(*,"(i0)"),r
   data=0
   return
@@ -35,13 +35,13 @@ integer function parse(m,y)
     do i=1,y
       dm=int(r*m)
       m=m+dm-c
-    end do
+    enddo
   else
     do i=1,y
       dm=dm+int(r*m)
       m=m-c
-    end do
+    enddo
     m=m+dm
-  end if
+  endif
   parse=m
 end
