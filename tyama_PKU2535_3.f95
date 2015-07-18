@@ -15,12 +15,12 @@ integer::i,j,ma,mi,c
 read (*,*),n,p
 do x=1,n
 read (*,*),(work(tmp,x),tmp=1,p)
-end do
+enddo
 
   c=0
   do i=1,p
     simplest(i)=0
-  end do
+  enddo
 
   do i=1,n
     mi=1000
@@ -28,38 +28,38 @@ end do
     do j=1,p
       if(work(j,i).lt.mi) then
         mi=work(j,i)
-      end if
+      endif
       if(work(j,i).gt.ma) then
         ma=work(j,i)
-      end if
-    end do
+      endif
+    enddo
 
     do j=1,p
       if(work(j,i).eq.mi .and. simplest(j).ge.0) then
         if(work(j,i).eq.ma) then
           simplest(j)=-1
           cycle
-        end if
+        endif
         simplest(j)=simplest(j)+1
         cycle
-      end if
+      endif
       if(work(j,i).eq.ma) then
         simplest(j)=-1
         cycle
-      end if
-    end do
-  end do
+      endif
+    enddo
+  enddo
 
   do i=1,p
     if(simplest(i).gt.n/2) then
       if(c.gt.0) then
         write(*,"(a,$)")," "
-      end if
+      endif
       write(*,"(i0,$)"),i
       c=c+1
-    end if
-  end do
+    endif
+  enddo
   if(c.eq.0) then
     write(*,"(i1,$)"),0
-  end if
+  endif
 end

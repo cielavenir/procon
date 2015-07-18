@@ -14,23 +14,23 @@ do while(.true.)
   read (str(1:),*),(list(i),i=0,n)
   do i=1,n-1
     array(i)=0
-  end do
+  enddo
   do i=1,n-1
   x=abs(list(i)-list(i+1))
   if(x.gt.3000) then
     write (*,"(a)"),"Not jolly"
     goto 1000
-  end if
+  endif
   array(x)=1
-  end do
+  enddo
   do i=1,n-1
     if(array(i).eq.0) then
       write (*,"(a)"),"Not jolly"
       goto 1000
-    end if
-  end do
+    endif
+  enddo
   write (*,"(a)"),"Jolly"
-end do
+enddo
 900 end
 
 integer function abs(n)
@@ -38,5 +38,5 @@ integer function abs(n)
   abs=n
   if(n.lt.0) then
     abs=-n
-  end if
+  endif
 end

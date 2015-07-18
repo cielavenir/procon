@@ -8,7 +8,7 @@ do while(.true.)
     exit
   endif
   tmp=routine(n)
-  end do
+  enddo
 end
 
 integer function routine(n)
@@ -23,6 +23,6 @@ integer function routine(n)
     before=before+b
     total=total+a*b
     i=i+1
-  end do
+  enddo
   write(*,"(i0,a)"),total," miles"
 end

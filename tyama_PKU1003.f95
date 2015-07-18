@@ -12,7 +12,7 @@ do while(.true.)
   do while(now.lt.len)
     now=now+(1.0/(n+1))
     n=n+1
-  end do
+  enddo
   write(*,"(i0,a)"),(n-1)," card(s)"
-end do
+enddo
 end

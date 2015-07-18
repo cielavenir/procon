@@ -7,23 +7,23 @@ do i=1,n
   do j=1,i
     t(i,j)=s
     s=mod(s,9)+1
-  end do
-end do
+  enddo
+enddo
 
 do i=1,n
   s=0
   do j=1,n
     if(s.ne.0) then
       write(*,"(a,$)")," "
-    end if
+    endif
     s=1
 
     if(j.lt.i) then
       write(*,"(a,$)")," "
     else
       write(*,"(i0,$)"),t(j,i)
-    end if
-  end do
+    endif
+  enddo
   write(*,"(a)"),""
-end do
+enddo
 end

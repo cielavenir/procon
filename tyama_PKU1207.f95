@@ -12,7 +12,7 @@ do while(.true.)
     tmp=m
     m=n
     n=tmp
-  end if
+  endif
  
   i=m+1
   ma=cycle(m)
@@ -21,12 +21,12 @@ do while(.true.)
     tmp=cycle(x)
     if(tmp.gt.ma) then
       ma=tmp
-    end if
+    endif
     i=i+1
-  end do
+  enddo
 
   write (*,"(i0)"),ma
-end do
+enddo
 9 end
 
 integer function cycle(m)
@@ -37,7 +37,7 @@ integer function cycle(m)
       m=m/2
     else
       m=3*m+1
-    end if
+    endif
     cycle=cycle+1
-  end do
+  enddo
 end
