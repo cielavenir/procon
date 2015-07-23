@@ -1,7 +1,7 @@
 //usr/bin/env node $0 $@;exit 
 var main=function(){
 	var a=readline().split(' ').map(Number);
-	console.log(a[0]+a[1]+' '+readline());
+	print(a[0]+a[1]+' '+readline());
 };
 
 /// IO ///
