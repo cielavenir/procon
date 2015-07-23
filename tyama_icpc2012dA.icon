@@ -1,0 +1,19 @@
+#!/work/misc/cmd/icon-v950/bin/icon
+link str2toks
+procedure main()
+	local n,s,a,i,y,m,d
+	n:=read()
+	every 1 to n do{
+		s:=read()
+		a:=list(3)
+		i:=1
+		s ? every e:=str2toks() do{
+			a[i]:=e
+			i:=i+1
+		}
+		y:=a[1]-1
+		m:=a[2]-1
+		d:=a[3]
+		write(196471-y*195-y/3*5-m*20+r-d)
+	}
+end

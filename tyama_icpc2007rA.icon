@@ -1,0 +1,21 @@
+#!/work/misc/cmd/icon-v950/bin/icon
+procedure main()
+	local s,a,n,k,m,i,r
+	while 1 do{
+		s:=read()
+		a:=list(3)
+		i:=1
+		s ? every e:=str2toks() do{
+			a[i]:=e
+			i:=i+1
+		}
+		n:=a[1]
+		k:=a[2]
+		m:=a[3]
+		r:=0
+		every i:=1 to n-1 do{
+			r:=(r+k)%i
+		}
+		write((r+m)%n+1)
+	}
+end
