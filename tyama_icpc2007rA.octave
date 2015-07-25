@@ -1,0 +1,15 @@
+#!/usr/bin/env octave -q
+while(true)
+	a=strsplit(input("","s"));
+	n=str2num(a{1});
+	k=str2num(a{2});
+	m=str2num(a{3});
+	if(n==0)
+		break;
+	endif
+	r=0;
+	for i=1:(n-1)
+		r=mod(r+k,i);
+	endfor
+	printf("%d\n",mod(r+m,n)+1);
+endwhile

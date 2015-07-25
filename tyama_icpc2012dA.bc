@@ -1,0 +1,13 @@
+#!/usr/bin/bc
+scale=0
+t=read()
+for(i=0;i<t;i++){
+	y=read()
+	m=read()
+	d=read()
+	x=0
+	if(y%3>0)x=(m-1)/2
+	print (196471-(y-1)*195-(y-1)/3*5-(m-1)*20+x-d)
+	print "\n"
+}
+quit

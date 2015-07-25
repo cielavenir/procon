@@ -1,0 +1,17 @@
+#!/usr/bin/bc
+scale=0
+define main(){
+	n=read()
+	k=read()
+	m=read()
+	if(n>0){
+		r=0
+		for(i=1;i<n;i++)r=(r+k)%i
+		print ((r+m)%n+1)
+		print "\n"
+		main()
+	}
+	halt
+}
+main()
+quit
