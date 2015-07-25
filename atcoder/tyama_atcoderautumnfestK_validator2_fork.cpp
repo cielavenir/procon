@@ -67,6 +67,11 @@ int main(int argc, char **argv){
 		free(args);
 		return 0;
 	}
+	close(fd_in[0]);
+	close(fd_in[1]);
+	close(fd_out[0]);
+	close(fd_out[1]);
+	
 	int st1,st2;
 	waitpid(pid1,&st1,WUNTRACED);
 	waitpid(pid2,&st2,WUNTRACED);
