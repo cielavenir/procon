@@ -1,5 +1,6 @@
 #!/usr/bin/ruby
 def comb(n,k)
+	return 0 if k>n
 	k=n-k if k>n/2
 	r=1
 	k.times{|i|
