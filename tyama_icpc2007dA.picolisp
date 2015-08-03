@@ -1,0 +1,16 @@
+(de sum (n ma mi s _n)
+	(if (= n 0) (/ (- s (+ ma mi)) (- _n 2))
+		(let (x (read))
+			(sum (- n 1) (max ma x) (min mi x) (+ s x) _n))))
+
+(de ma ()
+	(let (n (read))
+		(if (not (= n 0)) (prog
+			(prinl (sum n 0 1000 0 n))
+			(ma)
+		))
+	)
+)
+(in NIL
+	(ma)
+)

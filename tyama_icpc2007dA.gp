@@ -1,0 +1,17 @@
+f()={
+	n=input();
+	while(n,
+		ma=0;
+		mi=1000;
+		su=0;
+		for(i=1,n,
+			s=input();
+			if(ma<s,ma=s);
+			if(mi>s,mi=s);
+			su+=s
+		);
+		print((su-ma-mi)\(n-2));
+		n=input()
+	)
+}
+f()

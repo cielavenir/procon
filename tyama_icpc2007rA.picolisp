@@ -1,0 +1,16 @@
+(de calc (r i n k)
+	(if (= i n) r (calc (% (+ r k) i) (+ i 1) n k))
+)
+
+(de ma ()
+	(let (n (read) k (read) m (read))
+		(if (not (= n 0)) (prog
+			(prinl (+ (% (+ (calc 0 1 n k) m) n) 1))
+			(ma)
+		))
+	)
+)
+
+(in NIL
+	(ma)
+)
