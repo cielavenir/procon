@@ -1,7 +1,7 @@
 #!/usr/bin/escript
 getint() ->
 	X=io:get_line(standard_io, ""),
-	list_to_integer(string:substr(X,1,length(X)-1)).
+	list_to_integer(string:strip(X,right,10)).
 sum(N,MA,MI,S,Z) ->
 	if
 		N==0 -> trunc((S-MA-MI)/(Z-2));

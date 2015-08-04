@@ -1,6 +1,7 @@
 #!/usr/bin/env falcon
+stdin=stdIn()
 while true
-	a=input().split(' ')
+	a=stdin.grabLine().split(' ')
 	n=int(a[0])
 	k=int(a[1])
 	m=int(a[2])

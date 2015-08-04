@@ -1,6 +1,7 @@
 #!/usr/bin/env falcon
+stdin=stdIn()
 while true
-	n=int(input())
+	n=int(stdin.grabLine())
 	if n==0
 		break
 	end
@@ -8,7 +9,7 @@ while true
 	mi=1000
 	ma=0
 	for i in [0:n]
-		x=int(input())
+		x=int(stdin.grabLine())
 		if x<mi
 			mi=x
 		end

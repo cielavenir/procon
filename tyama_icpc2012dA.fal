@@ -1,7 +1,8 @@
 #!/usr/bin/env falcon
-n=int(input())
+stdin=stdIn()
+n=int(stdin.grabLine())
 for i in [0:n]
-	a=input().split(' ')
+	a=stdin.grabLine().split(' ')
 	y=int(a[0])-1
 	m=int(a[1])-1
 	d=int(a[2])

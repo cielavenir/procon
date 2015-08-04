@@ -11,7 +11,7 @@ calc(R,I,N,K) ->
 
 main() ->
 	X=io:get_line(standard_io,""),
-	A=array:from_list(string:tokens(string:substr(X,1,length(X)-1)," ")),
+	A=array:from_list(string:tokens(string:strip(X,right,10)," ")),
 	N=list_to_integer(array:get(0,A)),
 	K=list_to_integer(array:get(1,A)),
 	M=list_to_integer(array:get(2,A)),
