@@ -35,14 +35,14 @@ int islandsize(int x,int y,set<pair<int,int> >&area,set<pair<int,int> >&s){
 	r+=islandsize(x,y+1,area,s);
 	return r;
 }
-string tetromino(set<pair<int,int> > &island){ //v is sorted by x, then y
+char tetromino(set<pair<int,int> > &island){ //v is sorted by x, then y
 	int i,s;
 	set<pair<int,int> >::iterator it=island.begin();
 	if(
 		island.find(make_pair(it->first+1,it->second))!=island.end()&&
 		island.find(make_pair(it->first,it->second+1))!=island.end()&&
 		island.find(make_pair(it->first+1,it->second+1))!=island.end()
-	)return "O";
+	)return 'O';
 	if((
 		island.find(make_pair(it->first+1,it->second))!=island.end()&&
 		island.find(make_pair(it->first+2,it->second))!=island.end()&&
@@ -51,17 +51,17 @@ string tetromino(set<pair<int,int> > &island){ //v is sorted by x, then y
 		island.find(make_pair(it->first,it->second+1))!=island.end()&&
 		island.find(make_pair(it->first,it->second+2))!=island.end()&&
 		island.find(make_pair(it->first,it->second+3))!=island.end()
-	))return "I";
+	))return 'I';
 	for(it=island.begin();it!=island.end();it++){
 		vector<int>d;
 		for(i=0;i<4;i++)if(island.find(make_pair(it->first+D[i][0],it->second+D[i][1]))!=island.end())d.push_back(i);
-		if(d.size()==3)return "T";
+		if(d.size()==3)return 'T';
 		else if(d.size()==2&&(
 			island.find(make_pair(it->first+D[ d[0] ][0]*2,it->second+D[ d[0] ][1]*2))!=island.end()||
 			island.find(make_pair(it->first+D[ d[1] ][0]*2,it->second+D[ d[1] ][1]*2))!=island.end()
-		))return "L";
+		))return 'L';
 	}
-	return "S";
+	return 'S';
 }
 int main(){
 	string line;
@@ -75,7 +75,7 @@ int main(){
 			area.insert(make_pair(x,y));
 		}
 		set<pair<int,int> >island;
-		if(islandsize(x,y,area,island)!=4){cout<<"-"<<endl<<flush;continue;}
+		if(islandsize(x,y,area,island)!=4){cout<<'-'<<endl<<flush;continue;}
 		cout<<tetromino(island)<<endl<<flush;
 	}
 }
