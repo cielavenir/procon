@@ -1,4 +1,5 @@
 #!/usr/bin/python
+#Use PyPy to AC.
 
 def add(a,b):
 	m=max(len(a),len(b))
