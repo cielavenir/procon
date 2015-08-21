@@ -3,7 +3,7 @@
 do while 1
 	s=linein()
 	parse var s n " " k " " m
-	if n==0 then exit
+	if n==0 then leave
 	r=0
 	do i=1 until i==n-1
 		r=(r+k)//i

@@ -2,7 +2,7 @@
 
 do while 1
 	n=linein()
-	if n==0 then exit
+	if n==0 then leave
 	s=0
 	ma=0
 	mi=1000
