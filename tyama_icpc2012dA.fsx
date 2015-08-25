@@ -1,3 +1,4 @@
+//usr/bin/env fsharpi $0 $@;exit
 open System
 let n=int(Console.ReadLine())
 for i in 1..n do

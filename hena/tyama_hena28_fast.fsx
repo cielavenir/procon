@@ -1,3 +1,4 @@
+//usr/bin/env fsharpi $0 $@;exit
 // http://qiita.com/Nabetani/items/23ebddb44f0234e7fb15
 // http://nabetani.sakura.ne.jp/hena/ord28spirwa/
 

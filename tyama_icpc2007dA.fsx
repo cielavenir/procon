@@ -1,3 +1,4 @@
+//usr/bin/env fsharpi $0 $@;exit
 open System;;
 
 let rec sum (n,k,ma,mi,s,x) =

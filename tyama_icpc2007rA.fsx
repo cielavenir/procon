@@ -1,3 +1,4 @@
+//usr/bin/env fsharpi $0 $@;exit
 open System
 let mutable arg:String array=Console.ReadLine().Split(' ')
 let mutable n=int(arg.[0])
