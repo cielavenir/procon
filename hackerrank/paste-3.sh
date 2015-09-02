@@ -1,0 +1,1 @@
+ruby -e 'puts$<.map(&:chomp).join("\t")'

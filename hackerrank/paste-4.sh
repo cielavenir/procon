@@ -1,0 +1,1 @@
+ruby -e 'puts$<.each_slice(3).map{|e|e.map(&:chomp).join("\t")}'
