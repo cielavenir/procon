@@ -1,0 +1,9 @@
+#!/usr/bin/env tt
+n=int(<>)
+for(i=0;i<n;i++){
+	a=split(<>," ")
+	y=int(a[0])-1
+	m=int(a[1])-1
+	d=int(a[2])
+	print("%d\n",196471-y*195-y/3*5-m*20+(y%3!=2?m/2:0)-d)
+}

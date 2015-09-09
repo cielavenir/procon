@@ -1,6 +1,6 @@
 #!/usr/bin/env tt
 #Tested with "AIR 2.0" and "TwinTail de Angelmode Costume6".
-while(true){
+while(TRUE){
 	ma=0; mi=1000; sum=0
 	n=int(gets())
 	if(n==0)return;

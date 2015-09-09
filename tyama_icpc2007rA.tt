@@ -1,0 +1,10 @@
+#!/usr/bin/env tt
+while(s=<>){
+	a=split(s," ")
+	n=int(a[0])
+	k=int(a[1])
+	m=int(a[2])
+	if(!n)break
+	for(r=i=0;++i<n;r%=i)r+=k
+	print("%d\n",(r+m)%n+1)
+}
