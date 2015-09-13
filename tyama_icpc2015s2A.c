@@ -1,0 +1,1 @@
+a,b;g(x,y){return y?g(y,x%y):x;}main(r){scanf("%d%d",&a,&b);b=b/g(a,b);for(a=2;a*a<=b;a++)if(b%a==0)for(r*=a;b%a==0;b/=a);a=!printf("%d\n",r*b);}

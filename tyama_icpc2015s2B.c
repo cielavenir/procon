@@ -1,0 +1,1 @@
+k;main(n){scanf("%d%d",&n,&k);long long r=0;for(;--n;)r+=r/(k-1)+1;k=!printf("%lld\n",r);}

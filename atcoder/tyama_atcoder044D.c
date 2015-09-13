@@ -1,0 +1,1 @@
+A['あ'],B['あ'],T,i;char s['あ'];main(N){scanf("%d",&N);for(B[N]=i=-1;++i<N;B[--A[i]]=i)scanf("%d",A+i);for(s[*A]=65,i=0;++i<N;s[A[i]]=T+65)T+=B[A[i-1]+1]>=B[A[i]+1];puts(T>25?"-1":s);}
