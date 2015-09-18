@@ -11,7 +11,7 @@ for ;(withUnsafePointer(&v[0]){vscanf("%08x",getVaList([COpaquePointer($0)]))}>0
 	var a:[[Int]]=[[],[]]
 	for i=0;i<2;i++ {
 		for j=0;j<32;j++ {
-			a[i].append( Int((v[i]>>(31-j))&1) )
+			a[i].append( Int((v[i]>>UInt(31-j))&1) )
 		}
 		a[i].append(0)
 		a[i].append(0)
@@ -23,39 +23,39 @@ for ;(withUnsafePointer(&v[0]){vscanf("%08x",getVaList([COpaquePointer($0)]))}>0
 		} else if a[0][i] != 0 && a[1][i] != 0 { //need space; otherwise treated as "a[0][i]!"
 			if a[0][i+1] != 0 {
 				if a[0][i+2] != 0 {
-					print("N")
+					print("N",terminator:"")
 					i+=3
 				} else {
-					print("R")
+					print("R",terminator:"")
 					i+=2
 				}
 			} else if a[1][i+1] != 0 {
 				if a[1][i+2] != 0 {
-					print("U")
+					print("U",terminator:"")
 					i+=3
 				}else{
-					print("L")
+					print("L",terminator:"")
 					i+=2
 				}
 			}
 		} else if a[0][i] != 0 {
 			if a[0][i+2] != 0 {
-				print("T")
+				print("T",terminator:"")
 				i+=3
 			} else { //if a[1][i+2] != 0
-				print("Z")
+				print("Z",terminator:"")
 				i+=3
 			}
 		} else {
 			if a[0][i+2] != 0 {
-				print("S")
+				print("S",terminator:"")
 				i+=3
 			} else {
-				print("J")
+				print("J",terminator:"")
 				i+=2
 			}
 		}
 	}
-	println()
+	print("")
 	fflush(stdout)
 }

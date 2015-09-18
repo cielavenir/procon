@@ -7,6 +7,6 @@ while n>0 {
 	withUnsafePointer(&m){vscanf("%d",getVaList([COpaquePointer($0)]))}
 	r=0
 	for i=0;++i<n;r%=i {r+=k}
-	println((r+m)%n+1)
+	print((r+m)%n+1)
 	withUnsafePointer(&n){vscanf("%d",getVaList([COpaquePointer($0)]))}
 }

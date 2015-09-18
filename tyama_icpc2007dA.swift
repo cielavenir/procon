@@ -13,6 +13,6 @@ while n>0 {
 		if mi>s {mi=s}
 		sum+=s
 	}
-	println((sum-ma-mi)/(n-2))
+	print((sum-ma-mi)/(n-2))
 	withUnsafePointer(&n){vscanf("%d",getVaList([COpaquePointer($0)]))}
 }

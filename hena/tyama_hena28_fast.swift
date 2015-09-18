@@ -21,7 +21,7 @@ for ;(withUnsafePointer(&n){vscanf("%d",getVaList([COpaquePointer($0)]))}>0); {
 		let x=[a,b,c]
 		for var j=0;j<3;j++ {
 			if days-x[j]<0 {
-				println(dir[advance(dir.startIndex,(i+j)%4)])
+				print(dir[dir.startIndex.advancedBy((i+j)%4)])
 				f=0
 				break
 			}
