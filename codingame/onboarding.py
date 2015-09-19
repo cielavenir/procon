@@ -3,12 +3,8 @@ import sys
 
 if sys.version_info[0]>=3: raw_input=input
 while 1:
-	n=int(raw_input())
-	mi=9999999
-	name=''
-	for i in range(n):
-		enemy,dist=raw_input().split()
-		if mi>float(dist):
-			mi=float(dist)
-			name=enemy
-	print(name)
+	enemy_1 = raw_input() # name of enemy 1
+	dist_1 = int(raw_input()) # distance to enemy 1
+	enemy_2 = raw_input() # name of enemy 2
+	dist_2 = int(raw_input()) # distance to enemy 2
+	print(enemy_1 if dist_1<dist_2 else enemy_2)

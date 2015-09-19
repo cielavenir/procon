@@ -1,19 +1,15 @@
 module Player
 	sub Main()
 		while True
-			dim name as String
-			dim n as integer=Console.ReadLine()
-			dim mi as double=9999999
-			for i as integer=0 to n-1
-				dim inputs as String()=Console.ReadLine().Split(" ")
-				dim enemy as String=inputs(0)
-				dim dist as double=inputs(1)
-				if mi>dist
-					mi=dist
-					name=enemy
-				end if
-			next
-			Console.WriteLine(name)
+			Dim enemy1 as String
+			enemy1 = Console.ReadLine() ' name of enemy 1
+			Dim dist1 as Integer
+			dist1 = Console.ReadLine() ' distance to enemy 1
+			Dim enemy2 as String
+			enemy2 = Console.ReadLine() ' name of enemy 2
+			Dim dist2 as Integer
+			dist2 = Console.ReadLine() ' distance to enemy 2
+			Console.WriteLine(iif(dist1<dist2,enemy1,enemy2))
 		end while
 	end sub
 end module

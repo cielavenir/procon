@@ -1,15 +1,9 @@
 #!/usr/bin/php
 <?php
-while(1){
-	fscanf(STDIN,"%d",$n);
-	$mi=9999999;
-	$name='';
-	for($i=0;$i<$n;$i++){
-		fscanf(STDIN,"%s%f",$enemy,$dist);
-		if($mi>$dist){
-			$mi=$dist;
-			$name=$enemy;
-		}
-	}
-	echo $name.PHP_EOL;
+for(;;){
+	fscanf(STDIN,"%s",$enemy1);
+	fscanf(STDIN,"%d",$dist1);
+	fscanf(STDIN,"%s",$enemy2);
+	fscanf(STDIN,"%d",$dist2);
+	echo ($dist1<$dist2 ? $enemy1 : $enemy2).PHP_EOL;
 }

@@ -1,5 +1,9 @@
 #!/usr/bin/ruby
 puts "#!/bin/bash"
 print "ruby -e '"
-$<.each{|e|print e.strip.gsub("'",'"')+';' if !e.strip.start_with?('#')}
+$<.each{|e|
+	l=e.strip
+	break if l=='__END__'
+	print l.gsub("'",'"')+';' if !l.start_with?('#')
+}
 puts "'"

@@ -3,18 +3,12 @@ class Player{
 	public static void main(String[]args){
 		Scanner cin=new Scanner(System.in);
 		for(;;){
-			String name="";
-			int n=cin.nextInt();
-			double mi=9999999;
-			for(;n>0;n--){
-				String enemy=cin.next();
-				double dist=cin.nextDouble();
-				if(mi>dist){
-					mi=dist;
-					name=enemy;
-				}
-			}
-			System.out.println(name);
+			String enemy1 = cin.next(); // name of enemy 1
+			int dist1 = cin.nextInt(); // distance to enemy 1
+			String enemy2 = cin.next(); // name of enemy 2
+			int dist2 = cin.nextInt(); // distance to enemy 2
+
+			System.out.println(dist1<dist2 ? enemy1 : enemy2);
 		}
 	}
 }

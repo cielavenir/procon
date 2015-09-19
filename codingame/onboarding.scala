@@ -2,19 +2,12 @@
 import scala.util._
 object Player{
 	def main(args: Array[String]){
-		while(true) {
-			var name = ""
-			var mi = 9999999.0
-			val count = readInt
-			for(i <- 0 until count){
-				val Array(enemy, _dist) = readLine split " "
-				val dist = _dist.toDouble
-				if(mi>dist){
-					mi=dist
-					name=enemy
-				}
-			}
-			println(name)
+		while(true){
+			val enemy1 = readLine // name of enemy 1
+			val dist1 = readInt // distance to enemy 1
+			val enemy2 = readLine // name of enemy 2
+			val dist2 = readInt // distance to enemy 2
+			println(if(dist1<dist2)enemy1 else enemy2)
 		}
 	}
 }

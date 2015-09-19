@@ -1,21 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 
-char name[50],enemy[50];
+char name1[50],name2[50];
 int main(){
 	for(;;){
-		int n;
-		double mi=9999999;
-		scanf("%d",&n);
-		for(;n--;){
-			double dist;
-			scanf("%s%f",enemy,&dist);
-			if(mi>dist){
-				mi=dist;
-				strcpy(name,enemy);
-			}
-		}
-		puts(name);
+		int d1,d2;
+		scanf("%s%d%s%d",name1,&d1,name2,&d2);
+		if(d1<d2)puts(name1);else puts(name2);
 		fflush(stdout);
 	}
 }

@@ -1,7 +1,6 @@
 #!/usr/bin/ruby
-puts "#!/usr/bin/python"
-puts "import os"
-print "os.system(\"ruby -e '"
+puts "#!/usr/bin/perl"
+print "system(\"ruby -e '"
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'
