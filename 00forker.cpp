@@ -15,7 +15,7 @@ int main(int argc, char **argv){
 	cin.tie(0);
 	ios::sync_with_stdio(false);
 	if(argc<3){
-		cerr<<"forker program/interpreter validator..."<<endl;
+		cerr<<"forker program(chmod+x) validator args..."<<endl;
 		return 0;
 	}
 	const char *cmd=argv[2];
