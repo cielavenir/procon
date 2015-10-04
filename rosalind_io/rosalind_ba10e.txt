@@ -1,0 +1,13 @@
+0.396
+--------
+A	B	C	D	E
+--------
+CDCD-BBBA
+A--D-BBBA
+AD--EB-BE
+--CDEBBB-
+AACDEBBBA
+A-C--B-BA
+AECD-BBEA
+A-CDEBB-A
+D-EBEB-BA
