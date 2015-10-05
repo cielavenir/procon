@@ -7,7 +7,7 @@ int main(){for(int T,n,k,c,d,C;scanf("%d",&T),T;puts("")){
 		if(C=='D'){
 			for(auto it=m.begin();it!=m.end();)if(it->second==n)m.erase(it++);else ++it;
 		}else if(C=='R'){
-			auto it=m.lower_bound(make_pair(n,2000000000));
+			auto it=m.lower_bound({n,2000000000});
 			printf("%d\n",it==m.begin()||n<(--it)->first.first||it->first.second<n?-1:it->second);
 		}else if(C=='W'){
 			c=!scanf("%d",&k);
