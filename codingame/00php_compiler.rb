@@ -1,10 +1,13 @@
 #!/usr/bin/ruby
 puts "#!/usr/bin/php"
 puts "<?php"
-print "system(\"ruby -e '"
+puts "$s=<<<'EOM'"
+print "ruby -e '"
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'
-	print l.gsub('"','\"').gsub("'",'\"')+';' if !l.start_with?('#')
+	print l+';' if !l.start_with?('#')
 }
-puts "'\");"
+puts "'"
+puts "EOM;"
+puts "system($s);"

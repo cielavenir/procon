@@ -10,6 +10,6 @@ $<.each{|e|
 	s<<l.gsub('"','""').gsub("'",'""')+';' if !l.start_with?('#')
 }
 s<<"'\"."
-a=s.chars.each_slice(64).with_index.map{|e,i|(i==0?'        ':'      -"')+e.join}
+a=s.chars.each_slice(72-8).with_index.map{|e,i|(i==0?'        ':'      -"')+e.join}
 puts a
 puts "        stop run."
