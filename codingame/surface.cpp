@@ -2,10 +2,21 @@
 #include <string>
 #include <vector>
 #include <queue>
-#include <map>
-#include <set>
+#include <unordered_map>
+#include <unordered_set>
 using namespace std;
+
+#if 0
 typedef pair<int,int> pii;
+#define fst(a) (a.first)
+#define snd(b) (b.second)
+#define mp(a,b) (make_pair(a,b))
+#else
+typedef long long pii;
+#define fst(a) (a>>32)
+#define snd(b) (b&0xffffffff)
+#define mp(a,b) (((long long)(a))<<32 | (b))
+#endif
 
 typedef struct{
 	int x;
@@ -25,28 +36,32 @@ int main(){
 		for(auto &e:v[i])L+=e=='O';
 	}
 	int Q;cin>>Q;
-	map<pii,int> memo;
+	unordered_map<pii,int> memo;
 	for(int q=0;q<Q;q++){
 		int x,y;
 		cin>>x>>y;
-		if(W*H>=100000 && Q==1){ //fake...
+		/*
+		//fake
+		//can be avoided by using hash-table
+		if(W*H>=100000 && Q==1){
 			cout<<L<<endl;
 			continue;
 		}
+		*/
 		if(v[y][x]=='#'){
 			cout<<0<<endl;
 			continue;
 		}
-		pii s={x,y};
+		pii s=mp(x,y);
 		if(memo.find(s)==memo.end()){
 			queue<pii>q;
 			q.push(s);
-			set<pii>se={s};
+			unordered_set<pii>se={s};
 			for(;!q.empty();){
 				pii cur=q.front();q.pop();
 				for(auto &d:D){
-					pii nxt={cur.first+d.x,cur.second+d.y};
-					if(0<=nxt.first&&nxt.first<W && 0<=nxt.second&&nxt.second<H && v[nxt.second][nxt.first]=='O' && se.find(nxt)==se.end()){
+					pii nxt=mp(fst(cur)+d.x,snd(cur)+d.y);
+					if(0<=fst(nxt)&&fst(nxt)<W && 0<=snd(nxt)&&snd(nxt)<H && v[snd(nxt)][fst(nxt)]=='O' && se.find(nxt)==se.end()){
 						se.insert(nxt);
 						q.push(nxt);
 					}
