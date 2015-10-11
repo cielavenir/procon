@@ -1,0 +1,36 @@
+#!/usr/bin/ruby
+T={
+	[1,'TOP']=>[0,1],
+	[1,'LEFT']=>[0,1],
+	[1,'RIGHT']=>[0,1],
+	[2,'LEFT']=>[1,0],
+	[2,'RIGHT']=>[-1,0],
+	[3,'TOP']=>[0,1],
+	[4,'TOP']=>[-1,0],
+	[4,'RIGHT']=>[0,1],
+	[5,'TOP']=>[1,0],
+	[5,'LEFT']=>[0,1],
+	[6,'LEFT']=>[1,0],
+	[6,'RIGHT']=>[-1,0],
+	[7,'TOP']=>[0,1],
+	[7,'RIGHT']=>[0,1],
+	[8,'LEFT']=>[0,1],
+	[8,'RIGHT']=>[0,1],
+	[9,'TOP']=>[0,1],
+	[9,'LEFT']=>[0,1],
+	[10,'TOP']=>[-1,0],
+	[11,'TOP']=>[1,0],
+	[12,'RIGHT']=>[0,1],
+	[13,'LEFT']=>[0,1],
+}
+
+W,H=gets.split.map(&:to_i)
+M=H.times.map{gets.split.map(&:to_i)}
+E=gets.to_i
+loop{
+	x,y,p=gets.split
+	t=M[y.to_i][x.to_i]
+	nxt=T[[t,p]]
+	puts '%d %d'%[x.to_i+nxt[0],y.to_i+nxt[1]]
+	STDOUT.flush
+}
