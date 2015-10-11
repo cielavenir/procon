@@ -6,11 +6,18 @@
 #include <unordered_set>
 using namespace std;
 
-#if 0
+#if 1
 typedef pair<int,int> pii;
 #define fst(a) (a.first)
 #define snd(b) (b.second)
 #define mp(a,b) (make_pair(a,b))
+namespace std{
+	template<typename I>
+	class hash<pair<I,I>>{
+		public:
+		size_t operator()(const pair<I,I> &p) const {return hash<long long>() (((long long)(p.first))<<32|p.second);}
+	};
+}
 #else
 typedef long long pii;
 #define fst(a) (a>>32)
