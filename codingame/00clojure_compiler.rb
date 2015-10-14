@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 STANDALONE=false
 
+puts "#!/usr/bin/env clj" if STANDALONE
 puts "(ns Solution (:gen-class))" if !STANDALONE
 puts "(use '[clojure.java.shell :only [sh]])"
 puts "(defn -main [& args]" if !STANDALONE
