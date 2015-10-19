@@ -18,7 +18,7 @@ def dfs(a,d,cur,first,s,r)
 	else
 		VAL[a[d]].each{|e|
 			if cur%100==e/100
-				dfs(a,d+1,e,first,s+e,r+[e]){|y|yield y}
+				dfs(a,d+1,e,first,s+e,r+[e],&proc)
 			end
 		}
 	end
