@@ -1,5 +1,5 @@
 #!/usr/bin/env crystal
-def perform(q,start)
+def perform(start,q)
 	puts "? "+q.join(" ")
 	STDOUT.flush
 	f=true
@@ -11,13 +11,9 @@ def perform(q,start)
 	}
 	f	
 end
+def g(s,e,pad) A[s...e].each_slice(2).flat_map{|e|e}+[0]*pad end
+
 N=gets.not_nil!.to_i
 A=(1..N).to_a
-f=true
-while f
-	q=N%2==0 ? A[0...N].each_slice(2).flat_map{|e|e}+[0]*N : A[0...N-1].each_slice(2).flat_map{|e|e}+[0]*(N+1)
-	break if perform(q,0)
-	q=N%2==0 ? A[1...N-1].each_slice(2).flat_map{|e|e}+[0]*(N+2) : A[1...N].each_slice(2).flat_map{|e|e}+[0]*(N+1)
-	break if perform(q,1)
-end
+loop{break if perform(0,N%2==0?g(0,N,N) : g(0,N-1,N+1)) || perform(1,N%2==0?g(1,N-1,N+2) : g(1,N,N+1))}
 puts "! "+A.join(" ")
