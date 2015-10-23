@@ -4,7 +4,7 @@ def comb(n,r):
 	ret=1
 	if r>n//2: r=n-r
 	for i in range(r):
-		ret=ret*(n-i)/(i+1)
+		ret=ret*(n-i)//(i+1)
 	return ret
 
 def popcnt32(n):

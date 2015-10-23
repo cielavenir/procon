@@ -34,7 +34,7 @@ void buildPath(int S, int i, vector<int> &path) {
   buildPath(S^(1<<i), prev[S][i], path);
   path.push_back(i);
 }
-Weight shortestHamiltonCycle(Matrix w, vector<int> &path) {
+Weight shortestHamiltonCycle(const Matrix &w, vector<int> &path) {
   int n=w.size();
   int N = 1 << n;
   REP(S,N) REP(i,n) best[S][i] = INF;
