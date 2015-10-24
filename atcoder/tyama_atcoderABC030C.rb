@@ -1,20 +1,14 @@
 #!/usr/bin/ruby
-n,m=gets.split.map(&:to_i)
-x,y=gets.split.map(&:to_i)
-a=gets.split.map(&:to_i)
-b=gets.split.map(&:to_i)
-
-ca=0
-cb=0
-c=0
-r=0
-loop{
-	ca+=1 while a[ca]&&a[ca]<c
-	break if !a[ca]
-	c=a[ca]+x
-	cb+=1 while b[cb]&&b[cb]<c
-	break if !b[cb]
-	c=b[cb]+y
-	r+=1
-}
+(n,m),(x,y),a,b=$<.map{|e|e.split.map &:to_i}
+i=j=r=0
+while j<m&&i<n
+	j+=1 while j<m&&b[j]<a[i]+x
+	if j<m
+		r+=1
+		i+=1 while i<n&&a[i]<b[j]+y
+	end
+end
 p r
+
+__END__
+(n,m),(x,y),a,b=$<.map{|e|e.split.map &:to_i};i=j=r=0;(j+=1 while j<m&&a[i]+x>z=b[j];i+=1 while i<n&&z+y>a[i]if j<m&&r+=1)while j<m&&i<n;p r
