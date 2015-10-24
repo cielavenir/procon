@@ -20,14 +20,22 @@ Weight total[1<<M];
 Weight shortestHamiltonPath(const Array &w) {
 	int n=w.size();
 	int N = 1 << n;
-	REP(S,N) best[S] = total[S] = INF;
-	best[0] = total[0] = 0;
-	REP(S,N) REP(j,n) if (!(S&(1<<j))) {
-		Weight discount=total[S]%1000;
-		Weight discounted=max(0,w[j]-discount);
-		if (best[S|(1<<j)] > best[S] + discounted) {
-			best[S|(1<<j)] = best[S] + discounted;
-			total[S|(1<<j)] = total[S] + w[j];
+	REP(S,N) best[S] = total[S] = 0;
+	best[0] = total[0] = 100;
+	REP(S,N) REP(j,n) if (!(S&(1<<j)) && best[S]>0) {
+		if (w[j]>0) {
+			Weight hp=min(best[S]+w[j],total[S]);
+			if (best[S|(1<<j)] < hp) {
+				best[S|(1<<j)] = hp;
+				total[S|(1<<j)] = total[S];
+			}
+		} else {
+			Weight hp=best[S]+w[j];
+			if (hp<=0) continue;
+			if (total[S|(1<<j)] < total[S]+100 || (total[S|(1<<j)] == total[S]+100 && best[S|(1<<j)] < hp)) {
+				best[S|(1<<j)] = hp;
+				total[S|(1<<j)] = total[S]+100;
+			}
 		}
 	}
 	return best[N-1];

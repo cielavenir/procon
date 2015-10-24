@@ -11,18 +11,6 @@
 using namespace std;
 
 typedef int Weight;
-struct Edge {
-  int src, dst;
-  Weight weight;
-  Edge(int src, int dst, Weight weight) :
-    src(src), dst(dst), weight(weight) { }
-};
-bool operator < (const Edge &e, const Edge &f) {
-  return e.weight != f.weight ? e.weight > f.weight : // !!INVERSE!!
-    e.src != f.src ? e.src < f.src : e.dst < f.dst;
-}
-typedef vector<Edge> Edges;
-typedef vector<Edges> Graph;
 typedef vector<Weight> Array;
 typedef vector<Array> Matrix;
 
@@ -31,7 +19,7 @@ Weight best[1<<M][M];
 int    prev[1<<M][M];
 void buildPath(int S, int i, vector<int> &path) {
   if (!S) return;
-  buildPath(S^(1<<i), prev[S][i], path);
+  buildPath(S^(1<<i), ::prev[S][i], path);
   path.push_back(i);
 }
 Weight shortestHamiltonCycle(const Matrix &w, vector<int> &path) {
@@ -42,7 +30,7 @@ Weight shortestHamiltonCycle(const Matrix &w, vector<int> &path) {
   REP(S,N) REP(i,n) REP(j,n) if (!(S&(1<<j)))
     if (best[S|(1<<j)][j] > best[S][i] + w[i][j])
       best[S|(1<<j)][j] = best[S][i] + w[i][j],
-      prev[S|(1<<j)][j] = i;
+      ::prev[S|(1<<j)][j] = i;
   //int t = min_element(best[N-1], best[N-1]+n) - best[N-1];
   //path.clear(); buildPath(N-1, t, path);
   return best[N-1][0]==INF ? -1 : best[N-1][0];
