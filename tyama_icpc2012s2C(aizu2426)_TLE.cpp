@@ -25,14 +25,14 @@ struct kdtree {
     else                   t->r = insert(t->r, !d, p);
     return t;
   }
-  void search(const point &ld, const point &ru, vector<int> &out) {
+  void search(const point &ld, const point &ru, int &out) {
     search(root, 0, ld, ru, out);
   }
-  void search(node *t, int d, const point &ld, const point &ru, vector<int> &out) {
+  void search(node *t, int d, const point &ld, const point &ru, int &out) {
     if (t == NULL) return;
     const point &p = t->p;
     if (real(ld) <= real(p) && real(p) <= real(ru) &&
-        imag(ld) <= imag(p) && imag(p) <= imag(ru)) out.push_back(t->id);
+        imag(ld) <= imag(p) && imag(p) <= imag(ru)) out++;
     if (!compare(d,p,ld)) search(t->l, !d, ld, ru, out);
     if (!compare(d,ru,p)) search(t->r, !d, ld, ru, out);
   }
@@ -47,8 +47,8 @@ int main(){
 	}
 	for(;m--;){
 		scanf("%d%d%d%d",&x1,&y1,&x2,&y2);
-		vector<int>out;
+		int out=0;
 		kd.search(point(x1,y1),point(x2,y2),out);
-		printf("%d\n",out.size());
+		printf("%d\n",out);
 	}
 }
