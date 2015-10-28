@@ -13,7 +13,7 @@ def checkio(data):
 		right_idx=bisect.bisect_left(se,(l,0)) #l <= se[right_idx][0]
 		if right_idx!=0:
 			left_idx=right_idx-1
-			if l<=se[left_idx][1]: # overlap with left
+			if l<=se[left_idx][1]+1: # overlap with left
 				l=se[left_idx][0]
 				r=max(r,se[left_idx][1])
 				result-=se[left_idx][1]-se[left_idx][0]+1
