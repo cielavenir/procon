@@ -1,0 +1,1 @@
+N,j,x,s,m[99];main(){for(memset(m+1,99,392),scanf("%d",&N);~N;N--)for(scanf("%d",&s),j=0;j<=s;j++)for(m[j]++,x=0;x<j;x++)m[j]=m[j]<(m[x]+m[j-1-x])?m[j]:(m[x]+m[j-1-x]);for(j=s;~s;s--)printf(s?"%d ":"%d\n",m[j-s]);}
