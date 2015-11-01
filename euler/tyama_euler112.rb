@@ -10,6 +10,6 @@ x=t=0
 	t+=1
 	if x*100==X*t
 		p i
-		exit
+		break
 	end
 }

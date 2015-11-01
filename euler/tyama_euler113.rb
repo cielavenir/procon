@@ -11,5 +11,10 @@ class Integer
 		return ret
 	end
 end
-N=100
-p (N+9).comb(9)-1+(N+10).comb(10)-N-1-N*9
+gets.to_i.times{
+	n=gets.to_i
+	p ((n+9).comb(9)-1+(n+10).comb(10)-n-1-n*9)%(10**9+7)
+}
+__END__
+1
+100
