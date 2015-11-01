@@ -56,7 +56,7 @@ int main(){
 		}
 		int N=m.size();
 		if(N>16){
-			printf("%d\n",0);
+			puts("False");
 			continue;
 		}
 		Matrix w(N);
@@ -68,6 +68,11 @@ int main(){
 			w[m.at(get<0>(e))][m.at(get<1>(e))]=w[m.at(get<1>(e))][m.at(get<0>(e))]=get<2>(e);
 		}
 		vector<int> path;
-		printf("%d\n",shortestHamiltonPath(w,path));
+		int r=shortestHamiltonPath(w,path);
+		if(r!=-1){
+			printf("%d\n",r);
+		}else{
+			puts("False");
+		}
 	}
 }
