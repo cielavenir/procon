@@ -14,6 +14,7 @@ struct Range(B, E)
     end
 
     midpoint = 0 # placeholder
+    #convert = ->{ (pointerof(midpoint) as Pointer(Int64)).value }
     convert = ->{ midpoint }
 
     to -= 1 if excludes_end?
@@ -43,6 +44,16 @@ struct Range(B, E)
       end
     end
     satisfied
+  end
+end
+
+class Array(T)
+  def bsearch
+    idx=(0...self.size).bsearch{|i|yield self[i]}
+    idx ? self[idx] : nil
+  end
+  def bsearch_index
+    (0...self.size).bsearch{|i|yield self[i]}
   end
 end
 
