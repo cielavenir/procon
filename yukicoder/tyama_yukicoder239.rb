@@ -1,5 +1,4 @@
 #!/usr/bin/ruby
-a=!gets
-i=0
-$<.map(&:split).transpose.map{|e|i+=1;a=a ?-1:i if~e.count('nyanpass')==-e.size}
-p a||-1
+gets
+a=i=0
+p$<.map(&:split).transpose.one?{|e|i+=1;a=i if~e.count('nyanpass')==-e.size}?a:-1
