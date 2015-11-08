@@ -9,4 +9,4 @@ end
 A=63.times.map{"_"*100}
 N=gets.to_i
 dfs(62,49,N,16)
-A.each{|e|puts e}
+puts A
