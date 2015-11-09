@@ -1,8 +1,7 @@
 #!/usr/bin/ruby
 puts "#!/usr/bin/env vala"
-puts "public extern int system(string s);"
-puts "static void main(){"
-print "system(\"ruby -e '"
+puts "extern int system(string s);"
+print "static void main(){system(\"ruby -e '"
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'

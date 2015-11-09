@@ -1,8 +1,7 @@
 #!/usr/bin/ruby
 puts "#!/usr/bin/env rdmd"
 puts "import std.process;"
-puts "void main(){"
-print "system(\"ruby -e '"
+print "void main(){system(\"ruby -e '"
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'

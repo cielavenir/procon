@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 puts "#!/usr/bin/env nim"
 puts "import osproc"
-print "var r = execCmd(\"ruby -e '"
+print "var r=execCmd(\"ruby -e '"
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'
