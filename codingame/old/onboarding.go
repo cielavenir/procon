@@ -8,7 +8,7 @@ func main() {
 		mi := 9999999
 		var count int
 		fmt.Scan(&count)
-		
+
 		for i := 0; i < count; i++ {
 			var enemy string
 			var dist int

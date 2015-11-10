@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 puts "void main(String[]args){"
-print "	String[] l=[\"ruby\",\"-e\",\"" 	
+print "	String[] l=[\"ruby\",\"-e\",\""
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'

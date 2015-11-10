@@ -14,7 +14,7 @@ class Main{
         if(s.equals("9"))break;
         a.add(s);
       }
-        
+
       fail:{
 
         for(i=0;i<a.size()-1;i++){
@@ -27,7 +27,7 @@ class Main{
             }
           }
         }
-        
+
         System.out.println("Set "+c+" is immediately decodable");
         continue;
 

@@ -19,7 +19,7 @@ puts "\"))"
 puts <<EOM
 		p.getOutputStream().write(z,0,System.in.read(z,0,SIZE))
 		p.getOutputStream().close()
-		val sc=new Scanner(p.getInputStream())  		
+		val sc=new Scanner(p.getInputStream())
 		while(sc.hasNext())println(sc.nextLine())
 	}
 }

@@ -9,7 +9,7 @@ class Solution{
 	public static void main(String[]args){try{
 EOM
 
-print "   		Process p=Runtime.getRuntime().exec(new String[]{\"ruby\",\"-e\",\""
+print "		Process p=Runtime.getRuntime().exec(new String[]{\"ruby\",\"-e\",\""
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'
@@ -20,7 +20,7 @@ puts "\"});"
 puts <<EOM
 		p.getOutputStream().write(z,0,System.in.read(z,0,SIZE));
 		p.getOutputStream().close();
-   		Scanner sc=new Scanner(p.getInputStream());
+		Scanner sc=new Scanner(p.getInputStream());
 		for(;sc.hasNext();)System.out.println(sc.nextLine());
 	}catch(IOException e){
 		System.out.println(e.getMessage());

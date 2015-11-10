@@ -7,7 +7,7 @@ fun main(args: Array<String>){
 	val z=ByteArray(SIZE)
 EOM
 
-print "   	val p=Runtime.getRuntime().exec(arrayOf(\"ruby\",\"-e\",\""
+print "	val p=Runtime.getRuntime().exec(arrayOf(\"ruby\",\"-e\",\""
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'
@@ -18,7 +18,7 @@ puts "\"));"
 puts <<EOM
 	p.getOutputStream().write(z,0,System.`in`.read(z,0,SIZE))
 	p.getOutputStream().close()
-   	val sc=Scanner(p.getInputStream())
+	val sc=Scanner(p.getInputStream())
 	while(sc.hasNext())System.out.println(sc.nextLine())
 }
 EOM
