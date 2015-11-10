@@ -1,5 +1,5 @@
 void main(String[]args){
-	java.io.BufferedReader R = new java.io.BufferedReader (new java.io.InputStreamReader (System.in));
+	java.io.BufferedReader R=new java.io.BufferedReader(new java.io.InputStreamReader(System.in));
 	int i,n,s,ma,mi;
 	for(;(n=Integer.parseInt(R.readLine()))>0;System.out.println((s-ma-mi)/(n-2))){
 		ma=0;mi=1000;
