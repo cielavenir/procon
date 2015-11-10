@@ -31,7 +31,7 @@ int main(){
 		a=get(),b=get(),c=get();
 		/*
 		int lo=0,hi=N+1;
-		for(;lo+1<hi;){
+		for(;lo<hi+1;){
 			int me=(lo+hi)/2;
 			if(a>=get<1>(v[me])&&b>=get<2>(v[me])&&c>=get<3>(v[me])){
 				lo=me;

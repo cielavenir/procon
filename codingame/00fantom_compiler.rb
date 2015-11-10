@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-# [Note] The donor must not handle EOF.
+# [Note] The donor must not try to detect EOF.
 puts "#!/usr/bin/env fan"
 print "class FantomCompiler{static Void main(){p:=Process([\"ruby\",\"-e\",\""
 $<.each{|e|

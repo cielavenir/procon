@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <cmath>
+#include <stdio.h>
 
 // cpp_binarysearch (C) @cielavenir under Boost Software License.
 // returns the smallest value satisfying the predicate.
@@ -38,11 +37,21 @@ double binarysearch(double _lo,double _hi,const F &predicate){
 	return r;
 }
 
+int a[100000];
+int ok(int M,int N,int C){
+	int sum=0,ret=1,i=0;
+	for(;i<N;i++){
+		if(a[i]>M)return 0;
+		sum+=a[i];
+		if(sum>M)sum=a[i],ret++;
+	}
+	return ret<=C;
+}
 int main(){
-	int A,B,C;
-	scanf("%d%d%d",&A,&B,&C);
-	printf("%.11f\n",binarysearch(0.0,1000.0,[&](double t){
-		double n=A*t+B*sin(C*t*M_PI);
-		return n>=100;
+	int N,C,i=0;
+	scanf("%d%d",&N,&C);
+	for(;i<N;i++)scanf("%d",a+i);
+	printf("%d\n",binarysearch(0,1<<30,[&](int m){
+		return ok(m,N,C);
 	}));
 }
