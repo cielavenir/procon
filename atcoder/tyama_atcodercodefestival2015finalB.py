@@ -1,4 +1,7 @@
 #!/usr/bin/python
+import sys
+if sys.version_info[0]>=3: raw_input=input
+
 def probability(n, s):
 	a=[0]*(s*(n+1)+1)
 	for i in range(1,s+1):
@@ -8,5 +11,5 @@ def probability(n, s):
 			a[i+s]=sum(a[i:i+s])
 	return max([e,-i] for i,e in enumerate(a))
 
-n=input()
+n=int(raw_input())
 print(-probability(n,6)[1]-6)
