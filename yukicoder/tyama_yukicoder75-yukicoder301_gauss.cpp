@@ -61,7 +61,12 @@ double expected(int n, int s, int t){//vector<int> b){
 }
 
 int main(){
-	int N;
-	scanf("%d",&N);
-	printf("%f\n",expected(1,6,N));
+	int T;
+	for(scanf("%d",&T);T--;)
+	{
+		long long N;
+		scanf("%lld",&N);
+		if(N>200)printf("%.15f\n",N+5.0/3);
+		else printf("%.15f\n",expected(1,6,N));
+	}
 }
