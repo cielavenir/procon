@@ -37,13 +37,8 @@ class TLLI
 	end
 end
 
-$black={}
 class SETI <TLLI # a=>key, b=>left, c=>right
 	def set_entry(key)
-		if $black[key]
-			$black.delete(key)
-			return
-		end
 		x=root_triany
 		y=0
 		while x!=0&&!(x==root_triany&&get_a(x)==0) #fixme
@@ -67,7 +62,6 @@ class SETI <TLLI # a=>key, b=>left, c=>right
 		end
 	end
 	def find_entry(key)
-		return false if $black[key]
 		t=root_triany
 		loop{
 			return true if key==get_a(t)
@@ -80,23 +74,85 @@ class SETI <TLLI # a=>key, b=>left, c=>right
 			end
 		}
 	end
+	def delete_entry(key)
+		left=false
+		prev=nil
+		t=root_triany
+		loop{
+			break if key==get_a(t)
+			prev=t
+			if key<get_a(t)
+				t=get_b(t)
+				left=true
+				return false if t==0
+			else
+				t=get_c(t)
+				left=false
+				return false if t==0
+			end
+		}
+		if get_b(t)>0&&get_c(t)>0
+			children=inorder_internal(get_c(t))+[t]
+			set_a(t,get_a(children[0]))
+
+			prev=children[1]
+			#left of parent of t
+			if prev!=t
+				set_b(prev,0)
+				left=true
+			else
+				left=false
+			end
+			t=children[0]
+		end
+		if t==root_triany
+			if get_b(root_triany)>0
+				set_a(root_triany,get_a(get_b(root_triany)))
+				set_c(root_triany,get_c(get_b(root_triany)))
+				set_b(root_triany,get_b(get_b(root_triany)))
+			elsif get_c(root_triany)>0
+				set_a(root_triany,get_a(get_c(root_triany)))
+				set_b(root_triany,get_b(get_c(root_triany)))
+				set_c(root_triany,get_c(get_c(root_triany)))
+			end
+		else
+			raise if !prev
+			if get_b(t)+get_c(t)>0
+				n=get_b(t)+get_c(t)
+				if left
+					set_b(prev,n)
+				else
+					set_c(prev,n)
+				end
+			else
+				if left
+					set_b(prev,0)
+				else
+					set_c(prev,0)
+				end
+			end
+		end
+	end
+	def inorder_internal(t)
+		t==0 ? [] : inorder_internal(get_b(t))+[t]
+	end
 	def print_preorder(t)
 		return if t==0
-		Kernel.print " #{get_a(t)}" unless $black.has_key?(get_a(t))
+		Kernel.print " #{get_a(t)}"
 		print_preorder(get_b(t))
 		print_preorder(get_c(t))
 	end
 	def print_inorder(t)
 		return if t==0
 		print_inorder(get_b(t))
-		Kernel.print " #{get_a(t)}" unless $black.has_key?(get_a(t))
+		Kernel.print " #{get_a(t)}"
 		print_inorder(get_c(t))
 	end
 	def print_postorder(t)
 		return if t==0
 		print_postorder(get_b(t))
 		print_postorder(get_c(t))
-		Kernel.print " #{get_a(t)}" unless $black.has_key?(get_a(t))
+		Kernel.print " #{get_a(t)}"
 	end
 	def print
 		print_inorder(root_triany);puts
@@ -105,14 +161,15 @@ class SETI <TLLI # a=>key, b=>left, c=>right
 end
 
 seti=SETI.new
-$<.drop(1).each{|l|
+gets
+$<.each{|l|
 	a=l.split
 	if a[0]=='insert'
 		seti.set_entry(a[1].to_i)
 	elsif a[0]=='find'
 		puts seti.find_entry(a[1].to_i) ? :yes : :no
 	elsif a[0]=='delete'
-		$black[a[1].to_i]=1 # incorrect: WA on 7C case2.
+		seti.delete_entry(a[1].to_i)
 	elsif a[0]=='print'
 		seti.print
 	end
