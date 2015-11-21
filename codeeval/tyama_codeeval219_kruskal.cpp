@@ -24,22 +24,35 @@ int unite(int a,int b){
 int main(){
 	string line,s;
 	for(;getline(cin,line);){
-		vector<tiii> v;
+		//vector<tiii> v;
+		map<pair<int,int>,int>v;
 		map<int,int> m;
+		int N;
 		{
+			int ma=0;
 			istringstream ss(line);
 			int x,y,z;
 			for(;ss>>x>>y>>z;ss>>s){
-				v.emplace_back(x,y,z);
+				if(x>y)swap(x,y);
+				//v.emplace_back(x,y,z);
+				v[{x,y}]=z;
 				if(m.find(x)==m.end())m.emplace(x,m.size());
 				if(m.find(y)==m.end())m.emplace(y,m.size());
+				ma=max({ma,x,y});
+			}
+			N=m.size();
+			if(ma!=N){
+				//some nodes are missing
+				puts("False");
+				continue;
 			}
 		}
-		int N=m.size();
+		
 
 		int g=0;
 		for(auto &e:v){
-			a[g]=m.at(get<0>(e)),b[g]=m.at(get<1>(e)),node[g].first=get<2>(e),node[g].second=g;
+			//a[g]=m.at(get<0>(e)),b[g]=m.at(get<1>(e)),node[g].first=get<2>(e),node[g].second=g;
+			a[g]=m.at(e.first.first),b[g]=m.at(e.first.second),node[g].first=e.second,node[g].second=g;
 			g++;
 		}
 		sort(node,node+g);
