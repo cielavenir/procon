@@ -40,6 +40,7 @@ int main(int argc,char **argv){
 		if(scanf("%llu",&n)<0)return 0;
 		printf("%llu\n",solve(n,count,base));
 	}
+	return 0;
 }
  
 /*
