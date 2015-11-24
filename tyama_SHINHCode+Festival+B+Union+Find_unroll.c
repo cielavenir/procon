@@ -1,0 +1,1 @@
+p[1<<17];main(x,y){for(x=1e5;p[x]=--x;);for(gets(y);~scanf("%d%d%d",p,&x,&y);!*p?p[x]=y:puts(x-y?"NO":"YES"))for(;x-p[x]+y-p[y];y=p[y])x=p[x];}

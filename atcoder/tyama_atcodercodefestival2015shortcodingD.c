@@ -1,0 +1,1 @@
+char a[9],b[9];i,j,c;main(){for(gets(a),gets(b);a[i];i++)c=(c+a[i]-48)%10,c+48==b[j]&&(j+=1,c=0);i=!puts(b[j]+c?"NO":"YES");}
