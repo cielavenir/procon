@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cstdio>
 using namespace std;
+
 struct SAComp{
 	const int h,*g;
 	SAComp(const int h, const int* g) : h(h), g(g) {}
@@ -26,23 +27,19 @@ vector<int> buildSA(string &t){
 	}
 	return suff;
 }
+
 int main(){
 	cin.tie(0);
 	ios::sync_with_stdio(false);
+	string q,s;
+	for(;cin>>q>>q>>s;){
+		s+='$';
+		int n=s.size();
+		vector<int>suff=buildSA(s);
+		vector<pair<char,int>>sorted(n);
+		for(int i=0;i<n;i++)sorted[i]={s[(suff[i]-1+n)%n],i};
+		sort(sorted.begin(),sorted.end());
 
-	string s;
-	cin>>s;
-	s+='$';
-	int n=s.size();
-	vector<int>suff=buildSA(s);
-	vector<pair<char,int>>sorted(n);
-	for(int i=0;i<n;i++)sorted[i]={s[(suff[i]-1+n)%n],i};
-	sort(sorted.begin(),sorted.end());
-
-	int T;
-	for(cin>>T;T--;){
-		string q;
-		cin>>q;
 		int start=0,stop=n,idx=q.size()-1;
 		for(;idx>=0;idx--){
 			pair<char,int> ql={q[idx],start},qr={q[idx],stop};
@@ -50,11 +47,13 @@ int main(){
 			stop=lower_bound(sorted.begin(),sorted.end(),qr)-sorted.begin();
 			if(start==stop)break;
 		}
-		if(idx<0){
-			//{vector<int>v;for(;start<stop;start++)v.push_back(suff[start]);sort(v.begin(),v.end());for(auto &e:v)printf("%d\n",e);}
-			puts("1");
-		}else{
-			puts("0");
+
+		{
+			vector<int>v;
+			for(;start<stop;start++)v.push_back(suff[start]);
+			sort(v.begin(),v.end());
+			for(auto &e:v)printf("%d\n",e);
 		}
+		puts("");
 	}
 }
