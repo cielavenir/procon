@@ -1,3 +1,4 @@
+#include "inspect.hpp"
 #include <cstdio>
 #include <vector>
 #include <algorithm>
@@ -51,7 +52,25 @@ int main(){
 	//atcoderutpc2014F: パリティ
 	//for(scanf("%d",&T),getchar();T--;printf("%lld\n",merge_and_count(0,N)%2))for(N=0;~(A[N]=getchar())&&A[N]!='\n';N++);
 	//kcs1031A
-	scanf("%d%d",&N,&T);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",std::max(merge_and_count(0,N)-T,0LL));
+	//scanf("%d%d",&N,&T);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",std::max(merge_and_count(0,N)-T,0LL));
+	//masuipeobook25: オシャレな靴ひもの結び方
+	//{0,5,4,5,3,4,2,3,1,2,0,1}のinversion countを取れば良い
+	T=0,N=12;
+	std::vector<int>v(N);
+	for(i=0;i<N/2;i++)v[2*i]=v[2*i+1]=i;
+	rotate(v.begin(),v.begin()+1,v.end());
+	do{
+		std::swap(v[N-2],v[N-1]);
+		for(i=0;i<N/2;i++){
+			if(v[2*i]>=v[2*i+1])break;//同じ穴に結線しているか、inversion countを行える条件を満たさない
+		}
+		if(i==N/2){
+			std::copy(v.begin(),v.end(),A),T=std::max((long long)T,merge_and_count(0,N));
+			if(T==45)std::cout<<v<<std::endl;
+		}
+		std::swap(v[N-2],v[N-1]);
+	}while(std::next_permutation(v.begin()+1,v.end()-1));
+	printf("%d\n",T);
 }
 
 /*
