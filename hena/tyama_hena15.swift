@@ -3,7 +3,7 @@
 //#!/usr/bin/env xcrun swift
 //http://qiita.com/Nabetani/items/cba03c96d1ea55f6e861
 //http://nabetani.sakura.ne.jp/hena/ord15elebubo/
-import Darwin
+import CoreFoundation
 var v:[UInt]=[0,0] // I cannot specify the array size...
 var i=0,j=0
 for ;(withUnsafePointer(&v[0]){vscanf("%08x",getVaList([COpaquePointer($0)]))}>0); {

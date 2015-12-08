@@ -1,5 +1,5 @@
 #!/usr/bin/env xcrun swift
-import Darwin
+import CoreFoundation
 var n=0,k=0,m=0,r=0,i=0
 withUnsafePointer(&n){vscanf("%d",getVaList([COpaquePointer($0)]))}
 while n>0 {

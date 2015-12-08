@@ -2,7 +2,7 @@
 // http://qiita.com/Nabetani/items/23ebddb44f0234e7fb15
 // http://nabetani.sakura.ne.jp/hena/ord28spirwa/
 
-import Darwin
+import CoreFoundation
 let dir="ESWN"
 var	n=0,e=0,s=0,w=0;
 var days: Int64=0
