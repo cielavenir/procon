@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 puts "//usr/bin/env xcrun swift $0 $@;exit"
-puts "import Foundation"
+puts "import CoreFoundation"
 print "system(\"ruby -e '"
 $<.each{|e|
 	l=e.strip
