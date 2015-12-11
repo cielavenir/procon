@@ -8,7 +8,7 @@
 using namespace std;
 
 //ALDS1 14D cannot be solved.
-//BWT=O(TQlogS) Hash=O(TS)
+//BWT=O(S+TQlogS) Hash=O(TS)
 
 const int B=999999937;
 const int P=1000000007;
