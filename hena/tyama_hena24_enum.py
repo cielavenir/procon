@@ -55,7 +55,11 @@ f={
 	'c': partial(drop_prev,is_cb),
 	'h': partial(drop_n,is_le,100),
 }
-for e in range(2,10): f[str(e)]=partial(drop_n,is_multiple,e)
+
+#cf: https://twitter.com/closureobject/status/678619154346151941
+for e in range(2,10): f[str(e)]=partial(drop_n,is_multiple,e) # OK
+#for e in range(2,10): f[str(e)]=lambda n:drop_n(is_multiple,e,n) #NG
+#for e in range(2,10): f[str(e)]=(lambda x:lambda n:drop_n(is_multiple,x,n))(e) # OK
 
 if __name__=='__main__':
 	try:
