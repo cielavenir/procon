@@ -62,7 +62,7 @@ if RUBY_VERSION<'1.9'
 		'c'=>lambda{|enum|drop_prev(is_cb,enum)},
 		'h'=>lambda{|enum|drop_n(is_le,100,enum)},
 	}
-	('2'..'9').each{|e|f[e]=lambda{|enum|drop_n(is_multiple,e.to_i,enum)}}
+	(2..9).each{|e|f[e.to_s]=lambda{|enum|drop_n(is_multiple,e,enum)}}
 else
 	f={
 		'S'=>Kernel.method(:drop_next).to_proc.curry[is_sq],
@@ -71,7 +71,7 @@ else
 		'c'=>Kernel.method(:drop_prev).to_proc.curry[is_cb],
 		'h'=>Kernel.method(:drop_n).to_proc.curry[is_le,100],
 	}
-	('2'..'9').each{|e|f[e]=Kernel.method(:drop_n).to_proc.curry[is_multiple,e.to_i]}
+	(2..9).each{|e|f[e.to_s]=Kernel.method(:drop_n).to_proc.curry[is_multiple,e]}
 end
 
 if $0==__FILE__
