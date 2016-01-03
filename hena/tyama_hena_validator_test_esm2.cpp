@@ -1,0 +1,41 @@
+#include <string>
+void test(std::string input, std::string expect);
+void testloader(){ //insert test cases here
+  test("A", "RWWWWRRRRR");
+  test("F", "WWWWWWWRRW");
+  test("J", "WWWWWWRRWW");
+  test("AA", "WWWWWWWRWW");
+  test("IC", "WWRWWRRRWW");
+  test("FC", "WWRWWWWRRW");
+  test("AE", "RWWWRRRRRR");
+  test("GJ", "WWWWWWWWWW");
+  test("CCB", "WRWWWRWWWR");
+  test("BEF", "WRWWRWWRRR");
+  test("JGD", "WWWRWWWWWW");
+  test("IHCC", "WWWWWRWWWW");
+  test("AIDD", "RWWWWRRWWR");
+  test("IJFA", "RWWWWWWWWW");
+  test("ABCDE", "RRRRRRRRRR");
+  test("ICEBA", "RRRWRRRRRR");
+  test("DAHHD", "RWWWWRWWWR");
+  test("GJIJC", "WWRWWWWWRR");
+  test("FGHIJ", "WWWWWWWWRR");
+  test("HJICGA", "RWRWWRRRRR");
+  test("IBCIGC", "WRWWWWWWWW");
+  test("BIJJJB", "WWWWWWRWWW");
+  test("DCBCHGD", "WRWWWWWRRW");
+  test("JEABDHD", "RRWWRRRWRR");
+  test("JHFADHE", "RWWRRRRRWW");
+  test("HDGGDBIB", "WWWWWWWWWW");
+  test("IIDIHCCG", "WWWRWRRWWW");
+  test("BBFBICIE", "WRRWRRRWWW");
+  test("HJHCFBJGG", "WRRWWWWRRW");
+  test("AJJIEAAII", "RWWWRWWWWR");
+  test("AIDHJFGAE", "WWWRRWWWWW");
+  test("FGBGHCBHJJ", "WWRWWWWRRW");
+  test("EFIGIGGHHJ", "WWWWRRRWWR");
+  test("HGAFDIFFFF", "RWWRWRRRRW");
+  test("AABBCCDDEE", "WWWWWWWWWW");
+  test("ABCDEFGHIJ", "RRRRRWWWWW");
+  test("FGHIJABCDE", "RRRRRRRRRR");
+}
