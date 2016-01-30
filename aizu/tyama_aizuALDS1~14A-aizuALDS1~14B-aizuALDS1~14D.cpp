@@ -11,7 +11,7 @@ struct SAComp{
 		return a == b ? false : g[a] != g[b] ? g[a] < g[b] : g[a+h] < g[b+h];
 	}
 };
-vector<int> buildSA(string &t){
+vector<int> buildSA(const string &t){
 	int n=t.size();
 	int g[n],b[n];
 	vector<int>suff(n);
