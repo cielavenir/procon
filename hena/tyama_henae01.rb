@@ -1,12 +1,15 @@
 #!/usr/bin/ruby
+#http://qiita.com/Nabetani/items/4bf43031749c81c35526
+#http://nabetani.sakura.ne.jp/hena/orde01rotbk/
+
 STDOUT.sync=true
 while gets
 	a=$_.chomp.split(':')
 	n=a[0].to_i
-	a=a[1][1..-1].split(')(').map{|e|e.split(',').map(&:to_i)}
+	a=a[1][1..-2].split(')(').map{|e|e.split(',').map(&:to_i)}
 
 	width=a[0].reduce(:+)
-	m=width.times.map{[0]*width}
+	m=width.times.map{[nil]*width}
 	aheight=[0]*width # 各列何行目まで埋めたか
 	mheight=0 # aheightの最小値
 	a.each{|e|
@@ -14,7 +17,7 @@ while gets
 		x=0
 		width.times{|i|
 			if aheight[i]==mheight
-				next if cur==e.size # 同じ行だが別のグループ
+				break if cur==e.size ### 同じ行だが別のグループ ###
 				e[cur].times{|j|
 					m[aheight[i]][i]=e[cur]
 					aheight[i]+=1
@@ -29,26 +32,14 @@ while gets
 		mheight=aheight.min
 	}
 	#時計回りに回転
-	m=m.transpose.map(&:reverse)
+	m=m.reverse.transpose
 
 	lst={}
 	m.each{|line|
-		lstprev=lst.dup
-		a=[] # その行で始まるグループ一覧
-		a0=[]
-		line.each{|e|
-			if !lst.include?(e)
-				a0<<e
-				lst[e]=1
-			elsif lstprev.include?(e)
-				if !a0.empty?
-					a<<a0
-					a0=[]
-				end
-			end
-		}
-		a<<a0 if !a0.empty?
+		# その行で始まるグループ一覧 (lineに2つ以上グループが存在することがある)
+		a=line.uniq.chunk{|e|!lst.include?(e)}.select{|k,v|k}.map{|k,v|v}
 		a.each{|e|
+			e.each{|f|lst[f]=1}
 			n-=1
 			if n==0
 				puts '('+e*','+')'
