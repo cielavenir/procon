@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+#coding:utf-8
 require 'rubygems'
 require 'multisax'
 require 'net/http'
@@ -67,6 +68,7 @@ URLS={
 	'28'=>'hena/ord28spirwa',
 	'29'=>'hena/ord29devdice',
 	'30'=>'hena/ord30taxi',
+	'e01'=>'hena/orde01rotbk',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
@@ -93,9 +95,11 @@ else
 	}
 end
 #table section contains only tags which are also valid as XML.
+body.force_encoding('UTF-8')
 body.gsub!(/\<table class='bibo_s'\>.*?\<\/table\>/m,'table')
 body.gsub!(/\<img[^\>]*\>/,'img')
 body.gsub!(/\<a.*?\<\/a\>/m,'')
+body.gsub!('状況へのリンク','')
 body.gsub!(/\<small.*?\<\/small\>/m,'')
 xml='<table'+body.split('<table').last.split('</table>').first+'</table>'
 listener=MultiSAX::Sax.parse(xml,Class.new{
