@@ -29,7 +29,7 @@ int main(){
 		int prev=-1;
 		vector<int>dec;
 		for(int i=2;i<v.size()-2;i++){
-			if(v[i-2]<=v[i]&&v[i]>v[i+2]){
+			if(v[i-2]<=v[i]&&v[i]>v[i+2]){ //iは山
 				if(prev>=0)dec.push_back(i-prev);
 				prev=i;
 			}
