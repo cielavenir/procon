@@ -1,10 +1,16 @@
 #!/usr/bin/ruby
 #gauche is not supported (guile is ok)
+load File.expand_path(File.dirname(__FILE__))+'/000.rb'
 
-print "(system \"ruby -e '"
+print "(system \"#{COMMAND} '-e"
+first=true
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'
-	print l.gsub('"','\"').gsub("'",'\"')+';' if !l.start_with?('#')
+	if !l.empty? && !l.start_with?('#')
+		print ';' if !first
+		first=false
+		print l.gsub('"','\"').gsub("'",'\"')
+	end
 }
-puts "'\")"
+print "'\")"

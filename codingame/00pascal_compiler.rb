@@ -1,13 +1,19 @@
 #!/usr/bin/ruby
-puts "program PascalCompiler;"
+load File.expand_path(File.dirname(__FILE__))+'/000.rb'
+puts "program K;"
 puts "uses unix;"
 puts "var s:ansistring;"
 puts "begin"
-print "fpsystem(ansistring('ruby -e '#39'"
+print "fpsystem(ansistring('#{COMMAND} '#39'-e"
+first=true
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'
-	print l.gsub("'",'"')+';' if !l.start_with?('#')
+	if !l.empty? && !l.start_with?('#')
+		print ';' if !first
+		first=false
+		print l.gsub("'",'"')
+	end
 }
 puts "'#39''));"
-puts "end."
+print "end."

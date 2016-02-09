@@ -1,9 +1,15 @@
 #!/usr/bin/ruby
-puts "#!/usr/bin/ruby"
-print "system(%q#ruby -e '"
+load File.expand_path(File.dirname(__FILE__))+'/000.rb'
+puts "#!/usr/bin/ruby" if SCRIPTING
+print "system(%q##{COMMAND} '-e"
+first=true
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'
-	print l.gsub("'",'"')+';' if !l.start_with?('#')
+	if !l.empty? && !l.start_with?('#')
+		print ';' if !first
+		first=false
+		print l.gsub("'",'"')
+	end
 }
-puts "'#)"
+print "'#)"

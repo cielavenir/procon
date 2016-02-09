@@ -1,21 +1,26 @@
 #!/usr/bin/ruby
-STANDALONE=false
+load File.expand_path(File.dirname(__FILE__))+'/000.rb'
 
-puts "#!/usr/bin/env clj" if STANDALONE
-puts "(ns Solution (:gen-class))" if !STANDALONE
+puts "#!/usr/bin/env clj" if CLOJURE_STANDALONE && SCRIPTING
+puts "(ns Solution (:gen-class))" if !CLOJURE_STANDALONE
 puts "(use '[clojure.java.shell :only [sh]])"
-puts "(defn -main [& args]" if !STANDALONE
+puts "(defn -main [& args]" if !CLOJURE_STANDALONE
 
-print "(println (:out (sh \"ruby\" \"-e\" \""
+print "(println (:out (sh \"#{COMMAND}\" \"-e"
+first=true
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'
-	print l.gsub('"','\"').gsub("'",'\"')+';' if !l.start_with?('#')
+	if !l.empty? && !l.start_with?('#')
+		print ';' if !first
+		first=false
+		print l.gsub('"','\"').gsub("'",'\"')
+	end
 }
 puts "\" :in *in*)))"
 
 # http://dev.clojure.org/jira/browse/CLJ-959
-puts "(shutdown-agents)"
-#puts "(System/exit 0)"
+print "(shutdown-agents)"
+#print "(System/exit 0)"
 
-puts ")" if !STANDALONE
+print ")" if !CLOJURE_STANDALONE

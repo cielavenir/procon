@@ -1,11 +1,17 @@
 #!/usr/bin/ruby
+load File.expand_path(File.dirname(__FILE__))+'/000.rb'
 puts "using System.Runtime.InteropServices;"
-puts "class CSCompiler{"
+puts "class K{"
 puts "[DllImport(\"msvcrt\",CallingConvention=CallingConvention.Cdecl)]static extern int system(string s);"
-print "static void Main(){system(\"ruby -e '"
+print "static void Main(){system(\"#{COMMAND} '-e"
+first=true
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'
-	print l.gsub('"','\"').gsub("'",'\"')+';' if !l.start_with?('#')
+	if !l.empty? && !l.start_with?('#')
+		print ';' if !first
+		first=false
+		print l.gsub('"','\"').gsub("'",'\"')
+	end
 }
-puts "'\");}}"
+print "'\");}}"

@@ -1,10 +1,16 @@
 #!/usr/bin/ruby
-puts "#!/usr/bin/env nim"
+load File.expand_path(File.dirname(__FILE__))+'/000.rb'
+puts "#!/usr/bin/env nim" if SCRIPTING
 puts "import osproc"
-print "var r=execCmd(\"ruby -e '"
+print "var r=execCmd(\"#{COMMAND} '-e"
+first=true
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'
-	print l.gsub('"','\"').gsub("'",'\"')+';' if !l.start_with?('#')
+	if !l.empty? && !l.start_with?('#')
+		print ';' if !first
+		first=false
+		print l.gsub('"','\"').gsub("'",'\"')
+	end
 }
-puts "'\")"
+print "'\")"

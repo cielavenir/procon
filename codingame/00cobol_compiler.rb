@@ -1,15 +1,21 @@
 #!/usr/bin/ruby
+load File.expand_path(File.dirname(__FILE__))+'/000.rb'
 puts "        identification division."
 puts "        program-id. cobol_compiler."
 puts "        procedure division."
-s=""
-s<<"call \"system\" using \"ruby -e '"
+s="".dup
+s<<"call \"system\" using \"#{COMMAND} '-e"
+first=true
 $<.each{|e|
 	l=e.strip
 	break if l=='__END__'
-	s<<l.gsub('"','""').gsub("'",'""')+';' if !l.start_with?('#')
+	if !l.empty? && !l.start_with?('#')
+		s<<';' if !first
+		first=false
+		s<<l.gsub('"','""').gsub("'",'""')
+	end
 }
 s<<"'\"."
 a=s.chars.each_slice(72-8).with_index.map{|e,i|(i==0?'        ':'      -"')+e.join}
 puts a
-puts "        stop run."
+print "        stop run."
