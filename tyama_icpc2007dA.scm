@@ -1,18 +1,18 @@
 #!/usr/bin/env gosh
 ;Tested using Gauche
 
-;(define max (lambda(x y)
-;  (if (< x y) y x)))
-;(define min (lambda(x y)
-;  (if (< x y) x y)))
+;(define (max x y)
+;  (if (< x y) y x))
+;(define (min x y)
+;  (if (< x y) x y))
 
-(define sum (lambda(n ma mi s _n)
+(define (sum n ma mi s _n)
   (if (zero? n) (truncate (/ (- s (+ ma mi)) (- _n 2)))
-    (let ((x (read (current-input-port)))) ;the same as (set! x (...)) (begin ...), but...
-      (sum (- n 1) (max ma x) (min mi x) (+ s x) _n)))))
+    (let ((x (read))) ;the same as (set! x (...)) (begin ...), but...
+      (sum (- n 1) (max ma x) (min mi x) (+ s x) _n))))
 
 (while #t
-  (let ((n (read (current-input-port))))
+  (let ((n (read)))
      (if (zero? n) (exit))
      (write (sum n 0 1000 0 n))
      (newline)
