@@ -1,0 +1,2 @@
+#!/usr/bin/ruby
+gets;q=$<.map{|e|e.split.map &:to_i};x,y=q.map{|x,y|[x+y,x-y]}.transpose;lx,mx=x.minmax;ly,my=y.minmax;l=[mx-lx,my-ly].max/2;[[lx+l,ly+l],[lx+l,my-l],[mx-l,ly+l],[mx-l,my-l]].find{|x,y|a,b=(x+y)/2,(x-y)/2;q.group_by{|e,f|(a-e).abs+(b-f).abs}.size==1&&$><<a<<' '<<b}
