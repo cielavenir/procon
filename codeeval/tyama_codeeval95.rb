@@ -11,7 +11,7 @@ puts$<.map{|l|
 	x=l.gsub('Pi','Math::PI').gsub('e','Math::E').gsub('^','**')
 	x=x.gsub(/(\d+)!/){(1..$1.to_i).reduce(:*).to_s}
 	x=x.gsub(/\|(.*)\|/,'(\1).abs').gsub(/\|(.*)\|/,'(\1).abs')
-	x=x.gsub(/(\d+) mod (\d+)/){$1.to_i%$2.to_i}
+	x=x.gsub(/\(?(-?\d+)\)? mod \(?(-?\d+)\)?/){$1.to_i%$2.to_i}
 	("%.5f"%eval(x)).sub(/0+$/,'').sub(/\.$/,'')
 }
 

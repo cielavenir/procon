@@ -1,1 +1,1 @@
-p[1<<17];R(a){return p[a]=p[a]-a?R(p[a]):a;}x=1<<17;main(y){for(gets(p);p[x]=--x;);for(;~scanf("%d%d%d",p,&x,&y);!*p?p[x]=y:puts(x-y?"NO":"YES"))x=R(x),y=R(y);exit(0);}
+p[1<<17];R(a){return p[a]-a?(p[a]=R(p[a])):a;}x=1<<17;main(y){for(gets(p);p[x]=--x;);for(;~scanf("%d%d%d",p,&x,&y);!*p?p[x]=y:puts(x-y?"NO":"YES"))x=R(x),y=R(y);exit(0);}
