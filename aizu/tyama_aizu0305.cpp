@@ -1,4 +1,5 @@
 #include <set>
+#include <cstdio>
 using namespace std;
 int main(){
 	int n,x0,y0,x1,y1;
