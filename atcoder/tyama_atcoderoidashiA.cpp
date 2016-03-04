@@ -1,4 +1,5 @@
-#include <cstdio>
+#include <iostream>
+#include <string>
 #include <vector>
 #include <queue>
 #define INF 999999999
@@ -15,10 +16,10 @@ bool operator < (const Edge &e, const Edge &f) {
   return e.weight != f.weight ? e.weight > f.weight : // !!INVERSE!!
     e.src != f.src ? e.src < f.src : e.dst < f.dst;
 }
-
+ 
 typedef vector<Edge> Edges;
 typedef vector<Edges> Graph;
-
+ 
 void shortestPath(const Graph &g, int s,
     vector<Weight> &dist, vector<int> &prev) {
   int n = g.size();
@@ -39,23 +40,35 @@ void shortestPath(const Graph &g, int s,
 }
 
 int main(){
-	int i,V,E,start,goal,s,t,e;
-	//for(scanf("%d",&T);T;putchar(--T?' ':'\n')){
-		scanf("%d%d",&V,&E);
-		scanf("%d%d",&start,&goal);start--,goal--;
-		Graph g(V);
-		for(;E--;)scanf("%d%d%d",&s,&t,&e),g[s-1].push_back(Edge(s-1,t-1,e)),g[t-1].push_back(Edge(t-1,s-1,e));
-		vector<Weight> dist1,dist2;
-		vector<int> prev;
-		shortestPath(g,start,dist1,prev);
-		prev.clear();
-		shortestPath(g,goal,dist2,prev);
-		for(i=0;i<V;i++){
-			if(dist1[i]!=INF&&dist1[i]==dist2[i]){
-				printf("%d\n",i+1);
-				return 0;
-			}
+	int H,W,start,goal;
+	cin>>H>>W;
+	Graph g(H*W);
+	vector<string>v(H);
+	for(int i=0;i<H;i++)cin>>v[i];
+	for(int i=0;i<H;i++)for(int j=0;j<W;j++){
+		int x=i*W+j,y,f;
+		if(v[i][j]=='S')start=x;
+		if(v[i][j]=='G')goal=x;
+		if(i<H-1){
+			y=(i+1)*W+j;
+			if(v[i][j]!='#')g[x].push_back(Edge(x,y,1));
+			if(v[i+1][j]!='#')g[y].push_back(Edge(y,x,1));
 		}
-		puts("-1");
-	//}
+		if(j<W-1){
+			y=i*W+j+1;
+			if(v[i][j]!='#')g[x].push_back(Edge(x,y,1));
+			if(v[i][j+1]!='#')g[y].push_back(Edge(y,x,1));
+		}
+	}
+	vector<Weight> dist1,dist2;
+	vector<int> prev;
+	shortestPath(g,start,dist1,prev);
+	prev.clear();
+	shortestPath(g,goal,dist2,prev);
+	int r=0;
+	for(int i=0;i<H;i++)for(int j=0;j<W;j++){
+		int x=i*W+j;
+		if(v[i][j]=='#'&&dist1[x]!=INF&&dist2[x]!=INF)r=max(r,dist1[x]+dist2[x]);
+	}
+	printf("%d\n",r);
 }
