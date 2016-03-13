@@ -1,15 +1,16 @@
 #!/usr/bin/ruby
 def partition(a,p,r)
-	x=a[p]
-	i=r
-	r.downto(p+1){|j|
-		if a[j]>=x
+	i,j,k=p,r,a[p]
+
+	loop{
+    	i+=1 while a[i]<k
+		j-=1 while a[j]>k
+		if i>=j
+			return j
+		else
 			a[i],a[j]=a[j],a[i]
-			i=i-1
 		end
 	}
-	a[i],a[p]=a[p],a[i]
-	return i
 end
 def quicksort(a,p,r)
 	if p<r
