@@ -1,4 +1,4 @@
-#!/usr/bin/env xcrun swift
+//usr/bin/env swift $0 $@;exit
 import CoreFoundation
 var t=0,y=0,m=0,d=0
 withUnsafeMutablePointer(&t){withVaList([COpaquePointer($0)]){vscanf("%d",$0)}}

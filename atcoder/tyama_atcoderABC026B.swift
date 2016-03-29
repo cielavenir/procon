@@ -1,11 +1,17 @@
 //usr/bin/env swift $0 $@;exit
-import CoreFoundation
+
+//import CoreFoundation
+#if _runtime(_ObjC)
+import Darwin
+#else
+import Glibc
+#endif
 
 func getInt()->Int{
-	//var n:Int=0
-	//withUnsafeMutablePointer(&n){withVaList([COpaquePointer($0)]){vscanf("%d",$0)}}
-	//return n
-	return Int(readLine()!)!
+	var n:Int=0
+	withUnsafeMutablePointer(&n){withVaList([COpaquePointer($0)]){vscanf("%d",$0)}}
+	return n
+	//return Int(readLine()!)!
 }
 var n=getInt()
 var a=[Int](count:n,repeatedValue:0)
