@@ -1,3 +1,4 @@
+#!/usr/bin/python
 D=[[0,1],[1,-1],[1,0],[1,1]]
 def grid(m):
 	for i in range(1,9):

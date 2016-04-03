@@ -1,2 +1,2 @@
 #!/bin/sh
-fold -`cat`<<<DiscoPresentsDiscoveryChannelProgrammingContest2016
+fold -`dd`<<<DiscoPresentsDiscoveryChannelProgrammingContest2016
