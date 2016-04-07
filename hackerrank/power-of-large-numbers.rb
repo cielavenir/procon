@@ -13,5 +13,5 @@ end
 
 gets.to_i.times{
 	a,b=gets.split.map(&:to_i)
-	p pow_binary(a%MOD,b)
+	p pow_binary(a%MOD,b%~-MOD)
 }
