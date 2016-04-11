@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from scipy.sparse import *
+from scipy.sparse import*
 import sys
 if sys.version_info[0]>=3:raw_input=input
 f=lambda*z:map(int,raw_input().split())
