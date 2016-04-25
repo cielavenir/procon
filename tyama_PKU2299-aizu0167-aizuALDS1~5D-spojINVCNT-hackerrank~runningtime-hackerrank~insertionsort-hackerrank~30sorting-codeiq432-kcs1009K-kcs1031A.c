@@ -27,16 +27,18 @@ int main(){
 	//for(;scanf("%d",&N),N;printf("%lld\n",M(0,N)))for(i=0;i<N;i++)scanf("%d",A+i);
 	//hackerrank~runningtime,aizuALDS1~5D
 	//scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",M(0,N));
+	//hackerrank~30-sorting
+	scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("Array is sorted in %lld swaps.\n",M(0,N)),printf("First Element: %d\nLast Element: %d\n",A[0],A[N-1]);
 	//spojINVCNT,hackerrank~insertionsort
 	//for(scanf("%d",&T);T--;printf("%lld\n",M(0,N)))for(scanf("%d",&N),i=0;i<N;++i)scanf("%d",A+i);
 	//codeiq4322: 光線の交差数
-	for(N=0;~scanf("%d",A+N);N++);printf("%lld\n",M(0,N));
-	//kcs1009KK: Nパズルの可解性
+	//for(N=0;~scanf("%d",A+N);N++);printf("%lld\n",M(0,N));
+	//kcs1009K: Nパズルの可解性
 	//for(i=0;~(N=getchar());)if('0'<N&&N<'9')A[i++]=N-'0';
 	//puts(M(0,i)%2?"lmpossible":"Possible"); //"l"? lol!
 	//atcoderutpc2014F: パリティ
 	//for(scanf("%d",&T),getchar();T--;printf("%lld\n",M(0,N)%2))for(N=0;~(A[N]=getchar())&&A[N]!='\n';N++);
 	//kcs1031A
-	scanf("%d%d",&N,&T);for(i=0;i<N;i++)scanf("%d",A+i);N=M(0,N)-T;printf("%d\n",N>0?N:0);
+	//scanf("%d%d",&N,&T);for(i=0;i<N;i++)scanf("%d",A+i);N=M(0,N)-T;printf("%d\n",N>0?N:0);
 	return 0;
 }

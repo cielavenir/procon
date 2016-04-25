@@ -27,4 +27,47 @@ void Inorder(node *root) {
 	if(root->right)Inorder(root->right);
 }
 
+#include <queue>
+void LevelOrder(node *root){
+	queue<node*> q;
+	if(root){
+		q.push(root);
+		while(!q.empty()){
+			node *t = q.front();q.pop();
+			printf("%d ",t->data);
+			if(t->left){
+				q.push(t->left);
+			}
+			if(t->right){
+				q.push(t->right);
+			}
+		}
+	}
+}
+
+int getHeight(node *root){
+	if(!root)return -1;
+	return 1+max(getHeight(root->left),getHeight(root->right));
+}
+
+void top_view_left(node *root){
+	if(root){
+		top_view_left(root->left);
+		printf("%d ",root->data);
+	}
+}
+void top_view_right(node *root){
+	if(root){
+		printf("%d ",root->data);
+		top_view_right(root->right);
+	}
+}
+void top_view(node *root){
+	if(root){
+		top_view_left(root->left);
+		printf("%d ",root->data);
+		top_view_right(root->right);
+	}
+}
+
 int main(){}

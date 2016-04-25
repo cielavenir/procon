@@ -123,4 +123,15 @@ int FindMergeNode(Node *headA, Node *headB){
 	return headA->data;
 }
 
+Node* removeDuplicates(Node *head){
+	Node *ret=head;
+	for(;head->next;){
+		if(head->data==head->next->data)
+			head->next=head->next->next;
+		else
+			head=head->next;
+	}
+	return ret;
+}
+
 int main(){}
