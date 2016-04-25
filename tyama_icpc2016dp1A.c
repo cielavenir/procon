@@ -1,0 +1,1 @@
+x;main(c){for(;~(c=getchar());){if(c==65)x++;if(c==85)x--;if(x<0)x=-99;}x=!puts(x?"NO":"YES");}
