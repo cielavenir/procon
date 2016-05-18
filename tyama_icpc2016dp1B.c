@@ -1,1 +1,1 @@
-n,m,t,r,s;main(x){for(scanf("%d%d%d",&n,&m,&t);n--;s=x+m)if(scanf("%d",&x),s<x-m)r+=x-m-s;r=!printf("%d\n",r+(s<t?t-s:0));}
+m,t,r,s;main(x){for(scanf("%*d%d%d",&m,&t);~scanf("%d",&x);s=x+m)r+=s<x-m?x-m-s:0;r=!printf("%d\n",r+=s<t?t-s:0);}
