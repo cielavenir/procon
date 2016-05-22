@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-L,X,Y,S,D=gets.split.map &:to_f;p [(D-S)%L/(X+Y),Y>X ? (S-D)%L/(Y-X):1e9].min
+L,X,Y,s,d=gets.split.map &:to_f;p [(d-=s)%L/(X+Y),Y>X ? -d%L/(Y-X):1e9].min
