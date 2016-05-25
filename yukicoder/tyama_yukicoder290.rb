@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-gets;puts gets=~/(..?)\1/?:YES: :NO
+puts`sed 1d`=~/(.+)\1/?:YES: :NO

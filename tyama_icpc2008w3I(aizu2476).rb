@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-gets;s=1;gets.split.map(&:to_i).sort.all?{|e|e<=s&&s+=e};p s
+s=1;`sed 1d`.split.map(&:to_i).sort.all?{|e|e<=s&&s+=e};p s
