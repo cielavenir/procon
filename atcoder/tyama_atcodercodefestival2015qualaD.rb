@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-N,M,*X=$<.read.split.map &:to_i;p (0..2*N).bsearch{|n|c=1;X.all?{|e|(n>=b=c>e ?0:e-c)&&c=-~e+(n>b*3?n-b*2:n-b>>1)}&&c>N}
+N,M,*X=`dd`.split.map &:to_i;p (0..2*N).bsearch{|n|c=1;X.all?{|e|(n>=b=c>e ?0:e-c)&&c=-~e+(n>b*3?n-b*2:n-b>>1)}&&c>N}
 #N,M,*X=$<.read.split.map &:to_i;p (0..2*N).bsearch{|n|c=0;X.all?{|e|(n>=b=c<e ?~c+e :0)&&c=e+(n>b*3?n-b*2:n-b>>1)}&&c>=N}
 #N,M,*X=$<.read.split.map &:to_i;p (0..2*N).bsearch{|n|c=-1;X.all?{|e|(n>=b=-c>e ?0:e+c)&&c= ~e-(n>b*3?n-b*2:n-b>>1)}&&-c>N}
 
