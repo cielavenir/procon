@@ -19,9 +19,7 @@ if false
 else
 	IO.popen('factor '+gets){|io|
 		io.each{|line|
-			h=Hash.new(0)
-			line.split[1..-1].map(&:to_i).each{|e|h[e]+=1}
-			h.each{|k,v|E[k]<<v}
+			line.split[1..-1].map(&:to_i).group_by{|e|e}.each{|k,v|E[k]<<v.size}
 		}
 	}
 end
