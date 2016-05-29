@@ -35,16 +35,17 @@ void insert(node *root,int n){
 
 int main(){
 	int N,K,x;
-	scanf("%d%d",&N,&K);
-	set<string>se;
-	for(int i=0;i<N;i++){
-		node *root=(node*)calloc(1,sizeof(node));
-		scanf("%d",&root->data);
-		for(int j=1;j<K;j++){
-			scanf("%d",&x);
-			insert(root,x);
+	for(;~scanf("%d%d",&N,&K);){
+		set<string>se;
+		for(int i=0;i<N;i++){
+			node *root=(node*)calloc(1,sizeof(node));
+			scanf("%d",&root->data);
+			for(int j=1;j<K;j++){
+				scanf("%d",&x);
+				insert(root,x);
+			}
+			se.insert(shape(root));
 		}
-		se.insert(shape(root));
+		printf("%d\n",se.size());
 	}
-	printf("%d\n",se.size());
 }
