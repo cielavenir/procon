@@ -1,2 +1,4 @@
 #!/usr/bin/ruby
-p gets.chomp.chars.map(&:to_i).reduce(:+)
+p`dd`.chars.map(&:hex).reduce:+
+__END__
+p`dd`.sum-106

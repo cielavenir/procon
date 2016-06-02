@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 load File.expand_path(File.dirname(__FILE__))+'/000.rb'
 puts "        identification division."
-puts "        program-id. cobol_compiler."
+puts "        program-id. k."
 puts "        procedure division."
 s="".dup
 s<<"call \"system\" using \"#{COMMAND} '-e"
