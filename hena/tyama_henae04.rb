@@ -8,8 +8,7 @@ N=8
 if __FILE__==$0
 	while gets
 		line=$_.chomp.split(':')
-		a=[]
-		line[0].reverse.chars.each_with_index{|e,i|a<<[(e.to_i+N-1)%N,(e.to_i)%N]}
+		a=line[0].reverse.chars.map{|e|[(e.to_i+N-1)%N,(e.to_i)%N]}
 		idx1=line[1].ord-65
 		(a.size-1).downto(0){|i|
 			x=a[i].index(idx1)
