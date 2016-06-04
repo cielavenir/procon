@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+#http://qiita.com/mtsmfm/items/6d9112fcc568908caaba
 #http://mtsmfm.github.io/2016/06/04/doukaku-e04.html
 #1630-1659
 
