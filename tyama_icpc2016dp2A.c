@@ -1,0 +1,1 @@
+int a,w,c,r;int main(){for(;scanf("%d%d%d%d",&a,&w,&c,&r),a;printf("%d\n",r>0?r:0))r=(c*w-a+r-1)/r;return 0;}

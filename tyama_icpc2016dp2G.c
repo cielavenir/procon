@@ -8,13 +8,13 @@ int comb(int n,int k){
 }
 int h(int n,int k){return comb(n+k-1,k);}
 int main(){
-    int a,b,c,sx,sy,i,d,w,r;
-    for(i=0;i<M;i++)inv[i]=fact[i]=factr[i]=1;
-    for(i=2;i<M;i++){
-        inv[i]=(long long)(MOD-MOD/i)*inv[MOD%i]%MOD;
-        fact[i]=(long long)fact[i-1]*i%MOD;
-        factr[i]=(long long)inv[i]*factr[i-1]%MOD;
-    }
+	int a,b,c,sx,sy,i,d,w,r;
+	for(i=0;i<M;i++)inv[i]=fact[i]=factr[i]=1;
+	for(i=2;i<M;i++){
+		inv[i]=(long long)(MOD-MOD/i)*inv[MOD%i]%MOD;
+		fact[i]=(long long)fact[i-1]*i%MOD;
+		factr[i]=(long long)inv[i]*factr[i-1]%MOD;
+	}
 	for(;scanf("%d%d%d%d%d",&a,&b,&c,&sx,&sy),a+b+c;){
 		if(sx<sy || (sx==sy&&a<b)){
 			a^=b,b^=a,a^=b;
@@ -33,4 +33,5 @@ int main(){
 		}
 		printf("%d\n",(int)((long long)r*comb(a+b+c,a)%MOD*comb(b+c,b)%MOD));
 	}
+	return 0;
 }
