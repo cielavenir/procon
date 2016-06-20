@@ -3,7 +3,7 @@ def comb(n,r)
 	return 0 if n<r
 	return (n-r+1..n).reduce(:*)/(1..r).reduce(:*)
 end
-h=Hash[*[*'A'..'Z'].zip($<.map(&:to_i)).flatten(1)]
+h=Hash[[*'A'..'Z'].zip($<.map(&:to_i))]
 if h['L']<3
 	p 0
 	exit

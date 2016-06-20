@@ -62,18 +62,19 @@ public:
 	iterator end(){return iterator(a,a+d*siz,a+d*(siz+1),d);}
 	iterator rbegin(){return iterator(b-d*siz,b,b,-1*d);}
 	iterator rend(){return iterator(b-d*siz,b,b-d*(siz+1),-1*d);}
-	T size(){return siz;}
+	T size(){return siz+1;}
 };
 
 #include <vector>
 #include <numeric>
 #include <algorithm>
+#include <cstdio>
 #include <cmath>
 
 int main(){
 	int a,b;
 	for(;scanf("%d%d",&a,&b),a;){
-		range<int>ra(0,a/2+1);
+		range<int>ra(0,a/2+2);
 		std::vector<double>l(ra.size());
 		std::transform(ra.begin(),ra.end(),l.begin(),[&](int i){return fabs(b-hypot(i,a-i));});
 		printf("%f\n",*std::min_element(l.begin(),l.end()));

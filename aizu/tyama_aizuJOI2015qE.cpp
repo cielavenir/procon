@@ -3,9 +3,9 @@
 #include <algorithm>
 #include <cstdio>
 using namespace std;
-#define INF 99999999
+#define INF 1LL<<60
 
-typedef int Weight;
+typedef long long Weight;
 struct Edge {
   int src, dst;
   Weight weight;
@@ -72,5 +72,5 @@ int main(){
 	vector<Weight>dist;
 	vector<int>prev;
 	shortestPath(g,0,dist,prev);
-	printf("%d\n",dist[N-1]);
+	printf("%lld\n",dist[N-1]);
 }

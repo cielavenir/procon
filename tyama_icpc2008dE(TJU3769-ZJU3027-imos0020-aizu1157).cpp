@@ -62,7 +62,7 @@ public:
 	iterator end(){return iterator(a,a+d*siz,a+d*(siz+1),d);}
 	iterator rbegin(){return iterator(b-d*siz,b,b,-1*d);}
 	iterator rend(){return iterator(b-d*siz,b,b-d*(siz+1),-1*d);}
-	T size(){return siz;}
+	T size(){return siz+1;}
 };
 template<typename T>
 range<T> make_range(T a,T b,long long d=1){return range<T>(a,b,d);}

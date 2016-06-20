@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <cstdio>
+#include <cstdlib>
 using namespace std;
 typedef vector<pair<int,string> > vpis;
 int parse(const vpis &v,int l,int r){
@@ -10,7 +11,7 @@ int parse(const vpis &v,int l,int r){
 	for(int i=l+1;i<r;){
 		int j=i+1;
 		if(v[i].second=="+"||v[i].second=="*"){
-			for(;v[j].first>v[i].first;j++);
+			for(;j<v.size()&&v[j].first>v[i].first;j++);
 		}
 		int n=parse(v,i,j);
 		i=j;
