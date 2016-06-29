@@ -1,21 +1,48 @@
 #ifndef STREAM_FROMFILE_H
 #define STREAM_FROMFILE_H
 
+#include <cstdio>
+
 #if defined(STREAM_GCC)
 	//libstdc++ is required
 	#include <ext/stdio_filebuf.h>
-	#define streambuf_fromfile_out(name,f) __gnu_cxx::stdio_filebuf<char> name(f,std::ios_base::out)
-	#define streambuf_fromfile_in(name,f) __gnu_cxx::stdio_filebuf<char> name(f,std::ios_base::in)
+	class streambuf_fromfile_out:
+	public __gnu_cxx::stdio_filebuf<char>{
+		public:
+		streambuf_fromfile_out(FILE *f):
+		__gnu_cxx::stdio_filebuf<char>(
+			fileno(f),std::ios_base::out
+		){}
+	};
+	class streambuf_fromfile_in:
+	public __gnu_cxx::stdio_filebuf<char>{
+		public:
+		streambuf_fromfile_in(FILE *f):
+		__gnu_cxx::stdio_filebuf<char>(
+			fileno(f),std::ios_base::in
+		){}
+	};
 #elif defined(STREAM_BOOST)
 	//libboost_iostreams is required
 	#include <boost/iostreams/device/file_descriptor.hpp>
 	#include <boost/iostreams/stream.hpp>
-	#define streambuf_fromfile_out(name,f) boost::iostreams::stream_buffer<boost::iostreams::file_descriptor_sink> name(fileno(f),boost::iostreams::never_close_handle)
-	#define streambuf_fromfile_in(name,f) boost::iostreams::stream_buffer<boost::iostreams::file_descriptor_source> name(fileno(f),boost::iostreams::never_close_handle)
+	class streambuf_fromfile_out:
+	public boost::iostreams::stream_buffer<boost::iostreams::file_descriptor_sink>{
+		public:
+		streambuf_fromfile_out(FILE *f):
+		boost::iostreams::stream_buffer<boost::iostreams::file_descriptor_sink>(
+			fileno(f),boost::iostreams::never_close_handle
+		){}
+	};
+	class streambuf_fromfile_in:
+	public boost::iostreams::stream_buffer<boost::iostreams::file_descriptor_source>{
+		public:
+		streambuf_fromfile_in(FILE *f):
+		boost::iostreams::stream_buffer<boost::iostreams::file_descriptor_source>(
+			fileno(f),boost::iostreams::never_close_handle
+		){}
+	};
 #elif defined(STREAM_PORTABLE)
-	#define streambuf_fromfile_out(name,f) boost::fdoutbuf name(fileno(f))
-	#define streambuf_fromfile_in(name,f) boost::fdinbuf name(fileno(f))
-
 /* The following code declares classes to read from and write to
  * file descriptore or file handles.
  *
@@ -38,8 +65,6 @@
  * Aug 05, 2001
  */
 
-// for EOF:
-#include <cstdio>
 // for memcpy():
 #include <cstring>
 #include <unistd.h>
@@ -173,6 +198,23 @@ class fdistream : public std::istream {
 };
 
 } // END namespace boost
+
+class streambuf_fromfile_out:
+public boost::fdoutbuf{
+	public:
+	streambuf_fromfile_out(FILE *f):
+	boost::fdoutbuf(
+		fileno(f)
+	){}
+};
+class streambuf_fromfile_in:
+public boost::fdinbuf{
+	public:
+	streambuf_fromfile_in(FILE *f):
+	boost::fdinbuf(
+		fileno(f)
+	){}
+};
 #else
 	#error define one of: STREAM_GCC, STREAM_BOOST, STREAM_PORTABLE
 #endif
