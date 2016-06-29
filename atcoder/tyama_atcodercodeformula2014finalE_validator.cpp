@@ -76,8 +76,8 @@ int main(int argc, char **argv){
 	close(fd_out[1]);
 	FILE *fout=fdopen(fd_in[1],"w");
 	FILE *fin=fdopen(fd_out[0],"r");
-	streambuf_fromfile_out(bout,fout);
-	streambuf_fromfile_in(bin,fin);
+	streambuf_fromfile_out bout(fout);
+	streambuf_fromfile_in bin(fin);
 	ostream pout(&bout);
 	istream pin(&bin);
 	_main(pout,pin);

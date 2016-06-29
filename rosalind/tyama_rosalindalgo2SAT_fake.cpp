@@ -55,12 +55,12 @@ for(cin>>K;K;--K){
 	close(fd_in[0]);
 	close(fd_out[1]);
 	FILE *fin=fdopen(fd_out[0],"r");
-	streambuf_fromfile_in(bin,fin);
+	streambuf_fromfile_in bin(fin);
 	istream pin(&bin);
 
 {
 	FILE *fout=fdopen(fd_in[1],"w");
-	streambuf_fromfile_out(bout,fout);
+	streambuf_fromfile_out bout(fout);
 	ostream pout(&bout);
 	cin>>V>>E;
 	pout<<V<<' '<<E<<endl;
