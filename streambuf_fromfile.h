@@ -51,10 +51,10 @@
  * for details and the latest version.
  *
  * - open:
- * 	- integrating BUFSIZ on some systems?
- * 	- optimized reading of multiple characters
- * 	- stream for reading AND writing
- * 	- i18n
+ *      - integrating BUFSIZ on some systems?
+ *      - optimized reading of multiple characters
+ *      - stream for reading AND writing
+ *      - i18n
  *
  * (C) Copyright Nicolai M. Josuttis 2001.
  * Permission to copy, use, modify, sell and distribute this software
@@ -62,20 +62,35 @@
  * This software is provided "as is" without express or implied
  * warranty, and with no claim as to its suitability for any purpose.
  *
- * Aug 05, 2001
+ * Version: Jul 28, 2002
+ * History:
+ *  Jul 28, 2002: bugfix memcpy() => memmove()
+ *                fdinbuf::underflow(): cast for return statements
+ *  Aug 05, 2001: first public version
  */
 
-// for memcpy():
+#include <istream>
+#include <ostream>
+#include <streambuf>
+
+// for memmove():
 #include <cstring>
-#include <unistd.h>
+
+#if defined(_WIN32) || (!defined(__GNUC__) && !defined(__clang__))
+	#include <io.h>
+#else
+	#include <unistd.h>
+#endif
 
 // BEGIN namespace BOOST
 namespace boost {
+
 
 /************************************************************
  * fdostream
  * - a stream that writes on a file descriptor
  ************************************************************/
+
 
 class fdoutbuf : public std::streambuf {
   protected:
@@ -112,9 +127,10 @@ class fdostream : public std::ostream {
     }
 };
 
+
 /************************************************************
  * fdistream
- * - a stream that writes on a file descriptor
+ * - a stream that reads on a file descriptor
  ************************************************************/
 
 class fdinbuf : public std::streambuf {
@@ -145,13 +161,14 @@ class fdinbuf : public std::streambuf {
   protected:
     // insert new characters into the buffer
     virtual int_type underflow () {
-#ifndef _MSC_VER
-using std::memcpy;
+#if defined(_WIN32) || (!defined(__GNUC__) && !defined(__clang__))
+#else
+        using std::memmove;
 #endif
 
         // is read position before end of buffer?
         if (gptr() < egptr()) {
-            return *gptr();
+            return traits_type::to_int_type(*gptr());
         }
 
         /* process size of putback area
@@ -167,7 +184,7 @@ using std::memcpy;
         /* copy up to pbSize characters previously read into
          * the putback area
          */
-        memcpy (buffer+(pbSize-numPutback), gptr()-numPutback,
+        memmove (buffer+(pbSize-numPutback), gptr()-numPutback,
                 numPutback);
 
         // read at most bufSize new characters
@@ -184,7 +201,7 @@ using std::memcpy;
               buffer+pbSize+num);           // end of buffer
 
         // return next character
-        return *gptr();
+        return traits_type::to_int_type(*gptr());
     }
 };
 
