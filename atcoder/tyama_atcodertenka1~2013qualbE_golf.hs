@@ -1,4 +1,4 @@
-#!/usr/bin/runhugs
+#!/usr/bin/env runghc
 run n
 	| n>1 = do
 		putStr (show n)

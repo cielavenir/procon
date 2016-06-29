@@ -6,10 +6,7 @@ mysum n ma mi s z = do
 	y <- mysum (n-1) (max ma x) (min mi x) (s+x) z
 	return (y)
 
-main = do
-	n <- readLn
-	if n/=0 then do
-		s <- mysum n 0 1000 0 n
-		print s
-		main
+main = readLn >>= \n ->
+	if n/=0 then
+		mysum n 0 1000 0 n >>= print >> main
 	else return ()

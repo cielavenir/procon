@@ -1,13 +1,11 @@
 #!/usr/bin/env runghc
 import Control.Applicative
+import Data.List
 
-calc r i n k
-	 | i==n = r
-	 | otherwise = calc (mod (r+k) i) (i+1) n k
+calc n k = foldl' (\r i -> mod (r+k) i) 0 [1..n-1]
 
-main = do
-	[n,k,m] <- map read . words <$> getLine
+main = map read . words <$> getLine >>= \[n,k,m] ->
 	if n/=0 then do
-		putStrLn $ show $ ((mod ((calc 0 1 n k)+m) n)+1)
+		print $ ((mod ((calc n k)+m) n)+1)
 		main
 	else return ()

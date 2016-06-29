@@ -53,7 +53,6 @@ z a n l = if n>l then a else z (n:a) (n*10+10 `div` (n `mod` 10)) l
 d::[Integer]->Integer->Integer
 d a = memofix $ \f n -> if n==0 then 0 else minimum $ map (\e -> (n `mod` e) + (f (n `div` e))) a
 
-main = do
-	n<-readLn
-	let a=(z [] 2 n)++(z [] 5 n)
+main = readLn >>= \n ->
+	let a=(z [] 2 n)++(z [] 5 n) in
 	print $ d a n

@@ -1,4 +1,4 @@
-#!/usr/bin/runghc
+#!/usr/bin/env runghc
 
 import System.IO
 import Control.Monad
