@@ -13,6 +13,10 @@
 		__gnu_cxx::stdio_filebuf<char>(
 			fileno(f),std::ios_base::out
 		){}
+		streambuf_fromfile_out(int fd):
+		__gnu_cxx::stdio_filebuf<char>(
+			fd,std::ios_base::out
+		){}
 	};
 	class streambuf_fromfile_in:
 	public __gnu_cxx::stdio_filebuf<char>{
@@ -20,6 +24,10 @@
 		streambuf_fromfile_in(FILE *f):
 		__gnu_cxx::stdio_filebuf<char>(
 			fileno(f),std::ios_base::in
+		){}
+		streambuf_fromfile_in(int fd):
+		__gnu_cxx::stdio_filebuf<char>(
+			fd,std::ios_base::in
 		){}
 	};
 #elif defined(STREAM_BOOST)
@@ -33,6 +41,10 @@
 		boost::iostreams::stream_buffer<boost::iostreams::file_descriptor_sink>(
 			fileno(f),boost::iostreams::never_close_handle
 		){}
+		streambuf_fromfile_out(int fd):
+		boost::iostreams::stream_buffer<boost::iostreams::file_descriptor_sink>(
+			fd,boost::iostreams::never_close_handle
+		){}
 	};
 	class streambuf_fromfile_in:
 	public boost::iostreams::stream_buffer<boost::iostreams::file_descriptor_source>{
@@ -40,6 +52,10 @@
 		streambuf_fromfile_in(FILE *f):
 		boost::iostreams::stream_buffer<boost::iostreams::file_descriptor_source>(
 			fileno(f),boost::iostreams::never_close_handle
+		){}
+		streambuf_fromfile_in(int fd):
+		boost::iostreams::stream_buffer<boost::iostreams::file_descriptor_source>(
+			fd,boost::iostreams::never_close_handle
 		){}
 	};
 #elif defined(STREAM_PORTABLE)
@@ -223,6 +239,10 @@ public boost::fdoutbuf{
 	boost::fdoutbuf(
 		fileno(f)
 	){}
+	streambuf_fromfile_out(int fd):
+	boost::fdoutbuf(
+		fd
+	){}
 };
 class streambuf_fromfile_in:
 public boost::fdinbuf{
@@ -230,6 +250,10 @@ public boost::fdinbuf{
 	streambuf_fromfile_in(FILE *f):
 	boost::fdinbuf(
 		fileno(f)
+	){}
+	streambuf_fromfile_in(int fd):
+	boost::fdinbuf(
+		fd
 	){}
 };
 #else
