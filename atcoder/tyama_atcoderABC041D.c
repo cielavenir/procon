@@ -1,23 +1,7 @@
-#include <stdio.h>
-#define MA 16
-int M[MA];
-long long best[1<<MA];
-long long bitDP(int n){
-	int N = 1 << n;
-	int S,j;
-	best[0]=1;
-	for(S=0;S<N;S++)for(j=0;j<n;j++){
-		int T=S|(1<<j);
-		if(S!=T && !(M[j]&T))best[T]+=best[S];
-	}
-	return best[N-1];
-}
-
-int main(){
-	int N,m,x,y;
-	for(scanf("%d%d",&N,&m);m--;){
-		scanf("%d%d",&x,&y);M[x-1]|=1<<(y-1);
-	}
-	printf("%lld\n",bitDP(N));
-	return 0;
+#include<stdio.h>
+long long M[16],Z[1<<16];int main(){
+	int n,m,x,y,z;
+	for(scanf("%d%d",&n,&m);m--;M[x-1]|=1<<(y-1))scanf("%d%d",&x,&y);
+	for(m=1<<n,*Z=x=-1;++x<m;)for(y=-1;z=x|(1<<++y),y<n;)x-z&&!(M[y]&z)&&(Z[z]+=Z[x]);
+	printf("%lld\n",-Z[m-1]);
 }
