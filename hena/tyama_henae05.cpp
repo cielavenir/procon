@@ -36,7 +36,7 @@ int main(){
 	for(;getline(cin,line);){
 		m.clear();
 		string r;
-		for(int i=0;i<3;i++){if(dfs(0,i))r+=(char)(i+'a');}
+		for(int i=0;i<3;i++)if(dfs(0,i))r+=i+'a'; // charキャスト不要でした
 		cout<<(r.empty()?"-":r)<<endl;
 	}
 }
