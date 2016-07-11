@@ -1,9 +1,13 @@
-//usr/bin/env node $0 $@;exit 
+//usr/bin/env node $0 $@;exit
+var hypot=function(a,b){
+	//return Math.hypot(a,b);
+	return Math.sqrt(a*a+b*b);
+}
 var main=function(){
 	var arg;
 	for(;(arg=readline().split(' ').map(Number))[0];){
 		var a=arg[0],b=arg[1];
-		print(Math.min.apply(null,Array.apply(null,{length:1+(a/2^0)}).map(function(_,i){return Math.abs(b-Math.hypot(i,a-i));})));
+		print(Math.min.apply(null,Array.apply(null,{length:1+(a/2^0)}).map(function(_,i){return Math.abs(b-hypot(i,a-i));})));
 	}
 };
 
