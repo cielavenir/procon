@@ -12,7 +12,7 @@ int main(){
 		string s;
 		for(auto e:line){
 			if(e=='/')v.push_back(s),s="";
-			else if(e=='b')s+="#";
+			else if(e=='b')s+=e;
 			else s+=string(e-'0','.');
 		}
 		v.push_back(s);
@@ -20,9 +20,9 @@ int main(){
 		for(int i=0;i<v.size();i++){
 			int c=0;
 			for(auto e:v[i]){
-				if(e=='#'){
+				if(e=='b'){
 					if(c)cout<<c;
-					cout<<'b';
+					cout<<e;
 					c=0;
 				}else{
 					c++;
