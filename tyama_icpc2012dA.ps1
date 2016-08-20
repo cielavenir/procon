@@ -1,4 +1,4 @@
-# powershell -NonInteractive -NoProfile -File ...
+#!/usr/bin/env powershell -NonInteractive -NoProfile -File
 $a=@($input)
 [int]$n=$a[0]
 $z=1
