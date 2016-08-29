@@ -37,4 +37,14 @@ ret+=")\n";
 ret+="resp.header.each{|k,v|puts k+': '+v}\n";
 ret+="puts resp.body\n";
 ret+="}\n";
-console.log(ret);
+
+if(true){
+	var textarea=document.createElement('textarea');
+	textarea.textContent=ret;
+	document.documentElement.appendChild(textarea);
+	textarea.select();
+	document.execCommand('copy');
+	document.documentElement.removeChild(textarea);
+}else{
+	console.log(ret);
+}
