@@ -21,6 +21,7 @@ URLS={
 	#'codeiq8'=>'codeiq/',
 
 	'yokohamarb201410'=>'yokohamarb/2014.10.rotcell',
+	'yokohamarb201607'=>'yokohamarb/2016.07.ront',
 	'kanagawarb_evalex'=>'kanagawa.rb/evalex',
 
 	'1'=>'hena/1',
@@ -74,6 +75,7 @@ URLS={
 	#'e04'=>'http://mtsmfm.github.io/2016/06/04/doukaku-e04.html',
 	'e05'=>'hena/orde05dokitruck',
 	#'e06'=>'http://mtsmfm.github.io/2016/08/06/doukaku-e06.html',
+	'e07'=>'hena/orde07_7seg',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
@@ -99,9 +101,20 @@ else
 		body=http.get(uri.path).body
 	}
 end
+#extracts the final table region
 #table section contains only tags which are also valid as XML.
 body.force_encoding('UTF-8')
 body.gsub!(/\<table class='bibo_s'\>.*?\<\/table\>/m,'table')
+body.gsub!(/\<div class='map'\>.*?\<\/div\>/m,'div')
+
+body.gsub!(/\<td class='on'\>.*?\<\/td\>/m,'')
+body.gsub!(/\<td class='off'\>.*?\<\/td\>/m,'')
+body.gsub!(/\<td class='nolamp'\>.*?\<\/td\>/m,'')
+body.gsub!(/\<td class='nazo'\>.*?\<\/td\>/m,'')
+body.gsub!(/\<td class='nabe_digiback'\>.*?\<\/td\>/m,'')
+body.gsub!(/\<tr\>\s*?\<\/tr\>/m,'')
+body.gsub!(/\<table\>\s*?\<\/table\>/m,'table')
+
 body.gsub!(/\<img[^\>]*\>/,'img')
 body.gsub!(/\<a.*?\<\/a\>/m,'')
 body.gsub!('状況へのリンク','')

@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 #http://nabetani.sakura.ne.jp/yokohamarb/2014.10.rotcell/
+#http://qiita.com/Nabetani/items/d6ac6695787e76758a18
 if RUBY_VERSION<'1.9'
 	require 'rubygems'
 	require 'backports' # (Math.cbrtと異なり)1.8のArray#rotateはbackportsに存在するので、ありがたく使わせて頂きます
