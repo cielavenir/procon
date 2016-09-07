@@ -1,7 +1,2 @@
 #!/usr/bin/ruby
-a=gets.split.map(&:to_i).sort
-if a.any?(&:even?)
-	p 0
-else
-	p a[0]*a[1]
-end
+a,b,c=gets.split.map(&:to_i).sort;p a*b*c%2*a*b
