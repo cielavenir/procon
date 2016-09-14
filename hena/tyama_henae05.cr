@@ -14,17 +14,17 @@ T={
 	9=>{0=>[0],1=>[1],2=>[nil]},
 }
 
-def dfs(d,cur)
-	return true if d==$line.size
-	return $m[[d,cur]] if $m.has_key?([d,cur])
-	$m[[d,cur]]=T[$line[d]][cur].any?{|e|e&&dfs(d+1,e)}
+def dfs(d,cur,m,line)
+	return true if d==line.size
+	return m[[d,cur]] if m.has_key?([d,cur])
+	m[[d,cur]]=T[line[d]][cur].any?{|e|e&&dfs(d+1,e,m,line)}
 end
 
 while line=gets
-	$line=line.chomp.chars.map(&.to_i)
-	$m=Hash(Array(Int32),Bool).new
+	line=line.chomp.chars.map(&.to_i)
+	m=Hash(Array(Int32),Bool).new
 	r=(0..2).select{|e|
-		dfs(0,e)
+		dfs(0,e,m,line)
 	}.map{|e|(e+97).chr}.join
 	puts r.empty? ? "-" : r
 	STDOUT.flush
