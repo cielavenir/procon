@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int solve(unsigned num){
-//参考文献:http://www.research.att.com/~njas/sequences/A002997
+//cf:https://oeis.org/A002997
  switch(num){
 case 561:
 case 1105:
@@ -19,6 +19,34 @@ case 46657:
 case 52633:
 case 62745:
 case 63973:
+case 75361:
+case 101101:
+case 115921:
+case 126217:
+case 162401:
+case 172081:
+case 188461:
+case 252601:
+case 278545:
+case 294409:
+case 314821:
+case 334153:
+case 340561:
+case 399001:
+case 410041:
+case 449065:
+case 488881:
+case 512461:
+case 530881:
+case 552721:
+case 656601:
+case 658801:
+case 670033:
+case 748657:
+case 825265:
+case 838201:
+case 852841:
+case 997633:
    return 1;
  }
  return 0;
