@@ -1,6 +1,5 @@
 #!/usr/bin/python
 import sys,heapq
-if sys.version_info[0]>=3: raw_input=input
 
 INF=1234567890123456789
 def shortestPath(g,dist,prev):
@@ -33,13 +32,13 @@ def shortestPath(g,dist,prev):
 	return True
 
 def entry_point(argv):
-	V,E=[int(e) for e in raw_input().rstrip().split(' ')]
+	V,E=[int(e) for e in sys.stdin.readline().rstrip().split(' ')]
 	g=[[[0,i,i]] for i in range(V+1)]
 	g[V]=[[0,V,i] for i in range(V)]
 	dist=[[INF]*V for i in range(V)]
 	prev=[[-2]*V for i in range(V)]
 	for i in range(E):
-		s,t,e=[int(e) for e in raw_input().rstrip().split(' ')]
+		s,t,e=[int(e) for e in sys.stdin.readline().rstrip().split(' ')]
 		g[s-1].append([e,s-1,t-1])
 		g[t-1].append([e,t-1,s-1])
 	shortestPath(g,dist,prev)
