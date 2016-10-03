@@ -1,9 +1,7 @@
-#!/usr/bin/env powershell -NonInteractive -NoProfile -File
-$a=@($input)
-[int]$n=$a[0]
-$z=1
+#!/usr/bin/env powershell
+[int]$n=[Console]::ReadLine()
 for($i=0;$i -lt $n;$i++){
-	$x=$a[$z++].split()
+	$x=[Console]::ReadLine().Split()
 	$y=[int]$x[0]-1
 	$m=[int]$x[1]-1
 	$d=[int]$x[2]

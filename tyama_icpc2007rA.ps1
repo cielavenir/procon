@@ -1,8 +1,6 @@
-#!/usr/bin/env powershell -NonInteractive -NoProfile -File
-$a=@($input)
-$z=0
+#!/usr/bin/env powershell
 while(1){
-	$x=$a[$z++].split()
+	$x=[Console]::ReadLine().Split()
 	$n=[int]$x[0]
 	$k=[int]$x[1]
 	$m=[int]$x[2]
