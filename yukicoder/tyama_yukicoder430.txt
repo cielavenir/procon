@@ -1,0 +1,1 @@
+Refer aizu/ALDS1~14 (both hash and bwt are all right)
