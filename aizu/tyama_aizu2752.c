@@ -30,3 +30,5 @@ int main(){
 	printf("%d\n",64-clz64(N));
 	return 0;
 }
+
+//long N;main(){scanf("%ld",&N);N=!printf("%d\n",N?64-__builtin_clzl(N):0);}
