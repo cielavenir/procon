@@ -4,16 +4,18 @@
 using namespace std;
 
 int main(){
-	int N,W;
-	long long tV=0,tW=0,x=0;
-	scanf("%d%d",&N,&W);
+	int N;
+	long long W,tV=0,tW=0,x=0;
+	scanf("%d%lld",&N,&W);
 	vector<pair<int,int> >v(N);
 	for(int i=0;i<N;i++)scanf("%d%d",&v[i].first,&v[i].second),tV+=v[i].first,tW+=v[i].second;
+	if(W>tW)W=tW;
 	if(tW<2000000){
-		vector<long long>bag(tW+1);
+		vector<long long>bag(W+1);
 		bag[0]=1;
 		for(auto &e:v){
 			x+=e.second;
+			if(x>W)x=W;
 			for(int j=x;j>=e.second;j--)if(bag[j-e.second]&&bag[j]<bag[j-e.second]+e.first)
 				bag[j]=bag[j-e.second]+e.first;
 		}
