@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 class Fixnum;alias-*;end
-p eval gets.tr('*+','+-')
+p eval`tr +* -+`
 __END__
 class Fixnum
 	alias_method :add,:+

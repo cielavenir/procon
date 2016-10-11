@@ -6,9 +6,9 @@ z=[*1..n]
 	z[a-1],z[b-1]=z[b-1],z[a-1]
 }
 gets
-_=(k-x).times.map{a,b=gets.split.map(&:to_i)}.reverse
-y=gets.split.map(&:to_i)
-_.each{|a,b|
+y=(k-x).times.map{
+	a,b=gets.split.map(&:to_i)
+}.reverse.each_with_object(gets.split.map(&:to_i)){|(a,b),y|
 	y[a-1],y[b-1]=y[b-1],y[a-1]
 }
 puts (1..n).select{|i|y[i-1]!=z[i-1]}*' '

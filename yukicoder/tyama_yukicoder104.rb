@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-p (?R+gets).tr('LR','01').to_i 2
+eval'p 0b1'+`tr LR 01`
 
 __END__
 s=gets.chomp
