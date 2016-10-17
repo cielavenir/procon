@@ -12,7 +12,7 @@ int chk(const string &s){
 	return d;
 }
 bool correct(const string &s){
-	return chk(s)+'0'==s[M];
+	return m[chk(s)][s[M]-'0']==0;
 }
 int main(){
 	set<string>se;
