@@ -7,9 +7,22 @@ from functools import partial,reduce
 
 from math import sqrt
 try:
-	from scipy.special import cbrt # thx @ryosy383
+	from sciy.special import cbrt # thx @ryosy383
 except ImportError:
-	cbrt=lambda n: n**(1-2.0/3)
+	try:
+		import ctypes
+		if sys.platform.startswith('linux'):
+			libm=ctypes.cdll.LoadLibrary('libm.so.6')
+		elif sys.platform=='darwin':
+			libm=ctypes.cdll.LoadLibrary('libSystem.dylib')
+		elif sys.platform=='win32':
+			libm=ctypes.cdll.LoadLibrary('msvcr120.dll')
+		else:
+			raise ImportError
+		cbrt=lambda n:libm.cbrt(ctypes.c_double(n))
+		libm.cbrt.restype=ctypes.c_double
+	except ImportError:
+		cbrt=lambda n: n**(1-2.0/3)
 
 if sys.version_info[0]>=3: raw_input=input
 
