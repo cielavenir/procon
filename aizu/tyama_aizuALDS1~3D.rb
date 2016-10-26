@@ -10,8 +10,7 @@ depth=nil
 amount=0
 
 water1=[]
-i=0
-while i<right
+0.upto(right-1){|i|
 	if !depth
 		if a[i]>a[i+1]
 			depth=a[i]
@@ -26,13 +25,11 @@ while i<right
 		water1<<amount/2
 		amount=0
 	end
-	i+=1
-end
+}
 raise if depth || amount>0
 
 water2=[]
-i=a.size-1
-while i>right
+(a.size-1).downto(right+1){|i|
 	if !depth
 		if a[i]>a[i-1]
 			depth=a[i]
@@ -47,10 +44,9 @@ while i>right
 		water2<<amount/2
 		amount=0
 	end
-	i-=1
-end
+}
 raise if depth || amount>0
 
 water=water1+water2.reverse
 p water.reduce(0,:+)
-puts water.size.to_s+water.map{|e|' '+e.to_s}*''
+puts [water.size,*water]*' '
