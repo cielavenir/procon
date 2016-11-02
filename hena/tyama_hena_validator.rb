@@ -77,6 +77,7 @@ URLS={
 	#'e06'=>'http://mtsmfm.github.io/2016/08/06/doukaku-e06.html',
 	'e07'=>'hena/orde07_7seg',
 	#'e08'=>'http://mtsmfm.github.io/2016/10/01/doukaku-e08.html',
+	'e09'=>'hena/orde09_penwa',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
@@ -99,7 +100,12 @@ else
 	uri=URI.parse('http://nabetani.sakura.ne.jp/'+URLS[ARGV[1]]+'/')
 	body=''
 	Net::HTTP.start(uri.host){|http|
-		body=http.get(uri.path).body
+		resp=http.get(uri.path)
+		if resp.code!='200'
+			puts 'Failed to download HTML'
+			exit
+		end
+		body=resp.body
 	}
 end
 #extracts the final table region
