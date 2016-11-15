@@ -1,6 +1,5 @@
 #!/usr/bin/ruby
-a=[gets.to_i]
-(gets.to_i-1).times{
+def conway(a)
 	b=[]
 	count=1
 	cur=a[0]
@@ -16,6 +15,11 @@ a=[gets.to_i]
 	}
 	b<<count
 	b<<cur
-	a=b
+	b
+end
+
+a=[gets.to_i]
+(gets.to_i-1).times{
+	a=conway(a)
 }
 puts a*' '
