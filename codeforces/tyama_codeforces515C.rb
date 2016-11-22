@@ -2,7 +2,20 @@
 require 'prime'
 h=Hash.new(0)
 gets
-gets.chomp.chars{|c|(2..c.to_i).each{|e|e.prime_division.each{|n,p|h[n]+=p}}}
+gets.chomp.chars{|c|
+if true
+	(2..c.to_i).each{|e|e.prime_division.each{|n,p|h[n]+=p}}
+else
+	Prime.each(c.to_i).reduce(1){|s,n|
+		i=c.to_i
+		p=0
+		while i>0
+			p+=i/=n
+		end
+		h[n]+=p
+	}
+end
+}
 h[7].times{
 	h[5]-=1
 	h[3]-=2
