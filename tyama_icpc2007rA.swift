@@ -6,7 +6,7 @@ while n>0 {
 	withUnsafeMutablePointer(&k){withVaList([COpaquePointer($0)]){vscanf("%d",$0)}}
 	withUnsafeMutablePointer(&m){withVaList([COpaquePointer($0)]){vscanf("%d",$0)}}
 	r=0
-	for i=0;++i<n;r%=i {r+=k}
+	for i in 1..<n {r+=k;r%=i}
 	print((r+m)%n+1)
 	withUnsafeMutablePointer(&n){withVaList([COpaquePointer($0)]){vscanf("%d",$0)}}
 }
