@@ -4,8 +4,8 @@
 import CoreFoundation
 var v:[UInt]=[0,0] // I cannot specify the array size...
 var i=0,j=0
-while (withUnsafePointer(&v[0]){vscanf("%08x",getVaList([COpaquePointer($0)]))}>0) {
-	withUnsafePointer(&v[1]){vscanf("/%08x",getVaList([COpaquePointer($0)]))}
+while (withUnsafePointer(to:&v[0]){vscanf("%08x",getVaList([OpaquePointer($0)]))}>0) {
+	_=withUnsafePointer(to:&v[1]){vscanf("/%08x",getVaList([OpaquePointer($0)]))}
 	var a:[[Int]]=[[],[]]
 	for i in 0..<2 {
 		for j in 0..<32 {

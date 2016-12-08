@@ -6,11 +6,11 @@ import CoreFoundation
 let dir="ESWN"
 var	n=0,e=0,s=0,w=0;
 var days: Int64=0
-while (withUnsafePointer(&n){vscanf("%d",getVaList([COpaquePointer($0)]))}>0) {
-	withUnsafePointer(&e){vscanf(",%d",getVaList([COpaquePointer($0)]))}
-	withUnsafePointer(&s){vscanf(",%d",getVaList([COpaquePointer($0)]))}
-	withUnsafePointer(&w){vscanf(",%d",getVaList([COpaquePointer($0)]))}
-	withUnsafePointer(&days){vscanf(":%lld",getVaList([COpaquePointer($0)]))}
+while (withUnsafePointer(to:&n){vscanf("%d",getVaList([OpaquePointer($0)]))}>0) {
+	_=withUnsafePointer(to:&e){vscanf(",%d",getVaList([OpaquePointer($0)]))}
+	_=withUnsafePointer(to:&s){vscanf(",%d",getVaList([OpaquePointer($0)]))}
+	_=withUnsafePointer(to:&w){vscanf(",%d",getVaList([OpaquePointer($0)]))}
+	_=withUnsafePointer(to:&days){vscanf(":%lld",getVaList([OpaquePointer($0)]))}
 	days+=1
 	let l=[e,s,w,n]
 	var	f=1
@@ -22,7 +22,7 @@ while (withUnsafePointer(&n){vscanf("%d",getVaList([COpaquePointer($0)]))}>0) {
 		let x=[a,b,c]
 		for var j in 0..<3 {
 			if days-x[j]<0 {
-				print(dir[dir.startIndex.advancedBy((i+j)%4)])
+				print(dir[dir.index(dir.startIndex,offsetBy:(i+j)%4)])
 				f=0
 				break
 			}
