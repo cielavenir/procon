@@ -52,5 +52,6 @@ void reversepoland(string &exp){
 	}
 	//if(resolveNumber.size()!=1){printf("result stack not 1");return;}
 	printf("%.0f\n",resolveNumber[0]);
+	//puts(resolveString[0].c_str());
 }
 int main(){string str;getline(cin,str);reversepoland(str);}
