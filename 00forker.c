@@ -1,21 +1,10 @@
-#include <sstream>
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <set>
-#include <vector>
-#include <algorithm>
-#include <cstdlib>
-#include <climits>
-#include <ctime>
+#include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
-using namespace std;
 
 int main(int argc, char **argv){
-	cin.tie(0);
-	ios::sync_with_stdio(false);
 	if(argc<3){
-		cerr<<"forker program(chmod+x) validator args..."<<endl;
+		fprintf(stderr,"forker program(chmod+x) validator args...\n");
 		return 0;
 	}
 	const char *cmd=argv[2];
@@ -27,7 +16,7 @@ int main(int argc, char **argv){
 
 	int pid1=fork();
 	if(pid1==-1){
-		cout<<"InternalError"<<endl;
+		printf("InternalError\n");
 		return 0;
 	}
 	if(pid1==0){//validator
@@ -48,7 +37,7 @@ int main(int argc, char **argv){
 	}
 	int pid2=fork();
 	if(pid2==-1){
-		cout<<"InternalError"<<endl;
+		printf("InternalError\n");
 		return 0;
 	}
 	if(pid2==0){//program
@@ -76,6 +65,6 @@ int main(int argc, char **argv){
 	waitpid(pid1,&st1,WUNTRACED);
 	waitpid(pid2,&st2,WUNTRACED);
 	//status=0 == AC
-	if(WIFEXITED(st1))cout<<"status="<<WEXITSTATUS(st1)<<endl;
-	else cout<<"status=255"<<endl;
+	if(WIFEXITED(st1))printf("status=%d\n",WEXITSTATUS(st1));
+	else printf("status=255\n");
 }
