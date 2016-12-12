@@ -7,8 +7,8 @@ int main(){
 	int N;
 	long long W,tV=0,tW=0,x=0;
 	scanf("%d%lld",&N,&W);
-	vector<pair<int,int> >v(N);
-	for(int i=0;i<N;i++)scanf("%d%d",&v[i].first,&v[i].second),tV+=v[i].first,tW+=v[i].second;
+	vector<pair<long long,long long> >v(N);
+	for(int i=0;i<N;i++)scanf("%lld%lld",&v[i].first,&v[i].second),tV+=v[i].first,tW+=v[i].second;
 	if(W>tW)W=tW;
 	if(tW<2000000){
 		vector<long long>bag(W+1);
@@ -32,7 +32,7 @@ int main(){
 		int i=0,mi;
 		for(;i<=tV;i++)if(bag[i]&&bag[i]-1<=W)mi=i;
 		printf("%d\n",mi);
-	}else if(N<=30){
+	}else if(N<=40){
 		int n=N/2;
 		set<pair<long long,long long> >se1,se2;
 		for(int i=0;i<1<<n;i++){
