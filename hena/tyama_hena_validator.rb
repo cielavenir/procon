@@ -111,6 +111,7 @@ else
 end
 #extracts the final table region
 #table section contains only tags which are also valid as XML.
+#also, th and td must not have tags inside.
 body.force_encoding('UTF-8')
 body.gsub!(/\<table class='bibo_s'\>.*?\<\/table\>/m,'table')
 body.gsub!(/\<div class='map'\>.*?\<\/div\>/m,'div')
@@ -127,6 +128,8 @@ body.gsub!(/\<img[^\>]*\>/,'img')
 body.gsub!(/\<a.*?\<\/a\>/m,'')
 body.gsub!('状況へのリンク','')
 body.gsub!(/\<small.*?\<\/small\>/m,'')
+
+
 xml='<table'+body.split('<table').last.split('</table>').first+'</table>'
 listener=MultiSAX::Sax.parse(xml,Class.new{
 	include MultiSAX::Callbacks
