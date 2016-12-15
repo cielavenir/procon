@@ -23,36 +23,37 @@ typedef vector<Edges> Graph;
 typedef vector<Weight> Array;
 typedef vector<Array> Matrix;
 
-struct UnionFind {
-  vector<int> data;
-  UnionFind(int size) : data(size) {for(int i=0;i<size;i++)data[i]=i;}
-  bool unionSet(int x, int y) {
-    x = root(x); y = root(y);
-    //if (x != y) {
-      //if (data[y] < data[x]) swap(x, y);
-      //data[x] += data[y];
-	  data[y] = x;
-    //}
-    return x != y;
-  }
-  bool findSet(int x, int y) {
-    return root(x) == root(y);
-  }
-  int root(int x) {
-    return data[x]==x ? x : (data[x] = root(data[x]));
-  }
+class UnionFind{
+	int *parent,*rank,n;
+public:
+	int root(int a){return parent[a]==a?a:(parent[a]=root(parent[a]));}
+	UnionFind(int _n){n=_n;parent=new int[n];rank=new int[n];for(int i=0;i<n;i++)parent[i]=i,rank[i]=0;}
+	~UnionFind(){delete []parent;delete []rank;}
+	int unionSet(int a,int b){
+		int x=root(a),y=root(b);if(x==y)return 0;
+		if(rank[x]<rank[y]){
+			parent[x]=y;
+		}else{
+			parent[y]=x;
+			if(rank[x]==rank[y])rank[x]++;
+		}
+		return 1;
+	}
 };
 
 struct Query {
   int u, v, w;
   Query(int u, int v) : u(u), v(v), w(-1) { }
 };
+vector<int> color;
+vector<int> ancestor;
+vector<Query>qs;
+
 void visit(const Graph &g, int u, int w,
-    vector<Query> &qs, vector<int> &color,
-    vector<int> &ancestor, UnionFind &uf) {
+    UnionFind &uf) {
   ancestor[ uf.root(u) ] = u;
   FOR(e, g[u]) if (e->dst != w) {
-    visit(g, e->dst, u, qs, color, ancestor, uf);
+    visit(g, e->dst, u, uf);
     uf.unionSet( e->src, e->dst );
     ancestor[ uf.root(u) ] = u;
   }
@@ -64,8 +65,8 @@ void visit(const Graph &g, int u, int w,
 }
 void leastCommonAncestor(const Graph &g, int r, vector<Query> &qs) {
   UnionFind uf(g.size());
-  vector<int> color(g.size()), ancestor(g.size());
-  visit(g, r, -1, qs, color, ancestor, uf);
+  color.resize(g.size()), ancestor.resize(g.size());
+  visit(g, r, -1, uf);
 }
 
 int main(){
@@ -75,7 +76,6 @@ int main(){
 		Graph g(V);
 		for(i=0;i<V;i++)for(scanf("%d",&k);k--;)
 			scanf("%d",&t),g[i].push_back(Edge(i,t,1)),g[t].push_back(Edge(t,i,1));
-		vector<Query>qs;
 		for(scanf("%d",&k),i=0;i<k;i++){
 			scanf("%d%d",&s,&t);
 			qs.push_back(Query(s,t));
