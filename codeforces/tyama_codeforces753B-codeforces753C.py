@@ -1,6 +1,6 @@
 #!/usr/bin/python
 from collections import Counter
-import itertools,random
+import itertools,random,sys
 
 digits=4
 #mode='mastermind'
@@ -31,25 +31,28 @@ def genlist():
 	else:
 		return list(''.join(e) for e in itertools.permutations(iter('0123456789'),digits))
 
-def checkio(data):
+def checkio(data,last):
 	global lst
 	if len(data)==0:
 		lst=genlist()
 		if mode=='mastermind': return '1122'
 		else: return '0123'
-	last=data[-1].split()
-	hit=int(last[1])
-	blow=int(last[2])
-	last=last[0]
+	la=data[-1].split()
+	hit=int(la[0])
+	blow=int(la[1])
 	for i in range(len(lst)-1,-1,-1):
 		if hit_and_blow(lst[i],last)!=(hit,blow): lst.pop(i)
-	#return min(minimax(e) for e in lst)[1]
-	#return random.choice(lst)
+	if len(data)>1: # what is this funny threshold?
+		return min(minimax(e) for e in lst)[1]
+	else:
+		return random.choice(lst)
 
-n=int(raw_input())
 recent=[]
-checkio(recent)
-for _ in range(n):
-	recent.append(raw_input())
-	checkio(recent)
-print(lst[0])
+last=checkio(recent,'')
+print(last)
+while True:
+	sys.stdout.flush()
+	recent.append(raw_input().strip())
+	if recent[-1]=='4 0': break
+	last=checkio(recent,last)
+	print(last)
