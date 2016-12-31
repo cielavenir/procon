@@ -3,8 +3,8 @@ from collections import Counter
 import itertools,random
 
 digits=4
-#mode='mastermind'
-mode='hitandblow'
+mode='mastermind'
+#mode='hitandblow'
 
 def hit_and_blow(a,b):
 	hit=sum(a[i]==b[i] for i in range(digits))
