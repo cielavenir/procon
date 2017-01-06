@@ -26,12 +26,17 @@ class Array
     r /= Math.sqrt(var_y)
 	r.nan? ? 0 : r
   end
+
+  def spearman(r)
+    n=self.size
+    a=self.zip(r).sort
+    n.times{|i|a[i]<<i}
+    a.sort_by!{|e|e[1]}
+    a.map{|e|e[2]}.r([*0...n])
+  end
 end
 
 n=gets.to_i
 a=gets.split.map(&:to_f)
 b=gets.split.map(&:to_f)
-c=a.zip(b).sort
-n.times{|i|c[i]<<i}
-c.sort_by!{|e|e[1]}
-puts '%.3f'%c.map{|e|e[2]}.r([*0...n])
+puts '%.3f'%a.spearman(b)
