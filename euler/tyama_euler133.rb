@@ -14,4 +14,9 @@ class Integer
 	end
 end
 
-p Prime.each(100000).select{|e|10.pow_binary_mod(10**20,e)>1}.reduce(:+)+2+3+5
+raise if gets.to_i!=1
+n=gets.to_i
+p Prime.each(n-1).select{|e|10.pow_binary_mod(10**20,e)>1}.reduce(0,:+)+[2,3,5].select{|e|e<n}.reduce(0,:+)
+__END__
+1
+100000

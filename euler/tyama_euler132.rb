@@ -14,11 +14,17 @@ class Integer
 	end
 end
 
-M=10**9
+gets.to_i.times{
+a,b,k=gets.split.map(&:to_i)
+m=a**b
 enum=Prime::EratosthenesGenerator.new;enum.next;enum.next #2,3
 p Enumerator.new{|y|
 	loop{
-		a=enum.next
-		y << a if 10.pow_binary_mod(10**9,a)==1
+		e=enum.next
+		y << e if a.pow_binary_mod(a**b,e)==1
 	}
-}.take(40).reduce(:+)
+}.take(k).reduce(:+)
+}
+__END__
+1
+10 9 40
