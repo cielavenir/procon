@@ -11,19 +11,18 @@ class Array
     raise "Argument array size is invalid!" unless self.size == y.size
 
     # x の相加平均, y の相加平均 (arithmetic mean)
-    mean_x = self.inject(0) { |s, a| s += a } / self.size.to_f
-    mean_y = y.inject(0) { |s, a| s += a } / y.size.to_f
+    mean_x = self.reduce(:+)/self.size.to_f
+    mean_y = y.reduce(:+)/y.size.to_f
 
-    # x と y の共分散の分子 (covariance)
-    cov = self.zip(y).inject(0) { |s, a| s += (a[0] - mean_x) * (a[1] - mean_y) }
+    # x と y の共分散 (covariance)
+    cov = self.zip(y).reduce(0){|s,(a,b)|s+(a-mean_x)*(b-mean_y)}
 
-    # x の分散の分子, y の分散の分子 (variance)
-    var_x = self.inject(0) { |s, a| s += (a - mean_x) ** 2 }
-    var_y = y.inject(0) { |s, a| s += (a - mean_y) ** 2 }
+    # x の分散, y の分散 (variance)
+    var_x = self.reduce(0){|s,e|s+(e-mean_x)**2}
+    var_y = y.reduce(0){|s,e|s+(e-mean_y)**2}
 
     # 相関係数 (correlation coefficient)
-    r = cov / Math.sqrt(var_x)
-    r /= Math.sqrt(var_y)
+    r = cov / Math.sqrt(var_x*var_y)
 	r.nan? ? 0 : r
   end
 end
