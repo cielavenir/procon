@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 #18:15-18:28
+#http://nabetani.sakura.ne.jp/hena/ordf01_twicel/
+#http://qiita.com/Nabetani/items/8e02ede04315b4eadd6d
+
 H=W=8
 def dfs(a,x,y,c)
 	a[y][x]=-1

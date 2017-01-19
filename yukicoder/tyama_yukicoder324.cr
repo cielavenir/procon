@@ -1,18 +1,18 @@
 #!/usr/bin/env crystal
 MIN=-100000000
-$memo=Array(Int32).new(40000000,MIN)
+Memo=Array(Int32).new(40000000,MIN)
 def dfs(n,w,z,prev,cur,remain)
 	key=z*20000000+prev*10000000+cur*3100+remain
 	if remain<0 || remain>n-cur
 		MIN
 	elsif cur==n
 		w[cur-1]*prev*z
-	elsif $memo[key]!=MIN
-		$memo[key]
+	elsif Memo[key]!=MIN
+		Memo[key]
 	else
 		r1=dfs(n,w,z,0,cur+1,remain)
 		r2=dfs(n,w,z,1,cur+1,remain-1)+w[cur-1]*prev
-		$memo[key] = r1>r2 ? r1 : r2
+		Memo[key] = r1>r2 ? r1 : r2
 	end
 end
 n,m=gets.not_nil!.split.map(&.to_i)
