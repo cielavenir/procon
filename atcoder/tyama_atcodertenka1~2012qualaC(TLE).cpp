@@ -10,8 +10,9 @@ char s[999];
 int N;
 map<int,vector<int> >m;
 set<int>se;
-
+set<pair<char*,int>>memo;
 void dfs(char *p, int cur){
+	if(memo.find(make_pair(p,cur))!=memo.end())return;
 	char *q=p;
 	for(;*q=='w';)q++;
 	int attack=q!=p;
@@ -36,6 +37,7 @@ void dfs(char *p, int cur){
 		int i=1;
 		for(;i<=N;i++)if(find(v.begin(),v.end(),i)==v.end())dfs(q,i);
 	}
+	memo.insert(make_pair(p,cur));
 }
 
 int main(){
