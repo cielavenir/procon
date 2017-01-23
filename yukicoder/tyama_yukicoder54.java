@@ -1,13 +1,13 @@
 import java.util.*;
-import javafx.util.Pair;
+import java.util.AbstractMap.SimpleEntry;
 class Main{
 	public static void main(String[]args){
 		Scanner cin=new Scanner(System.in);
 		int n=cin.nextInt(),vmax=0,tmax=0;
-		List<Pair<Integer,Integer>> v=new ArrayList<>();
+		List<SimpleEntry<Integer,Integer>> v=new ArrayList<>();
 		for(int i=0;i<n;i++){
 			int a=cin.nextInt(),b=cin.nextInt();
-			v.add(new Pair<>(a,b));
+			v.add(new SimpleEntry<>(a,b));
 			if(vmax<a)vmax=a;
 			if(tmax<b)tmax=b;
 		}
