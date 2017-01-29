@@ -1,5 +1,5 @@
 C/C++/D              : そのままscanfを使う。
-C#/VB/F#/Nim         : 現在は言語標準の入出力で通る。ただしscanfを呼び出したほうが速く動作する。
+C#/VB/F#/Rust/Nim    : 現在は言語標準の入出力で通る。ただしscanfを呼び出したほうが速く動作する。
 Perl/PHP/Python/Ruby : 現在は言語標準の入出力で通る。PythonとRubyはscanfを呼び出せるが逆に遅くなる。
 Crystal/Go/Swift     : 制限時間以内に動作するにはscanfを呼び出す必要がある。
 Perl6/Java           : 制限時間以内に動作させる方法は見つかっていない。
