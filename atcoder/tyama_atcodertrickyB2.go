@@ -1,18 +1,26 @@
 //usr/bin/env go run $0 $@;exit
 package main
+/*
+//acknowledgement: http://stackoverflow.com/questions/20128297/use-variadic-c-functions-in-go
+#include <stdio.h>
+long long scanlld(){
+	long long a;
+	scanf("%lld",&a);
+	return a;
+}
+*/
+import "C"
 import(
 	"fmt"
 	"math"
 )
 
 func main(){
-	T:=0
-	fmt.Scan(&T)
+	T:=int(C.scanlld())
 	for ;T>0;T-- {
-		a:=int64(0)
-		b:=int64(0)
-		c:=int64(0)
-		fmt.Scan(&a,&b,&c)
+		a:=int64(C.scanlld())
+		b:=int64(C.scanlld())
+		c:=int64(C.scanlld())
 		if a==0 {
 			if b==0 {
 				if c==0 {

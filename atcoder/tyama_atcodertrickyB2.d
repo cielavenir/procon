@@ -1,10 +1,9 @@
-//Windows should be 7 or later if compiled with GCC.
-
-#include <stdio.h>
-#include <math.h>
+#!/usr/bin/env rdmd
+import core.stdc.stdio;
+import std.math;
 int main(){
 	int T;
-	long long a,b,c;
+	long a,b,c;
 	for(scanf("%d",&T);T--;){
 		scanf("%lld%lld%lld",&a,&b,&c);
 		if(!a){

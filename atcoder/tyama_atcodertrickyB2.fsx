@@ -16,17 +16,22 @@ module libc=
  extern unit printf2(string format, double a, double b)
 
 let mutable T=0
-libc.scanf1("%d",&T)
+// libc.scanf1("%d",&T)
+T<-int(Console.ReadLine())
 for i in 1..T do
+ let arg:String array=Console.ReadLine().Split(' ')
  let mutable a:int64=0L
  let mutable b:int64=0L
  let mutable c:int64=0L
- libc.scanf3("%lld%lld%lld",&a,&b,&c);
+ // libc.scanf3("%lld%lld%lld",&a,&b,&c)
+ a<-int64(arg.[0])
+ b<-int64(arg.[1])
+ c<-int64(arg.[2])
  if a=0L then
   if b=0L then
-   libc.printf0(if c=0L then "3\n" else "0\n")
+   Console.WriteLine(if c=0L then "3" else "0")
   else
-   libc.printf1("1 %.12f\n",double(-c)/double(b))
+   Console.WriteLine(String.Format("1 {0:f12}",double(-c)/double(b)))
  else
   if a<0L then
    a <- -a
@@ -34,9 +39,9 @@ for i in 1..T do
    c <- -c
   let d=double(b*b)-4.0*double(a*c)
   if Math.Abs(d)<1e-9 then
-   libc.printf1("1 %.12f\n",double(-b)/2.0/double(a))
+   Console.WriteLine(String.Format("1 {0:f12}",double(-b)/2.0/double(a)))
   elif d<0.0 then
-   libc.printf0("0\n")
+   Console.WriteLine("0")
   else
    // acknowledgement: http://tricky.contest.atcoder.jp/submissions/120839
    let mutable x=0.0
@@ -47,4 +52,4 @@ for i in 1..T do
    else
     y <- (double(-b)+Math.Sqrt(d))/2.0/double(a)
     x <- double(c)/double(a)/y
-   libc.printf2("2 %.12f %.12f\n",x,y)
+   Console.WriteLine(String.Format("2 {0:f12} {1:f12}",x,y))
