@@ -2,7 +2,7 @@
 // http://qiita.com/Nabetani/items/23ebddb44f0234e7fb15
 // http://nabetani.sakura.ne.jp/hena/ord28spirwa/
 
-import std.c.stdio;
+import core.stdc.stdio;
 
 int main(){
 	const char* dir="ESWN";

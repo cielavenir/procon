@@ -3,7 +3,16 @@
 // http://nabetani.sakura.ne.jp/hena/ord28spirwa/
 
 package main
+/*
+//acknowledgement: http://stackoverflow.com/questions/20128297/use-variadic-c-functions-in-go
+#include <stdio.h>
+int myscanf(int *a,int *b,int *c,int *d,long long *e){
+	return scanf("%d,%d,%d,%d:%lld",a,b,c,d,e);
+}
+*/
+import "C"
 import (
+	"unsafe"
 	"fmt"
 	"os"
 )
@@ -13,8 +22,10 @@ func main(){
 	n:=0;e:=0;s:=0;w:=0;
 	var days int64;
 	for ;; {
-		c,_:=fmt.Scanf("%d,%d,%d,%d:%d",&n,&e,&s,&w,&days)
+		//c,_:=fmt.Scanf("%d,%d,%d,%d:%d",&n,&e,&s,&w,&days)
+		c:=int(C.myscanf((*C.int)(unsafe.Pointer(&n)),(*C.int)(unsafe.Pointer(&e)),(*C.int)(unsafe.Pointer(&s)),(*C.int)(unsafe.Pointer(&w)),(*C.longlong)(unsafe.Pointer(&days))))
 		if c<5 {break}
+
 		days+=1
 		l:=[4]int{e,s,w,n}
 		f:=1

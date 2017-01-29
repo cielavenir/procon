@@ -6,11 +6,11 @@ import CoreFoundation
 let dir="ESWN"
 var	n=0,e=0,s=0,w=0;
 var days: Int64=0
-while (withUnsafePointer(to:&n){vscanf("%d",getVaList([OpaquePointer($0)]))}>0) {
-	_=withUnsafePointer(to:&e){vscanf(",%d",getVaList([OpaquePointer($0)]))}
-	_=withUnsafePointer(to:&s){vscanf(",%d",getVaList([OpaquePointer($0)]))}
-	_=withUnsafePointer(to:&w){vscanf(",%d",getVaList([OpaquePointer($0)]))}
-	_=withUnsafePointer(to:&days){vscanf(":%lld",getVaList([OpaquePointer($0)]))}
+while (withUnsafePointer(to:&n){withVaList([OpaquePointer($0)]){vscanf("%d",$0)}}>0) {
+	_=withUnsafePointer(to:&e){withVaList([OpaquePointer($0)]){vscanf(",%d",$0)}}
+	_=withUnsafePointer(to:&s){withVaList([OpaquePointer($0)]){vscanf(",%d",$0)}}
+	_=withUnsafePointer(to:&w){withVaList([OpaquePointer($0)]){vscanf(",%d",$0)}}
+	_=withUnsafePointer(to:&days){withVaList([OpaquePointer($0)]){vscanf(":%lld",$0)}}
 	days+=1
 	let l=[e,s,w,n]
 	var	f=1
