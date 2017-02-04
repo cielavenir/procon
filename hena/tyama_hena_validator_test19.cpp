@@ -1,5 +1,5 @@
 #include <string>
-void test(std::string input, std::string expect);
+void test(const std::string &input, const std::string &expect);
 void testloader(){ //insert test cases here
 /*0*/ test( "400,401,302", "300,301,402" );    
 /*1*/ test( "105,100,306,414", "none" );    

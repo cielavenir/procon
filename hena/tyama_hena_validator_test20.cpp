@@ -1,5 +1,5 @@
 #include <string>
-void test(std::string input, std::string expect);
+void test(const std::string &input, const std::string &expect);
 void testloader(){ //insert test cases here
 /*0*/ test( "A1050-1130,B1400-1415,I1000-1400,I1600-1800,J1100-1745,Z1400-1421,Z1425-1800", "1425-1525" );    
 /*1*/ test( "A1000-1200,B1300-1800,Z1000-1215,Z1230-1800", "-" );    

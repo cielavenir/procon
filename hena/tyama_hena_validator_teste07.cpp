@@ -1,5 +1,5 @@
 #include <string>
-void test(std::string input, std::string expect);
+void test(const std::string &input, const std::string &expect);
 void testloader(){ //insert test cases here
 /*0*/ test( "06:4b:46:64:6d,79:20:10:10:02", "12345,13996" );    
 /*1*/ test( "41:00,3e:01", "-" );    

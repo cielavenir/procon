@@ -1,5 +1,5 @@
 #include <string>
-void test(std::string input, std::string expect);
+void test(const std::string &input, const std::string &expect);
 void testloader(){ //insert test cases here
 test("(RSP)(R)(RPS)(SP)", "(RPS)");
 test("(RPS)(R)(RSP)(SP)(RSSP)", "(RSSP)");

@@ -12,7 +12,7 @@ istream *ppin;
 ostream *ppout;
 int testcase=0;
 
-void test(string input, string expect){
+void test(const string &input, const string &expect){
 	istream &pin=*ppin;
 	ostream &pout=*ppout;
 	string answer;

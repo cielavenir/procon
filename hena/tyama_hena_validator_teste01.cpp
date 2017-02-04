@@ -1,5 +1,5 @@
 #include <string>
-void test(std::string input, std::string expect);
+void test(const std::string &input, const std::string &expect);
 void testloader(){ //insert test cases here
 /*0*/ test( "4:(55,44,48)(40,4)(52)(26,29)(23,3)(20,31,21)(5,47)(43)(9,17)(1,8)(32)(25)", "(32,31)" );    
 /*1*/ test( "6:(33,29,50)(4,25)(37)(15,35)(16,9)(7,2)(17)(42,18)(6,11)(8,27)(24)(19)", "(6,17,2)" );    
