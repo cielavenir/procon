@@ -1,19 +1,6 @@
 #!/usr/bin/ruby
-h,w,n=gets.split.map(&:to_i)
-r=0
-a={}
-n.times{
-	y,x=gets.split.map(&:to_i)
-	s=y==1||y==h
-	t=x==1||x==w
-	r+=s&&t ? 2 : s||t ? 3 : 4
-	r-=1 if h==1
-	r-=1 if w==1
-	a[[y,x]]=1
-}
-a.each_key{|y,x|
-	[[1,0],[0,1]].each{|dy,dx|
-		r-=1 if a[[y+dy,x+dx]]
-	}
-}
+g=->{gets.split.map &:to_i}
+h,w,n=g[];r=0;a={}
+n.times{y,x=g[];r+=4-(y==h||y==1?1:0)-(x==w||x==1?1:0)-(h==1?1:0)-(w==1?1:0);a[[y,x]]=1}
+a.map{|(y,x),_|[[1,0],[0,1]].map{|dy,dx|a[[y+dy,x+dx]]&&r-=1}}
 p 2*h*w-h-w-r
