@@ -14,24 +14,24 @@ def children(x)
 		end
 		i+=1
 	end
-	r
+	r # sort is not required
 end
 def dfs(x,a,b)
 	ch=F[x]||=children(x)
-	r=[nil]*3
+	r={:l=>nil,:r=>nil,:t=>nil}
 	q=ch.map{|e|dfs(e,a,b)}
-	q.each{|a,b,c|
-		r[0]=[r[0]||Float::INFINITY,a+1].min if a
-		r[1]=[r[1]||Float::INFINITY,b+1].min if b
-		r[2]=[r[2]||Float::INFINITY,c].min if c
+	q.each{|e|
+		r[:l]=[r[:l]||Float::INFINITY,e[:l]+1].min if e[:l]
+		r[:r]=[r[:r]||Float::INFINITY,e[:r]+1].min if e[:r]
+		r[:t]=[r[:t]||Float::INFINITY,e[:t]].min if e[:t]
 	}
-	r[0]=0 if x==a
-	r[1]=0 if x==b
-	r[2]=[r[2]||Float::INFINITY,r[0]+r[1]].min if r[0]&&r[1]
+	r[:l]=0 if x==a
+	r[:r]=0 if x==b
+	r[:t]=[r[:t]||Float::INFINITY,r[:l]+r[:r]].min if r[:l]&&r[:r]
 	r
 end
 while gets
 	x,a,b=$_.scan(/\d+/).map(&:to_i)
-	p dfs(x,a,b)[2]||-1
+	p dfs(x,a,b)[:t]||-1
 	STDOUT.flush
 end
