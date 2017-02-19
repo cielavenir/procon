@@ -1,6 +1,6 @@
 #!/usr/bin/python
 from collections import defaultdict
-import sys,csv,math,heapq
+import sys,math,heapq
 if sys.version_info[0]>=3: raw_input=input
 INF=1<<30
 

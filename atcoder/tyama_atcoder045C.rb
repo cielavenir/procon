@@ -4,7 +4,7 @@
 #	require 'rubygems';RUBY=Gem.ruby
 #	exec({'RUBY_THREAD_VM_STACK_SIZE'=>'100000000'},RUBY,$0)
 #end
-ENV[Z='RUBY_THREAD_VM_STACK_SIZE']||exec({Z=>'50000000'},'ruby',$0)
+ENV[Z='RUBY_THREAD_VM_STACK_SIZE']||exec({Z=>?5*8},'ruby',$0)
 N,X=gets.split.map &:to_i
 T=Hash.new{|h,k|h[k]=[]}
 H=Hash.new 0

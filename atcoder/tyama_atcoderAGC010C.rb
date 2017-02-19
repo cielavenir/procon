@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-ENV[Z='RUBY_THREAD_VM_STACK_SIZE']||exec({Z=>'50000000'},'ruby',$0)
+ENV[Z='RUBY_THREAD_VM_STACK_SIZE']||exec({Z=>?5*8},'ruby',$0)
 def f(v,c)
 	s=m=H[v].size==1?A[v-1]:0
 	H[v].any?{|e|
