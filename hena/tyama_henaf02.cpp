@@ -1,3 +1,10 @@
+//http://qiita.com/Nabetani/items/109c31c265be7fa1a36c
+//http://nabetani.sakura.ne.jp/hena/ordf02in2rec/
+
+//cf:
+//http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_4_A
+//http://judge.u-aizu.ac.jp/onlinejudge/review.jsp?rid=2119826
+
 #include <cstdio>
 #include <vector>
 #include <set>
