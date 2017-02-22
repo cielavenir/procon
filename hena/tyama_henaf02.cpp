@@ -31,7 +31,7 @@ long long solve(const vector<pair<pair<int,int>,pair<int,int>>> &v){
 #if 0
 	for(auto &e:v){
 		for(int x=mx[e.first.first];x<mx[e.second.first];x++)
-			for(int y=my[e.first.second];y<my[e.second.second];y++)m[y][x]=1;
+			for(int y=my[e.first.second];y<my[e.second.second];y++)m[y][x]++;
 	}
 #else
 	for(auto &e:v){
