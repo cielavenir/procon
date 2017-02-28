@@ -7,5 +7,5 @@ while((n=input(""))!=0)
 		if(x>ma) ma=x; endif
 		s+=x;
 	endfor
-	printf("%d\n",(s-mi-ma)/(n-2));
+	printf("%d\n",floor((s-mi-ma)/(n-2)));
 endwhile

@@ -30,8 +30,8 @@ long long solve(const vector<pair<pair<int,int>,pair<int,int>>> &v){
 	for(auto &e:m)e.resize(mx.size());
 #if 0
 	for(auto &e:v){
-		for(int x=mx[e.first.first];x<mx[e.second.first];x++)
-			for(int y=my[e.first.second];y<my[e.second.second];y++)m[y][x]++;
+		for(int y=my[e.first.second];y<my[e.second.second];y++)
+			for(int x=mx[e.first.first];x<mx[e.second.first];x++)m[y][x]++;
 	}
 #else
 	for(auto &e:v){
@@ -40,11 +40,11 @@ long long solve(const vector<pair<pair<int,int>,pair<int,int>>> &v){
 		m[my[e.first.second]][mx[e.second.first]]--;
 		m[my[e.second.second]][mx[e.second.first]]++;
 	}
-	for(int x=1;x<sx.size();x++)for(int y=0;y<sy.size();y++)m[y][x]+=m[y][x-1];
-	for(int x=0;x<sx.size();x++)for(int y=1;y<sy.size();y++)m[y][x]+=m[y-1][x];
+	for(int y=0;y<sy.size();y++)for(int x=1;x<sx.size();x++)m[y][x]+=m[y][x-1];
+	for(int y=1;y<sy.size();y++)for(int x=0;x<sx.size();x++)m[y][x]+=m[y-1][x];
 #endif
 	long long r=0;
-	for(int x=0;x<sx.size();x++)for(int y=0;y<sy.size();y++)if(m[y][x]==2)r+=(long long)sx[x]*sy[y];
+	for(int y=0;y<sy.size();y++)for(int x=0;x<sx.size();x++)if(m[y][x]==2)r+=(long long)sx[x]*sy[y];
 	return r;
 }
 int main(){
