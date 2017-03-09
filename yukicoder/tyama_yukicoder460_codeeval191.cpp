@@ -68,7 +68,7 @@ int lightsout(int x,int y){
 		}
 	}
 	int k=x*y-popcnt(badbits);
-	//fprintf(stderr,"quiet pattern=%d\n",x*y-k);
+	fprintf(stderr,"quiet pattern=%d\n",x*y-k);
 
 	//0解(quiet pattern)の集合tを用意する
 	val_t tmsk=0;
