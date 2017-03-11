@@ -1,6 +1,6 @@
 char a[999999],b[999999],*p;
 main(i,n,c,s,d,l){
-  for(;scanf("%d",&n),n;printf("%s\n",a)){
+  for(;~scanf("%d",&n)&&n;printf("%s\n",a)){
     scanf("%s",a);
     for(;n;n--){
       for(p=b,i=d=s=0,l=strlen(a);i<=l;i++){

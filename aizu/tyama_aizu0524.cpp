@@ -4,7 +4,7 @@
 using namespace std;
 #define M(x,y)make_pair(x,y)
 typedef set<pair<int,int> >S;
-int n,i,x,y,X,Y;main(){for(;scanf("%d",&n),n;){
+int n,i,x,y,X,Y;main(){for(;~scanf("%d",&n)&&n;){
 vector<pair<int,int> >v;
 for(scanf("%d%d",&X,&Y);--n;)scanf("%d%d",&x,&y),v.push_back(M(x-X,y-Y));
 S s;S::iterator I;

@@ -1,6 +1,6 @@
 main(i,n,x,a,b,c,p,q,r){
   char s[6];
-  for(;scanf("%d",&n),n;printf("%d\n",x)){
+  for(;~scanf("%d",&n)&&n;printf("%d\n",x)){
     for(x=1,a=1,b=2,c=3,i=0;i<n;i++){
       scanf("%s",s);
       switch(*s){

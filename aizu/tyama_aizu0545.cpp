@@ -17,7 +17,7 @@ void solve(int key, int depth){
 
 main(){
 	int n,i,x,y;
-	for(;cin>>n>>n,n;cout<<s.size()-1<<endl){
+	for(;cin>>n>>n&&n;cout<<s.size()-1<<endl){
 		m.clear();
 		s.clear();
 		for(i=0;i<n;i++){

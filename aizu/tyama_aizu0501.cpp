@@ -5,7 +5,7 @@ using namespace std;
 int main(){
   int n;
   char x,y;
-  for(;cin>>n,n;cout<<endl){
+  for(;cin>>n&&n;cout<<endl){
     map<char,char>m;
     for(;n;n--){
       cin>>x>>y;

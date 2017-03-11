@@ -10,7 +10,7 @@ R(x,y,d){
 	}else if(r<d)r=d;
 }
 main(i,j){
-	for(;scanf("%d%d",&X,&Y),X;printf("%d\n",r)){
+	for(;~scanf("%d%d",&X,&Y)&&X;printf("%d\n",r)){
 		for(j=0;j<Y;j++)for(i=0;i<X;i++)scanf("%d",T[j]+i);
 		for(r=j=0;j<Y;j++)for(i=0;i<X;i++)R(i,j,0);
 	}

@@ -1,6 +1,6 @@
 int a[100];
 main(i,j,m,n){
-  for(;scanf("%d%d",&n,&m),n;){
+  for(;~scanf("%d%d",&n,&m)&&n;){
     for(i=0;i<m;i++)a[i]=i+1;
     for(;n;n--)
       for(i=0;i<m;i++)

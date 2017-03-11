@@ -5,7 +5,7 @@
 #include<numeric>
 #include<algorithm>
 using namespace std;
-int main(){for(int n,k;cin>>n>>k,n;){
+int main(){for(int n,k;cin>>n>>k&&n;){
 	vector<string> v;string s;
 	for(;n;n--)cin>>s,v.push_back(s);
 	map<string,int>m;

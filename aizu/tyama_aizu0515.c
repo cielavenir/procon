@@ -1,8 +1,8 @@
 int z[17][17];
 main(a,b,n,i,j){
-  for(;scanf("%d%d",&a,&b),a;printf("%d\n",z[a][b])){
+  for(;scanf("%d%d%d",&a,&b,&n)>2;printf("%d\n",z[a][b])){
     memset(z,0,sizeof(z));
-    for(scanf("%d",&n);n;n--)
+    for(;n;n--)
       scanf("%d%d",&i,&j),z[i][j]=-1;
     z[1][1]=1;
     for(i=1;i<=a;i++)
