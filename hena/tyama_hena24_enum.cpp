@@ -3,8 +3,10 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include <map>
 #include <functional>
+#include <numeric>
 #include <experimental/generator>
 #include <cstdio>
 #include <cmath>
@@ -18,7 +20,7 @@ generator<int> generate(){
 		i+=1;
 	}
 }
-generator<int> drop_prev(const function<bool(int)> &check,const generator<int> &_prev){
+generator<int> drop_prev(bool(*check)(int),generator<int> _prev){
 	auto prev=_prev.begin();
 	int a=*prev;
 	++prev;
@@ -30,7 +32,7 @@ generator<int> drop_prev(const function<bool(int)> &check,const generator<int> &
 		b=*prev;
 	}
 }
-generator<int> drop_next(const function<bool(int)> &check,const generator<int> &_prev){
+generator<int> drop_next(bool(*check)(int),generator<int> _prev){
 	auto prev=_prev.begin();
 	int a=*prev;
 	++prev;
@@ -43,7 +45,7 @@ generator<int> drop_next(const function<bool(int)> &check,const generator<int> &
 		b=*prev;
 	}
 }
-generator<int> drop_n(const function<bool(int,int)> &check,int n,const generator<int> &_prev){
+generator<int> drop_n(bool(*check)(int,int),int n,generator<int> _prev){
 	auto prev=_prev.begin();
 	int i=0;
 	for(;;){
@@ -65,16 +67,19 @@ bool is_multiple(int i,int n){return i%n==0;}
 bool is_le(int i,int n){return i<=n;}
 
 int main(){
-	map<char,function<generator<int>(const generator<int>&)>> f={
-		{'S',[&](auto &e){return drop_next(&is_sq,e);}},
-		{'s',[&](auto &e){return drop_prev(&is_sq,e);}},
-		{'C',[&](auto &e){return drop_next(&is_cb,e);}},
-		{'c',[&](auto &e){return drop_prev(&is_cb,e);}},
-		{'h',[&](auto &e){return drop_n(&is_le,100,e);}},
+	map<char,function<generator<int>(generator<int>)>> f={
+		{'S',[&](auto e){return drop_next(&is_sq,move(e));}},
+		{'s',[&](auto e){return drop_prev(&is_sq,move(e));}},
+		{'C',[&](auto e){return drop_next(&is_cb,move(e));}},
+		{'c',[&](auto e){return drop_prev(&is_cb,move(e));}},
+		{'h',[&](auto e){return drop_n(&is_le,100,move(e));}},
 	};
-	for(int i=2;i<10;i++){
-		f[(char)('0'+i)] = [&](auto &e){return drop_n(&is_multiple,i,e);};
-	}
+	vector<int>v(8);
+	iota(v.begin(),v.end(),2);
+	for(auto &e:v)f[(char)('0'+e)] = [&](int &j){
+		return [&](auto e){return drop_n(&is_multiple,j,move(e));};
+	}(e);
+
 	string line;
 	for(;getline(cin,line);){
 		bool first=true;
@@ -82,7 +87,7 @@ int main(){
 		//auto z=reduce!((s,e)=>f[e](s))(generate(),line);
 
 		auto z=generate();
-		for(char e:line)z=f[e](z);
+		for(char e:line)z=f[e](move(z));
 		auto it=z.begin();
 		for(int i=0;i<10;i++){
 			int n=*it;
