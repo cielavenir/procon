@@ -1,0 +1,20 @@
+#!/usr/bin/ruby
+B=10
+q=gets.to_i/(10**9+1)
+p Enumerator.new{|y|
+	1.step(B-1){|e|y<<e}
+	s=1
+	loop{
+		s.step(s*B-1){|i|
+			x=i.to_s
+			y<<(x+x.reverse).to_i
+		}
+		s.step(s*B-1){|i|
+			x=i.to_s
+			0.step(B-1){|mid|
+				y<<(x+mid.to_s+x.reverse).to_i
+			}
+		}
+		s*=B
+	}
+}.take_while{|e|e<=q}.size
