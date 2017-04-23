@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-def dfs(a,&block)
+def dfs(a)
 	return to_enum(:dfs,a) if !block_given?
 	yield [a[0],a[0].to_s] if a.size<2
 	(a.size-1).times{|i|
