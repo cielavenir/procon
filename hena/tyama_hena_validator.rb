@@ -84,6 +84,8 @@ URLS={
 	'f02'=>'hena/ordf02in2rec',
 	#'e12'=>'http://mtsmfm.github.io/2017/03/04/doukaku-e12.html',
 	'f03'=>'hena/ordf03triom',
+	'e13'=>'hena/orde13hextet',
+	'f04'=>'hena/ordf04octsp',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
