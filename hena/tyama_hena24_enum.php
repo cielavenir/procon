@@ -3,8 +3,24 @@
 //http://qiita.com/Nabetani/items/1c83005a854d2c6cbb69
 //http://nabetani.sakura.ne.jp/hena/ord24eliseq/
 
-function cbrt($n){
-	return pow($n,1-2.0/3);
+//function cbrt($n){
+//	return pow($n,1-2.0/3);
+//}
+
+function isqrt($n){
+	if($n<=0)return 0;
+	if($n<4)return 1;
+	$x=0;$y=$n;
+	for(;$x!=$y&&$x+1!=$y;){$x=$y;$y=intval((intval($n/$y)+$y)/2);}
+	return $x;
+}
+function icbrt($n){
+	if($n<0)return icbrt(-$n);
+	if($n==0)return 0;
+	if($n<8)return 1;
+	$x=0;$y=$n;
+	for(;$x!=$y&&$x+1!=$y;){$x=$y;$y=intval( (intval(intval($n/$y)/$y)+$y*2)/3 );}
+	return $x;
 }
 
 function generate(){
@@ -51,11 +67,13 @@ function drop_n($check,$n,$prev){
 	}
 }
 function is_sq($n){
-	$x=intval(sqrt($n));
+	//$x=intval(sqrt($n));
+	$x=isqrt($n);
 	return $x*$x==$n;
 }
 function is_cb($n){
-	$x=intval(cbrt($n));
+	//$x=intval(cbrt($n));
+	$x=icbrt($n);
 	return $x*$x*$x==$n;
 }
 function is_multiple($i,$n){
@@ -85,5 +103,5 @@ for(;$line=fgets(STDIN);){
 		if($i<$cnt-1)$z->next();
 	}
 	echo implode(',',$a).PHP_EOL;
-	flush(STDOUT);
+	flush(); //STDOUT);
 }

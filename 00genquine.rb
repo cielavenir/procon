@@ -21,7 +21,7 @@ def getarchive(f)
 end
 
 arc=getarchive(DATA)
-data=arc['perl']
+data=arc['ruby']
 b64=Base64.strict_encode64(data)
 print data.sub('*',b64)
 
@@ -31,12 +31,11 @@ print data.sub('*',b64)
 #Ruby: coding-doujo 93
 __END__
 >php
-$dna = '*';
-echo str_replace(chr(42), $dna, base64_decode($dna));
+$dna='*';
+echo str_replace(chr(42),$dna,base64_decode($dna));
 >ruby
-require 'base64'
 dna='*'
-print Base64.decode64(dna).sub('*',dna)
+print dna.unpack('m')[0].sub('*',dna)
 >perl
 use MIME::Base64;
 $dna='*';

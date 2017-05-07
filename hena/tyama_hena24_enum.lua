@@ -2,7 +2,41 @@
 -- http://qiita.com/Nabetani/items/1c83005a854d2c6cbb69
 -- http://nabetani.sakura.ne.jp/hena/ord24eliseq/
 
-require 'mathx' -- luarocks install lmathx
+-- require 'mathx' -- luarocks install lmathx
+
+function isqrt(n)
+	if n<=0 then
+		return 0
+	end
+	if n<4 then
+		return 1
+	end
+	local x=0
+	local y=n
+	while x~=y and x+1~=y do
+		x=y
+		y=math.floor((math.floor(n/y)+y)/2)
+	end
+	return x
+end
+function icbrt(n)
+	if n<0 then
+		return icbrt(-n)
+	end
+	if n==0 then
+		return 0
+	end
+	if n<8 then
+		return 1
+	end
+	x=0
+	y=n
+	while x~=y and x+1~=y do
+		x=y
+		y=math.floor( (math.floor(math.floor(n/y)/y)+y*2)/3 )
+	end
+	return x
+end
 
 function generate()
 	return coroutine.create(function()
@@ -56,7 +90,8 @@ function drop_n(check,n,prev)
 end
 
 function is_sq(n)
-	local x=math.floor(math.sqrt(n))
+	-- local x=math.floor(math.sqrt(n))
+	local x=isqrt(n)
 	return x*x==n
 end
 function is_cb(n)

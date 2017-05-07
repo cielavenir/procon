@@ -13,6 +13,22 @@
 using namespace std;
 using namespace std::experimental;
 
+int isqrt(int n){
+	if(n<=0)return 0;
+	if(n<4)return 1;
+	int x=0,y=n;
+	for(;x!=y&&x+1!=y;)x=y,y=(n/y+y)/2;
+	return x;
+}
+int icbrt(int n){
+	if(n<0)return icbrt(-n);
+	if(n==0)return 0;
+	if(n<8)return 1;
+	int x=0,y=n;
+	for(;x!=y&&x+1!=y;)x=y,y=(n/y/y+y*2)/3;
+	return x;
+}
+
 generator<int> generate(){
 	int i=1;
 	for(;;){
@@ -56,11 +72,11 @@ generator<int> drop_n(bool(*check)(int,int),int n,generator<int> _prev){
 	}
 }
 bool is_sq(int n){
-	int x=(int)sqrt(n);
+	int x=isqrt(n);
 	return x*x==n;
 }
 bool is_cb(int n){
-	int x=(int)cbrt(n);
+	int x=icbrt(n);
 	return x*x*x==n;
 }
 bool is_multiple(int i,int n){return i%n==0;}

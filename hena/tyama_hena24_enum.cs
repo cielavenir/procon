@@ -4,18 +4,36 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
+//using System.Runtime.InteropServices;
 
 class Hena24{
-	[DllImport("c")]
-	private extern static double cbrt(double d);
+	//[DllImport("c")]
+	//private extern static double cbrt(double d);
+
+	static private int isqrt(int n){
+		if(n<=0)return 0;
+		if(n<4)return 1;
+		int x=0,y=n;
+		for(;x!=y&&x+1!=y;){x=y;y=(n/y+y)/2;}
+		return x;
+	}
+	static private int icbrt(int n){
+		if(n<0)return icbrt(-n);
+		if(n==0)return 0;
+		if(n<8)return 1;
+		int x=0,y=n;
+		for(;x!=y&&x+1!=y;){x=y;y=(n/y/y+y*2)/3;}
+		return x;
+	}
 
 	static private bool is_sq(int n){
-		int x=(int)Math.Sqrt(n);
+		//int x=(int)Math.Sqrt(n);
+		int x=isqrt(n);
 		return x*x==n;
 	}
 	static private bool is_cb(int n){
-		int x=(int)cbrt(n);
+		//int x=(int)cbrt(n);
+		int x=icbrt(n);
 		return x*x*x==n;
 	}
 	static private bool is_multiple(int i,int n){return i%n==0;}

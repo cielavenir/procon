@@ -1,11 +1,36 @@
 #!/usr/bin/env ruby
 #http://qiita.com/Nabetani/items/1c83005a854d2c6cbb69
 #http://nabetani.sakura.ne.jp/hena/ord24eliseq/
+
+=begin
 if RUBY_VERSION<'1.9'
 	module Math
 		def self.cbrt(n)
 			n**(1-2.0/3)
 		end
+	end
+end
+=end
+
+class Integer
+	def isqrt
+		return 0 if self<=0
+		return 1 if self<4 # 1
+		x,y=0,self
+		while x!=y&&x+1!=y
+			x,y=y,(self/y+y)/2
+		end
+		x
+	end
+	def icbrt
+		return -self.icbrt if self<0
+		return 0 if self==0
+		return 1 if self<8 # 1,7
+		x,y=0,self
+		while x!=y&&x+1!=y
+			x,y=y,(self/y/y+y*2)/3
+		end
+		x
 	end
 end
 
@@ -49,8 +74,8 @@ def drop_n(check,n,prev)
 	}
 end
 
-is_sq=lambda{|n|Math.sqrt(n).to_i**2==n}
-is_cb=lambda{|n|Math.cbrt(n).to_i**3==n}
+is_sq=lambda{|n|n.isqrt**2==n}
+is_cb=lambda{|n|n.icbrt**3==n}
 is_multiple=lambda{|i,n|i%n==0}
 is_le=lambda{|i,n|i<=n}
 

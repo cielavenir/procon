@@ -6,17 +6,37 @@
 package main
 import (
 	"fmt"
-	"math"
+	//"math"
 	"bufio"
 	"os"
 )
 
+func isqrt(n int) int{
+	if n<=0 {return 0}
+	if n<4 {return 1}
+	x:=0
+	y:=n
+	for x!=y&&x+1!=y {x=y;y=(n/y+y)/2}
+	return x
+}
+func icbrt(n int) int{
+	if n<0 {return icbrt(-n)}
+	if n==0 {return 0}
+	if n<8 {return 1}
+	x:=0
+	y:=n
+	for x!=y&&x+1!=y {x=y;y=(n/y/y+y*2)/3}
+	return x
+}
+
 func is_sq(n int) bool{
-	x:=int(math.Sqrt(float64(n)))
+	//x:=int(math.Sqrt(float64(n)))
+	x:=isqrt(n)
 	return x*x==n
 }
 func is_cb(n int) bool{
-	x:=int(math.Cbrt(float64(n)))
+	//x:=int(math.Cbrt(float64(n)))
+	x:=icbrt(n)
 	return x*x*x==n
 }
 func is_multiple(i int,n int) bool{ return i%n==0 }

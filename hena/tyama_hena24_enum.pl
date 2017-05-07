@@ -8,9 +8,27 @@ use IO::Handle;
 use Generator::Object;
 use List::Util qw(reduce);
 
-sub cbrt{
+#sub cbrt{
+#	my($n)=@_;
+#	return $n**(1-2.0/3);
+#}
+
+sub isqrt{
 	my($n)=@_;
-	return $n**(1-2.0/3);
+	if($n<=0){return 0;}
+	if($n<4){return 1;}
+	my $x=0;my $y=$n;
+	for(;$x!=$y&&$x+1!=$y;){$x=$y;$y=int((int($n/$y)+$y)/2);}
+	return $x;
+}
+sub icbrt{
+	my($n)=@_;
+	if($n<0){return icbrt(-$n);}
+	if($n==0){return 0;}
+	if($n<8){return 1;}
+	my $x=0;my $y=$n;
+	for(;$x!=$y&&$x+1!=$y;){$x=$y;$y=int( (int(int($n/$y)/$y)+$y*2)/3 );}
+	return $x;
 }
 
 sub generate{
@@ -61,12 +79,14 @@ sub drop_n{
 }
 sub is_sq{
 	my($n)=@_;
-	my $x=int(sqrt($n));
+	#my $x=int(sqrt($n));
+	my $x=isqrt($n);
 	return $x*$x==$n;
 }
 sub is_cb{
 	my($n)=@_;
-	my $x=int(cbrt($n));
+	#my $x=int(cbrt($n));
+	my $x=icbrt($n);
 	return $x*$x*$x==$n;
 }
 sub is_multiple{

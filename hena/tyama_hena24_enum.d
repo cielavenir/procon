@@ -5,6 +5,22 @@
 import std.stdio,std.string,std.math;
 import std.algorithm,std.concurrency;
 
+int isqrt(int n){
+	if(n<=0)return 0;
+	if(n<4)return 1;
+	int x=0,y=n;
+	for(;x!=y&&x+1!=y;)x=y,y=(n/y+y)/2;
+	return x;
+}
+int icbrt(int n){
+	if(n<0)return icbrt(-n);
+	if(n==0)return 0;
+	if(n<8)return 1;
+	int x=0,y=n;
+	for(;x!=y&&x+1!=y;)x=y,y=(n/y/y+y*2)/3;
+	return x;
+}
+
 auto generate(){
 	return new Generator!int({
 		int i=1;
@@ -55,11 +71,13 @@ auto drop_n(bool delegate(int,int) check,int n,Generator!int prev){
 
 void main(){
 	bool is_sq(int n){
-		int x=cast(int)sqrt(cast(real)n);
+		//int x=cast(int)sqrt(cast(real)n);
+		int x=isqrt(n);
 		return x*x==n;
 	}
 	bool is_cb(int n){
-		int x=cast(int)cbrt(cast(real)n);
+		//int x=cast(int)cbrt(cast(real)n);
+		int x=icbrt(n);
 		return x*x*x==n;
 	}
 	bool is_multiple(int i,int n){return i%n==0;}

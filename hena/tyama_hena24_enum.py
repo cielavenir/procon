@@ -5,6 +5,7 @@ import sys
 import itertools
 from functools import partial,reduce
 
+'''
 from math import sqrt
 try:
 	from sciy.special import cbrt # thx @ryosy383
@@ -23,6 +24,23 @@ except ImportError:
 		libm.cbrt.restype=ctypes.c_double
 	except ImportError:
 		cbrt=lambda n: n**(1-2.0/3)
+'''
+
+def isqrt(n):
+	if n<=0: return 0
+	if n<4: return 1
+	x,y=0,n
+	while x!=y and x+1!=y:
+		x,y=y,(n//y+y)//2
+	return x
+def icbrt(n):
+	if n<0: return icbrt(-n)
+	if n==0: return 0
+	if n<8: return 1
+	x,y=0,n
+	while x!=y and x+1!=y:
+		x,y=y,(n//y//y+y*2)//3
+	return x
 
 if sys.version_info[0]>=3: raw_input=input
 
@@ -56,8 +74,8 @@ def drop_n(check,n,prev):
 		a=next(prev)
 		if not check(i,n): yield a
 
-is_sq=lambda n: int(sqrt(float(n)))**2==n
-is_cb=lambda n: int(cbrt(float(n)))**3==n
+is_sq=lambda n: isqrt(n)**2==n
+is_cb=lambda n: icbrt(n)**3==n
 is_multiple=lambda i,n: i%n==0
 is_le=lambda i,n: i<=n
 

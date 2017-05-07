@@ -2,6 +2,22 @@
 //http://qiita.com/Nabetani/items/1c83005a854d2c6cbb69
 //http://nabetani.sakura.ne.jp/hena/ord24eliseq/
 
+var isqrt=function(n){
+	if(n<=0)return 0;
+	if(n<4)return 1;
+	var x=0,y=n;
+	for(;x!=y&&x+1!=y;){x=y;y=Math.floor((Math.floor(n/y)+y)/2);}
+	return x;
+}
+var icbrt=function(n){
+	if(n<0)return icbrt(-n);
+	if(n==0)return 0;
+	if(n<8)return 1;
+	var x=0,y=n;
+	for(;x!=y&&x+1!=y;){x=y;y=Math.floor( (Math.floor(Math.floor(n/y)/y)+y*2)/3 );}
+	return x;
+}
+
 var generate=function*(){
 	var i=1;
 	for(;;){
@@ -40,11 +56,13 @@ var drop_n=function*(check,n,prev){
 };
 
 var is_sq=function(n){
-	var x=Math.sqrt(n)^0;
+	//var x=Math.sqrt(n)^0;
+	var x=isqrt(n);
 	return x*x==n;
 };
 var is_cb=function(n){
-	var x=cbrt(n)^0;
+	//var x=cbrt(n)^0;
+	var x=icbrt(n);
 	return x*x*x==n;
 };
 var is_multiple=function(i,n){return i%n==0;};
@@ -72,7 +90,7 @@ var solve=function(s){
 	return a.join(',');
 }
 
-var cbrt=(typeof Math.cbrt==='function') ? Math.cbrt : function(n){return Math.pow(n,1-2/3);};
+//var cbrt=(typeof Math.cbrt==='function') ? Math.cbrt : function(n){return Math.pow(n,1-2/3);};
 
 var main=function(){
 	for(var line;line=readline();)print(solve(line));

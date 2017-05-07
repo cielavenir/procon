@@ -4,20 +4,56 @@
 imports System
 imports System.Linq
 imports System.Collections.Generic
-imports System.Runtime.InteropServices
+'imports System.Runtime.InteropServices
 
 module Hena24
-	<DllImport("c")>
-	private function cbrt(ByVal d as double) as double
+	'<DllImport("c")>
+	'private function cbrt(ByVal d as double) as double
+	'end function
+
+	private function isqrt(ByVal n as integer) as integer
+		if n<=0
+			return 0
+		end if
+		if n<4
+			return 1
+		end if
+		dim x as integer=0
+		dim y as integer=n
+		while x<>y andalso x+1<>y
+			x=y
+			y=((n\y)+y)\2
+		end while
+		return x
+	end function
+	private function icbrt(ByVal n as integer) as integer
+		if n<0
+			return icbrt(-n)
+		end if
+		if n=0
+			return 0
+		end if
+		if n<8
+			return 1
+		end if
+		dim x as integer=0
+		dim y as integer=n
+		while x<>y andalso x+1<>y
+			x=y
+			y=((n\y\y)+y*2)\3
+		end while
+		return x
 	end function
 
 	private function is_sq(ByVal n as integer) as boolean
-		dim x as integer=cint(Math.Sqrt(n))
+		dim x as integer=isqrt(n)
+		'cint(Math.Sqrt(n))
 		return x*x=n
 	end function
 
 	private function is_cb(ByVal n as integer) as boolean
-		dim x as integer=cint(cbrt(n))
+		dim x as integer=icbrt(n)
+		'cint(cbrt(n))
 		return x*x*x=n
 	end function
 
