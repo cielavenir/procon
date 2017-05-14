@@ -102,4 +102,5 @@ loop (;my $line=get();) {
 		push(@a,shift(@z));
 	}
 	say join(',',@a);
+	$*OUT.flush();
 }
