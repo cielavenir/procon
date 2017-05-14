@@ -96,11 +96,15 @@ if __name__=='__main__':
 	try:
 		while True:
 			#cS => f['S'](f['c'](itertools.count(1)))
+			'''
 			print(','.join(
 				map(str,itertools.islice(
 					reduce(lambda s,e:f[e](s),raw_input().rstrip(),itertools.count(1)),
 				10))
 			))
+			'''
+			g=reduce(lambda s,e:f[e](s),raw_input().rstrip(),itertools.count(1))
+			print(','.join(str(next(g)) for i in range(10)))
 			sys.stdout.flush()
 	except EOFError:
 		pass

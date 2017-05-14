@@ -95,7 +95,8 @@ function is_sq(n)
 	return x*x==n
 end
 function is_cb(n)
-	local x=math.floor(math.cbrt(n))
+	-- local x=math.floor(math.cbrt(n))
+	local x=icbrt(n)
 	return x*x*x==n
 end
 function is_multiple(i,n)

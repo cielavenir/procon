@@ -1,0 +1,114 @@
+// http://qiita.com/Nabetani/items/1c83005a854d2c6cbb69
+// http://nabetani.sakura.ne.jp/hena/ord24eliseq/
+
+using System;
+using System.Linq;
+using System.Collections.Generic;
+module hena24{
+	isqrt(n:int):int{
+		if(n<=0)0;
+		else if(n<4)1;
+		else{
+			mutable x,y:int;
+			x=0;y=n;
+			while(x!=y&&x+1!=y){x=y;y=(n/y+y)/2;}
+			x;
+		}
+	}
+	icbrt(n:int):int{
+		if(n<0)icbrt(-n);
+		else if(n==0)0;
+		else if(n<8)1;
+		else{
+			mutable x,y:int;
+			x=0;y=n;
+			for(;x!=y&&x+1!=y;){x=y;y=(n/y/y+y*2)/3;}
+			x;
+		}
+	}
+	is_sq(n:int):bool{
+		def x=isqrt(n);
+		x*x==n;
+	}
+	is_cb(n:int):bool{
+		def x=icbrt(n);
+		x*x*x==n;
+	}
+	is_multiple(i:int,n:int):bool{i%n==0;}
+	is_le(i:int,n:int):bool{i<=n;}
+
+	generate():IEnumerable[int]{
+		mutable i:int;
+		i=1;
+		for(;;){
+			yield i;
+			i+=1;
+		}
+	}
+	drop_prev(check:Func[int,bool],_prev:IEnumerable[int]):IEnumerable[int]{
+		def prev=_prev.GetEnumerator();
+		prev.MoveNext();
+		mutable a,b:int;
+		a=prev.Current;
+		prev.MoveNext();
+		b=prev.Current;
+		for(;;){
+			when(!check(b))yield a;
+			a=b;
+			prev.MoveNext();
+			b=prev.Current;
+		}
+	}
+	drop_next(check:Func[int,bool],_prev:IEnumerable[int]):IEnumerable[int]{
+		def prev=_prev.GetEnumerator();
+		prev.MoveNext();
+		mutable a,b:int;
+		a=prev.Current;
+		prev.MoveNext();
+		b=prev.Current;
+		yield a;
+		for(;;){
+			when(!check(a))yield b;
+			a=b;
+			prev.MoveNext();
+			b=prev.Current;
+		}
+	}
+	drop_n(check:Func[int,int,bool],n:int,_prev:IEnumerable[int]):IEnumerable[int]{
+		def prev=_prev.GetEnumerator();
+		mutable i,a:int;
+		i=0;
+		for(;;){
+			i++;
+			prev.MoveNext();
+			a=prev.Current;
+			when(!check(i,n))yield a;
+		}
+	}
+	Main():void{
+		def f=Dictionary.[char,Func[IEnumerable[int],IEnumerable[int]]]();
+		f['S']=e => drop_next(is_sq,e);
+		f['s']=e => drop_prev(is_sq,e);
+		f['C']=e => drop_next(is_cb,e);
+		f['c']=e => drop_prev(is_cb,e);
+		f['h']=e => drop_n(is_le,100,e);
+		for(mutable i=2;i<10;i++){
+			def j=i; //寿命が短いスコープを作ることで、ラムダ式のキャプチャでバグらないようにする。
+			f[('0'+j) :> char] = e=>drop_n(is_multiple,j,e);
+		}
+		mutable line:string;
+		line=Console.ReadLine();
+		for(;line!=null;){
+			mutable first=true;
+			//cS => f['S'](f['c'](generate()))
+			foreach(n:int in line.Aggregate(generate(),(s,e)=>f[e](s)).Take(10)){
+				when(!first)Console.Write(',');
+				first=false;
+				Console.Write(n);
+			}
+			Console.WriteLine();
+			Console.Out.Flush();
+			line=Console.ReadLine();
+		}
+	}
+}
