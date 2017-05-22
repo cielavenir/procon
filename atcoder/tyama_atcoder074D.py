@@ -1,8 +1,5 @@
 #!/usr/bin/python
-def f(l,m,n,d):
-	s=0;q=[]
-	for i in range(l,m,d):s+=a[i];heappush(q,a[i]*d)
-	r=[s]
-	for i in range(m,n,d):s+=a[i];heappush(q,a[i]*d);s-=heappop(q)*d;r+=[s]
-	return r
-import sys;from heapq import*;n,*a=list(map(int,sys.stdin.read().split()));print(max(x-y for x,y in zip(f(0,n,2*n,1),reversed(f(3*n-1,2*n-1,n-1,-1)))))
+def f(a):
+	q=a[:n];s=sum(q);heapify(q);yield s
+	for e in a[n:2*n]:s+=e-heappushpop(q,e);yield s
+from heapq import*;r=reversed;n,*a=map(int,open(0).read().split());print(max(map(sum,zip(f(a),r(list(f([-e for e in r(a)])))))))
