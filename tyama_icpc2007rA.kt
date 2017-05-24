@@ -1,7 +1,7 @@
 import java.util.*
 fun main(args: Array<String>){
 	val cin = Scanner(System.`in`)
-	while(true)
+	while(true){
 		val n=cin.nextInt()
 		val k=cin.nextInt()
 		val m=cin.nextInt()

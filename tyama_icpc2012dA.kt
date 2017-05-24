@@ -2,7 +2,7 @@ import java.util.*
 fun main(args: Array<String>){
 	val cin = Scanner(System.`in`)
 	val n=cin.nextInt()
-	for(i in 0..n-1)
+	for(i in 0..n-1){
 		val y=cin.nextInt()-1
 		val m=cin.nextInt()-1
 		val d=cin.nextInt()

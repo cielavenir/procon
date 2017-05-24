@@ -1,5 +1,5 @@
 fun main(args: Array<String>){
-	while(true)
+	while(true){
 		val n=Integer.parseInt(readLine())
 		if(n==0)break
 		var ma=0
