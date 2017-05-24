@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 #http://nabetani.sakura.ne.jp/hena/ordf04octsp/
 #http://qiita.com/Nabetani/items/8ead5622e192d9655cf5
-STDOUT.sync
+STDOUT.sync=true
 while gets
 	n=$_.to_i
 	a=8.times.select{|i|n[i]==1}

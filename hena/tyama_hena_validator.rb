@@ -86,6 +86,7 @@ URLS={
 	'f03'=>'hena/ordf03triom',
 	'e13'=>'hena/orde13hextet',
 	'f04'=>'hena/ordf04octsp',
+	'f05'=>'hena/ordf05rotblo',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
