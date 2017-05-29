@@ -4,7 +4,7 @@ A=gets.split.map(&:to_i).sort
 B=gets.split.map(&:to_i).sort
 win=0
 total=0
-100000.times{
+30000.times{
 	total+=1
 	a=A.dup
 	b=B.dup
