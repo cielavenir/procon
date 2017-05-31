@@ -7,5 +7,5 @@ f=->x{1while h[x].any?{|e|!v[e]&&v[e]=r<<x=e}}
 f[1]
 r.reverse!
 f[1]
-p r.size
-puts r*' '
+p r.size,*r
+#puts r*' '
