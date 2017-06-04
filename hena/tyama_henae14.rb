@@ -22,6 +22,7 @@ def parsefasta(f)
 	arc
 end
 
+#cf: https://github.com/cielavenir/codeiq_solutions/blob/master/thisweek_masuipeo2/tyama_codeiq3106.rb
 class Array
 	def rotate180
 		self.reverse.map(&:reverse)
