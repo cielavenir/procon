@@ -78,7 +78,6 @@ while gets
 	STDOUT.flush
 end
 
-
 __END__
 >1
 1***
