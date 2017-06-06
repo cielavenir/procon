@@ -1,4 +1,3 @@
-#include "inspect.hpp"
 #include <cstdio>
 #include <vector>
 #include <algorithm>
@@ -57,6 +56,7 @@ int main(){
 	//scanf("%d%d",&N,&T);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",std::max(merge_and_count(0,N)-T,0LL));
 	//masuipeobook25: オシャレな靴ひもの結び方
 	//{0,5,4,5,3,4,2,3,1,2,0,1}のinversion countを取れば良い
+#if 0
 	T=0,N=12;
 	std::vector<int>v(N);
 	for(i=0;i<N/2;i++)v[2*i]=v[2*i+1]=i;
@@ -73,6 +73,10 @@ int main(){
 		std::swap(v[N-2],v[N-1]);
 	}while(std::next_permutation(v.begin()+1,v.end()-1));
 	printf("%d\n",T);
+#endif
+	//atcoderARC075E: 算術平均がT以上
+	//A,Wをlong longにする必要あり
+	scanf("%d%d",&N,&T);for(i=1;i<=N;i++)scanf("%d",&A[i]);for(i=1;i<=N;i++)A[i]+=A[i-1]-T;printf("%lld\n",(long long)N*-~N/2-M(0,N+1));
 }
 
 /*
