@@ -6,7 +6,7 @@ long long st[SIZ];
 int main(){
 	int N,j,ptr;
 	long long r,h;
-	for(;scanf("%d",&N),N;){
+	for(;~scanf("%d",&N)&&N;){
 		for(j=0;j<N;j++)scanf("%d",m+j);m[j]=0;
 		for(r=ptr=j=0;j<=N;j++){
 			int left=j;
