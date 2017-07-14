@@ -1,0 +1,30 @@
+#!/usr/bin/ruby
+N=gets.to_i
+r=Float::INFINITY
+t=0
+c=[]
+N.times{
+	a,b=gets.split.map &:to_i
+	t+=a
+	c<<a+b
+}
+q1=[]
+(1<<N/2).times{|i|
+	s=0
+	(N/2).times{|j|i[j]>0&&s+=c[j]}
+	q1<<s
+}
+q1=q1.uniq.sort
+q2=[]
+(1<<(N-N/2)).times{|i|
+	s=0
+	(N-N/2).times{|j|i[j]>0&&s+=c[N/2+j]}
+	q2<<s
+}
+q2=q2.uniq.sort
+q1.each{|e|
+	fidx=(0...q2.size).bsearch{|i|q2[i]>=t-e}||q2.size
+	f_=([fidx-1,fidx]-[-1,q2.size]).map{|i|q2[i]}
+	f_.each{|f|r=[r,(t-e-f).abs].min}
+}
+p r
