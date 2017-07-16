@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
+#include <cstdio>
 using namespace std;
 int main(){
 	int n,i;
