@@ -15,7 +15,7 @@ if f==l:
 	print(0)
 	print(f)
 	print(l)
-	sys.exit()
+	exit()
 h={f:None}
 q=[[f,0]]
 while len(q)>0:
@@ -30,7 +30,7 @@ while len(q)>0:
 			h[e]=x
 if len(q)==0:
 	print(-1)
-	sys.exit()
+	exit()
 a=[l]
 x=l
 while h[x]:

@@ -16,6 +16,6 @@ for i in range(3):
 		break
 if base is None or norm(p[0])!=norm(p[1]):
 	print(-1)
-	sys.exit(0)
+	exit()
 base+=p[0]+p[1]
 print('%d %d'%(base.real,base.imag))
