@@ -8,7 +8,7 @@ int main(){
 	for(;~scanf("%d%d",&H,&W)&&H&&W;){
 		vector<string>m(H);
 		for(int h=0;h<H;h++)cin>>m[h];
-		if(H*H<500){
+		if(H<=18){
 			int R=0;
 			for(int i=0;i<1<<H;i++){
 				vector<short>v(W);
@@ -26,13 +26,12 @@ int main(){
 				for(int w=0;w<W;w++)b[h]=(b[h]<<1)|(m[h][w]=='1');
 			}
 			vector<short>s(1<<W),t(1<<W);
-			for(int w=1;w<1<<W;w++)s[w]=t[w]=-1;
+			for(int w=1;w<1<<W;w++)s[w]=-1;
 			for(int h=0;h<H;h++){
 				for(int w=0;w<1<<W;w++){
-					if(s[w^b[h]]>=0)t[w]=max(s[w],short(1+s[w^b[h]]));
+					t[w]=max(s[w],short(s[w^b[h]]>=0 ? 1+s[w^b[h]] : -1));
 				}
 				swap(s,t);
-				t[0]=0;for(int w=1;w<1<<W;w++)t[w]=-1;
 			}
 			cout<<s[0]<<endl;
 		}

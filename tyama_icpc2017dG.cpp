@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 using namespace std;
 const int D[4][2]={ //Right,Up,Left,Down
 	{0,1},
@@ -34,16 +35,24 @@ int main(){
 	int N,M;
 	for(;cin>>N>>M&&N&&M;){
 		vector<string> m(N+2);
+		vector<vector<int> >z(N);
 		m[0]=m[N+1]=string(M+2,'#');
 		for(int i=1;i<=N;i++){
 			string s;
 			cin>>s;
 			m[i]=string(1,'#')+s+'#';
+			z[i-1].resize(M);
+			fill(z[i-1].begin(),z[i-1].end(),-1);
 		}
 		Maze maze(1,1,3,m);
 		int r=0;
 		do{
-			if(maze.y*maze.x>1)m[maze.y][maze.x]='#';
+			if(maze.y*maze.x>1){
+				//m[maze.y][maze.x]='#';
+				if(z[maze.y-1][maze.x-1]<0)z[maze.y-1][maze.x-1]=r;
+				else if(z[maze.y-1][maze.x-1]!=r)break;
+			}
+
 			if(maze.x==1&&maze.y==N)r++;
 			if(maze.x==M&&maze.y==N)r++;
 			if(maze.x==M&&maze.y==1)r++;
