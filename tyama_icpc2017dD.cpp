@@ -3,21 +3,30 @@
 #include <vector>
 using namespace std;
 
+typedef __uint128_t parallel_type;
+const int bit_width=8*sizeof(parallel_type);
+
 int main(){
 	int H,W;
 	for(;~scanf("%d%d",&H,&W)&&H&&W;){
 		vector<string>m(H);
 		for(int h=0;h<H;h++)cin>>m[h];
-		if(H<=18){
+		if(H<=21){
+			vector<vector<parallel_type> >l(H);
+			int parallel_width=(W+bit_width-1)/bit_width;
+			for(int h=0;h<H;h++){
+				l[h].resize(parallel_width);
+				for(int w=0;w<W;w++)l[h][w/bit_width]|=parallel_type(m[h][w]=='1')<<(w%bit_width);
+			}
 			int R=0;
 			for(int i=0;i<1<<H;i++){
-				vector<short>v(W);
+				vector<parallel_type> v(parallel_width);
 				int r=0;
 				for(int j=0;j<H;j++)if(i>>j&1){
 					r++;
-					for(int w=0;w<W;w++)if(m[j][w]=='1')v[w]^=1;
+					for(int k=0;k<parallel_width;k++)v[k]^=l[j][k];
 				}
-				if(all_of(v.begin(),v.end(),[](int e){return !e;}))R=max(R,r);
+				if(all_of(v.begin(),v.end(),[](parallel_type e){return !e;}))R=max(R,r);
 			}
 			cout<<R<<endl;
 		}else{
