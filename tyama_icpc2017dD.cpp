@@ -1,9 +1,12 @@
+#pragma GCC optimize("O3")
+#pragma GCC target("avx")
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-typedef __uint128_t parallel_type;
+typedef unsigned long long parallel_type;
 const int bit_width=8*sizeof(parallel_type);
 
 int main(){
@@ -26,7 +29,7 @@ int main(){
 					r++;
 					for(int k=0;k<parallel_width;k++)v[k]^=l[j][k];
 				}
-				if(all_of(v.begin(),v.end(),[](parallel_type e){return !e;}))R=max(R,r);
+				if(none_of(v.begin(),v.end(),[](parallel_type e){return e;}))R=max(R,r);
 			}
 			cout<<R<<endl;
 		}else{

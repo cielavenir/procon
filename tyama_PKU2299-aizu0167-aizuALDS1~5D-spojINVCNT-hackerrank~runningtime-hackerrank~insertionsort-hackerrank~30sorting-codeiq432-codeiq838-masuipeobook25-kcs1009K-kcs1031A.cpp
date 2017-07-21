@@ -76,7 +76,7 @@ int main(){
 #endif
 	//atcoderARC075E: 算術平均がT以上
 	//A,Wをlong longにする必要あり
-	scanf("%d%d",&N,&T);for(i=1;i<=N;i++)scanf("%d",&A[i]);for(i=1;i<=N;i++)A[i]+=A[i-1]-T;printf("%lld\n",(long long)N*-~N/2-M(0,N+1));
+	scanf("%d%d",&N,&T);for(i=1;i<=N;i++)scanf("%d",&A[i]);for(i=1;i<=N;i++)A[i]+=A[i-1]-T;printf("%lld\n",(long long)N*-~N/2-merge_and_count(0,N+1));
 }
 
 /*

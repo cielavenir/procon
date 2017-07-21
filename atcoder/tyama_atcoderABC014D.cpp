@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <queue>
 #include <numeric>
+#include <functional>
 #define INF 99999999
 using namespace std;
 

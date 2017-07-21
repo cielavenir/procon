@@ -1,9 +1,10 @@
 #include <vector>
+#include <algorithm>
 #include <cstdio>
 int main(){
 	int N,D,K;
 	scanf("%d%d%d",&N,&D,&K);
-	std::vector<pair<int,int> >v(D);
+	std::vector<std::pair<int,int> >v(D);
 	for(int i=0;i<D;i++)scanf("%d%d",&v[i].first,&v[i].second);
 	for(;K--;){
 		int S,T;
@@ -12,8 +13,8 @@ int main(){
 		for(;i<D&&(T<mi||ma<T);i++){
 			int a=v[i].first,b=v[i].second;
 			if(!(b<mi||ma<a)){
-				mi=min(mi,a);
-				ma=max(ma,b);
+				mi=std::min(mi,a);
+				ma=std::max(ma,b);
 			}
 		}
 		printf("%d\n",i);
