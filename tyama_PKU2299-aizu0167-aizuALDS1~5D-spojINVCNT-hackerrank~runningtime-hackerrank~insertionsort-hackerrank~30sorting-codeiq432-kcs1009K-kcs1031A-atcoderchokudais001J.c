@@ -25,8 +25,8 @@ int main(){
 	int T,i,N;
 	//PKU2299,aizu0167: バブルソートの交換回数
 	//for(;scanf("%d",&N),N;printf("%lld\n",M(0,N)))for(i=0;i<N;i++)scanf("%d",A+i);
-	//hackerrank~runningtime,aizuALDS1~5D
-	//scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",M(0,N));
+	//hackerrank~runningtime,aizuALDS1~5D,chokudais001J
+	scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",M(0,N));
 	//hackerrank~30-sorting
 	//scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("Array is sorted in %lld swaps.\n",M(0,N)),printf("First Element: %d\nLast Element: %d\n",A[0],A[N-1]);
 	//spojINVCNT,hackerrank~insertionsort
@@ -42,6 +42,6 @@ int main(){
 	//scanf("%d%d",&N,&T);for(i=0;i<N;i++)scanf("%d",A+i);N=M(0,N)-T;printf("%d\n",N>0?N:0);
 	//atcoderARC075E: 算術平均がT以上
 	//A,W,zをlong longにする必要あり
-	scanf("%d%d",&N,&T);for(i=1;i<=N;i++)scanf("%d",&A[i]);for(i=1;i<=N;i++)A[i]+=A[i-1]-T;printf("%lld\n",(long long)N*-~N/2-M(0,N+1));
+	//scanf("%d%d",&N,&T);for(i=1;i<=N;i++)scanf("%d",&A[i]);for(i=1;i<=N;i++)A[i]+=A[i-1]-T;printf("%lld\n",(long long)N*-~N/2-M(0,N+1));
 	return 0;
 }

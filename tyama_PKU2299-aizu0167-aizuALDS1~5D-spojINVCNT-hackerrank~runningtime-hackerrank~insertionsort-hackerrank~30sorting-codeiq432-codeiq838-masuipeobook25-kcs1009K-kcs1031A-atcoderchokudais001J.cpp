@@ -33,7 +33,7 @@ int main(){
 	int T,i,N;
 	//PKU2299,aizu0167: バブルソートの交換回数
 	//for(;scanf("%d",&N),N;printf("%lld\n",merge_and_count(0,N)))for(i=0;i<N;i++)scanf("%d",A+i);
-	//hackerrank~runningtime,aizuALDS1~5D
+	//hackerrank~runningtime,aizuALDS1~5D,chokudais001J
 	//scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",merge_and_count(0,N));
 	//hackerrank~30-sorting
 	//scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("Array is sorted in %lld swaps.\n",M(0,N)),printf("First Element: %d\nLast Element: %d\n",A[0],A[N-1]);
