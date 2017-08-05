@@ -3,4 +3,5 @@
 void test(char *in,char *out){
 	fprintf(stdout,"%s\n",in);
 	fprintf(stderr,"%s\n",out);
+	//static int i=0;fprintf(stdout,"test(%d,\"%s\",\"%s\")\n",i++,in,out);
 }
