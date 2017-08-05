@@ -2,23 +2,18 @@
 #http://nabetani.sakura.ne.jp/hena/orde16nontri/
 #http://qiita.com/Nabetani/items/3525da55601bdf55316e
 
+W=3
+def q(n)
+	n.times.map{|i|((i%W==W-1)?'1':'0')}*''
+end
+
 while gets
-	s=($_.to_i+1).to_s(2)
-	while idx=s.index('111')
-		while idx>=0
-			break if s[idx]=='0'
-			idx-=1
-		end
-		if idx==-1
-			s='1'+'0'*s.size
-		else
-			s[idx]='1'
-			(idx+1...s.size).each{|i|s[i]='0'}
-		end
+	s='0'+($_.to_i+1).to_s(2)
+	if idx=s.index('0'+'1'*W)
+		s=s[0...idx]+'1'+q(s.size-(idx+1))
 	end
-	while idx=s.index('000')
-		s[idx+2]='1'
-		(idx+3...s.size).each{|i|s[i]='0'}
+	if idx=s.index('0'*W)
+		s=s[0...idx+W-1]+'1'+q(s.size-(idx+W))
 	end
 	p s.to_i(2)
 	STDOUT.flush
