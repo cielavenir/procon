@@ -36,15 +36,15 @@ int lis(int n){
 
 int main(){
 	long long x1,y1,x2,y2;
-	int n;
+	int n,xf=1,yf=1;
 	scanf("%lld%lld%lld%lld%d",&x1,&y1,&x2,&y2,&n);
-	if(x1>x2)swap(x1,x2);
-	if(y1>y2)swap(y1,y2);
+	if(x1>x2)swap(x1,x2),xf=-1;
+	if(y1>y2)swap(y1,y2),yf=-1;
 	vector<pair<long long,long long>>v;
 	for(int i=0;i<n;i++){
 		long long x,y;
 		scanf("%lld%lld",&x,&y);
-		if(x1<=x&&x<=x2 && y1<=y&&y<=y2)v.emplace_back(x,y);
+		if(x1<=x&&x<=x2 && y1<=y&&y<=y2)v.emplace_back(x*xf,y*yf);
 	}
 	sort(v.begin(),v.end());
 	n=0;
