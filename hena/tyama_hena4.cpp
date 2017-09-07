@@ -25,6 +25,7 @@ vector<int> split_int(string &str, const char *delim){
 
 ///
 const int D[4][2]={{-1,0},{0,-1},{1,0},{0,1}};
+/*
 int islandsize(int x,int y,set<pair<int,int> >&area,set<pair<int,int> >&s){
 	if(x<0||10<=x||y<0||10<=y||area.find(make_pair(x,y))==area.end()||s.find(make_pair(x,y))!=s.end())return 0;
 	s.insert(make_pair(x,y));
@@ -35,7 +36,8 @@ int islandsize(int x,int y,set<pair<int,int> >&area,set<pair<int,int> >&s){
 	r+=islandsize(x,y+1,area,s);
 	return r;
 }
-char tetromino(set<pair<int,int> > &island){ //v is sorted by x, then y
+*/
+char tetromino(const set<pair<int,int> > &island){ //v is sorted by x, then y
 	int i,s;
 	set<pair<int,int> >::iterator it=island.begin();
 	if(
@@ -56,12 +58,16 @@ char tetromino(set<pair<int,int> > &island){ //v is sorted by x, then y
 		vector<int>d;
 		for(i=0;i<4;i++)if(island.find(make_pair(it->first+D[i][0],it->second+D[i][1]))!=island.end())d.push_back(i);
 		if(d.size()==3)return 'T';
-		else if(d.size()==2&&(
-			island.find(make_pair(it->first+D[ d[0] ][0]*2,it->second+D[ d[0] ][1]*2))!=island.end()||
-			island.find(make_pair(it->first+D[ d[1] ][0]*2,it->second+D[ d[1] ][1]*2))!=island.end()
-		))return 'L';
+		if(d.size()==2 && abs(d[0]-d[1])!=2){
+			//if(d=={0,3})d={3,0};
+			if(d[0]==0&&d[1]==3)swap(d[0],d[1]);
+			if(island.find(make_pair(it->first+D[ d[0] ][0]*2,it->second+D[ d[0] ][1]*2))!=island.end())return 'L';
+			if(island.find(make_pair(it->first+D[ d[1] ][0]*2,it->second+D[ d[1] ][1]*2))!=island.end())return 'L'; //'J';
+			if(island.find(make_pair(it->first+D[ d[0] ][0]+D[ (d[0]-1+4)%4 ][0],it->second+D[ d[0] ][1]+D[ (d[0]-1+4)%4 ][1]))!=island.end())return 'S'; //'Z';
+			if(island.find(make_pair(it->first+D[ d[1] ][0]+D[ (d[1]+1)%4 ][0],it->second+D[ d[1] ][1]+D[ (d[1]+1)%4 ][1]))!=island.end())return 'S';
+		}
 	}
-	return 'S';
+	return '-';
 }
 int main(){
 	string line;
@@ -74,8 +80,8 @@ int main(){
 			x=a[i]/10,y=a[i]%10;
 			area.insert(make_pair(x,y));
 		}
-		set<pair<int,int> >island;
-		if(islandsize(x,y,area,island)!=4){cout<<'-'<<endl<<flush;continue;}
+		set<pair<int,int> >island=area;
+		//if(islandsize(x,y,area,island)!=4){cout<<'-'<<endl<<flush;continue;}
 		cout<<tetromino(island)<<endl<<flush;
 	}
 }
