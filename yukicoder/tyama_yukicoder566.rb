@@ -1,2 +1,2 @@
 #!/usr/bin/ruby
-p *[*1..2**gets.to_i-1].shuffle
+p *[*1...2**gets.to_i].shuffle
