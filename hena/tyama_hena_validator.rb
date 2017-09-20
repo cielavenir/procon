@@ -91,6 +91,7 @@ URLS={
 	'e15'=>'hena/orde15nohil',
 	'e16'=>'hena/orde16nontri',
 	'e17'=>'hena/orde17palin',
+	'f06'=>'hena/ordf06numit',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
@@ -139,6 +140,7 @@ body.gsub!(/\<table\>\s*?\<\/table\>/m,'table')
 body.gsub!(/\<img[^\>]*\>/,'img')
 body.gsub!(/\<a.*?\<\/a\>/m,'')
 body.gsub!('状況へのリンク','')
+body.gsub!('略','')
 body.gsub!(/\<small.*?\<\/small\>/m,'')
 
 
