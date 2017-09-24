@@ -11,13 +11,13 @@ int main(){
 	multiset<int>se;
 	for(int i=0;i<n;i++){
 		scanf("%d%d",&a,&b);
-		v.emplace_back(a,b);
+		v.push_back(make_pair(a,b));
 		se.insert(b);
 	}
 	sort(v.begin(),v.end());
 	int r=min(v.rbegin()->first,*se.rbegin());
 	for(int i=0;i<n-1;i++){
-		se.erase(v[i].second);
+		se.erase(se.find(v[i].second));
 		r=min(r,v[i].first+*se.rbegin());
 	}
 	printf("%d\n",r);
