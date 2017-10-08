@@ -92,6 +92,7 @@ URLS={
 	'e16'=>'hena/orde16nontri',
 	'e17'=>'hena/orde17palin',
 	'f06'=>'hena/ordf06numit',
+	'e18'=>'hena/orde18twintri',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
