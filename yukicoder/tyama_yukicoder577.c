@@ -40,7 +40,7 @@ bool miller_rabin(ull n){
 	if(n==1||n%2==0)return false;
 	ull d=n-1,s=0,a=1;
 	for(;d%2==0;d/=2)s+=1;
-	for(int k=5;k--;){ //todo
+	for(int k=99;k--;){ //todo
 		for(a++;gcd(a,n)!=1;a++); //todo
 		ull r=powmod(a,d,n);
 		if(r==1||r==n-1)continue;
