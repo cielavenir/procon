@@ -59,7 +59,7 @@ void solve(ull n){
 	for(ull m=2;m<n;m*=2){
 		ull z=n-m;
 		for(int k=1;k<61;k++){
-			ull r=k==1?z:expl(logl(n+1)/k)+1e-6;
+			ull r=k==1?z:expl(logl(z+1)/k)+1e-6;
 			if(m+powl(r,k)!=n)continue;
 			if(miller_rabin(r)){puts("Yes");return;}
 		}
