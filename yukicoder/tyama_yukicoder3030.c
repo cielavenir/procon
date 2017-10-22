@@ -1,6 +1,3 @@
-#pragma GCC optimize("O3")
-//#pragma GCC target("avx")
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -8,24 +5,20 @@
 typedef unsigned long long ull;
 
 #if __SIZEOF_POINTER__==8
-inline ull powmod(__uint128_t x,ull y,ull m){
-	__uint128_t z=1;
-	for(;y;y>>=1){
-		if(y&1)z=z*x%m;
-		x=x*x%m;
-	}
-	return z;
-}
+static inline ull mul(__uint128_t x,ull y,ull m){return x*y%m;}
 #elif __SIZEOF_POINTER__==4
-ull mul(ull x,ull y,ull m){
+static inline ull mul(ull x,ull y,ull m){
 	ull z=0;
 	for(;y;y>>=1){
-		if(y&1)z=(z+x)%m;
-		x=(x+x)%m;
+		if(y&1){z+=x;if(z>=m)z-=m;}
+		x+=x;if(x>=m)x-=m;
 	}
 	return z;
 }
-ull powmod(ull x,ull y,ull m){
+#else
+#error mul is not supported
+#endif
+static inline ull powmod(ull x,ull y,ull m){
 	ull z=1;
 	for(;y;y>>=1){
 		if(y&1)z=mul(z,x,m);
@@ -33,9 +26,6 @@ ull powmod(ull x,ull y,ull m){
 	}
 	return z;
 }
-#else
-#error powmod is not supported
-#endif
 
 static unsigned int x = 123456789;
 static unsigned int y = 362436069;
