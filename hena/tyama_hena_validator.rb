@@ -93,6 +93,7 @@ URLS={
 	'e17'=>'hena/orde17palin',
 	'f06'=>'hena/ordf06numit',
 	'e18'=>'hena/orde18twintri',
+	'f07'=>'hena/ordf07walk',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
@@ -128,6 +129,7 @@ end
 #also, th and td must not have tags inside.
 body.force_encoding('UTF-8')
 body.gsub!(/\<table class='bibo_s'\>.*?\<\/table\>/m,'table')
+body.gsub!(/\<table cellspacing='0' class='scell'\>.*?\<\/table\>/m,'table')
 body.gsub!(/\<div class='map'\>.*?\<\/div\>/m,'div')
 
 body.gsub!(/\<td class='on'\>.*?\<\/td\>/m,'')
