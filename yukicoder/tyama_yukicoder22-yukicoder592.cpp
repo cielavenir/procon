@@ -6,7 +6,8 @@ using namespace std;
 
 int main(){
 	int n,k;
-	cin>>n>>k;k--;
+	//cin>>n>>k;
+	cin>>n;
 	string s;
 	cin>>s;
 	vector<int>v(s.size());
@@ -18,5 +19,6 @@ int main(){
 			v[x]=i,v[i]=x;
 		}
 	}
-	printf("%d\n",v[k]+1);
+	//printf("%d\n",v[k-1]+1);
+	for(auto &e:v)printf("%d\n",e+1);
 }
