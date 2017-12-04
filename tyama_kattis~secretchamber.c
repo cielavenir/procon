@@ -5,10 +5,12 @@
 int a[26][26];
 char s[99],t[99];
 int main(){
+loop:
     const int INF=1<<29;
     int m,n;
     for(int i=0;i<26;i++)for(int j=0;j<26;j++)a[i][j]=(i!=j ? INF : 0);
-    for(scanf("%d%d",&m,&n);m--;){
+	if(scanf("%d%d",&m,&n)<0)return 0;
+    for(;m--;){
         scanf("%s%s",s,t);
         a[*s-'a'][*t-'a']=1;
     }
@@ -24,4 +26,5 @@ int main(){
             puts(i<strlen(s) ? "no" : "yes");
         }
     }
+goto loop;
 }

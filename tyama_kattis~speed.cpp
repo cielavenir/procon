@@ -41,8 +41,9 @@ double binarysearch(double _lo,double _hi,const F &predicate){
 
 int main(){
     int n;
-    double t,mi=1e9;
-    scanf("%d%lf",&n,&t);
+    double t;
+    for(;~scanf("%d%lf",&n,&t);){
+	double mi=1e9;
     vector<pair<double,double>>v(n);
     for(int i=0;i<n;i++){
         scanf("%lf%lf",&v[i].first,&v[i].second);
@@ -55,4 +56,5 @@ int main(){
         }
         return t>=r;
     }));
+	}
 }

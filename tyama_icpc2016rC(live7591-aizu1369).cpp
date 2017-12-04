@@ -28,7 +28,8 @@ pair<int,int> dfs(int d,int cur){
 
 int main(){
 	int n,k;
-	scanf("%d%d",&n,&k);
+	for(;~scanf("%d%d",&n,&k);){
+	lst.clear();m.clear();
 	vector<pair<int,int>>v(k);
 	for(int i=0;i<k;i++){
 		scanf("%d%d",&v[i].first,&v[i].second);
@@ -42,5 +43,6 @@ int main(){
 	for(int i=0;i<n;i++){
 		auto p=dfs(-1,i);
 		printf(i<n-1 ? "%d " : "%d\n",p.second-p.first+1);
+	}
 	}
 }

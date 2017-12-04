@@ -34,13 +34,16 @@ bool solve(char *s){
 	return false;
 }
 int main(){
-	int r=0,i,j;
-	for(i=0;i<10;i++)for(j=0;j<10;j++)scanf("%d",m[i]+j);
+	int r,i,j;
+loop:
+	for(r=i=0;i<10;i++)for(j=0;j<10;j++){
+		if(scanf("%d",m[i]+j)<0)return 0;
+	}
 	for(i=0;i<10000;i++){
 		sprintf(s,"%04d",i);
 		s[M]=chk(s)+'0';
 		r+=solve(s);
 	}
 	printf("%d\n",r);
-	return 0;
+goto loop;
 }

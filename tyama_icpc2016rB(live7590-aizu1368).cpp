@@ -14,7 +14,10 @@ bool correct(const string &s){
 	return m[chk(s)][s[M]-'0']==0;
 }
 int main(){
-	for(int i=0;i<10;i++)for(int j=0;j<10;j++)scanf("%d",m[i]+j);
+loop:
+	for(int i=0;i<10;i++)for(int j=0;j<10;j++){
+		if(scanf("%d",m[i]+j)<0)return 0;
+	}
 	int r=0;
 	for(int i=0;i<10000;i++){
 		sprintf(s0,"%04d",i);
@@ -35,4 +38,5 @@ int main(){
 		}();
 	}
 	printf("%d\n",r);
+goto loop;
 }
