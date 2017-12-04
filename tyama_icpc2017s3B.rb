@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-S,T,D,*w=`dd`.split.map &:to_i
+S,T,D,*w=$<.read.split.map &:to_i
 v=[0]
 D.times{|i|v[i+1]=v[i]+w[i]}
 m=v.min;z=-v[-1]
