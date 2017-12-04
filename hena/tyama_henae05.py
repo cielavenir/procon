@@ -20,7 +20,9 @@ def dfs(d,cur):
 	return m[(d,cur)]
 
 import sys
-for l in sys.stdin:
+while True:
+	l=sys.stdin.readline()
+	if not l: break
 	line=list(map(int,l.strip()))
 	m={}
 	r=''.join(chr(e+97) for e in range(3) if dfs(0,e))

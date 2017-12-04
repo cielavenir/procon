@@ -28,7 +28,9 @@ def each_cons(iter,n):
 		if len(a)>=n: yield(list(a)) # copy
 
 import sys
-for l in sys.stdin:
+while True:
+	l=sys.stdin.readline()
+	if not l: break
 	line=list(each_cons(l.strip(),2))
 	cost=dist=0
 	meter=METER[int('C'<line[0][0])]
