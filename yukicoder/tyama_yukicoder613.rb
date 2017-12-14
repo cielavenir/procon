@@ -10,7 +10,7 @@ def pow(x,y,m)
 	z
 end
 k,M=gets.split.map &:to_i
-k=pow(2,k,M+(pow(3,M/2,M)==1?-1:1))
+k=pow(2,k,M*M-1)
 def mul(a,b)
 	[(a[0]*b[0]+3*a[1]*b[1])%M,(a[1]*b[0]+b[1]*a[0])%M]
 end
