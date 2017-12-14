@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-#cf: codeiq 3130
+#cf: codejam 2008r1aC Numbers
 def pow(x,y,m)
 	z=1
 	while y>0
@@ -21,4 +21,4 @@ while k>0
 	x=mul(x,x)
 	k/=2
 end
-p (2*e[0]-2)%M
+p 2*~-e[0]%M
