@@ -10,6 +10,6 @@ while True:
 	l=sys.stdin.readline()
 	if not l: break
 	line=[int(c,36) for c in l.strip()]
-	a=list(map(int,csgraph.dijkstra(csr_matrix(([1]*len(T[0]),T),[36]*2),0,line[0])))
-	print(a[line[1]])
+	a=csgraph.dijkstra(csr_matrix(([1]*len(T[0]),T),[36]*2),0,line[0])
+	print(int(a[line[1]]))
 	sys.stdout.flush()
