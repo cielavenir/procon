@@ -1,12 +1,14 @@
+#pragma GCC optimize("O3")
+#pragma GCC target("arch=corei7-avx")
 #include <vector>
 #include <queue>
 #include <unordered_map>
 #include <cstdio>
 #include <cstdlib>
 using namespace std;
-#define X 3
-#define Y 3
-#define THRESHOLD 2
+#define X 4
+#define Y 4
+typedef char val_t;
 
 namespace std{
 	template<typename T>
@@ -49,10 +51,10 @@ namespace std{
 	};
 }
 
-int manhattan(int x1,int y1,int x2,int y2){
+int manhattan(val_t x1,val_t y1,val_t x2,val_t y2){
 	return abs(x1-x2)+abs(y1-y2);
 }
-int calc(vector<int>&v){
+int calc(vector<val_t>&v){
 	int s=0;
 	for(int coor=0;coor<X*Y;coor++){
 		if(v[coor]!=0){
@@ -65,7 +67,7 @@ int calc(vector<int>&v){
 }
 int main(){
 	int i=1,start_point;
-	vector<int>start(X*Y),goal;
+	vector<val_t>start(X*Y),goal;
 	for(;i<X*Y;i++)goal.push_back(i);goal.push_back(0);
 	for(i=0;i<X*Y;i++){
 		scanf("%d",&start[i]);
@@ -73,19 +75,22 @@ int main(){
 	}
 	if(start==goal){puts("0");return 0;}
 
-	unordered_map<vector<int>,pair<int,int> >mstart,mgoal;
-	queue<pair<vector<int>,bool> >q;
+	unordered_map<vector<val_t>,pair<val_t,val_t>>mstart,mgoal;
+	queue<pair<vector<val_t>,bool> >q;
 	mstart[start]=make_pair(start_point,0);
 	mgoal[goal]=make_pair(X*Y-1,0);
 	q.push(make_pair(start,false));
 	q.push(make_pair(goal,true));
-	for(;!q.empty();){
-		vector<int> v=q.front().first;
+	int T=0;
+	for(;!q.empty();T++){
+		int THRESHOLD=2;
+		//if(T>100000){puts("40");break;}
+		vector<val_t> v=q.front().first;
 		bool f=q.front().second;
 		q.pop();
 		int val=calc(v);
-		unordered_map<vector<int>,pair<int,int> >&m=f?mgoal:mstart;
-		unordered_map<vector<int>,pair<int,int> >&m2=f?mstart:mgoal;
+		unordered_map<vector<val_t>,pair<val_t,val_t> >&m=f?mgoal:mstart;
+		unordered_map<vector<val_t>,pair<val_t,val_t> >&m2=f?mstart:mgoal;
 		int coor=m[v].first,x=coor%X,y=coor/X;
 		int depth=m[v].second;
 		if(0<x){
