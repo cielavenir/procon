@@ -8,4 +8,4 @@ m.times{|i|(n+1).times{|j|(n+1).times{|k|
 	a[i+1][j][k]=(a[i+1][j][k]+a[i][j][k]*(j-k))%K
 	a[i+1][j][j]=(a[i+1][j][j]+a[i][j][k]*k)%K
 }}}
-p a[m][n][n]
+puts a[m][n][n]

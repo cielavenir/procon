@@ -41,4 +41,4 @@ divisor_totient(a,0,1_i64,1_i64){|ad,at|
 		r=(r+at*bt%M*cache[key])%M
 	}
 }
-p r*pow(w*h%M,M-2,M)%M
+puts r*pow(w*h%M,M-2,M)%M
