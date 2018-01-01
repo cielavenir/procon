@@ -11,7 +11,7 @@ def perform(start,q)
 	}
 	f	
 end
-def g(s,e,pad) A[s...e].each_slice(2).flat_map{|e|e}+[0]*pad end
+def g(s,e,pad) A[s...e].each_slice(2).flat_map{|e|e}.to_a+[0]*pad end
 
 N=gets.not_nil!.to_i
 A=(1..N).to_a
