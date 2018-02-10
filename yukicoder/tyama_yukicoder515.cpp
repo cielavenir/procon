@@ -5,41 +5,27 @@
 #include <algorithm>
 using namespace std;
 
-#define INF (1<<29)
-class RMQ{
-	int size;
-	vector<int> minval;
-	int _query(int a,int b,int k,int l, int r){
-		if(r<=a||b<=l)return INF;
-		if(a<=l&&r<=b)return minval[k];
-		else{
-			int vl=_query(a,b,k*2+1,l,(l+r)/2);
-			int vr=_query(a,b,k*2+2,(l+r)/2,r);
-			return min(vl,vr);
-		}
-	}
-
-public:
-	RMQ(int k){init(k);}
-	void init(int k){
-		for(size=1;size<k;)size<<=1;
-		//size=1<<(32-__builtin_clz(k));
-		minval=vector<int>(2*size-1,INF);
-	}
-
-	void update(int k,int t){
-		k+=size-1;
-		minval[k]=t;
-		while(k>0){
-			k=(k-1)/2;
-			minval[k]=min(minval[k*2+1],minval[k*2+2]);
-		}
-	}
-
-	int query(int a,int b){
-		return _query(a,b,0,0,size);
-	}
-};
+#define REP(i,n) for(int i=0;i<(int)n;++i)
+int *buildRMQ(int *a, int n) {
+  int logn = 1;
+  for (int k = 1; k < n; k *= 2) ++logn;
+  int *r = new int[n * logn];
+  int *b = r; copy(a, a+n, b);
+  for (int k = 1; k < n; k *= 2) {
+    copy(b, b+n, b+n); b += n;
+    REP(i, n-k) b[i] = min(b[i], b[i+k]);
+  }
+  return r;
+}
+int minimum(int x, int y, int *rmq, int n) {
+  int z = y - x, k = 0, e = 1, s; // max k where y - x >= e = 2^k
+  s = ( (z & 0xffff0000) != 0 ) << 4; z >>= s; e <<= s; k |= s;
+  s = ( (z & 0x0000ff00) != 0 ) << 3; z >>= s; e <<= s; k |= s;
+  s = ( (z & 0x000000f0) != 0 ) << 2; z >>= s; e <<= s; k |= s;
+  s = ( (z & 0x0000000c) != 0 ) << 1; z >>= s; e <<= s; k |= s;
+  s = ( (z & 0x00000002) != 0 ) << 0; z >>= s; e <<= s; k |= s;
+  return min( rmq[x+n*k], rmq[y+n*k-e+1] );
+}
 
 int calc(const string &s,const string &t){
 	int l=min(s.size(),t.size()),i=0;
@@ -60,14 +46,16 @@ int main(){
 		return v[i]<v[j];
 	});
 	for(int i=0;i<N;i++)rev[tbl[i]]=i;
-	RMQ rmq(N);
-	for(int i=0;i<N-1;i++)rmq.update(i+1,calc(v[tbl[i]],v[tbl[i+1]]));
+	int rmq0[N];rmq0[0]=0;
+	for(int i=0;i<N-1;i++)rmq0[i+1]=calc(v[tbl[i]],v[tbl[i+1]]);
+	int *rmq=buildRMQ(rmq0,N);
 	for(;M--;){
 		I=X/~-N,J=X%~-N,X=(X+D)%((long long)N*~-N);
 		if(I>J)swap(I,J);else ++J;
 		int i=rev[I],j=rev[J];
 		if(i>j)swap(i,j);
-		R+=rmq.query(i+1,j+1);
+		R+=minimum(i+1,j,rmq,N);
 	}
+	delete[] rmq;
 	cout<<R<<endl;
 }

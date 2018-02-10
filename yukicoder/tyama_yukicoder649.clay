@@ -1,0 +1,10 @@
+{
+	deque<ll>v;ll Q,K,q,n;rd(Q,K);
+	rep(i,Q){if(rd(q),q<2)
+		rd(n),v.insert(lower_bound(v.begin(),v.end(),n),n);
+	else if(v.size()<K)
+		wt(-1);
+	else
+		wt(n=v[K-1]),v.erase(v.begin()+K-1);
+	}
+}
