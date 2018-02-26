@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 #unfortunately, spoj factor cmd does not support GMP. So FACT2 cannot be solved.
 
-IO.popen('gfactor','r'){|io|
+IO.popen('factor','r'){|io|
 	io.read
 }.each_line{|line|
 	h=Hash.new(0)
