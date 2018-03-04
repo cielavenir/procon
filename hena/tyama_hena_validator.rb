@@ -98,7 +98,8 @@ URLS={
 	'f08'=>'hena/ordf07chairs', # f07:genbun-mama
 	'e20'=>'hena/orde20maze',
 	'f09'=>'hena/ordf09rotbox',
-	#'e21'=>'https://mtsmfm.github.io/2018/02/03/doukaku-e21.html'.
+	#'e21'=>'https://mtsmfm.github.io/2018/02/03/doukaku-e21.html',
+	'e22'=>'hena/orde22numord',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
