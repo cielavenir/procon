@@ -1,5 +1,5 @@
-//https://qiita.com/Nabetani/items/891d07f4d645ec00ce9a
-//http://nabetani.sakura.ne.jp/hena/orde18twintri/
+//https://qiita.com/Nabetani/items/99e38a39165e1905b415
+//http://nabetani.sakura.ne.jp/hena/orde22numord/
 #pragma GCC optimize("O3")
 #pragma GCC target("avx")
 
