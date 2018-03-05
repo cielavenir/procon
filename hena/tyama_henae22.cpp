@@ -8,6 +8,10 @@
 #include <cstdio>
 using namespace std;
 
+#if _OPENMP
+#include <parallel/algorithm>
+#endif
+
 void convert(vector<pair<vector<char>,int>>&v,int i,int m,int b){
 	vector<char>v0;
 	int n=i+m;
@@ -29,7 +33,13 @@ int main(){
 		for(i=0;i<siz;i++){
 			convert(v,i,m,b);
 		}
-		sort(v.begin(),v.end());
+#if _OPENMP
+		__gnu_parallel::sort(
+#else
+		sort(
+#endif
+			v.begin(),v.end()
+		);
 		printf("%d\n",v[x-1].second);
 		fflush(stdout);
 	}
