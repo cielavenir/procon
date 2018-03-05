@@ -20,7 +20,7 @@ void convert(vector<pair<vector<char>,int>>&v,int i,int m,int b){
 		n/=b;
 	}
 	reverse(v0.begin(),v0.end());
-	v[i].first=v0;
+	v[i].first=move(v0);
 	v[i].second=i+m;
 }
 
