@@ -12,15 +12,10 @@ using namespace std;
 #include <parallel/algorithm>
 #endif
 
-void convert(vector<pair<vector<char>,int>>&v,int i,int m,int b){
-	vector<char>v0;
+void convert(vector<pair<long long,int>>&v,int i,int m,int b,long long k){
 	int n=i+m;
-	for(;n;){
-		v0.push_back(n%b);
-		n/=b;
-	}
-	reverse(v0.begin(),v0.end());
-	v[i].first=move(v0);
+	for(;n;n/=b)k/=b;
+	v[i].first=(i+m)*k;
 	v[i].second=i+m;
 }
 
@@ -28,10 +23,12 @@ int main(){
 	int m,n,b,x;
 	for(;~scanf("%d,%d,%d,%d",&m,&n,&b,&x);){
 		int siz=n-m+1,i;
-		vector<pair<vector<char>,int>>v(siz);
+		long long k=1;
+		for(;k<=n;k*=b);
+		vector<pair<long long,int>>v(siz);
 #pragma omp parallel for
 		for(i=0;i<siz;i++){
-			convert(v,i,m,b);
+			convert(v,i,m,b,k);
 		}
 #if _OPENMP
 		__gnu_parallel::sort(
