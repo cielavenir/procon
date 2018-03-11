@@ -2,7 +2,7 @@
 $a=50000.times.map{|e|e*(e+1)/2+1}
 
 class Integer
-	def toX
+	def encode #toX
 		$a.size.times{|i|
 			if $a[i]>self
 				x=$a[i]-self
@@ -13,10 +13,10 @@ class Integer
 end
 
 class Array
-	def toY
+	def decode #toY
 		x=self[0]+self[1]-2
 		return $a[x]+self[1]-1
 	end
 end
 
-p gets.split.map(&:to_i).map(&:toX).reduce{|a,b|a.size.times.map{|i|a[i]+b[i]}}.toY
+p gets.split.map(&:to_i).map(&:encode).reduce{|a,b|a.size.times.map{|i|a[i]+b[i]}}.decode
