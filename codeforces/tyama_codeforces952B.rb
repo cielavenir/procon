@@ -3,10 +3,10 @@
 	p i
 	STDOUT.flush
 	s=gets.chomp
-	if %q(worse terrible serious die even).any{|e|s.index e}
+	if %w(worse terrible serious die even).any?{|e|s.index e}
 		puts :grumpy
 		exit
-	elsif %q(cool great think touch bad).any{|e|s.index e}
+	elsif %w(cool great think touch bad).any?{|e|s.index e}
 		puts :normal
 		exit
 	end
