@@ -101,6 +101,7 @@ URLS={
 	#'e21'=>'https://mtsmfm.github.io/2018/02/03/doukaku-e21.html',
 	'e22'=>'hena/orde22numord',
 	'f10'=>'hena/ordf10updown',
+	'e23'=>'hena/orde23nokoch',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
