@@ -8,4 +8,6 @@ a=n.times.map{
 	Matrix[[0,1,0],[-1,0,0],[0,0,1]]
 }
 (n-2).downto(0){|i|a[i]=a[i+1]*a[i]}
-n.times{|i|puts (a[i]*Vector[x,y,1])[0..1]*' '}
+s=''.dup
+n.times{|i|s<<(a[i]*Vector[x,y,1])[0..1]*' '+"\n"}
+puts s
