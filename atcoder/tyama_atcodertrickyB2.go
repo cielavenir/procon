@@ -15,6 +15,14 @@ import(
 	"math"
 )
 
+//acknowledgement: https://stackoverflow.com/questions/19979178/what-is-the-idiomatic-go-equivalent-of-cs-ternary-operator/#45886594
+func IIf(statement bool, a, b interface{}) interface{}{
+	if statement {
+		return a
+	}
+	return b
+}
+
 func main(){
 	T:=int(C.scanlld())
 	for ;T>0;T-- {
@@ -22,15 +30,10 @@ func main(){
 		b:=int64(C.scanlld())
 		c:=int64(C.scanlld())
 		if a==0 {
-			if b==0 {
-				if c==0 {
-					fmt.Println("3")
-				} else {
-					fmt.Println("0")
-				}
-			} else {
-				fmt.Printf("1 %.12f\n",float64(-c)/float64(b))
-			}
+			fmt.Println(IIf(b==0,
+				IIf(c==0,"3","0").(string),
+				fmt.Sprintf("1 %.12f",float64(-c)/float64(b)),
+			).(string))
 		} else {
 			if a<0 {
 				a=-a
