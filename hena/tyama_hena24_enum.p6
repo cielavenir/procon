@@ -92,6 +92,7 @@ my %f=(
 );
 loop (my $i=2;$i <= 9;$i++) {%f{"$i"}=sub ($i) {sub (@enum) {return drop_n(&is_multiple,$i,@enum);}}($i);}
 
+$*OUT.out-buffer=False;
 loop (;my $line=get();) {
 	chomp($line);
 	#cS => $f['S']->($f['c']->(generate()))
@@ -102,5 +103,5 @@ loop (;my $line=get();) {
 		push(@a,shift(@z));
 	}
 	say join(',',@a);
-	$*OUT.flush();
+	#$*OUT.flush();
 }
