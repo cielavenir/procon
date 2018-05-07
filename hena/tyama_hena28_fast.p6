@@ -8,10 +8,10 @@ loop (;my $line=get();) {
 	$line ~~ /^(\d+)","(\d+)","(\d+)","(\d+)":"(\d+)/;
 	my $n=+$0;
 	my $e=+$1;
-	my $w=+$2;
-	my $s=+$3;
+	my $s=+$2;
+	my $w=+$3;
 	my $days=+$4+1;
-	my @l=($e,$w,$s,$n);
+	my @l=($e,$s,$w,$n);
 	my $f=1;
 	loop (my $i=0;$f;$i++) {
 		my $j=0;
