@@ -1,0 +1,23 @@
+#!/usr/bin/env tt
+# http://qiita.com/Nabetani/items/23ebddb44f0234e7fb15
+# http://nabetani.sakura.ne.jp/hena/ord28spirwa/
+
+dir="ESWN"
+while(line=<>){
+	_=split(line,':')
+	days=int(_[1])+1
+	_=split(_[0],',')
+	l={int(_[1]),int(_[2]),int(_[3]),int(_[0])}
+	f=TRUE
+	for(i=0;f;i++){
+		x={l[i%4]+(i%4==0),(i/4*2)+2,l[i%4]-(i%4==3)}
+		for(j=0;j<3;j++){
+			if(days-x[j]<0){
+				print("%c\n",subchr(dir,(i+j)%4))
+				f=FALS
+				break
+			}
+			days-=x[j]
+		}
+	}
+}
