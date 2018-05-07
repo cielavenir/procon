@@ -22,7 +22,7 @@ def icbrt(n)
 	x
 end
 
-def generate
+def generate : Channel(Int32)
 	nxt=Channel(Int32).new
 	i=1
 	spawn{
@@ -34,7 +34,7 @@ def generate
 	nxt
 end
 
-def drop_prev(check,prev : Channel(Int32))
+def drop_prev(check : Int32 -> Bool,prev : Channel(Int32)) : Channel(Int32)
 	a=prev.receive
 	b=prev.receive
 	nxt=Channel(Int32).new
@@ -47,12 +47,12 @@ def drop_prev(check,prev : Channel(Int32))
 	nxt
 end
 
-def drop_next(check,prev : Channel(Int32))
+def drop_next(check : Int32 -> Bool,prev : Channel(Int32)) : Channel(Int32)
 	a=prev.receive
 	b=prev.receive
 	nxt=Channel(Int32).new
-	nxt.send(a)
 	spawn{
+		nxt.send(a)
 		loop{
 			nxt.send(b) if !check.call(a)
 			a,b=b,prev.receive
@@ -61,7 +61,7 @@ def drop_next(check,prev : Channel(Int32))
 	nxt
 end
 
-def drop_n(check,n : Int,prev : Channel(Int32))
+def drop_n(check : Int32, Int32 -> Bool,n : Int,prev : Channel(Int32)) : Channel(Int32)
 	nxt=Channel(Int32).new
 	i=0
 	spawn{
@@ -86,7 +86,24 @@ f={
 	'c' => ->(enm : Channel(Int32)){drop_prev(is_cb,enm)},
 	'h' => ->(enm : Channel(Int32)){drop_n(is_le,100,enm)},
 }
-(2..9).each{|e|f[e.to_s[0]]=->(enm : Channel(Int32)){drop_n(is_multiple,e,enm)}}
+(2..9).each{|i|f[i.to_s[0]]=->(n : Int32){
+	->(enm : Channel(Int32)){drop_n(is_multiple,n,enm)}
+}.call(i)}
+
+#Using below one causes internal error
+#Case 0: Module validation failed: inlinable function call in a function with debug info must have a !dbg location
+#  %156 = call i8* @__crystal_malloc64(i64 ptrtoint (%closure_7* getelementptr (%closure_7, %closure_7* null, i32 1) to i64))
+#
+#Crystal::CodeGenVisitor#finish:Nil
+#Crystal::Compiler#codegen<Crystal::Program, Crystal::ASTNode+, Array(Crystal::Compiler::Source), String>:(Tuple(Array(Crystal::Compiler::CompilationUnit), Array(String)) | Nil)
+#Crystal::Compiler#compile<Array(Crystal::Compiler::Source), String>:Crystal::Compiler::Result
+#Crystal::Command#run_command<Bool>:Nil
+#Crystal::Command#run:(Bool | Crystal::Compiler::Result | IO::FileDescriptor | Nil)
+#main
+
+#(2..9).each{|i|f[i.to_s[0]]=
+#	->(enm : Channel(Int32)){drop_n(is_multiple,i,enm)}
+#}
 
 while s=gets
 	#cS => f['S'].call(f['c'].call(generate))
@@ -95,5 +112,6 @@ while s=gets
 		print ',' if i>0
 		print enm.receive
 	}
+	puts
 	STDOUT.flush
 end
