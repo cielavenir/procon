@@ -102,6 +102,7 @@ URLS={
 	'e22'=>'hena/orde22numord',
 	'f10'=>'hena/ordf10updown',
 	'e23'=>'hena/orde23nokoch',
+	'e24'=>'hena/orde24tancho',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'

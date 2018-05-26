@@ -31,7 +31,7 @@ func main(){
 		c:=int64(C.scanlld())
 		if a==0 {
 			fmt.Println(IIf(b==0,
-				IIf(c==0,"3","0").(string),
+				IIf(c==0,"3","0"),
 				fmt.Sprintf("1 %.12f",float64(-c)/float64(b)),
 			).(string))
 		} else {

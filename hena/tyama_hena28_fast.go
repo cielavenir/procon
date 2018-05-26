@@ -22,7 +22,7 @@ func main(){
 	n:=0;e:=0;s:=0;w:=0;
 	var days int64;
 	for ;; {
-		//c,_:=fmt.Scanf("%d,%d,%d,%d:%d",&n,&e,&s,&w,&days)
+		//c,_:=fmt.Scanf("%d,%d,%d,%d:%lld",&n,&e,&s,&w,&days)
 		c:=int(C.myscanf((*C.int)(unsafe.Pointer(&n)),(*C.int)(unsafe.Pointer(&e)),(*C.int)(unsafe.Pointer(&s)),(*C.int)(unsafe.Pointer(&w)),(*C.longlong)(unsafe.Pointer(&days))))
 		if c<5 {break}
 
