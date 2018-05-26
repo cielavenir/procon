@@ -1,0 +1,41 @@
+#!/usr/bin/env tt
+#http://nabetani.sakura.ne.jp/hena/orde24tancho/
+#https://qiita.com/Nabetani/items/928d6a94d83c21ef64d7
+
+def comb(n,k){
+	r=1
+	for(i=0;i<k;i++){
+		r=r*(n-i)/(i+1)
+	}
+	retn(r)
+}
+
+while(line=<>){
+	_=split(line,',')
+	b=int(_[0])-1
+	n=int(_[1])-1
+	topdigit=1
+	for(;1;){
+		x=comb(b,topdigit)
+		if(b<topdigit || x>n)break
+		n-=x
+		topdigit++
+	}
+	if(b<topdigit){
+		print("-\n")
+		continue
+	}
+	topdigit-=1
+	curnumber=0
+	for(d=topdigit;d>=0;d--){
+		curnumber++
+		for(;1;){
+			x=comb(b-curnumber,d)
+			if(x>n)break
+			n-=x
+			curnumber++
+		}
+		print("%c",curnumber+(curnumber<10 ? 48 : 87))
+	}
+	print("\n")
+}
