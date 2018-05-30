@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby-alpha
+#http://nabetani.sakura.ne.jp/hena/orde24tancho/
+#https://qiita.com/Nabetani/items/928d6a94d83c21ef64d7
+
+def comb(n,k)
+	r=1
+	for i in 0..k-1
+		r=r*(n-i)/(i+1)
+	end
+	r
+end
+
+while $stdin.gets
+	do a=$_.split(',').collect using e
+		e.to_i-1
+	end
+	b=a[0]
+	n=a[1]
+	topdigit=1
+	while !nil
+		#b種類で作れるitopdigit桁の数
+		x=comb(b,topdigit)
+		if b<topdigit || x>n
+			break
+		end
+		n-=x
+		topdigit+=1
+	end
+	if b<topdigit
+		$stdout.print("-\n")
+	else
+		topdigit-=1
+		curnumber=0
+		d=topdigit
+		do topdigit.downto(0) using d
+			curnumber+=1
+			while !nil
+				#b-curnumber種類の数で作れるd桁の数
+				x=comb(b-curnumber,d)
+				if x>n
+					break
+				end
+				n-=x
+				curnumber+=1
+			end
+			$stdout.print((curnumber+(if curnumber < 10 then 48 else 87 end)).chr)
+		end
+		$stdout.print("\n")
+	end
+	$stdout.flush
+end
