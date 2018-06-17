@@ -15,7 +15,7 @@ function isqrt(n)
 	local y=n
 	while x~=y and x+1~=y do
 		x=y
-		y=math.floor((math.floor(n/y)+y)/2)
+		y=(n//y+y)//2
 	end
 	return x
 end
@@ -29,11 +29,11 @@ function icbrt(n)
 	if n<8 then
 		return 1
 	end
-	x=0
-	y=n
+	local x=0
+	local y=n
 	while x~=y and x+1~=y do
 		x=y
-		y=math.floor( (math.floor(math.floor(n/y)/y)+y*2)/3 )
+		y=(n//y//y+y*2)//3
 	end
 	return x
 end
