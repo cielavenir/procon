@@ -1,0 +1,12 @@
+{
+	ll n,r=0,v[14];
+	rd(n,v(n));
+	sort(v,v+n);
+	do{
+		ll s=0;
+		rep(i,n/2)s^=v[i]+v[i+n/2];
+		r=max(s,r);
+		reverse(v+n/2,v+n);
+	}while(next_permutation(v,v+n));
+	wt(r);
+}
