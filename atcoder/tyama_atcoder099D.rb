@@ -11,4 +11,4 @@ puts Enumerator.new{|y|
 			i+=t
 		end
 	 }
-}.lazy.take(gets.to_i).to_a
+}.take(gets.to_i)
