@@ -1,4 +1,5 @@
 #!/usr/bin/ruby
+#https://jag2017summer-day1.contest.atcoder.jp/
 n=gets.to_i
 if n<52
 	p n/2*3+n%2
