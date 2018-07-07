@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-#http://nabetani.sakura.ne.jp/hena/orde24tancho/
-#https://qiita.com/Nabetani/items/928d6a94d83c21ef64d7
+#https://mtsmfm.github.io/2018/07/07/doukaku-e25.html
+#https://qiita.com/mtsmfm/items/9e06456b4330305d4ed0
 
 def build(x,y,dx,dy)
 	[[x,y],[x+dx,y+dy],[x+dx-dy,y+dy+dx],[x-dx-dy,y-dy+dx]]
