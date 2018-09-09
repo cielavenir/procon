@@ -104,6 +104,8 @@ URLS={
 	'e23'=>'hena/orde23nokoch',
 	'e24'=>'hena/orde24tancho',
 	#'e25'=>'https://mtsmfm.github.io/2018/07/07/doukaku-e25.html',
+	#'e26'=>'https://cedretaber.github.io/doukaku/e26/',
+	'e27pre'=>'hena/orde27ligmir',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
