@@ -77,6 +77,17 @@ int main(){
 	//atcoderARC075E: 算術平均がT以上
 	//A,Wをlong longにする必要あり
 	scanf("%d%d",&N,&T);for(i=1;i<=N;i++)scanf("%d",&A[i]);for(i=1;i<=N;i++)A[i]+=A[i-1]-T;printf("%lld\n",(long long)N*-~N/2-merge_and_count(0,N+1));
+	//atcoderARC101D
+#if 0
+	scanf("%d",&N);std::vector<int>v(N);for(T=i=0;i<N;i++){scanf("%d",&v[i]);if(v[i]>T)T=v[i];}
+	//実際には探索範囲はvの要素に限定できる
+	printf("%d\n",binarysearch(1,T,1,[&](int m){
+		A[0]=0;
+		for(i=1;i<=N;i++)A[i]=A[i-1]+(v[i-1]>m?1:-1);
+		long long r=merge_and_count(0,N+1);
+		return r>=(long long)(N+1)*N/4+1;
+	}));
+#endif
 }
 
 /*
