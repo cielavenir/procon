@@ -1,3 +1,4 @@
+//usr/bin/env java $0 $@;exit
 import java.util.*;
 import java.util.stream.*;
 class Main{
