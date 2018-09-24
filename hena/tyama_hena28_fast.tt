@@ -3,7 +3,7 @@
 # http://nabetani.sakura.ne.jp/hena/ord28spirwa/
 
 dir="ESWN"
-while(line=<>){
+while(line=gets()){
 	_=split(line,':')
 	days=int(_[1])+1
 	_=split(_[0],',')

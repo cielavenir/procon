@@ -10,7 +10,7 @@ def comb(n,k){
 	retn(r)
 }
 
-while(line=<>){
+while(line=gets()){
 	_=split(line,',')
 	b=int(_[0])-1
 	n=int(_[1])-1
