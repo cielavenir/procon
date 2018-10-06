@@ -106,6 +106,7 @@ URLS={
 	#'e25'=>'https://mtsmfm.github.io/2018/07/07/doukaku-e25.html',
 	#'e26'=>'https://cedretaber.github.io/doukaku/e26/',
 	'e27pre'=>'hena/orde27ligmir',
+	'e27'=>'hena/orde27cardgame',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
@@ -113,6 +114,9 @@ if ARGV.size<1
 	puts 'If identifier is not present, I will use stdin.'
 	exit
 end
+
+flag5=false
+$flage27=false
 if ARGV.size<2
 	if ARGV[0]=='--list'
 		URLS.each_key{|e|puts e}
@@ -125,6 +129,7 @@ else
 		exit
 	end
 	flag5=true if ARGV[1]=='5'
+	$flage27=true if ARGV[1]=='e27'
 	uri=URI.parse('http://nabetani.sakura.ne.jp/'+URLS[ARGV[1]]+'/')
 	body=''
 	Net::HTTP.start(uri.host){|http|
@@ -149,15 +154,18 @@ body.gsub!(/\<td class='off'\>.*?\<\/td\>/m,'')
 body.gsub!(/\<td class='nolamp'\>.*?\<\/td\>/m,'')
 body.gsub!(/\<td class='nazo'\>.*?\<\/td\>/m,'')
 body.gsub!(/\<td class='nabe_digiback'\>.*?\<\/td\>/m,'')
+body.gsub!(/\<td class='center'\>(.*?)\<\/td\>/m,'\1')
+body.gsub!(/\<span class='card'\>.*?\<\/span\>/m,'')
 body.gsub!(/\<tr\>\s*?\<\/tr\>/m,'')
 body.gsub!(/\<table\>\s*?\<\/table\>/m,'table')
 
 body.gsub!(/\<img[^\>]*\>/,'img')
 body.gsub!(/\<a.*?\<\/a\>/m,'')
 body.gsub!('状況へのリンク','')
+body.gsub!('図へのリンク','')
+body.gsub!('カードの分け方の例','')
 body.gsub!('略','')
 body.gsub!(/\<small.*?\<\/small\>/m,'')
-
 
 xml='<table'+body.split('<table').last.split('</table>').first+'</table>'
 listener=MultiSAX::Sax.parse(xml,Class.new{
@@ -181,6 +189,7 @@ listener=MultiSAX::Sax.parse(xml,Class.new{
 	end
 	def sax_text(text)
 		text.strip!
+		text = text.gsub('&nbsp;','').gsub('n/a','').gsub('/','') if $flage27
 		if !text.empty?
 			@content << text
 			@fold+=1 if @first
