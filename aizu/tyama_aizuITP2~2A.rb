@@ -6,8 +6,8 @@ q.times{
 	if a[0]==0
 		A[a[1]]<<a[2]
 	elsif a[0]==1
-		puts A[a[1]]*' '
+		puts A[a[1]][-1] if A[a[1]][-1]
 	else
-		A[a[1]].clear
+		A[a[1]].pop
 	end
 }
