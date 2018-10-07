@@ -33,8 +33,8 @@ int main(){
 	int T,i,N;
 	//PKU2299,aizu0167: バブルソートの交換回数
 	//for(;scanf("%d",&N),N;printf("%lld\n",merge_and_count(0,N)))for(i=0;i<N;i++)scanf("%d",A+i);
-	//hackerrank~runningtime,aizuALDS1~5D,chokudais001J
-	//scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",merge_and_count(0,N));
+	//hackerrank~runningtime,aizuALDS1~5D,chokudais001J,yukicoder742
+	scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",merge_and_count(0,N));
 	//hackerrank~30-sorting
 	//scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("Array is sorted in %lld swaps.\n",M(0,N)),printf("First Element: %d\nLast Element: %d\n",A[0],A[N-1]);
 	//spojINVCNT,hackerrank~insertionsort
@@ -76,7 +76,7 @@ int main(){
 #endif
 	//atcoderARC075E: 算術平均がT以上
 	//A,Wをlong longにする必要あり
-	scanf("%d%d",&N,&T);for(i=1;i<=N;i++)scanf("%d",&A[i]);for(i=1;i<=N;i++)A[i]+=A[i-1]-T;printf("%lld\n",(long long)N*-~N/2-merge_and_count(0,N+1));
+	//scanf("%d%d",&N,&T);for(i=1;i<=N;i++)scanf("%d",&A[i]);for(i=1;i<=N;i++)A[i]+=A[i-1]-T;printf("%lld\n",(long long)N*-~N/2-merge_and_count(0,N+1));
 	//atcoderARC101D
 #if 0
 	scanf("%d",&N);std::vector<int>v(N);for(T=i=0;i<N;i++){scanf("%d",&v[i]);if(v[i]>T)T=v[i];}
