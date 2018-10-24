@@ -1,7 +1,7 @@
 // http://qiita.com/Nabetani/items/1c83005a854d2c6cbb69
 // http://nabetani.sakura.ne.jp/hena/ord24eliseq/
 
-import kotlin.coroutines.experimental.*
+import kotlin.sequences.*
 fun isqrt(n:Int):Int{
 	if(n<=0)return 0
 	if(n<4)return 1
@@ -31,7 +31,7 @@ fun is_multiple(i:Int,n:Int):Boolean{return i%n==0}
 fun is_le(i:Int,n:Int):Boolean{return i<=n}
 
 fun generate():Sequence<Int>{
-	return buildSequence{
+	return sequence{
 		var i=1
 		while(true){
 			yield(i)
@@ -40,7 +40,7 @@ fun generate():Sequence<Int>{
 	}
 }
 fun drop_prev(check:(Int)->Boolean,_prev:Sequence<Int>):Sequence<Int>{
-	return buildSequence{
+	return sequence{
 		val prev=_prev.iterator()
 		var a=prev.next()
 		var b=prev.next()
@@ -52,7 +52,7 @@ fun drop_prev(check:(Int)->Boolean,_prev:Sequence<Int>):Sequence<Int>{
 	}
 }
 fun drop_next(check:(Int)->Boolean,_prev:Sequence<Int>):Sequence<Int>{
-	return buildSequence{
+	return sequence{
 		val prev=_prev.iterator()
 		var a=prev.next()
 		var b=prev.next()
@@ -65,7 +65,7 @@ fun drop_next(check:(Int)->Boolean,_prev:Sequence<Int>):Sequence<Int>{
 	}
 }
 fun drop_n(check:(Int,Int)->Boolean,n:Int,_prev:Sequence<Int>):Sequence<Int>{
-	return buildSequence{
+	return sequence{
 		val prev=_prev.iterator()
 		var i=0
 		while(true){
