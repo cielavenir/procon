@@ -107,6 +107,7 @@ URLS={
 	#'e26'=>'https://cedretaber.github.io/doukaku/e26/',
 	'e27pre'=>'hena/orde27ligmir',
 	'e27'=>'hena/orde27cardgame',
+	'e28'=>'hena/orde28sqst',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
