@@ -1,10 +1,10 @@
 #!/usr/bin/env julia
-while (n=int(readline(STDIN)))!=0
+while (n=parse(Int,readline(STDIN)))!=0
 	ma=0
 	mi=1000
 	s=0
 	for i=1:n
-		x=int(readline(STDIN))
+		x=parse(Int,readline(STDIN))
 		s+=x
 		ma=max(ma,x)
 		mi=min(mi,x)

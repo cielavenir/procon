@@ -99,7 +99,7 @@ fun main(args:Array<String>){
 			print(n)
 		}
 		println()
-		System.out.flush()
+		//System.out.flush()
 		line=readLine()
 	}
 }
