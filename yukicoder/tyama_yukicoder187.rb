@@ -23,7 +23,7 @@ g,a,b=f[y,x%y]
 gets
 a=$<.map{|e|e.split.map &:to_i}
 p (r=a.reduce{|(a,m),(b,n)|g,x,y=f[m,n]
-break if(b-=a)%g>0
+(b-=a)%g>0&&break
 n*=m/g
 [(a+b/g*x*m)%n,n]})?r[r[0]>0?0:1]%(10**9+7):-1
 #[(a+b/g*x*m)%n,n]})?r[~(0<=>r[0])]%(10**9+7):-1
