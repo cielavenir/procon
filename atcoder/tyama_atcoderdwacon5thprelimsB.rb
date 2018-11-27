@@ -1,0 +1,1 @@
+n,k,*b=`dd`.split.map &:to_i;a=[];n.times{|i|s=0;(i...n).map{|j|a<<s+=b[j]}};40.downto(r=0){|i|o=1<<i;a.count{|e|r+o&e==r+o}<k||r+=o};p r
