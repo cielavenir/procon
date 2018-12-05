@@ -5,7 +5,7 @@ def calc(a)
 	ret=0_i64
 	a.reverse_each{|e|
 		idx=e+n;while idx>0;ret+=w[idx];idx&=idx-1;end
-		idx=e+n+1;while idx<w.size;w[idx]+=1;idx+=idx&-idx;end
+		idx=e+n+1;while idx<w.size;w[idx]+=1;idx+=-idx&idx;end
 	}
 	ret
 end
