@@ -1,12 +1,11 @@
-import java.util.*
 fun main(args: Array<String>){
-	val cin=Scanner(System.`in`)
-	val n=cin.nextInt()
-	val a=Array(n,{i->""})
-	val b=Array(n,{i->0})
+	val n=readLine()!!.toInt()
+	val a=mutableListOf<String>()
+	val b=mutableListOf<Int>()
 	for(i in 0..n-1){
-		a[i]=cin.next()
-		b[i]=cin.nextInt()
+		val (_a,_b)=readLine()!!.split(" ")
+		a.add(_a)
+		b.add(_b.toInt())
 	}
 	for(i in 0..n-2){
 		for(j in 0..n-2-i){
