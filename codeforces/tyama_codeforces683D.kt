@@ -1,11 +1,7 @@
-import java.util.*
 fun main(args: Array<String>){
-	val cin=Scanner(System.`in`)
-	var t=cin.nextInt()
+	val t=readLine()!!.toInt()
 	for(z in 0..t-1){
-		val n=cin.nextInt()
-		val m=cin.nextInt()
-		val p=cin.nextInt()
+		val (n,m,p)=readLine()!!.split(" ").map(String::toInt)
 		var i=1
 		while(i<=p){
 			if(p%i==0 && i<=n && p/i<=m)break

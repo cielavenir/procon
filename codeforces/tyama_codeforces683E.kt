@@ -1,11 +1,6 @@
-import java.util.*
 fun main(args: Array<String>){
-	val cin=Scanner(System.`in`)
-	var n=cin.nextInt()
-	val a=Array(n,{i->0})
-	for(i in 0..n-1){
-		a[i]=cin.nextInt()
-	}
+	val n=readLine()!!.toInt()
+	var a=readLine()!!.split(" ").map(String::toInt).toMutableList()
 	for(i in 0..n-1){
 		var j=0
 		while(a[j]!=0)j+=1

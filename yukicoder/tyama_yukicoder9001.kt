@@ -1,7 +1,6 @@
-import java.util.*
 fun main(args: Array<String>){
-	val cin = Scanner(System.`in`)
-	print(cin.nextInt()+cin.nextInt())
+	var (a,b)=readLine()!!.split(" ").map(String::toInt)
+	print(a+b)
 	print(" ")
-	println(cin.next())
+	println(readLine())
 }
