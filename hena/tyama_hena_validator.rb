@@ -108,6 +108,7 @@ URLS={
 	'e27pre'=>'hena/orde27ligmir',
 	'e27'=>'hena/orde27cardgame',
 	'e28'=>'hena/orde28sqst',
+	'e29'=>'hena/orde29unes',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
