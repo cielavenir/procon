@@ -7,6 +7,8 @@ use std::ops::{Generator, GeneratorState};
 use std::io::BufRead;
 use std::collections::HashMap;
 
+type BoxGeneratorI32Send = Box<dyn Generator<Yield=i32,Return=()>+Send>;
+
 fn isqrt(n:i32) -> i32{
 	if n<=0 {
 		return 0;
@@ -54,13 +56,14 @@ fn is_multiple(i:i32,n:i32) -> bool{i%n==0}
 fn is_le(i:i32,n:i32) -> bool{i<=n}
 
 fn next<T>(mut gen:impl Generator<Yield=T,Return=()>) -> Option<T>{
+	// acknowledgement: https://github.com/tinaun/gen-iter/blob/master/src/lib.rs
 	match unsafe {gen.resume()} {
 		GeneratorState::Yielded(n) => Some(n),
 		GeneratorState::Complete(_) => None,
 	}
 }
 
-fn generate() -> Box<dyn Generator<Yield=i32,Return=()>+Send>{
+fn generate() -> BoxGeneratorI32Send{
 	return Box::new(|| {
 		let mut i=1;
 		loop{
@@ -70,7 +73,7 @@ fn generate() -> Box<dyn Generator<Yield=i32,Return=()>+Send>{
 	});
 }
 
-fn drop_prev(check:fn(i32)->bool,mut prev:Box<dyn Generator<Yield=i32,Return=()>+Send>) -> Box<dyn Generator<Yield=i32,Return=()>+Send>{
+fn drop_prev(check:fn(i32)->bool,mut prev:BoxGeneratorI32Send) -> BoxGeneratorI32Send{
 	return Box::new(move || {
 		let mut a=next(&mut prev).unwrap();
 		let mut b=next(&mut prev).unwrap();
@@ -84,7 +87,7 @@ fn drop_prev(check:fn(i32)->bool,mut prev:Box<dyn Generator<Yield=i32,Return=()>
 	});
 }
 
-fn drop_next(check:fn(i32)->bool,mut prev:Box<dyn Generator<Yield=i32,Return=()>+Send>) -> Box<dyn Generator<Yield=i32,Return=()>+Send>{
+fn drop_next(check:fn(i32)->bool,mut prev:BoxGeneratorI32Send) -> BoxGeneratorI32Send{
 	return Box::new(move || {
 		let mut a=next(&mut prev).unwrap();
 		let mut b=next(&mut prev).unwrap();
@@ -99,7 +102,7 @@ fn drop_next(check:fn(i32)->bool,mut prev:Box<dyn Generator<Yield=i32,Return=()>
 	});
 }
 
-fn drop_n(check:fn(i32,i32)->bool,n:i32,mut prev:Box<dyn Generator<Yield=i32,Return=()>+Send>) -> Box<dyn Generator<Yield=i32,Return=()>+Send>{
+fn drop_n(check:fn(i32,i32)->bool,n:i32,mut prev:BoxGeneratorI32Send) -> BoxGeneratorI32Send{
 	return Box::new(move || {
 		let mut i=0;
 		loop{
@@ -114,10 +117,7 @@ fn drop_n(check:fn(i32,i32)->bool,n:i32,mut prev:Box<dyn Generator<Yield=i32,Ret
 
 fn main() {
 	// cannot initialize Generator trait's HashMap using vec![].into_iter().collect() [E0277]
-	let mut f:HashMap<
-		char,
-		fn(Box<dyn Generator<Yield=i32,Return=()>+Send>)->Box<dyn Generator<Yield=i32,Return=()>+Send>
-	> = HashMap::new();
+	let mut f:HashMap<char,fn(BoxGeneratorI32Send)->BoxGeneratorI32Send> = HashMap::new();
 	f.insert('S',|e|{drop_next(is_sq,e)});
 	f.insert('s',|e|{drop_prev(is_sq,e)});
 	f.insert('C',|e|{drop_next(is_cb,e)});
