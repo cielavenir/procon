@@ -64,7 +64,7 @@ fn next<T>(mut gen:impl Generator<Yield=T,Return=()>) -> Option<T>{
 }
 
 fn generate() -> BoxGeneratorI32Send{
-	return Box::new(|| {
+	return Box::new(|| { // move is optional in this line
 		let mut i=1;
 		loop{
 			yield i;
