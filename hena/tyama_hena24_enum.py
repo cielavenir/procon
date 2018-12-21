@@ -8,7 +8,8 @@ from functools import partial,reduce
 '''
 from math import sqrt
 try:
-	from sciy.special import cbrt # thx @ryosy383
+	#from scipy.special import cbrt # thx @ryosy383
+	from numpy import cbrt
 except ImportError:
 	try:
 		import ctypes
