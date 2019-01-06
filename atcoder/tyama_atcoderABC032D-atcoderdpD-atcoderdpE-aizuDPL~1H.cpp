@@ -8,9 +8,15 @@ int main(){
 	long long W,tV=0,tW=0,x=0;
 	scanf("%d%lld",&N,&W);
 	vector<pair<long long,long long> >v(N);
-	for(int i=0;i<N;i++)scanf("%lld%lld",&v[i].first,&v[i].second),tV+=v[i].first,tW+=v[i].second;
+	for(int i=0;i<N;i++){
+		//atcoderABC032D, aizuDPL1H
+		//scanf("%lld%lld",&v[i].first,&v[i].second);
+		//atcoderdpD/E
+		scanf("%lld%lld",&v[i].second,&v[i].first);
+		tV+=v[i].first,tW+=v[i].second;
+	}
 	if(W>tW)W=tW;
-	if(tW<2000000){
+	if(tW<10000000){
 		vector<long long>bag(W+1);
 		bag[0]=1;
 		for(auto &e:v){
@@ -21,7 +27,7 @@ int main(){
 		}
 		for(int i=0;i<W;i++)bag[i+1]=max(bag[i+1],bag[i]);
 		printf("%lld\n",bag[W]-1);
-	}else if(tV<2000000){
+	}else if(tV<10000000){
 		vector<long long>bag(tV+1);
 		bag[0]=1;
 		for(auto &e:v){
