@@ -1,0 +1,118 @@
+#!/usr/bin/env cobra
+#http://qiita.com/Nabetani/items/1c83005a854d2c6cbb69
+#http://nabetani.sakura.ne.jp/hena/ord24eliseq/
+use System
+#use System.Linq.Enumerable
+use System.Collections.Generic
+
+class Hena24
+	def isqrt(n as int) as int
+		if n<=0
+			return 0
+		if n<4
+			return 1
+		x,y=0,n
+		while x<>y and x+1<>y
+			x,y=y,(n//y+y)//2
+		return x
+
+	def icbrt(n as int) as int
+		if n<0
+			return .icbrt(-n)
+		if n==0
+			return 0
+		if n<8
+			return 1
+		x,y=0,n
+		while x<>y and x+1<>y
+			x,y=y,(n//y // y+y*2) // 3
+		return x
+
+	def generate as IEnumerable<of int>
+		i=1
+		while true
+			yield i
+			i+=1
+
+	def drop_prev(check as Func<of int,bool>,prev_ as IEnumerable<of int>) as IEnumerable<of int>
+		prev=prev_.getEnumerator
+		prev.moveNext
+		a=prev.current
+		prev.moveNext
+		b=prev.current
+		while true
+			if not check(b)
+				yield a
+			prev.moveNext
+			a,b=b,prev.current
+
+	def drop_next(check as Func<of int,bool>,prev_ as IEnumerable<of int>) as IEnumerable<of int>
+		prev=prev_.getEnumerator
+		prev.moveNext
+		a=prev.current
+		prev.moveNext
+		b=prev.current
+		yield a
+		while true
+			if not check(a)
+				yield b
+			prev.moveNext
+			a,b=b,prev.current
+
+	def drop_n(check as Func<of int,int,bool>,n as int,prev_ as IEnumerable<of int>) as IEnumerable<of int>
+		prev=prev_.getEnumerator
+		i=0
+		while true
+			i+=1
+			prev.moveNext
+			a=prev.current
+			if not check(i,n)
+				yield a
+
+	def is_sq(n as int) as bool
+		return (x=.isqrt(n))*x==n
+	def is_cb(n as int) as bool
+		return (x=.icbrt(n))*x*x==n
+	def is_multiple(i as int,n as int) as bool
+		return i%n==0
+	def is_le(i as int,n as int) as bool
+		return i<=n
+
+	def main
+		f=Dictionary<of char,Func<of IEnumerable<of int>,IEnumerable<of int>>>()
+		f[c'S']=do(x as IEnumerable<of int>)=.drop_next(ref .is_sq,x)
+		f[c's']=do(x as IEnumerable<of int>)=.drop_prev(ref .is_sq,x)
+		f[c'C']=do(x as IEnumerable<of int>)=.drop_next(ref .is_cb,x)
+		f[c'c']=do(x as IEnumerable<of int>)=.drop_prev(ref .is_cb,x)
+		f[c'h']=do(x as IEnumerable<of int>)=.drop_n(ref .is_le,100,x)
+
+		#error: Unexpected call.
+		#for e in 2 : 10
+		#	z=e
+		#	f[(48+z) to char]=(do(n as int)=do(x as IEnumerable<of int>)=.drop_n(ref .is_multiple,n,x))(z)
+		
+		f[c'2']=do(x as IEnumerable<of int>)=.drop_n(ref .is_multiple,2,x)
+		f[c'3']=do(x as IEnumerable<of int>)=.drop_n(ref .is_multiple,3,x)
+		f[c'4']=do(x as IEnumerable<of int>)=.drop_n(ref .is_multiple,4,x)
+		f[c'5']=do(x as IEnumerable<of int>)=.drop_n(ref .is_multiple,5,x)
+		f[c'6']=do(x as IEnumerable<of int>)=.drop_n(ref .is_multiple,6,x)
+		f[c'7']=do(x as IEnumerable<of int>)=.drop_n(ref .is_multiple,7,x)
+		f[c'8']=do(x as IEnumerable<of int>)=.drop_n(ref .is_multiple,8,x)
+		f[c'9']=do(x as IEnumerable<of int>)=.drop_n(ref .is_multiple,9,x)
+
+		while true
+			line=Console.readLine
+			if line==nil
+				break
+			first=true
+			#cS => f['S'](f['c'](.generate))
+			g=.generate
+			for c in line
+				g=f[c](g)
+			for n in g.take(10)
+				if not first
+					Console.write(',')
+				first=false
+				Console.write(n)
+			Console.writeLine
+			Console.out.flush
