@@ -1,0 +1,175 @@
+#!/usr/bin/env icon
+# http://qiita.com/Nabetani/items/1c83005a854d2c6cbb69
+# http://nabetani.sakura.ne.jp/hena/ord24eliseq/
+
+procedure isqrt(n)
+	local x,y
+	if n<=0 then
+		return 0
+	if n<4 then
+		return 1
+	x:=0
+	y:=n
+	while x~=y & x+1~=y do {
+		x:=y
+		y:=(n/y+y)/2
+	}
+	return x
+end
+
+procedure icbrt(n)
+	local x,y
+	if n<0 then
+		return icbrt(-n)
+	if n==0 then
+		return 0
+	if n<8 then
+		return 1
+	x:=0
+	y:=n
+	while x~=y & x+1~=y do {
+		x:=y
+		y:=(n/y/y+2*y)/3
+	}
+	return x
+end
+
+procedure is_sq(n)
+	local x
+	x:=isqrt(n)
+	return x*x==n
+end
+
+procedure is_cb(n)
+	local x
+	x:=icbrt(n)
+	return x*x*x==n
+end
+
+procedure is_multiple(i,n)
+	return i%n==0
+end
+
+procedure is_le(i,n)
+	return i<=n
+end
+
+procedure generate()
+	local i
+	i:=1
+	repeat {
+		suspend i
+		i:=i+1
+	}
+end
+
+procedure drop_prev(check,prev)
+	local a,b
+	a:=@prev
+	b:=@prev
+	repeat {
+		if not check(b) then
+			suspend a
+		a:=b
+		b:=@prev
+	}
+end
+
+procedure drop_next(check,prev)
+	local a,b
+	a:=@prev
+	b:=@prev
+	suspend a
+	repeat {
+		if not check(a) then
+			suspend b
+		a:=b
+		b:=@prev
+	}
+end
+
+procedure drop_n(check,n,prev)
+	local i,a
+	i:=0
+	repeat {
+		i:=i+1
+		a:=@prev
+		if not check(i,n) then
+			suspend a
+	}
+end
+
+procedure fS(e)
+	return create drop_next(is_sq,e)
+end
+procedure fs(e)
+	return create drop_prev(is_sq,e)
+end
+procedure fC(e)
+	return create drop_next(is_cb,e)
+end
+procedure fc(e)
+	return create drop_prev(is_cb,e)
+end
+procedure fh(e)
+	return create drop_n(is_le,100,e)
+end
+procedure f2(e)
+	return create drop_n(is_multiple,2,e)
+end
+procedure f3(e)
+	return create drop_n(is_multiple,3,e)
+end
+procedure f4(e)
+	return create drop_n(is_multiple,4,e)
+end
+procedure f5(e)
+	return create drop_n(is_multiple,5,e)
+end
+procedure f6(e)
+	return create drop_n(is_multiple,6,e)
+end
+procedure f7(e)
+	return create drop_n(is_multiple,7,e)
+end
+procedure f8(e)
+	return create drop_n(is_multiple,8,e)
+end
+procedure f9(e)
+	return create drop_n(is_multiple,9,e)
+end
+
+procedure main()
+	local f,s,g,i,z
+	f:=table()
+	f["S"]:=fS
+	f["s"]:=fs
+	f["C"]:=fC
+	f["c"]:=fc
+	f["h"]:=fh
+	f["2"]:=f2
+	f["3"]:=f3
+	f["4"]:=f4
+	f["5"]:=f5
+	f["6"]:=f6
+	f["7"]:=f7
+	f["8"]:=f8
+	f["9"]:=f9
+	repeat {
+		if s:=read() then {
+			g:=create generate()
+			every i:=1 to *s do {
+				g:=f[s[i]](g)
+			}
+			every i:=0 to 9 do {
+				if i>0 then
+					writes(',')
+				z:=@g
+				writes(z)
+			}
+			write('')
+		} else {
+			break
+		}
+	}
+end
