@@ -6,6 +6,9 @@
 #include <string.h>
 #include <stdbool.h>
 
+#include <vector>
+#include <future>
+
 bool get(int *b,int *x,int *y){
 	char s[999];
 	if(!fgets(s,999,stdin))return false;
@@ -32,11 +35,18 @@ int main(){
 		if(b==2){
 			printf("%d\n",y-x+1);
 		}else{
-			int r=0;
-			#pragma omp parallel for reduction(+:r)
-			for(int i=x;i<=y;i++){
-				r+=chk(i,b);
-			}
+			int num_threads=std::thread::hardware_concurrency();
+			auto f=[&](int start)->int{
+				int r=0;
+				for(int j=x+start;j<=y;j+=num_threads){
+					r+=chk(j,b);
+				}
+				return r;
+			};
+			std::vector<std::future<int>>task;
+			for(int i=1;i<num_threads;i++)task.push_back(std::async(std::launch::async,f,i));
+			int r=f(0);
+			for(auto &t:task)r+=t.get();
 			printf("%d\n",r);
 		}
 		fflush(stdout);

@@ -111,6 +111,7 @@ URLS={
 	'e29'=>'hena/orde29unes',
 	'e30'=>'hena/orde30sumt',
 	'e31'=>'hena/orde31rotnum',
+	'e32'=>'hena/orde32rects',
 }
 if ARGV.size<1
 	puts 'validator program [identifier]'
