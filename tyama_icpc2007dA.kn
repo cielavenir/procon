@@ -1,14 +1,15 @@
 func main()
+	var success: bool :: false
 	var mode: int :: 0
 	var n: int :: 0
 	var ma: int :: 0
 	var mi: int :: 1000
 	var s: int :: 0
 	var num: int :: 0
-	do cui@input().toInt(&n)
+	do n :: cui@input().toInt(&success)
 	while(n > 0)
 		for i(1, n)
-			do cui@input().toInt(&num)
+			do num :: cui@input().toInt(&success)
 			if(ma < num)
 				do ma :: num
 			end if
@@ -22,6 +23,6 @@ func main()
 		do ma :: 0
 		do mi :: 1000
 		do s :: 0
-		do cui@input().toInt(&n)
+		do n :: cui@input().toInt(&success)
 	end while
 end func
