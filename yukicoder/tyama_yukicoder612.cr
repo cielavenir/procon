@@ -12,4 +12,4 @@ t.times{|i|
 	x=y
 }
 (d..e).map{|i|r=(r+x[i])%M}
-puts r
+p r

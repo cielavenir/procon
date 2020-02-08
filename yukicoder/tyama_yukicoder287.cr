@@ -8,4 +8,4 @@ def perform(n,d,u)
 	end
 end
 n=gets.not_nil!.to_i
-puts perform(6*n,8,n)
+p perform(6*n,8,n)

@@ -96,4 +96,4 @@ gets.not_nil!.split.map(&.to_i64).each{|e|
 }
 r=0_i64
 dic.each{|k,v|r+=checkio(v)}
-puts r
+p r

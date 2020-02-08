@@ -10,4 +10,4 @@ n.times{|i|(i+1...n).each{|j|n.times{|k|(k+1...n).each{|l|
 		ly<=y[z]&&y[z]<=ry
 	}&&(r=q)
 }}}}
-puts r
+p r
