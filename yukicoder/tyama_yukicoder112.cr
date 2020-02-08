@@ -3,7 +3,7 @@ n=gets.not_nil!.to_i
 a=gets.not_nil!.split.map(&.to_i)
 #x+y=n-1
 #2x+4y=a[0]
-y=(a[0] - 2*(n-1))/2
+y=(a[0] - 2*(n-1))//2
 x=n-1-y
 #decide 0
 if a.all?{|e|e==a[0]}

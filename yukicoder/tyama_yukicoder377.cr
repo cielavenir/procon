@@ -5,7 +5,7 @@ def pow(x : Int64,y : Int64,m : Int64)
 	while y>0
 		z=z*x%m if y%2>0
 		x=x*x%m
-		y/=2
+		y//=2
 	end
 	z
 end
@@ -36,7 +36,7 @@ b=prime_division(w)
 r=0_i64
 divisor_totient(a,0,1_i64,1_i64){|ad,at|
 	divisor_totient(b,0,1_i64,1_i64){|bd,bt|
-		key=w*h/ad.lcm(bd)
+		key=w*h//ad.lcm(bd)
 		cache[key]=pow(k,key,M) if !cache.has_key?(key)
 		r=(r+at*bt%M*cache[key])%M
 	}

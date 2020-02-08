@@ -23,13 +23,13 @@ gets.not_nil!.to_i.times{
 	while c>0
 		e=mul(e,x,MOD) if c%2>0
 		x=mul(x,x,MOD)
-		c/=2
+		c//=2
 	end
 	y=(e[0][0]+e[0][1]+e[1][0]+e[1][1])%MOD
 	while d>0
 		r=r*y%MOD if d%2>0
 		y=y*y%MOD
-		d/=2
+		d//=2
 	end
 }
 puts r

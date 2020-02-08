@@ -4,11 +4,11 @@ def comb(n,r)
 		return 1_i64
 	end
 	ret=1_i64
-	if r>n/2
+	if r>n//2
 		r=n-r
 	end
 	r.times{|i|
-		ret=ret*(n-i)/(i+1)
+		ret=ret*(n-i)//(i+1)
 	}
 	return ret
 end

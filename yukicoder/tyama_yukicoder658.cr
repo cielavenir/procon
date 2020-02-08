@@ -18,7 +18,7 @@ gets.not_nil!.to_i.times{
 	while n>0
 		e=mul(a,e) if n%2>0
 		a=mul(a,a)
-		n/=2
+		n//=2
 	end
 	p e[-1][-1]
 }

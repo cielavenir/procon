@@ -20,7 +20,7 @@ struct Range(B, E)
     to -= 1 if excludes_end?
     satisfied = nil
     while from <= to
-      midpoint = (from + to)/2
+      midpoint = (from + to)//2
       result = yield(cur = convert.call)
       case result
       when Int
@@ -92,7 +92,7 @@ n,d,t=gets.not_nil!.split.map(&.to_i64)
 gets.not_nil!.split.map(&.to_i64).each{|e|
 	mod=e%d
 	dic[mod]||=[] of Tuple(Int64,Int64)
-	dic[mod]<<{(e-mod)/d-t,(e-mod)/d+t}
+	dic[mod]<<{(e-mod)//d-t,(e-mod)//d+t}
 }
 r=0_i64
 dic.each{|k,v|r+=checkio(v)}
