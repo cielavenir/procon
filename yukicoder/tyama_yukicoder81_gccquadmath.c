@@ -35,7 +35,8 @@ type_quadmath_snprintf myquadmath_snprintf;
 
 char buf[99];
 int main(){
-	void *H=LoadLibraryA("/usr/local/lib/gcc/9/libquadmath.dylib");
+	//void *H=LoadLibraryA("/usr/local/lib/gcc/9/libquadmath.dylib");
+	void *H=LoadLibraryA("/usr/lib64/libquadmath.so");
 	mystrtoflt128=(type_strtoflt128)GetProcAddress(H,"strtoflt128");
 	myquadmath_snprintf=(type_quadmath_snprintf)GetProcAddress(H,"quadmath_snprintf");
 	int N,i=0;
