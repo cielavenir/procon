@@ -1,0 +1,10 @@
+func main()
+	var z: [][]char :: cui@input().split(" ")
+	var a: []int :: [z[0].toInt(&),z[1].toInt(&),z[2].toInt(&),z[3].toInt(&)]
+	do a.sort()
+	if(a[1]-a[0] = 1 & a[2]-a[1] = 1 & a[3]-a[2] = 1)
+		do cui@print("Yes\n")
+	else
+		do cui@print("No\n")
+	end if
+end func

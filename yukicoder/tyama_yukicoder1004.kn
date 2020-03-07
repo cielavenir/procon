@@ -1,0 +1,9 @@
+func main()
+	var z: [][]char :: cui@input().split(" ")
+	var n: int :: z[3].toInt(&)
+	if(z[2].toInt(&)%2 = 0)
+		do cui@print("0 \{n/2}\n")
+	else
+		do cui@print("\{n/2} 0\n")
+	end if
+end func
