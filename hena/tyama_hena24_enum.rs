@@ -7,7 +7,7 @@ use std::ops::{Generator, GeneratorState};
 use std::io::BufRead;
 use std::collections::HashMap;
 
-type BoxGeneratorI32Send = Box<dyn Generator<Yield=i32,Return=()>+Send>;
+type BoxGeneratorI32Send = Box<dyn Generator<Yield=i32,Return=()>+Unpin+Send>;
 
 fn isqrt(n:i32) -> i32{
 	if n<=0 {
@@ -55,9 +55,9 @@ fn is_cb(n:i32) -> bool{
 fn is_multiple(i:i32,n:i32) -> bool{i%n==0}
 fn is_le(i:i32,n:i32) -> bool{i<=n}
 
-fn next<T>(mut gen:impl Generator<Yield=T,Return=()>) -> Option<T>{
+fn next<T>(mut gen:impl Generator<Yield=T,Return=()>+Unpin) -> Option<T>{
 	// acknowledgement: https://github.com/tinaun/gen-iter/blob/master/src/lib.rs
-	match unsafe {gen.resume()} {
+	match std::pin::Pin::new(&mut gen).resume(()) {
 		GeneratorState::Yielded(n) => Some(n),
 		GeneratorState::Complete(_) => None,
 	}
