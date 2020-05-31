@@ -89,7 +89,7 @@ class Hena24{
 			if(!check(i,n))yield return a;
 		}
 	}
-	static void Main(){
+	static public void Main(){
 		var f=new Dictionary<char,Func<IEnumerable<int>,IEnumerable<int>>>(){
 			{'S',e => drop_next(is_sq,e)},
 			{'s',e => drop_prev(is_sq,e)},
