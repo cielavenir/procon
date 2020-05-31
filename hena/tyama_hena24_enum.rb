@@ -47,21 +47,21 @@ end
 
 def drop_prev(check,prev)
 	return to_enum(:drop_prev,check,prev) if !block_given?
-	a=prev.next
+	a=nil
 	b=prev.next
 	loop{
-		yield a if !check[b]
 		a,b=b,prev.next
+		yield a if !check[b]
 	}
 end
 def drop_next(check,prev)
 	return to_enum(:drop_next,check,prev) if !block_given?
-	a=prev.next
-	b=prev.next
-	yield a
+	first=true
+	a=nil
+	b=nil
 	loop{
-		yield b if !check[a]
 		a,b=b,prev.next
+		(first=false;yield b) if (first || !check[a])
 	}
 end
 def drop_n(check,n,prev)
