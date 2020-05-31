@@ -5,11 +5,10 @@
 use std::ops::{Generator, GeneratorState};
 
 use std::io::BufRead;
-use std::collections::HashMap;
 
-type BoxGeneratorI32Send = Box<dyn Generator<Yield=i32,Return=()>+Unpin+Send>;
+type BoxGeneratorI64Send = Box<dyn Generator<Yield=i64,Return=()>+Unpin+Send>;
 
-fn isqrt(n:i32) -> i32{
+fn isqrt(n:i64) -> i64{
 	if n<=0 {
 		return 0;
 	}
@@ -25,7 +24,7 @@ fn isqrt(n:i32) -> i32{
 	return x;
 }
 
-fn icbrt(n:i32) -> i32{
+fn icbrt(n:i64) -> i64{
 	if n<0 {
 		return icbrt(-n);
 	}
@@ -44,16 +43,16 @@ fn icbrt(n:i32) -> i32{
 	return x;
 }
 
-fn is_sq(n:i32) -> bool{
+fn is_sq(n:i64) -> bool{
 	let x=isqrt(n);
 	return x*x==n;
 }
-fn is_cb(n:i32) -> bool{
+fn is_cb(n:i64) -> bool{
 	let x=icbrt(n);
 	return x*x*x==n;
 }
-fn is_multiple(i:i32,n:i32) -> bool{i%n==0}
-fn is_le(i:i32,n:i32) -> bool{i<=n}
+fn is_multiple(i:i64,n:i64) -> bool{i%n==0}
+fn is_le(i:i64,n:i64) -> bool{i<=n}
 
 fn next<T>(mut gen:impl Generator<Yield=T,Return=()>+Unpin) -> Option<T>{
 	// acknowledgement: https://github.com/tinaun/gen-iter/blob/master/src/lib.rs
@@ -63,8 +62,8 @@ fn next<T>(mut gen:impl Generator<Yield=T,Return=()>+Unpin) -> Option<T>{
 	}
 }
 
-fn generate() -> BoxGeneratorI32Send{
-	return Box::new(|| { // move is optional in this line
+fn generate() -> BoxGeneratorI64Send{
+	return Box::new(move || { // move is optional in this line
 		let mut i=1;
 		loop{
 			yield i;
@@ -73,7 +72,7 @@ fn generate() -> BoxGeneratorI32Send{
 	});
 }
 
-fn drop_prev(check:fn(i32)->bool,mut prev:BoxGeneratorI32Send) -> BoxGeneratorI32Send{
+fn drop_prev(check:fn(i64)->bool,mut prev:BoxGeneratorI64Send) -> BoxGeneratorI64Send{
 	return Box::new(move || {
 		let mut a=next(&mut prev).unwrap();
 		let mut b=next(&mut prev).unwrap();
@@ -87,7 +86,7 @@ fn drop_prev(check:fn(i32)->bool,mut prev:BoxGeneratorI32Send) -> BoxGeneratorI3
 	});
 }
 
-fn drop_next(check:fn(i32)->bool,mut prev:BoxGeneratorI32Send) -> BoxGeneratorI32Send{
+fn drop_next(check:fn(i64)->bool,mut prev:BoxGeneratorI64Send) -> BoxGeneratorI64Send{
 	return Box::new(move || {
 		let mut a=next(&mut prev).unwrap();
 		let mut b=next(&mut prev).unwrap();
@@ -102,7 +101,7 @@ fn drop_next(check:fn(i32)->bool,mut prev:BoxGeneratorI32Send) -> BoxGeneratorI3
 	});
 }
 
-fn drop_n(check:fn(i32,i32)->bool,n:i32,mut prev:BoxGeneratorI32Send) -> BoxGeneratorI32Send{
+fn drop_n(check:fn(i64,i64)->bool,n:i64,mut prev:BoxGeneratorI64Send) -> BoxGeneratorI64Send{
 	return Box::new(move || {
 		let mut i=0;
 		loop{
@@ -117,7 +116,7 @@ fn drop_n(check:fn(i32,i32)->bool,n:i32,mut prev:BoxGeneratorI32Send) -> BoxGene
 
 fn main() {
 	// cannot initialize Generator trait's HashMap using vec![].into_iter().collect() [E0277]
-	let mut f:HashMap<char,fn(BoxGeneratorI32Send)->BoxGeneratorI32Send> = HashMap::new();
+	let mut f:std::collections::HashMap<char,fn(BoxGeneratorI64Send)->BoxGeneratorI64Send> = std::collections::HashMap::new();
 	f.insert('S',|e|{drop_next(is_sq,e)});
 	f.insert('s',|e|{drop_prev(is_sq,e)});
 	f.insert('C',|e|{drop_next(is_cb,e)});
