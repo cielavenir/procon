@@ -1,6 +1,6 @@
 #include <functional>
 #include <vector>
-
+#include <cstdio>
 template<typename T,typename F>
 T ternarysearch(T lo,T hi,const T eps,const F &predicate){
 	for(;lo+eps<hi;){

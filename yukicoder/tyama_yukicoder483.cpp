@@ -1,6 +1,7 @@
 #include <vector>
 #include <map>
 #include <set>
+#include <cstdio>
 using namespace std;
 template<typename T> class union_find{
 	map<T,T> parent;
