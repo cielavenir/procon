@@ -1,7 +1,8 @@
 #!/usr/bin/env crystal
+lib C;fun strtoll(s: UInt8*,p: UInt8**,b: Int32): Int64;end
 n,m=gets.not_nil!.split.map &.to_i
 a=[[0_i64]*-~m]
-a+=m.times.map{[0_i64]+gets.not_nil!.split.map(&.to_i64).to_a}.to_a
+a+=m.times.map{[0_i64]+gets.not_nil!.split.map{|e|C.strtoll(e,nil,10)}.to_a}.to_a
 (m+1).times{|y|m.times{|x|a[y][x+1]+=a[y][x]}}
 (m+1).times{|x|m.times{|y|a[y+1][x]+=a[y][x]}}
 n.times{

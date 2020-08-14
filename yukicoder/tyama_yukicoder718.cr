@@ -1,4 +1,5 @@
 #!/usr/bin/env crystal
+lib C;fun strtoll(s: UInt8*,p: UInt8**,b: Int32): Int64;end
 M=1000000007
 A=[[1_i64,1_i64],[1_i64,0_i64]]
 E=[[1_i64,0_i64],[0_i64,1_i64]]
@@ -21,5 +22,5 @@ def pow(n)
 	end
 	e[0][1]
 end
-n=gets.not_nil!.to_i64
+n=C.strtoll(gets.not_nil!,nil,10)
 puts pow(n)*pow(n+1)%M

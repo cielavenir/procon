@@ -1,4 +1,5 @@
 #!/usr/bin/env crystal
+lib C;fun strtoll(s: UInt8*,p: UInt8**,b: Int32): Int64;end
 M=1000000007_i64
 def pow(x : Int64,y : Int64,m : Int64)
 	z=1_i64
@@ -12,7 +13,7 @@ end
 def prime_division(n)
 	Process.run("factor",["factor",n.to_s]){|io|
 		h=Hash(Int64,Int64).new(0_i64)
-		io.output.gets.not_nil!.split()[1..-1].each{|e|h[e.to_i64]+=1}
+		io.output.gets.not_nil!.split()[1..-1].each{|e|h[C.strtoll(e,nil,10)]+=1}
 		h.map{|k,v|[k,v]}
 	}
 end
@@ -30,7 +31,7 @@ def divisor_totient(a,d,n,t,&blk : (Int64,Int64)->_)
 end
 
 cache=Hash(Int64,Int64).new
-h,w,k=ARGF.gets_to_end.split.map(&.to_i64)
+h,w,k=ARGF.gets_to_end.split.map{|e|C.strtoll(e,nil,10)}
 a=prime_division(h)
 b=prime_division(w)
 r=0_i64

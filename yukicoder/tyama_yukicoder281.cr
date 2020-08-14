@@ -1,7 +1,7 @@
 #!/usr/bin/env crystal
-def solve_short(d,a,b,c)
+def solve_short(d,a,b,c): Int32
 	begin
-		r=0_i64
+		r=0
 		if a==c
 			c=[0,c-d].max
 			r+=1
@@ -10,16 +10,16 @@ def solve_short(d,a,b,c)
 		if t>0
 			cnt=(t+d-1)//d
 			r+=cnt
-			b=[0,b-r*d].max
+			b=b > r.to_i64*d ? b-r*d : 0
 		end
 		a==b || b==c ? -1 : r
-	rescue DivisionByZeroError
+	rescue DivisionByZeroError # changed in 0.25.0
 		-1
 	end
 end
-def solve_tall(d,a,b,c)
+def solve_tall(d,a,b,c): Int32
 	begin
-		r=0_i64
+		r=0
 		t=a-b+1
 		if t>0
 			cnt=(t+d-1)//d
@@ -37,11 +37,11 @@ def solve_tall(d,a,b,c)
 			r+=1
 		end
 		a==b || b==c || c==a ? -1 : r
-	rescue DivisionByZeroError
+	rescue DivisionByZeroError # changed in 0.25.0
 		-1
 	end
 end
-d,a,b,c=4.times.map{gets.not_nil!.to_i}.to_a
+d,a,b,c=(0...4).map{gets.not_nil!.to_i}.to_a
 x=solve_short(d,a,b,c)
 y=solve_tall(d,a,b,c)
 p x>=0&&y>=0 ? [x,y].min : [x,y].max

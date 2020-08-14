@@ -1,3 +1,4 @@
 #!/usr/bin/env crystal
-n=gets.not_nil!.to_i64//2
+lib C;fun strtoll(s : UInt8*,p : UInt8**,b : Int32): Int64;end
+n=C.strtoll(gets.not_nil!,nil,10)//2
 p n*n

@@ -1,4 +1,5 @@
 #!/usr/bin/env crystal
+lib C;fun strtoll(s: UInt8*,p: UInt8**,b: Int32): Int64;end
 M=1000000007
 A=[[1_i64,1_i64],[1_i64,0_i64]]
 def mul(a,b)
@@ -19,7 +20,7 @@ def pow(a,n)
 	end
 	e[-1][0]
 end
-n,m=gets.not_nil!.split.map &.to_i64
+n,m=gets.not_nil!.split.map{|e|C.strtoll(e,nil,10)}
 a=pow(A,m+1)
 b=pow(A,m)
 c=pow(A,m-1)

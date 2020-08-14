@@ -1,2 +1,3 @@
 #!/usr/bin/env crystal
-N=gets.not_nil!.to_i64;p (N // 3 + N // 5)*2
+lib C;fun strtoll(s: UInt8*,p: UInt8**,b: Int32): Int64;end
+N=C.strtoll(gets.not_nil!,nil,10);p (N // 3 + N // 5)*2

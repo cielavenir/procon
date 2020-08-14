@@ -1,4 +1,5 @@
 #!/usr/bin/env crystal
+lib C;fun strtoll(s: UInt8*,p: UInt8**,b: Int32): Int64;end
 M=17
 def mul(a,b)
 	r=a.size.times.map{[0]*b[0].size}.to_a
@@ -12,7 +13,7 @@ end
 A=[[1,1,1,1],[1,0,0,0],[0,1,0,0],[0,0,1,0]]
 E=[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]]
 gets.not_nil!.to_i.times{
-	n=gets.not_nil!.to_i64
+	n=C.strtoll(gets.not_nil!,nil,10)
 	a=A
 	e=E
 	while n>0

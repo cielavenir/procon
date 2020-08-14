@@ -1,5 +1,6 @@
 #!/usr/bin/env crystal
 require "big"
+lib C;fun strtoll(s: UInt8*,p: UInt8**,b: Int32): Int64;end
 MOD=1000000007
 def mul(a,b,m)
 	r=a.size.times.map{[0_i64]*b[0].size}.to_a
@@ -14,7 +15,7 @@ end
 r=1_i64
 gets.not_nil!.to_i.times{
 	c_,d_=gets.not_nil!.split
-	c=c_.to_i64
+	c=C.strtoll(c_,nil,10)
 	d=BigInt.new(d_)
 	x=[[1_i64,1_i64],[1_i64,0_i64]]
 	e=[[1_i64,0_i64],[0_i64,1_i64]]
