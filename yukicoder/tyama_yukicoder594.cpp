@@ -3,17 +3,20 @@
 #include <cstdio>
 template<typename T,typename F>
 T ternarysearch(T lo,T hi,const T eps,const F &predicate){
-	for(;lo+eps<hi;){
-		T mi=(lo+hi)/2;
-		if(predicate(mi)>predicate(mi-eps)){
-			hi=mi;
+	T r=lo;
+	for(;lo<hi+eps;){
+		T mi1=lo+(hi-lo)/3;
+		T mi2=hi-(hi-lo)/3;
+		if(predicate(mi1)<predicate(mi2)){
+			hi=mi2-eps;
 		}else{
-			lo=mi;
+			r=mi1;
+			lo=mi1+eps;
 		}
 	}
-	return lo;
+	return r;
 }
-template<typename T,typename F>
+template<typename T,typename F=std::function<T(T)>>
 T ternarysearch(T lo,T hi,const F &predicate){return ternarysearch(lo,hi,(T)1,predicate);}
 
 int Q(const std::vector<int>&v){
