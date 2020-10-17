@@ -75,8 +75,10 @@ fn drop_n(val:*i64,check:fn(i64,i64)bool,n:i64,prevvalue:*i64,prevframe:anyframe
 }
 
 pub fn main()!void{
-    const stdin = std.io.getStdIn().inStream();
-    const stdout = std.io.getStdOut().outStream();
+    var stdin_ = std.io.getStdIn().inStream();
+    var stdin = std.io.bufferedInStream(stdin_).inStream();
+    var stdout_ = std.io.getStdOut().outStream();
+    var stdout = std.io.bufferedOutStream(stdout_).outStream();
     var buf: [99]u8 = undefined;
 
     while(true){
@@ -221,6 +223,7 @@ pub fn main()!void{
                 i+=1;
             }
             try stdout.print("\n",.{});
+            try stdout.context.flush();
         }else{
             break;
         }

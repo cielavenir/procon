@@ -76,11 +76,18 @@ fn drop_n(val:*mut i64,check:fn(i64,i64)bool,n:i64,prevvalue:*i64,prevframe:anyf
 
 pub fn main()!void{
     var stdin = try std.fs.getStdIn();
-    var stdout = try std.fs.getStdOut();
+    //somehow making stdin buffered causes failure to read correctly
+    //var stdin = std.io.BufferedInStream(std.fs.File.ReadError){
+    //    .unbuffered_in_stream = &mut stdin_
+    //};
+    var stdout_ = try std.fs.getStdOut();
+    var stdout = std.io.BufferedOutStream(std.fs.File.WriteError){
+        .unbuffered_out_stream = &mut stdout_
+    };
     var buf: [99]u8 = undefined;
 
     while(true){
-        var user_input = std.fs.read.until(&stdin, &mut buf, '\n') catch |err| break;
+        var user_input = std.fs.read.until(&mut stdin, &mut buf, '\n') catch |err| break;
         if(true){
             var h = std.container.AutoHashMap(u8,i64){.allocator = std.heap.page_allocator};
             defer h.deinit();
@@ -216,12 +223,13 @@ pub fn main()!void{
             }
             i = 0;
             while(i<10){
-                if(i>0)try std.fs.write.print(&stdout,",",.{});
-                try std.fs.write.print(&stdout,"{}",.{reslst[len]});
+                if(i>0)try std.fs.write.print(&mut stdout,",",.{});
+                try std.fs.write.print(&mut stdout,"{}",.{reslst[len]});
                 resume framelst[len];
                 i+=1;
             }
-            try std.fs.write.print(&stdout,"\n",.{});
+            try std.fs.write.print(&mut stdout,"\n",.{});
+            try stdout.flush();
         //}else{
         //    break;
         }
