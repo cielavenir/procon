@@ -30,7 +30,7 @@ fn is_cb(n:i64)bool{
 fn is_multiple(i:i64,n:i64)bool{return @mod(i,n)==0;}
 fn is_le(i:i64,n:i64)bool{return i<=n;}
 
-fn generate(val:* i64)void{
+fn generate(val:*i64)void{
     val.* = 1;
     while(true){
         suspend;

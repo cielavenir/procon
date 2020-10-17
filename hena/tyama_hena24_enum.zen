@@ -74,7 +74,7 @@ fn drop_n(val:*mut i64,check:fn(i64,i64)bool,n:i64,prevvalue:*i64,prevframe:anyf
     }
 }
 
-pub fn main()anyerror!void{
+pub fn main()!void{
     var stdin = try std.fs.getStdIn();
     var stdout = try std.fs.getStdOut();
     var buf: [99]u8 = undefined;
@@ -216,12 +216,12 @@ pub fn main()anyerror!void{
             }
             i = 0;
             while(i<10){
-                if(i>0)_ = try stdout.write(",");
+                if(i>0)try std.fs.write.print(&stdout,",",.{});
                 try std.fs.write.print(&stdout,"{}",.{reslst[len]});
                 resume framelst[len];
                 i+=1;
             }
-            _ = try stdout.write("\n");
+            try std.fs.write.print(&stdout,"\n",.{});
         //}else{
         //    break;
         }
