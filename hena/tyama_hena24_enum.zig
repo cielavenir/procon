@@ -57,8 +57,7 @@ fn drop_next(val:*i64,check:fn(i64)bool,prevvalue:*i64,prevframe:anyframe->void)
     val.* = a;
     suspend;
     while(true){
-        if(!check(a)){const stdout = std.io.getStdOut().outStream();
-        val.* = b;suspend;}
+        if(!check(a)){val.* = b;suspend;}
         a = b;
         resume prevframe;
         b = prevvalue.*;
@@ -98,13 +97,14 @@ pub fn main()!void{
             _ = try h.put('8',0);
             _ = try h.put('9',0);
 
-            var reslst = try std.heap.page_allocator.alloc(i64,user_input.len+1);
+            var len = user_input.len;
+            var reslst = try std.heap.page_allocator.alloc(i64,len+1);
             defer std.heap.page_allocator.free(reslst);
-            var framelst = try std.heap.page_allocator.alloc(anyframe->void,user_input.len+1);
+            var framelst = try std.heap.page_allocator.alloc(anyframe->void,len+1);
             defer std.heap.page_allocator.free(framelst);
             framelst[0] = &(async generate(&reslst[0]));
             var i:usize=0;
-            while(i<user_input.len){
+            while(i<len){
                 // async frameが行番号か何かで管理されているのか、同じ文字を複数回与えると"resumed a non-suspended function"が発生します。
                 // やむを得ず、文字が与えられるたびに行番号を変えてframelstに入れるようにしています。本当にひどい。
                 if(user_input[i]=='S'){
@@ -216,8 +216,8 @@ pub fn main()!void{
             i = 0;
             while(i<10){
                 if(i>0)try stdout.print(",",.{});
-                try stdout.print("{}",.{reslst[user_input.len]});
-                resume framelst[user_input.len];
+                try stdout.print("{}",.{reslst[len]});
+                resume framelst[len];
                 i+=1;
             }
             try stdout.print("\n",.{});
