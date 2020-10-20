@@ -57,3 +57,5 @@ class Solution{
 		}
 	}	
 }
+
+//Prime cracker solution - passes 100% of test cases
