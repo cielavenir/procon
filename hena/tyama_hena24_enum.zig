@@ -110,108 +110,108 @@ pub fn main()!void{
                 // async frameが行番号か何かで管理されているのか、同じ文字を複数回与えると"resumed a non-suspended function"が発生します。
                 // やむを得ず、文字が与えられるたびに行番号を変えてframelstに入れるようにしています。本当にひどい。
                 if(user_input[i]=='S'){
-                    if(h.getValue('S').? == 0)framelst[i+1] = &(async drop_next(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
-                    if(h.getValue('S').? == 1)framelst[i+1] = &(async drop_next(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
-                    if(h.getValue('S').? == 2)framelst[i+1] = &(async drop_next(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
-                    if(h.getValue('S').? == 3)framelst[i+1] = &(async drop_next(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
-                    if(h.getValue('S').? == 4)framelst[i+1] = &(async drop_next(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
-                    _ = try h.put('S',h.getValue('S').?+1);
+                    if(h.get('S').? == 0)framelst[i+1] = &(async drop_next(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
+                    if(h.get('S').? == 1)framelst[i+1] = &(async drop_next(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
+                    if(h.get('S').? == 2)framelst[i+1] = &(async drop_next(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
+                    if(h.get('S').? == 3)framelst[i+1] = &(async drop_next(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
+                    if(h.get('S').? == 4)framelst[i+1] = &(async drop_next(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
+                    _ = try h.put('S',h.get('S').?+1);
                 }
                 if(user_input[i]=='s'){
-                    if(h.getValue('s').? == 0)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
-                    if(h.getValue('s').? == 1)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
-                    if(h.getValue('s').? == 2)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
-                    if(h.getValue('s').? == 3)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
-                    if(h.getValue('s').? == 4)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
-                    _ = try h.put('s',h.getValue('s').?+1);
+                    if(h.get('s').? == 0)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
+                    if(h.get('s').? == 1)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
+                    if(h.get('s').? == 2)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
+                    if(h.get('s').? == 3)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
+                    if(h.get('s').? == 4)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_sq,&reslst[i],framelst[i]));
+                    _ = try h.put('s',h.get('s').?+1);
                 }
                 if(user_input[i]=='C'){
-                    if(h.getValue('C').? == 0)framelst[i+1] = &(async drop_next(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
-                    if(h.getValue('C').? == 1)framelst[i+1] = &(async drop_next(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
-                    if(h.getValue('C').? == 2)framelst[i+1] = &(async drop_next(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
-                    if(h.getValue('C').? == 3)framelst[i+1] = &(async drop_next(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
-                    if(h.getValue('C').? == 4)framelst[i+1] = &(async drop_next(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
-                    _ = try h.put('C',h.getValue('C').?+1);
+                    if(h.get('C').? == 0)framelst[i+1] = &(async drop_next(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
+                    if(h.get('C').? == 1)framelst[i+1] = &(async drop_next(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
+                    if(h.get('C').? == 2)framelst[i+1] = &(async drop_next(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
+                    if(h.get('C').? == 3)framelst[i+1] = &(async drop_next(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
+                    if(h.get('C').? == 4)framelst[i+1] = &(async drop_next(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
+                    _ = try h.put('C',h.get('C').?+1);
                 }
                 if(user_input[i]=='c'){
-                    if(h.getValue('c').? == 0)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
-                    if(h.getValue('c').? == 1)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
-                    if(h.getValue('c').? == 2)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
-                    if(h.getValue('c').? == 3)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
-                    if(h.getValue('c').? == 4)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
-                    _ = try h.put('c',h.getValue('c').?+1);
+                    if(h.get('c').? == 0)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
+                    if(h.get('c').? == 1)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
+                    if(h.get('c').? == 2)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
+                    if(h.get('c').? == 3)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
+                    if(h.get('c').? == 4)framelst[i+1] = &(async drop_prev(&reslst[i+1],is_cb,&reslst[i],framelst[i]));
+                    _ = try h.put('c',h.get('c').?+1);
                 }
                 if(user_input[i]=='h'){
-                    if(h.getValue('h').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_le,100,&reslst[i],framelst[i]));
-                    if(h.getValue('h').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_le,100,&reslst[i],framelst[i]));
-                    if(h.getValue('h').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_le,100,&reslst[i],framelst[i]));
-                    if(h.getValue('h').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_le,100,&reslst[i],framelst[i]));
-                    if(h.getValue('h').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_le,100,&reslst[i],framelst[i]));
-                    _ = try h.put('h',h.getValue('h').?+1);
+                    if(h.get('h').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_le,100,&reslst[i],framelst[i]));
+                    if(h.get('h').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_le,100,&reslst[i],framelst[i]));
+                    if(h.get('h').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_le,100,&reslst[i],framelst[i]));
+                    if(h.get('h').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_le,100,&reslst[i],framelst[i]));
+                    if(h.get('h').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_le,100,&reslst[i],framelst[i]));
+                    _ = try h.put('h',h.get('h').?+1);
                 }
                 if(user_input[i]=='2'){
-                    if(h.getValue('2').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,2,&reslst[i],framelst[i]));
-                    if(h.getValue('2').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,2,&reslst[i],framelst[i]));
-                    if(h.getValue('2').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,2,&reslst[i],framelst[i]));
-                    if(h.getValue('2').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,2,&reslst[i],framelst[i]));
-                    if(h.getValue('2').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,2,&reslst[i],framelst[i]));
-                    _ = try h.put('2',h.getValue('2').?+1);
+                    if(h.get('2').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,2,&reslst[i],framelst[i]));
+                    if(h.get('2').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,2,&reslst[i],framelst[i]));
+                    if(h.get('2').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,2,&reslst[i],framelst[i]));
+                    if(h.get('2').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,2,&reslst[i],framelst[i]));
+                    if(h.get('2').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,2,&reslst[i],framelst[i]));
+                    _ = try h.put('2',h.get('2').?+1);
                 }
                 if(user_input[i]=='3'){
-                    if(h.getValue('3').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,3,&reslst[i],framelst[i]));
-                    if(h.getValue('3').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,3,&reslst[i],framelst[i]));
-                    if(h.getValue('3').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,3,&reslst[i],framelst[i]));
-                    if(h.getValue('3').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,3,&reslst[i],framelst[i]));
-                    if(h.getValue('3').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,3,&reslst[i],framelst[i]));
-                    _ = try h.put('3',h.getValue('3').?+1);
+                    if(h.get('3').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,3,&reslst[i],framelst[i]));
+                    if(h.get('3').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,3,&reslst[i],framelst[i]));
+                    if(h.get('3').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,3,&reslst[i],framelst[i]));
+                    if(h.get('3').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,3,&reslst[i],framelst[i]));
+                    if(h.get('3').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,3,&reslst[i],framelst[i]));
+                    _ = try h.put('3',h.get('3').?+1);
                 }
                 if(user_input[i]=='4'){
-                    if(h.getValue('4').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,4,&reslst[i],framelst[i]));
-                    if(h.getValue('4').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,4,&reslst[i],framelst[i]));
-                    if(h.getValue('4').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,4,&reslst[i],framelst[i]));
-                    if(h.getValue('4').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,4,&reslst[i],framelst[i]));
-                    if(h.getValue('4').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,4,&reslst[i],framelst[i]));
-                    _ = try h.put('4',h.getValue('4').?+1);
+                    if(h.get('4').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,4,&reslst[i],framelst[i]));
+                    if(h.get('4').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,4,&reslst[i],framelst[i]));
+                    if(h.get('4').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,4,&reslst[i],framelst[i]));
+                    if(h.get('4').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,4,&reslst[i],framelst[i]));
+                    if(h.get('4').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,4,&reslst[i],framelst[i]));
+                    _ = try h.put('4',h.get('4').?+1);
                 }
                 if(user_input[i]=='5'){
-                    if(h.getValue('5').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,5,&reslst[i],framelst[i]));
-                    if(h.getValue('5').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,5,&reslst[i],framelst[i]));
-                    if(h.getValue('5').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,5,&reslst[i],framelst[i]));
-                    if(h.getValue('5').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,5,&reslst[i],framelst[i]));
-                    if(h.getValue('5').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,5,&reslst[i],framelst[i]));
-                    _ = try h.put('5',h.getValue('5').?+1);
+                    if(h.get('5').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,5,&reslst[i],framelst[i]));
+                    if(h.get('5').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,5,&reslst[i],framelst[i]));
+                    if(h.get('5').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,5,&reslst[i],framelst[i]));
+                    if(h.get('5').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,5,&reslst[i],framelst[i]));
+                    if(h.get('5').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,5,&reslst[i],framelst[i]));
+                    _ = try h.put('5',h.get('5').?+1);
                 }
                 if(user_input[i]=='6'){
-                    if(h.getValue('6').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,6,&reslst[i],framelst[i]));
-                    if(h.getValue('6').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,6,&reslst[i],framelst[i]));
-                    if(h.getValue('6').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,6,&reslst[i],framelst[i]));
-                    if(h.getValue('6').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,6,&reslst[i],framelst[i]));
-                    if(h.getValue('6').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,6,&reslst[i],framelst[i]));
-                    _ = try h.put('6',h.getValue('6').?+1);
+                    if(h.get('6').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,6,&reslst[i],framelst[i]));
+                    if(h.get('6').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,6,&reslst[i],framelst[i]));
+                    if(h.get('6').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,6,&reslst[i],framelst[i]));
+                    if(h.get('6').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,6,&reslst[i],framelst[i]));
+                    if(h.get('6').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,6,&reslst[i],framelst[i]));
+                    _ = try h.put('6',h.get('6').?+1);
                 }
                 if(user_input[i]=='7'){
-                    if(h.getValue('7').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,7,&reslst[i],framelst[i]));
-                    if(h.getValue('7').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,7,&reslst[i],framelst[i]));
-                    if(h.getValue('7').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,7,&reslst[i],framelst[i]));
-                    if(h.getValue('7').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,7,&reslst[i],framelst[i]));
-                    if(h.getValue('7').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,7,&reslst[i],framelst[i]));
-                    _ = try h.put('7',h.getValue('7').?+1);
+                    if(h.get('7').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,7,&reslst[i],framelst[i]));
+                    if(h.get('7').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,7,&reslst[i],framelst[i]));
+                    if(h.get('7').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,7,&reslst[i],framelst[i]));
+                    if(h.get('7').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,7,&reslst[i],framelst[i]));
+                    if(h.get('7').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,7,&reslst[i],framelst[i]));
+                    _ = try h.put('7',h.get('7').?+1);
                 }
                 if(user_input[i]=='8'){
-                    if(h.getValue('8').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,8,&reslst[i],framelst[i]));
-                    if(h.getValue('8').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,8,&reslst[i],framelst[i]));
-                    if(h.getValue('8').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,8,&reslst[i],framelst[i]));
-                    if(h.getValue('8').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,8,&reslst[i],framelst[i]));
-                    if(h.getValue('8').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,8,&reslst[i],framelst[i]));
-                    _ = try h.put('8',h.getValue('8').?+1);
+                    if(h.get('8').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,8,&reslst[i],framelst[i]));
+                    if(h.get('8').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,8,&reslst[i],framelst[i]));
+                    if(h.get('8').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,8,&reslst[i],framelst[i]));
+                    if(h.get('8').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,8,&reslst[i],framelst[i]));
+                    if(h.get('8').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,8,&reslst[i],framelst[i]));
+                    _ = try h.put('8',h.get('8').?+1);
                 }
                 if(user_input[i]=='9'){
-                    if(h.getValue('9').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,9,&reslst[i],framelst[i]));
-                    if(h.getValue('9').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,9,&reslst[i],framelst[i]));
-                    if(h.getValue('9').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,9,&reslst[i],framelst[i]));
-                    if(h.getValue('9').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,9,&reslst[i],framelst[i]));
-                    if(h.getValue('9').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,9,&reslst[i],framelst[i]));
-                    _ = try h.put('9',h.getValue('9').?+1);
+                    if(h.get('9').? == 0)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,9,&reslst[i],framelst[i]));
+                    if(h.get('9').? == 1)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,9,&reslst[i],framelst[i]));
+                    if(h.get('9').? == 2)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,9,&reslst[i],framelst[i]));
+                    if(h.get('9').? == 3)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,9,&reslst[i],framelst[i]));
+                    if(h.get('9').? == 4)framelst[i+1] = &(async drop_n(&reslst[i+1],is_multiple,9,&reslst[i],framelst[i]));
+                    _ = try h.put('9',h.get('9').?+1);
                 }
                 i+=1;
             }
