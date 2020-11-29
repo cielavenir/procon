@@ -17,7 +17,7 @@ proc isqrt {n} {
 }
 
 proc icbrt {n} {
-	if {$n<0} {return [icbrt -$n]}
+	if {$n<0} {return -[icbrt -$n]}
 	if {$n==0} {return 0}
 	if {$n<8} {return 1}
 	set x 0

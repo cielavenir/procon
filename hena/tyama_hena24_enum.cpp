@@ -162,7 +162,7 @@ int isqrt(int n){
 	return x;
 }
 int icbrt(int n){
-	if(n<0)return icbrt(-n);
+	if(n<0)return -icbrt(-n);
 	if(n==0)return 0;
 	if(n<8)return 1;
 	int x=0,y=n;

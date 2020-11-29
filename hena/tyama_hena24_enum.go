@@ -20,7 +20,7 @@ func isqrt(n int) int{
 	return x
 }
 func icbrt(n int) int{
-	if n<0 {return icbrt(-n)}
+	if n<0 {return -icbrt(-n)}
 	if n==0 {return 0}
 	if n<8 {return 1}
 	x:=0

@@ -35,7 +35,7 @@ def isqrt(n):
 		x,y=y,(n//y+y)//2
 	return x
 def icbrt(n):
-	if n<0: return icbrt(-n)
+	if n<0: return -icbrt(-n)
 	if n==0: return 0
 	if n<8: return 1
 	x,y=0,n

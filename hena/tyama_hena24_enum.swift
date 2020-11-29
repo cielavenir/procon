@@ -40,7 +40,7 @@ func isqrt(_ n: Int64) -> Int64{
 	return x
 }
 func icbrt(_ n: Int64) -> Int64{
-	if n<0 {return icbrt(-n)}
+	if n<0 {return -icbrt(-n)}
 	if n==0 {return 0}
 	if n<8 {return 1}
 	var x: Int64 = 0

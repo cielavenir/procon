@@ -17,7 +17,7 @@ let rec isqrt2 (n:int) (x:int) (y:int) =
   else
     isqrt2 n y ((n/y+y)/2)
 let isqrt (n:int) =
-  if n=0 then
+  if n<=0 then
     0
   elif n<4 then
     1
@@ -28,8 +28,10 @@ let rec icbrt2 (n:int) (x:int) (y:int) =
     x
   else
     icbrt2 n y ((n/y/y+y*2)/3)
-let icbrt (n:int) =
-  if n=0 then
+let rec icbrt (n:int) =
+  if n<0 then
+    -(icbrt -n)
+  elif n=0 then
     0
   elif n<8 then
     1

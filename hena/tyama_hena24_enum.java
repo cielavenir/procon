@@ -18,7 +18,7 @@ class Hena24{
 		return x;
 	}
 	static int icbrt(int n){
-		if(n<0)return icbrt(-n);
+		if(n<0)return -icbrt(-n);
 		if(n==0)return 0;
 		if(n<8)return 1;
 		int x=0,y=n;

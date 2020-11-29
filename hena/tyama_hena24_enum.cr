@@ -12,7 +12,7 @@ def isqrt(n)
 	x
 end
 def icbrt(n)
-	return -icbrt(n) if n<0
+	return -icbrt(-n) if n<0
 	return 0 if n==0
 	return 1 if n<8 # 1,7
 	x,y=0,n

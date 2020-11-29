@@ -16,7 +16,7 @@ isqrt=(n)->
 
 icbrt=(n)->
 	if n<0
-		return icbrt(-n)
+		return -icbrt(-n)
 	if n==0
 		return 0
 	if n<8

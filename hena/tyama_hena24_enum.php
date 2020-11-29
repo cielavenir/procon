@@ -15,7 +15,7 @@ function isqrt($n){
 	return $x;
 }
 function icbrt($n){
-	if($n<0)return icbrt(-$n);
+	if($n<0)return -icbrt(-$n);
 	if($n==0)return 0;
 	if($n<8)return 1;
 	$x=0;$y=$n;

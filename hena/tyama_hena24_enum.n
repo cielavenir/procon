@@ -16,7 +16,7 @@ module hena24{
 		}
 	}
 	icbrt(n:int):int{
-		if(n<0)icbrt(-n);
+		if(n<0)-icbrt(-n);
 		else if(n==0)0;
 		else if(n<8)1;
 		else{

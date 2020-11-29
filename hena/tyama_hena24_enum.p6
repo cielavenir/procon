@@ -11,7 +11,7 @@ sub isqrt($n){
 }
 
 sub icbrt($n){
-	if $n < 0 {return icbrt(-$n);}
+	if $n < 0 {return -icbrt(-$n);}
 	if $n == 0 {return 0;}
 	if $n < 8 {return 1;}
 	my $x=0;my $y=$n;

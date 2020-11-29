@@ -12,7 +12,7 @@ fn isqrt(n int) int{
 	return x
 }
 fn icbrt(n int) int{
-	if n<0 {return icbrt(-n)}
+	if n<0 {return -icbrt(-n)}
 	if n==0 {return 0}
 	if n<8 {return 1}
 	mut x:=0

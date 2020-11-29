@@ -28,7 +28,7 @@ module Hena24
 	end function
 	private function icbrt(ByVal n as integer) as integer
 		if n<0
-			return icbrt(-n)
+			return -icbrt(-n)
 		end if
 		if n=0
 			return 0

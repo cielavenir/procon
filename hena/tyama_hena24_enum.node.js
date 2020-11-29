@@ -10,7 +10,7 @@ var isqrt=function(n){
 	return x;
 }
 var icbrt=function(n){
-	if(n<0)return icbrt(-n);
+	if(n<0)return -icbrt(-n);
 	if(n==0)return 0;
 	if(n<8)return 1;
 	var x=0,y=n;

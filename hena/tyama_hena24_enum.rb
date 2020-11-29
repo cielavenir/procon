@@ -23,7 +23,7 @@ class Integer
 		x
 	end
 	def icbrt
-		return -self.icbrt if self<0
+		return -(-self).icbrt if self<0
 		return 0 if self==0
 		return 1 if self<8 # 1,7
 		x,y=0,self

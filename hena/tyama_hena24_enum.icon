@@ -20,7 +20,7 @@ end
 procedure icbrt(n)
 	local x,y
 	if n<0 then
-		return icbrt(-n)
+		return -icbrt(-n)
 	if n==0 then
 		return 0
 	if n<8 then

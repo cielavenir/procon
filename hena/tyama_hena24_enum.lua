@@ -21,7 +21,7 @@ function isqrt(n)
 end
 function icbrt(n)
 	if n<0 then
-		return icbrt(-n)
+		return -icbrt(-n)
 	end
 	if n==0 then
 		return 0
