@@ -1,6 +1,7 @@
+//usr/bin/true; tmpfile=$(mktemp); clang++ -fcoroutines-ts -stdlib=libc++ -std=c++17 -o $tmpfile "$0" && $tmpfile; rm -f $tmpfile; exit
+
 // http://qiita.com/Nabetani/items/1c83005a854d2c6cbb69
 // http://nabetani.sakura.ne.jp/hena/ord24eliseq/
-// -fcoroutines-ts -stdlib=libc++
 
 #include <iostream>
 #include <string>
