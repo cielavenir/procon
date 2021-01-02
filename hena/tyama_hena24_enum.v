@@ -109,7 +109,7 @@ fn f_8(prev chan int)chan int{return drop_n(is_multiple,8,prev)}
 fn f_9(prev chan int)chan int{return drop_n(is_multiple,9,prev)}
 
 fn main(){
-	mut f:=map[string]fn(_ chan_int)chan_int{}
+	mut f:=map[string]fn(_ chan int)chan int{}
 	f['S']=f_capital_s
 	f['s']=f_small_s
 	f['C']=f_capital_c
