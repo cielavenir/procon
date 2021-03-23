@@ -144,7 +144,7 @@ fn main(){
 		mut ch := generate()
 		for c in line {
 			//somehow I need to assign first or the source will not compile.
-			z:=f[c.str()]
+			z:=f[c.ascii_str()]
 			ch=z(ch)
 		}
 		for i:=0;i<10;i++ {
