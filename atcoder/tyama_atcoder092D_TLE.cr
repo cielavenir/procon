@@ -2,9 +2,9 @@
 N=gets.not_nil!.to_i
 A=gets.not_nil!.split.map &.to_i
 B=gets.not_nil!.split.map &.to_i
-r=0
+r=0_i64
 (0..28).each{|b|
-	r0=0
+	r0=0_i64
 	t=1<<b
 	a=A.map{|e|e % (2*t)}.sort
 	B.map{|e|e % (2*t)}.each{|e|

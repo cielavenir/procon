@@ -1,10 +1,9 @@
 #!/usr/bin/env crystal
-#It is completely unknown why this code does not work properly...
 
 B=6000
 def k(a)
 	r=Array(Array(Int32)).new
-	((a.size+B-1)/B).times{|i|
+	((a.size+B-1)//B).times{|i|
 		Process.run("factor"){|process|
 			process.input.puts a[B*i...B*-~i].join("\n")
 			process.input.close

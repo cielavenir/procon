@@ -6,4 +6,4 @@ r=[0]*n
 	r[ (0...n).min_by{|j|t=2*Math::PI*i/m;x[j]*Math.cos(t)+y[j]*Math.sin(t)} ]+=1
 }
 s=r.sum.to_f
-n.times{|i|p r[i].fdiv s} # / is not ok due to Crystal version.
+n.times{|i|p r[i]/s}

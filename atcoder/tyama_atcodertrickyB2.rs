@@ -1,5 +1,5 @@
 use std::ffi::CString;
-#[link="c"]
+#[link(name="c")]
 extern {
 	fn scanf(format: *const i8, ...);
 	fn printf(format: *const i8, ...);
