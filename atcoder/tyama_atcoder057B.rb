@@ -12,4 +12,4 @@ D=[0,1,*[1<<29]*(N-1)]
 		end
 	}
 }
-p N.downto(0).find{|i|p(D[i])<=K}
+p N.downto(0).find{|i|D[i]<=K}

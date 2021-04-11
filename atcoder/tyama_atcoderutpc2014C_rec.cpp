@@ -7,7 +7,7 @@ using namespace std;
 unordered_map<int,vector<int> >h;
 int N;
 
-void dfs(int d,int cur,int prev,unordered_map<int,int>lst){
+void dfs(int d,int cur,int prev,unordered_map<int,int> &lst){
 	//printf("%d\n",cur);
 	if(lst.find(cur)!=lst.end()){
 		int l=d-lst[cur];
@@ -16,7 +16,7 @@ void dfs(int d,int cur,int prev,unordered_map<int,int>lst){
 	}
 	lst[cur]=d;
 	for(auto &e:h[cur])if(e!=prev&&(lst.find(e)==lst.end()||lst[e]!=-1))dfs(d+1,e,cur,lst);
-	lst[cur]=-1;
+	lst.erase(cur);
 }
 int main(){
 	scanf("%d",&N);

@@ -2,18 +2,10 @@
 N=gets.not_nil!.to_i
 A=gets.not_nil!.split.map &.to_i
 B=gets.not_nil!.split.map &.to_i
-r=0_i64
+r=0
 (0..28).each{|b|
-	r0=0_i64
-	t=1<<b
-	a=A.map{|e|e % (2*t)}.sort
-	B.map{|e|e % (2*t)}.each{|e|
-		i1=(0...N).bsearch{|i|1*t-a[i]<=e}||N
-		i2=(0...N).bsearch{|i|2*t-a[i]<=e}||N
-		i3=(0...N).bsearch{|i|3*t-a[i]<=e}||N
-		i4=(0...N).bsearch{|i|4*t-a[i]<=e}||N
-		r0+=i4-i3+i2-i1
-	}
-	r^=r0%2*t
+q=0;t=1<<b;a=A.map{|e|e% (2*t)}.sort
+B.map{|e|e % (2*t)}.map{|e|i=(1..4).map{|j|(0...N).bsearch{|i|j*t-a[i]<=e}||N};q=(q+i[3]-i[2]+i[1]-i[0])%2}
+r^=q*t
 }
 p r
