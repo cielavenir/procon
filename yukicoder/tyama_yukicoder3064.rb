@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-a=DATA.read.lines.map &:chomp
+a=DATA.each_line.map &:chomp
 gets.bytes{|b|print a[b-97]}
 __END__
 う　し　
