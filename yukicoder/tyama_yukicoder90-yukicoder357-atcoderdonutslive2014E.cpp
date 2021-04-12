@@ -46,6 +46,9 @@ int main(){
 	for(;M--;){
 		int a,b,c;
 		scanf("%d%d%d",&a,&b,&c);
+#ifdef ONLINE_JUDGE
+		a--;b--;
+#endif
 		m[a][b]=c;
 	}
 	vector<int> path;
