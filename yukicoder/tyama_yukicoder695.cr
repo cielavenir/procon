@@ -27,5 +27,7 @@ x=gets.not_nil!.split.map &.to_i
 m1=168647939;m2=592951213
 v=[0]*(n-n//2);v[0]=1
 r1=solve(v,n,m1,x);r2=solve(v,n,m2,x)
-rm=(r2-r1+m2)*pow(m1.to_i64,m2-2,m2)%m2
+rm=(r2-r1+m2)*442445312%m2
 puts rm*m1+r1
+
+# pow(m1.to_i64,m2-2,m2) => 442445312

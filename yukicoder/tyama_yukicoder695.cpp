@@ -31,6 +31,6 @@ int main(){
 	for(int i=0;i<m;i++)scanf("%d",&x[i]);
 	int M1=168647939,M2=592951213;
 	int R1=solve(n,M1,x),R2=solve(n,M2,x);
-	long long Rm=(R2-R1+M2)*pow(M1,M2-2,M2)%M2;
+	long long Rm=(R2-R1+M2)*442445312LL%M2;
 	printf("%lld\n",Rm*M1+R1);
 }
