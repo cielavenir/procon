@@ -1,0 +1,12 @@
+#!/usr/bin/ruby
+require'zlib';m=Zlib.inflate(DATA.read.unpack('m')[0]).bytes;w=101;h=89;gets;$<.map{|l|y,x=l.split.map &:to_i;q=y*w+x;p m[q/2]/(16-q%2*15)%16*96}
+__END__
+eNrtl8FOwkAURTutcY3VD5iZqGuMEdaYCFstxn4AGLYmSOf3pTBwGW/oeywl3l0b2nOYuZ1Ow7ln
+erM47YK5LbOnUy5oRsZ7m3+c4JT5Nj212qct/TZQk51iXFSTnCJCq7baOgEDNclJqzaDk05t1c99
+EmnUmmc46dTmPTjJauwkqzWV8V1B19hJqdbASan2ZrwmztRkJYhd18J00MSM9ePLQ7waULHYqVis
+f3gfYl6LmtvLTk2VLXaQvHfb3sLmHU6bEbrcQzYPEJ5DHqf2hn3jLSCbKkCNnWKXANlXASsKO3mf
+QjzUjjj5BBL5iRo5ESRVYyeCxEQ1j1sknWAIRg1OKB5DUjVyYgipwakTApsROTHElakanI5B3GOW
+qJETQy7WKgdq5MQQOznUsMPQpwsIkvzX67AsvQg5fAG5YXhQQNpURg9xg7i+lGqIi6vsrNRCvDNj
+HImQeKJozzS5DoIJ10Mipo5HImSf3p0agl69a4cLGP2cIFoI8g/5U5B6B8mUELuHxHVOhJgxbbsY
+whsvYIwEcXkdknzb8ggEz9zvVKYDAgTv5xnCCMYwxBW1sEUHRPyymWUpBKsgBztchmSDwGEMIBaT
+x0FtAEE/OKgNIDICtYkQB4T0HRshmDwpldlA0A85K3u1hgChybQIS/RDh5mEl3D2+foB9mP7RA==

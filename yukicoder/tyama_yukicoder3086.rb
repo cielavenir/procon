@@ -6,14 +6,27 @@ img = StringIO.new Zlib.inflate Base64.decode64 DATA.read
 sig = img.gets.chomp
 width, height = img.gets.split.map &:to_i
 depth = img.gets.to_i
+if false
 img = img.read.bytes.each_slice(3).map{|r,g,b|r+g+b}
-
+raise if sig!='P6'
 gets.to_i.times{
 y,x=gets.split.map &:to_i
 p img[y*width+x]
 }
+elsif false
+img = img.read.bytes.each_slice(3).map{|r,g,b|(r+g+b)/3/32*32}
+STDOUT.puts 'P5'
+STDOUT.puts '%d %d'%[width,height]
+STDOUT.puts '%d'%depth
+STDOUT.write img.pack 'C*'
+else
+img = img.read.bytes.each_slice(3).map{|r,g,b|(r+g+b)/3/32}
+img << 0 if img.size%2>0
+img = img.each_slice(2).map{|x,y|x<<4|y}
+STDOUT.write img.pack 'C*'
+end
 
-# icon.ppm.zlib.b64
+# icon.ppm_p6.zlib.b64
 __END__
 eNrtnAdYVWUYx0/7ae9MTUWEK6IyVJANskmGojhSc+TIbVlaVpamOdJSy9yaI0eOcm8xy8pcaZoL
 3Aq4xS1K/c758HQ4xJHLFbxcPM95eC73nvOd9/uf932/d351PB9zd3O38/J+rJqHx2P/3DuK7JF5
@@ -91,4 +104,3 @@ j4xflZ0N7OnlFI6elewoWNAHM2N22g5E9glRPKlS9GkS68CqVOHq1LUH9ZzUitOKHt+w5WzZ0Usr
 JkAZeFL0hM5fuLhJ8zcJ37LhA0CJruTXlTYEmhHws7TbLVrF9vVmbDNrfJneWzfgB23cktZX0k8f
 9xlA3a/Sq3ieBis8Yhqs1Nu11+fTqclU/xpvM1tocGnp10PHYQxj+oULWGsi+o3/kvMaa4HrLh/6
 WVuDR2z9R/HZwL/4HP8CpJ1oww==
-
