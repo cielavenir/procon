@@ -1,12 +1,12 @@
 #!/usr/bin/ruby
-require'zlib';m=Zlib.inflate(DATA.read.unpack('m')[0]).bytes;w=101;h=89;gets;$<.map{|l|y,x=l.split.map &:to_i;q=y*w+x;p m[q/2]/(16-q%2*15)%16*96}
+require'zlib';m=Zlib.inflate(DATA.read.unpack('m')[0]).bytes;w=101;h=89;gets;$<.map{|l|y,x=l.split.map &:to_i;p m[y*w+x]*96}
 __END__
-eNrtl8FOwkAURTutcY3VD5iZqGuMEdaYCFstxn4AGLYmSOf3pTBwGW/oeywl3l0b2nOYuZ1Ow7ln
-erM47YK5LbOnUy5oRsZ7m3+c4JT5Nj212qct/TZQk51iXFSTnCJCq7baOgEDNclJqzaDk05t1c99
-EmnUmmc46dTmPTjJauwkqzWV8V1B19hJqdbASan2ZrwmztRkJYhd18J00MSM9ePLQ7waULHYqVis
-f3gfYl6LmtvLTk2VLXaQvHfb3sLmHU6bEbrcQzYPEJ5DHqf2hn3jLSCbKkCNnWKXANlXASsKO3mf
-QjzUjjj5BBL5iRo5ESRVYyeCxEQ1j1sknWAIRg1OKB5DUjVyYgipwakTApsROTHElakanI5B3GOW
-qJETQy7WKgdq5MQQOznUsMPQpwsIkvzX67AsvQg5fAG5YXhQQNpURg9xg7i+lGqIi6vsrNRCvDNj
-HImQeKJozzS5DoIJ10Mipo5HImSf3p0agl69a4cLGP2cIFoI8g/5U5B6B8mUELuHxHVOhJgxbbsY
-whsvYIwEcXkdknzb8ggEz9zvVKYDAgTv5xnCCMYwxBW1sEUHRPyymWUpBKsgBztchmSDwGEMIBaT
-x0FtAEE/OKgNIDICtYkQB4T0HRshmDwpldlA0A85K3u1hgChybQIS/RDh5mEl3D2+foB9mP7RA==
+eNrt2NFOhDAQheGZltb3f2NdohPxF5qTHC42YW7N5oN/aan78cybz+i5zVuFubXIFtHHjURGttdE
+tDHv6RTRajL81eZ4dToMqlk6cdJRrTqBMFdDJzCoZuhkrjbZyViNj+x61Gq1tDl6Nf2r8FVjJ3c1
+Lm2dYTVLJ6HaZCd3tbG+CfF2hr0ViD601aETbZvC8+t9ikef0o51sSnPn/17AqkLwJcjdqr1FkTi
+d8rRQq/29zL/ReoNVO9D8Xmax4+eILUrSNXQaf/UGVLXxA9IndoaEaux0wqpSVQTOq0RpRo6rRHM
+sdrFjo4/CwifNXbCjqcjrLbupCOstu6kI2hz0UlCMq+qXXQSkOzHCKjGTjoS236ZJ9UWnQTktEb0
+r7/1aBwdOf1ec0fShvA/ID9Cxopkn8fzSxqRmjyeZWdPO8Ij8wgbgqU361buQLAv+hEyfgSv+lsQ
+MlvaETK3rBPMeyMP8iAPMoiEGQneSZ3nTEjUu5VMWpAkQUZH8BK6nDo2iohA8DwnIiR0hohOkFGQ
+jD70X9ElJIpQZoIBwrOggSFCwsAQ4eKWptYnEQ9BhoiBwG5DJB0EfpYuRFt56voshISP+Ua8BLaB
+HeHi9jLb63UA4g3nmU/UNZX5
