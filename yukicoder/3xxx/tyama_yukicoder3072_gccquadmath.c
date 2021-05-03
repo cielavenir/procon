@@ -42,7 +42,7 @@ int main(){
 
 	int T;
 	long long x;
-	__float128 d;
+	__float128 d=0;
 	for(scanf("%d",&T);T--;){
 		scanf("%lld",&x);
 		d+=mysqrtq(x);
