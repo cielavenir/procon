@@ -1,0 +1,1 @@
+cf aizu/tyama_aizuALDS1~3A.cpp except you need to readline twice.
