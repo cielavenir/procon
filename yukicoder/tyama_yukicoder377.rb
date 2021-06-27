@@ -6,6 +6,7 @@ def yield_from(*funcsyms)
 			return to_enum(funcsym,*args) if !blk
 			func.(*args){|*a|a.each{|e|blk.(e)}}
 		}
+		private funcsym
 	}
 end
 
