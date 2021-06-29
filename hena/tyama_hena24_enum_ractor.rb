@@ -2,7 +2,7 @@
 #http://qiita.com/Nabetani/items/1c83005a854d2c6cbb69
 #http://nabetani.sakura.ne.jp/hena/ord24eliseq/
 
-raise 'Ractor version uses Ruby 3.0+. Try non_ractor version for your Ruby version (%s).'%RUBY_VERSION if RUBY_VERSION < '3.0'
+raise 'Ractor is not available (CRuby 3.0+ implements it). There is also non_ractor version.' if !defined?(Ractor)
 
 class Integer
 	def isqrt
