@@ -7,7 +7,7 @@ def isqrt(n)
 	return 1 if n<4 # 1
 	x,y=0,n
 	while x!=y&&x+1!=y
-		x,y=y,(n/y+y)/2
+		x,y=y,(n//y+y)//2
 	end
 	x
 end
@@ -17,7 +17,7 @@ def icbrt(n)
 	return 1 if n<8 # 1,7
 	x,y=0,n
 	while x!=y&&x+1!=y
-		x,y=y,(n/y/y+y*2)/3
+		x,y=y,(n//y//y+y*2)//3
 	end
 	x
 end
