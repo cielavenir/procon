@@ -1,0 +1,113 @@
+#!/usr/bin/env falcon
+// http://nabetani.sakura.ne.jp/hena/ord24eliseq/
+
+function isqrt(n)
+	if n<=0: return 0
+	if n<4: return 1
+	x = 0
+	y = n
+	while x!=y and x+1!=y
+		x = y
+		y = int((int(n/y)+y)/2)
+	end
+	return x
+end
+
+function icbrt(n)
+	if n<0: return -icbrt(-n)
+	if n==0: return 0
+	if n<8: return 1
+	x = 0
+	y = n
+	while x!=y and x+1!=y
+		x = y
+		y = int((int(int(n/y)/y)+y*2)/3)
+	end
+	return x
+end
+
+function generate()
+	i = 0
+	return {=>
+		i += 1
+		return i
+	}
+end
+
+function drop_prev(check, prev)
+	a = 0
+	b = prev()
+	return {=>
+		while true
+			a = b
+			b = prev()
+			if not check(b)
+				return a
+			end
+		end
+	}
+end
+
+function drop_next(check, prev)
+	first = true
+	a = 0
+	b = 0
+	return {=>
+		while true
+			a = b
+			b = prev()
+			if first or not check(a)
+				first = false
+				return b
+			end
+		end
+	}
+end
+
+function drop_n(check, n, prev)
+	i = 0
+	return {=>
+		while true
+			i += 1
+			a = prev()
+			if not check(i,n)
+				return a
+			end
+		end
+	}
+end
+
+function is_sq(n): return isqrt(n)**2 == n
+function is_cb(n): return icbrt(n)**3 == n
+function is_multiple(i,n): return i%n == 0
+function is_le(i,n): return i<=n
+
+f = [
+	"S" => {prev => drop_next(is_sq,prev)},
+	"s" => {prev => drop_prev(is_sq,prev)},
+	"C" => {prev => drop_next(is_cb,prev)},
+	"c" => {prev => drop_prev(is_cb,prev)},
+	"h" => {prev => drop_n(is_le,100,prev)}
+]
+for i in [2:10]
+	f[i.toString()] = {x => {prev => drop_n(is_multiple,x,prev)}}(i)
+end
+
+stdin=stdIn()
+while true
+	s = stdin.grabLine()
+	if s==0: exit()
+	g = generate()
+	for c in s.split("")
+		g = f[c](g)
+	end
+
+	cnt = 0
+	ret = ""
+	while cnt<10
+		if cnt>0: ret+=","
+		ret += g()
+		cnt += 1
+	end
+	> ret
+end
