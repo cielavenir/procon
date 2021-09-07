@@ -117,9 +117,8 @@
 
 (define s (read-line))
 (while (not (eof-object? s))
-	(define g (generate))
+	(define g (fold (lambda (e g) ((hash-table-get f e) g)) (generate) (string->list s)))
 	(define i 0)
-	(for-each (lambda (c) (set! g ((hash-table-get f c) g))) (string->list s))
 	(while (< i 10)
 		(if (> i 0) (display ","))
 		(display (g))
