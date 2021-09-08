@@ -112,7 +112,7 @@
 	(setf (gethash #\9 f) (lambda (prev) (drop_n 'is_multiple 9 prev)))
 
 	(loop
-		(let ((line (read-line)))
+		(let ((line (read-line *standard-input* nil nil)))
 			(if (not line) (exit))
 			(let ((g (reduce (lambda (s e) (funcall (gethash e f) s)) (coerce line 'list) :initial-value (generate))))
 				(let ((i 0))
