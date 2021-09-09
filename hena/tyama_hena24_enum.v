@@ -3,6 +3,8 @@
 // http://qiita.com/Nabetani/items/1c83005a854d2c6cbb69
 // http://nabetani.sakura.ne.jp/hena/ord24eliseq/
 
+import os
+
 fn isqrt(n int) int{
 	if n<=0 {return 0}
 	if n<4 {return 1}
@@ -138,7 +140,7 @@ fn main(){
 	}
 */
 
-	mut line:=get_line()
+	mut line:=os.get_line()
 	for line!="" {
 		//cS => f['S'](f['c'](generate()))
 		mut ch := generate()
@@ -152,7 +154,7 @@ fn main(){
 			print(<-ch)
 		}
 		println('')
-		flush()
-		line=get_line()
+		os.flush()
+		line=os.get_line()
 	}
 }
