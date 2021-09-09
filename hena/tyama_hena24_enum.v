@@ -96,44 +96,26 @@ fn drop_n(check fn(int,int)bool,n int,prev chan int) chan int{
 	return ch
 }
 
-fn f_capital_s(prev chan int)chan int{return drop_next(is_sq,prev)}
-fn f_small_s(prev chan int)chan int{return drop_prev(is_sq,prev)}
-fn f_capital_c(prev chan int)chan int{return drop_next(is_cb,prev)}
-fn f_small_c(prev chan int)chan int{return drop_prev(is_cb,prev)}
-fn f_small_h(prev chan int)chan int{return drop_n(is_le,100,prev)}
-fn f_2(prev chan int)chan int{return drop_n(is_multiple,2,prev)}
-fn f_3(prev chan int)chan int{return drop_n(is_multiple,3,prev)}
-fn f_4(prev chan int)chan int{return drop_n(is_multiple,4,prev)}
-fn f_5(prev chan int)chan int{return drop_n(is_multiple,5,prev)}
-fn f_6(prev chan int)chan int{return drop_n(is_multiple,6,prev)}
-fn f_7(prev chan int)chan int{return drop_n(is_multiple,7,prev)}
-fn f_8(prev chan int)chan int{return drop_n(is_multiple,8,prev)}
-fn f_9(prev chan int)chan int{return drop_n(is_multiple,9,prev)}
-
 fn main(){
 	mut f:=map[string]fn(_ chan int)chan int{}
-	f['S']=f_capital_s
-	f['s']=f_small_s
-	f['C']=f_capital_c
-	f['c']=f_small_c
-	f['h']=f_small_h
-	f['2']=f_2
-	f['3']=f_3
-	f['4']=f_4
-	f['5']=f_5
-	f['6']=f_6
-	f['7']=f_7
-	f['8']=f_8
-	f['9']=f_9
 
 	//this anonymous function somehow causes C error.
-	//f['S']=fn(prev chan int)chan int{return drop_next(is_sq,prev)}
-/*
+	f['S']=fn(prev chan int)chan int{return drop_next(is_sq,prev)}
 	f['s']=fn(prev chan int)chan int{return drop_prev(is_sq,prev)}
 	f['C']=fn(prev chan int)chan int{return drop_next(is_cb,prev)}
 	f['c']=fn(prev chan int)chan int{return drop_prev(is_cb,prev)}
 	f['h']=fn(prev chan int)chan int{return drop_n(is_le,100,prev)}
 
+	f['2']=fn(prev chan int)chan int{return drop_n(is_multiple,2,prev)}
+	f['3']=fn(prev chan int)chan int{return drop_n(is_multiple,3,prev)}
+	f['4']=fn(prev chan int)chan int{return drop_n(is_multiple,4,prev)}
+	f['5']=fn(prev chan int)chan int{return drop_n(is_multiple,5,prev)}
+	f['6']=fn(prev chan int)chan int{return drop_n(is_multiple,6,prev)}
+	f['7']=fn(prev chan int)chan int{return drop_n(is_multiple,7,prev)}
+	f['8']=fn(prev chan int)chan int{return drop_n(is_multiple,8,prev)}
+	f['9']=fn(prev chan int)chan int{return drop_n(is_multiple,9,prev)}
+/*
+	//v does not implement closure (yet)
 	for i:=2;i<10;i++ {
 		j:=i
 		f[j.str()]=fn(prev chan int)chan int{return drop_n(is_multiple,j.int(),prev)}
