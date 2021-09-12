@@ -127,9 +127,7 @@ fn main(){
 		//cS => f['S'](f['c'](generate()))
 		mut ch := generate()
 		for c in line {
-			//somehow I need to assign first or the source will not compile.
-			z:=f[c.ascii_str()]
-			ch=z(ch)
+			ch=f[c.ascii_str()](ch)
 		}
 		for i:=0;i<10;i++ {
 			if i>0 { print(',') }
