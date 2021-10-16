@@ -1,0 +1,8 @@
+fn main() {
+uint(2) a;
+uint(2) b;
+scan(a);
+scan(b);
+a=a+b;
+print(a);
+}
