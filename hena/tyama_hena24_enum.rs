@@ -1,12 +1,13 @@
 // http://qiita.com/Nabetani/items/1c83005a854d2c6cbb69
 // http://nabetani.sakura.ne.jp/hena/ord24eliseq/
 
-#![feature(generators, generator_trait)]
-use std::ops::{Generator, GeneratorState};
+//#![feature(generators, generator_trait)]
+//use std::ops::{Generator, GeneratorState};
+//type BoxGeneratorI64Send = Box<dyn Generator<Yield=i64,Return=()>+Unpin+Send>;
+
+type BoxFnMutI64 = Box<dyn FnMut()->i64>;
 
 use std::io::BufRead;
-
-type BoxGeneratorI64Send = Box<dyn Generator<Yield=i64,Return=()>+Unpin+Send>;
 
 fn isqrt(n:i64) -> i64{
 	if n<=0 {
@@ -54,6 +55,7 @@ fn is_cb(n:i64) -> bool{
 fn is_multiple(i:i64,n:i64) -> bool{i%n==0}
 fn is_le(i:i64,n:i64) -> bool{i<=n}
 
+/*
 fn next<T>(mut gen:impl Generator<Yield=T,Return=()>+Unpin) -> Option<T>{
 	// acknowledgement: https://github.com/tinaun/gen-iter/blob/master/src/lib.rs
 	match std::pin::Pin::new(&mut gen).resume(()) {
@@ -113,10 +115,62 @@ fn drop_n(check:fn(i64,i64)->bool,n:i64,mut prev:BoxGeneratorI64Send) -> BoxGene
 		}
 	});
 }
+*/
+
+fn generate() -> BoxFnMutI64{
+	let mut i=0;
+	return Box::new(move || {
+		i+=1;
+		return i
+	})
+}
+
+fn drop_prev(check:fn(i64)->bool,mut prev:BoxFnMutI64) -> BoxFnMutI64{
+	let mut a = 0;
+	let mut b = prev();
+	return Box::new(move || {
+		loop {
+			a = b;
+			b = prev();
+			if !check(b) {
+				return a
+			}
+		}
+	})
+}
+
+fn drop_next(check:fn(i64)->bool,mut prev:BoxFnMutI64) -> BoxFnMutI64{
+	let mut first = true;
+	let mut a = 0;
+	let mut b = 0;
+	return Box::new(move || {
+		loop {
+			a = b;
+			b = prev();
+			if first || !check(a) {
+				first = false;
+				return b
+			}
+		}
+	})
+}
+
+fn drop_n(check:fn(i64,i64)->bool,n:i64,mut prev:BoxFnMutI64) -> BoxFnMutI64{
+	let mut i=0;
+	return Box::new(move || {
+		loop{
+			i+=1;
+			let a=prev();
+			if !check(i,n) {
+				return a
+			}
+		}
+	})
+}
 
 fn main() {
 	// cannot initialize Generator trait's HashMap using vec![].into_iter().collect() [E0277]
-	let mut f:std::collections::HashMap<char,fn(BoxGeneratorI64Send)->BoxGeneratorI64Send> = std::collections::HashMap::new();
+	let mut f:std::collections::HashMap<char,fn(BoxFnMutI64)->BoxFnMutI64> = std::collections::HashMap::new();
 	f.insert('S',|e|{drop_next(is_sq,e)});
 	f.insert('s',|e|{drop_prev(is_sq,e)});
 	f.insert('C',|e|{drop_next(is_cb,e)});
@@ -145,7 +199,7 @@ fn main() {
 				if i>0 {
 					print!(",");
 				}
-				print!("{}", next(&mut z).unwrap());
+				print!("{}", z()); // next(&mut z).unwrap());
 			}
 			println!("");
 		},
