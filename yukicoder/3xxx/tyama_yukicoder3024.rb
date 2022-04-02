@@ -20,7 +20,7 @@ end
 n,*a=`dd`.split.map(&:to_i)
 begin
 	#6_NOを0.5sで解けるまで高速化しましたが、7_NOは無理でした…
-	timeout(4.5){
+	Timeout.timeout(4.5){
 		a.permutation{|b|
 			next if b[0]>b[-1]
 			dfs(b).each{|e|
