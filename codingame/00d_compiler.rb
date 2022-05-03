@@ -2,7 +2,7 @@
 load File.expand_path(File.dirname(__FILE__))+'/000.rb'
 puts "#!/usr/bin/env rdmd" if SCRIPTING
 puts "import std.process;"
-print "void main(){system(\"#{COMMAND} '-e"
+print "void main(){execvp(\"#{COMMAND}\", [\"#{COMMAND}\", \"-e"
 first=true
 $<.each{|e|
 	l=e.strip
@@ -13,4 +13,4 @@ $<.each{|e|
 		print l.gsub('"','\"').gsub("'",'\"')
 	end
 }
-print "'\");}"
+print "\"]);}"
