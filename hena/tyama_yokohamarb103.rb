@@ -14,7 +14,8 @@ def output(r)
 end
 while gets
     msk=$_.to_i(16)
-    b=msk.to_s(2).reverse.each_char.with_index.select{|e,i|e=='1'}.map(&:last)
+    # b=msk.digits(2).each_with_index.select{|e,i|e==1}.map(&:last)
+    b=msk.bit_length.times.select{|i|msk[i]>0}
     r={bits_to_num(b)=>1,bits_to_num(b[1..-1])=>1}
     (1...1<<[b.size,4].min).each{|bit_searcher|
         r[bits_to_num(b.select.with_index{|e,i|bit_searcher[i]>0})]=1
