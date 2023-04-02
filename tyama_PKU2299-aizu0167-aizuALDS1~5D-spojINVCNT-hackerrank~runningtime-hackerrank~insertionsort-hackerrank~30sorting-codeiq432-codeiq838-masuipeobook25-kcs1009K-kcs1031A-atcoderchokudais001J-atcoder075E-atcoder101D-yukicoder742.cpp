@@ -1,5 +1,7 @@
 #include <cstdio>
+#include <cstring>
 #include <vector>
+#include <set>
 #include <algorithm>
 #include <numeric>
 int A[999999], W[999999];
@@ -34,7 +36,7 @@ int main(){
 	//PKU2299,aizu0167: バブルソートの交換回数
 	//for(;scanf("%d",&N),N;printf("%lld\n",merge_and_count(0,N)))for(i=0;i<N;i++)scanf("%d",A+i);
 	//hackerrank~runningtime,aizuALDS1~5D,chokudais001J,yukicoder742
-	scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",merge_and_count(0,N));
+	//scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("%lld\n",merge_and_count(0,N));
 	//hackerrank~30-sorting
 	//scanf("%d",&N);for(i=0;i<N;i++)scanf("%d",A+i);printf("Array is sorted in %lld swaps.\n",M(0,N)),printf("First Element: %d\nLast Element: %d\n",A[0],A[N-1]);
 	//spojINVCNT,hackerrank~insertionsort
@@ -87,6 +89,20 @@ int main(){
 		long long r=merge_and_count(0,N+1);
 		return r>=(long long)(N+1)*N/4+1;
 	}));
+#endif
+	//atcoderABC296F
+#if 1
+	int B[999999];
+	scanf("%d",&N);
+	for(i=0;i<N;i++)scanf("%d",&A[i]);
+	for(i=0;i<N;i++)scanf("%d",&B[i]);
+	std::multiset<int> seA(A, A+N), seB(B, B+N);
+	if(seA!=seB){puts("No");return 0;}
+	for(auto it=seA.begin(),itPre=it++;it!=seA.end();itPre=it++){if(*itPre==*it){puts("Yes");return 0;}}
+	long long X=merge_and_count(0,N);
+	memcpy(A,B,sizeof(int)*N);
+	long long Y=merge_and_count(0,N);
+	puts((X-Y)%2 ? "No" : "Yes");
 #endif
 }
 
