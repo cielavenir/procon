@@ -42,7 +42,8 @@ unsigned long long count_double(double a, double b){
 	}
 }
 
-main(){
+int main(){
+	printf("%u\n", count_float(-1e-30, 1e-31));
 	printf("%u\n", count_float(-1.23, 4.56));
 	printf("%u\n", count_float(0, 1));
 	printf("%llu\n", count_double(-1.23, 4.56));
