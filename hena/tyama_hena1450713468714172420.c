@@ -25,7 +25,7 @@ unsigned int count_float(float a, float b){
 
 unsigned long long count_double(double a, double b){
 	if(a > b){
-		float t=a;
+		double t=a;
 		a=b;
 		b=t;
 	}
