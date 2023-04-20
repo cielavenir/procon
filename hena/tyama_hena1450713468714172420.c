@@ -1,6 +1,8 @@
 // https://twitter.com/Nabetani/status/1450713468714172420
 
-// see also https://github.com/cielavenir/cpp_libraries/blob/master/binarysearch/binarysearch.hpp
+// see also:
+// https://qiita.com/cielavenir/items/3d2e16ab87d8ddba44b0
+// https://github.com/cielavenir/cpp_libraries/blob/master/binarysearch/binarysearch.hpp
 
 unsigned int count_float(float a, float b){
 	if(a > b){
