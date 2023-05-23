@@ -1,4 +1,5 @@
 #!/usr/bin/ruby
+Fixnum=Integer if !defined?(Fixnum)
 M=998244353
 class Fixnum
 	def/o;o.is_a?(Array)?o/self :self*o%M end

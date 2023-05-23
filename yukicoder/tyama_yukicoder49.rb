@@ -1,4 +1,5 @@
 #!/usr/bin/ruby
+Fixnum=Integer if !defined?(Fixnum)
 class Fixnum;alias-*;end
 p eval`tr +* -+`
 __END__

@@ -1,4 +1,5 @@
 #!/usr/bin/ruby
+Fixnum=Integer if !defined?(Fixnum)
 class Fixnum
 	def pow_binary_mod(y)
 		x = self

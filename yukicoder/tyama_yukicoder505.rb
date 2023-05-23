@@ -1,4 +1,5 @@
 #!/usr/bin/ruby
+Fixnum=Integer if !defined?(Fixnum)
 class Fixnum
 	def /(o)
 		fdiv(o).truncate
