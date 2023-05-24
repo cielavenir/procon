@@ -22,6 +22,7 @@ URLS={
 
 	'yokohamarb201410'=>'yokohamarb/2014.10.rotcell',
 	'yokohamarb201607'=>'yokohamarb/2016.07.ront',
+	'yokohamarb103'=>'yokohamarb/103mask',
 	'kanagawarb_evalex'=>'kanagawa.rb/evalex',
 
 	'1'=>'hena/1',
