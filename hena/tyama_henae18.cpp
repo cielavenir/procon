@@ -38,7 +38,7 @@ int main(){
 		char d1,d2;
 		sscanf(line.c_str(),"%d,%d%c%d/%d,%d%c%d",&x1,&y1,&d1,&h1,&x2,&y2,&d2,&h2);
 		//printf("%d %d %c %d %d %d %c %d\n",x1,y1,d1,h1,x2,y2,d2,h2);
-		set<pair<int,int>> s1=get(x1,y1,m[d1],h1),s2=get(x2,y2,m[d2],h2),s3;
+		set<pair<int,int>> s1=get(x1,y1,m.at(d1),h1),s2=get(x2,y2,m.at(d2),h2),s3;
 		set_intersection(s1.begin(),s1.end(),s2.begin(),s2.end(),inserter(s3,s3.begin()));
 		printf("%d\n",s3.size());
 		fflush(stdout);
