@@ -2,9 +2,8 @@
 
 fn getint() -> i32{
 	let mut __str=String::new();
-	std::io::stdin().read_line(&mut __str);
-	let l=__str.len();
-	__str.truncate(l-1);
+	std::io::stdin().read_line(&mut __str).ok();
+	__str = __str.trim().to_string();
 	return i32::from_str_radix(&__str,10).unwrap();
 }
 
