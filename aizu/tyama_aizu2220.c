@@ -22,9 +22,17 @@ main(n,a,b,c,d,p,q,r,D){
 					d>0?"2 1":d<0?"1 2":"1 1"
 				)
 			);
-		}else if(D==0)
-			puts(d>0?"0 1":d<0?"1 0":"0 0");
-		else one:
+		}else if(D==0){
+			double x=(-q)/p/2;
+			double y=a*x*x*x+b*x*x+c*x+d;
+			puts(
+				zero(y)?(
+					d>0?"0 3":d<0?"3 0":"0 0"
+				):(
+					d>0?"0 1":d<0?"1 0":"0 0"
+				)
+			);
+		}else one:
 			puts(d>0?"0 1":d<0?"1 0":"0 0");
 	}
 	exit(0);
