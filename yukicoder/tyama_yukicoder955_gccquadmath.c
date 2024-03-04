@@ -9,7 +9,7 @@ extern "C"{
 	void* LoadLibraryA(const char *x);
 	void* GetProcAddress(void *x,const char *y);
 	int   FreeLibrary(void *x);
-#elif defined(__APPLE__)
+#elif defined(__APPLE__) || (defined(__GLIBC__) && ((__GLIBC__ == 2 && __GLIBC_MINOR__ >= 34) || __GLIBC__ > 2))
 	void* dlopen(const char *x,int y);
 	void* dlsym(void *x,const char *y);
 	int   dlclose(void *x);
@@ -36,7 +36,8 @@ type_quadmath_snprintf myquadmath_snprintf;
 char buf[99];
 int main(){
 	//void *H=LoadLibraryA("/usr/local/lib/gcc/9/libquadmath.dylib");
-	void *H=LoadLibraryA("/usr/lib64/libquadmath.so");
+	//void *H=LoadLibraryA("/usr/lib64/libquadmath.so");
+	void *H=LoadLibraryA("/usr/lib/x86_64-linux-gnu/libquadmath.so.0");
 	mysqrtq=(type_sqrtq)GetProcAddress(H,"sqrtq");
 	myquadmath_snprintf=(type_quadmath_snprintf)GetProcAddress(H,"quadmath_snprintf");
 
