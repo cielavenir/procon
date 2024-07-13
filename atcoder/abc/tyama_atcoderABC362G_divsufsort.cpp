@@ -1,10 +1,13 @@
-#include <assert.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#ifdef _OPENMP
-# include <omp.h>
-#endif
+#pragma GCC optimize("O3")
+#pragma GCC target("avx")
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstdio>
+#include <cassert>
+using namespace std;
 
 /*
  * libdivsufsort
@@ -1780,15 +1783,32 @@ divbwt(const unsigned char *T, unsigned char *U, int *A, int n) {
   return pidx;
 }
 
-char t[300010];
 int main(){
-	scanf("%s",t);
-	int n=strlen(t);
-	int* suff=(int*)malloc(sizeof(int)*n);
+	cin.tie(0);
+	ios::sync_with_stdio(false);
 
-	divsufsort((unsigned char*)t, suff, n);
-	int i=0;
-	//for(;i<n;i++)printf("%d\n",suff[i]);
-	for(;i<n;i++)printf(i<n-1?"%d, ":"%d\n",suff[i]);
-	free(suff);
+	string s;
+	cin>>s;
+	s+='$';
+	int n=s.size();
+	//vector<int>suff=buildSA(s);
+	int* suff=(int*)malloc(sizeof(int)*n);
+	divsufsort((unsigned char*)s.c_str(), suff, n);
+	vector<pair<char,int>>sorted(n);
+	for(int i=0;i<n;i++)sorted[i]={s[(suff[i]-1+n)%n],i};
+	sort(sorted.begin(),sorted.end());
+
+	int T;
+	for(cin>>T;T--;){
+		string q;
+		cin>>q;
+		int start=0,stop=n,idx=q.size()-1;
+		for(;idx>=0;idx--){
+			pair<char,int> ql={q[idx],start},qr={q[idx],stop};
+			start=lower_bound(sorted.begin(),sorted.end(),ql)-sorted.begin();
+			stop=lower_bound(sorted.begin(),sorted.end(),qr)-sorted.begin();
+			if(start==stop)break;
+		}
+		printf("%d\n",stop-start);
+	}
 }

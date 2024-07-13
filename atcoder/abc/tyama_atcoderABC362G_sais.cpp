@@ -1,3 +1,6 @@
+#pragma GCC optimize("O3")
+#pragma GCC target("avx")
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -539,18 +542,22 @@ sais_int_bwt(const int *T, int *U, int *A, int n, int k) {
 int main(){
 	cin.tie(0);
 	ios::sync_with_stdio(false);
-	string q,s;
-	for(;cin>>q>>q>>s;){
-		s+='$';
-		int n=s.size();
-		//vector<int>suff=buildSA(s);
-		int* suff=(int*)malloc(sizeof(int)*n);
-		sais((unsigned char*)s.c_str(), suff, n);
 
-		vector<pair<char,int>>sorted(n);
-		for(int i=0;i<n;i++)sorted[i]={s[(suff[i]-1+n)%n],i};
-		sort(sorted.begin(),sorted.end());
+	string s;
+	cin>>s;
+	s+='$';
+	int n=s.size();
+	//vector<int>suff=buildSA(s);
+	int* suff=(int*)malloc(sizeof(int)*n);
+	sais((unsigned char*)s.c_str(), suff, n);
+	vector<pair<char,int>>sorted(n);
+	for(int i=0;i<n;i++)sorted[i]={s[(suff[i]-1+n)%n],i};
+	sort(sorted.begin(),sorted.end());
 
+	int T;
+	for(cin>>T;T--;){
+		string q;
+		cin>>q;
 		int start=0,stop=n,idx=q.size()-1;
 		for(;idx>=0;idx--){
 			pair<char,int> ql={q[idx],start},qr={q[idx],stop};
@@ -558,14 +565,6 @@ int main(){
 			stop=lower_bound(sorted.begin(),sorted.end(),qr)-sorted.begin();
 			if(start==stop)break;
 		}
-
-		{
-			vector<int>v;
-			for(;start<stop;start++)v.push_back(suff[start]);
-			sort(v.begin(),v.end());
-			for(auto &e:v)printf("%d\n",e);
-		}
-		puts("");
-		free(suff);
+		printf("%d\n",stop-start);
 	}
 }
