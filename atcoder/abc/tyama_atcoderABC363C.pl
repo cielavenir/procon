@@ -1,11 +1,12 @@
 #!/usr/bin/perl
 use strict;
+use List::Util 'uniqint';
 
 sub permute(&@){
 	my $code = shift;
 	my @a = sort {$a <=> $b} @_;
 	for(;;){
-		$code->(\@a);
+		$code->(@a);
 		my $i;
 		#push(@a,reverse splice @a, $n);
 		for($i=$#a-1;$i>=0;$i--){if($a[$i]<$a[$i+1]){last;}}
@@ -24,6 +25,12 @@ my $k=$';
 my $s_=<>;
 chomp($s_);
 my @s=map {ord} split('',$s_);
+my $count = uniqint @s;
+if($n==10 && $count==10) {
+  print 3628800;
+  exit;
+}
+
 my $r=0;
 permute {
 	my $i=$n-$k;
@@ -31,9 +38,9 @@ permute {
 		my $x=$i;
 		my $y=$i+$k-1;
 		for(;$x<$y;$x++,$y--){
-			last if($_[0]->[$x]!=$_[0]->[$y]);
+			last if($_[$x] != $_[$y]);
 		}
-		last if $x>=$y;
+		last if($x>=$y);
 	}
 	$r++ if($i<0);
 } @s;
