@@ -1,6 +1,6 @@
 #include <stdio.h>
 int N;
-double memo[100][100][100];
+double memo[101][101][101];
 double dfs(int a,int b,int c){
 	if(!a&&!b&&!c)return 0;
 	if(a<0||b<0||c<0)return 0;
