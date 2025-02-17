@@ -68,20 +68,28 @@ def drop_n(check,n,prev)
 	}
 end
 
-is_sq = Ractor.make_shareable ->n{n.isqrt**2==n}
-is_cb = Ractor.make_shareable ->n{n.icbrt**3==n}
-is_multiple = Ractor.make_shareable ->i,n{i%n==0}
-is_le = Ractor.make_shareable ->i,n{i<=n}
+class Util
+	# From Ruby 3.1, have to split the class.
+	# <internal:ractor>:831:in `make_shareable': Proc's self is not shareable
+	def get_funcs
+		is_sq = Ractor.make_shareable ->n{n.isqrt**2==n}
+		is_cb = Ractor.make_shareable ->n{n.icbrt**3==n}
+		is_multiple = Ractor.make_shareable ->i,n{i%n==0}
+		is_le = Ractor.make_shareable ->i,n{i<=n}
 
-f={
-	'S'=>Kernel.method(:drop_next).to_proc.curry.(is_sq),
-	's'=>Kernel.method(:drop_prev).to_proc.curry.(is_sq),
-	'C'=>Kernel.method(:drop_next).to_proc.curry.(is_cb),
-	'c'=>Kernel.method(:drop_prev).to_proc.curry.(is_cb),
-	'h'=>Kernel.method(:drop_n).to_proc.curry.(is_le,100),
-}
-(2..9).each{|e|f[e.to_s]=Kernel.method(:drop_n).to_proc.curry.(is_multiple,e)}
+		f={
+			'S'=>Kernel.method(:drop_next).to_proc.curry.(is_sq),
+			's'=>Kernel.method(:drop_prev).to_proc.curry.(is_sq),
+			'C'=>Kernel.method(:drop_next).to_proc.curry.(is_cb),
+			'c'=>Kernel.method(:drop_prev).to_proc.curry.(is_cb),
+			'h'=>Kernel.method(:drop_n).to_proc.curry.(is_le,100),
+		}
+		(2..9).each{|e|f[e.to_s]=Kernel.method(:drop_n).to_proc.curry.(is_multiple,e)}
+		f
+	end
+end
 
+f = Util.new.freeze.get_funcs
 if $0==__FILE__
 	STDOUT.sync=true
 	while gets
