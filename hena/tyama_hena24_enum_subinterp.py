@@ -10,27 +10,52 @@ import itertools
 from functools import partial,reduce
 
 ### test.support.interpreters causes segmentation fault, so I have to use my own high-level function. ###
-import _xxsubinterpreters
+
+try:
+	import _interpreters
+	create = lambda: _interpreters.create('isolated')
+	run_string = _interpreters.run_string
+except ImportError:
+	import _xxsubinterpreters
+	create = lambda: _xxsubinterpreters.create(isolated=True)
+	run_string = _xxsubinterpreters.run_string
+
+try:
+	import _interpchannels
+	channel_send = _interpchannels.send
+	channel_recv = lambda id, default: _interpchannels.recv(id, default)[0]
+	channel_create = lambda: _interpchannels.create(True)
+	channel_close = _interpchannels.close
+except ImportError:
+	try:
+		import _xxinterpchannels
+		channel_send = _xxinterpchannels.send
+		channel_recv = lambda id, default: _xxinterpchannels.recv(id, default)
+		channel_create = lambda: _xxinterpchannels.create()
+		channel_close = _xxinterpchannels.close
+	except ImportError:
+		import _xxsubinterpreters
+		channel_send = _xxsubinterpreters.channel_send
+		channel_recv = lambda id, default: _xxsubinterpreters.channel_recv(id, default)
+		channel_create = lambda: _xxsubinterpreters.channel_create()
+		channel_close = _xxsubinterpreters.channel_close
+
 from time import sleep
 from os.path import basename
 from os.path import dirname
 from os.path import realpath
 from threading import Thread
 def recv(id, _sentinel=object(), _delay=10.0 / 1000):  # 10 milliseconds
-	obj = _xxsubinterpreters.channel_recv(id, _sentinel)
+	obj = channel_recv(id, _sentinel)
 	while obj is _sentinel:
 		sleep(_delay)
-		obj = _xxsubinterpreters.channel_recv(id, _sentinel)
+		obj = channel_recv(id, _sentinel)
 	return obj
 def send_nowait(id, obj):
-	_xxsubinterpreters.channel_send(id, obj)
-channel_create = _xxsubinterpreters.channel_create
-channel_close = _xxsubinterpreters.channel_close
-create = _xxsubinterpreters.create
-run_string = _xxsubinterpreters.run_string
+	channel_send(id, obj)
 interp_list = []
 def myrun(fname,scid,rcid):
-	interp = create(isolated=True)
+	interp = create()
 	interp_list.append(interp)
 	caller_module = basename(__file__).split('.')[0]  # todo use frame
 	t = Thread(target=run_string,args=(interp,f"""
