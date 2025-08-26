@@ -48,7 +48,7 @@ namespace experimental {
 			_Ty const *_CurrentValue;
 			auto get_return_object() { return generator{coroutine_handle<promise_type>::from_promise(*this)}; }
 			auto initial_suspend() { return suspend_always{}; }
-			auto final_suspend() { return suspend_always{}; }
+			auto final_suspend() noexcept { return suspend_always{}; }
 			void unhandled_exception() { std::terminate(); }
 			void return_void() {}
 
@@ -155,34 +155,36 @@ namespace experimental {
 #endif
 using namespace std::experimental;
 
-int isqrt(int n){
+typedef long long LL;
+
+LL isqrt(LL n){
 	if(n<=0)return 0;
 	if(n<4)return 1;
-	int x=0,y=n;
+	LL x=0,y=n;
 	for(;x!=y&&x+1!=y;)x=y,y=(n/y+y)/2;
 	return x;
 }
-int icbrt(int n){
+LL icbrt(LL n){
 	if(n<0)return -icbrt(-n);
 	if(n==0)return 0;
 	if(n<8)return 1;
-	int x=0,y=n;
+	LL x=0,y=n;
 	for(;x!=y&&x+1!=y;)x=y,y=(n/y/y+y*2)/3;
 	return x;
 }
 
-generator<int> mygenerate(){
-	int i=1;
+generator<LL> mygenerate(){
+	LL i=1;
 	for(;;){
 		co_yield i;
 		i+=1;
 	}
 }
-generator<int> drop_prev(bool(*check)(int),generator<int> _prev){
+generator<LL> drop_prev(bool(*check)(LL),generator<LL> _prev){
 	auto prev=_prev.begin();
-	int a=*prev;
+	LL a=*prev;
 	++prev;
-	int b=*prev;
+	LL b=*prev;
 	for(;;){
 		if(!check(b))co_yield a;
 		a=b;
@@ -190,11 +192,11 @@ generator<int> drop_prev(bool(*check)(int),generator<int> _prev){
 		b=*prev;
 	}
 }
-generator<int> drop_next(bool(*check)(int),generator<int> _prev){
+generator<LL> drop_next(bool(*check)(LL),generator<LL> _prev){
 	auto prev=_prev.begin();
-	int a=*prev;
+	LL a=*prev;
 	++prev;
-	int b=*prev;
+	LL b=*prev;
 	co_yield a;
 	for(;;){
 		if(!check(a))co_yield b;
@@ -203,38 +205,38 @@ generator<int> drop_next(bool(*check)(int),generator<int> _prev){
 		b=*prev;
 	}
 }
-generator<int> drop_n(bool(*check)(int,int),int n,generator<int> _prev){
+generator<LL> drop_n(bool(*check)(LL,LL),LL n,generator<LL> _prev){
 	auto prev=_prev.begin();
-	int i=0;
+	LL i=0;
 	for(;;){
 		i++;
-		int a=*prev;
+		LL a=*prev;
 		if(!check(i,n))co_yield a;
 		++prev;
 	}
 }
-bool is_sq(int n){
-	int x=isqrt(n);
+bool is_sq(LL n){
+	LL x=isqrt(n);
 	return x*x==n;
 }
-bool is_cb(int n){
-	int x=icbrt(n);
+bool is_cb(LL n){
+	LL x=icbrt(n);
 	return x*x*x==n;
 }
-bool is_multiple(int i,int n){return i%n==0;}
-bool is_le(int i,int n){return i<=n;}
+bool is_multiple(LL i,LL n){return i%n==0;}
+bool is_le(LL i,LL n){return i<=n;}
 
 int main(){
-	map<char,function<generator<int>(generator<int>)>> f={
+	map<char,function<generator<LL>(generator<LL>)>> f={
 		{'S',[&](auto e){return drop_next(&is_sq,move(e));}},
 		{'s',[&](auto e){return drop_prev(&is_sq,move(e));}},
 		{'C',[&](auto e){return drop_next(&is_cb,move(e));}},
 		{'c',[&](auto e){return drop_prev(&is_cb,move(e));}},
 		{'h',[&](auto e){return drop_n(&is_le,100,move(e));}},
 	};
-	vector<int>v(8);
+	vector<LL>v(8);
 	iota(v.begin(),v.end(),2);
-	for(auto &e:v)f[(char)('0'+e)] = [&](int &j){
+	for(auto &e:v)f[(char)('0'+e)] = [&](LL &j){
 		return [&](auto e){return drop_n(&is_multiple,j,move(e));};
 	}(e);
 
@@ -248,11 +250,11 @@ int main(){
 		for(char e:line)z=f[e](move(z));
 		auto it=z.begin();
 		for(int i=0;i<10;i++){
-			int n=*it;
+			LL n=*it;
 			++it;
 			if(!first)putchar(',');
 			first=false;
-			printf("%d",n);
+			printf("%lld",n);
 		}
 		puts("");
 		fflush(stdout);
