@@ -1,6 +1,7 @@
 //usr/bin/true; tmpfile=$(mktemp); g++ -std=c++20 -O3 -Ofast -march=native -o $tmpfile "$0" && $tmpfile; rm -f $tmpfile; exit
 
 //https://nabetani.sakura.ne.jp/ord/p.2_rotpolygonbin/
+//https://zenn.dev/nabetani/scraps/486b92465f2214
 
 //BITSUMは塗られた数値の合計の大小比較と誤読して作ってしまったやつ。かっこわるいね。
 
@@ -11,11 +12,11 @@
 #include <cassert>
 
 std::string unpackN(const std::string &n){
-  // n.split(/(\[\d+\])/).map{|e|e[0]=='[' ? '0'*e[1..-2].to_i : e.to_i.to_s(2)}.join
-  const std::regex re(R"(\[\d+\])");
+  // Simulate Ruby `n.split(/(\[\d+\])/).map{|e|e[0]=='[' ? '0'*e[1..-2].to_i : e.to_i.to_s(2)}.join`
+  static const std::regex re(R"(\[\d+\])");
   std::string r="";
   for(std::sregex_token_iterator it(n.begin(),n.end(),re,{-1,0}),end;it!=end;++it){
-    auto &&m=(*it).str();
+    const auto &m=(*it).str();
     if(m[0]=='['){
       r+=std::string(std::stoll(m.substr(1,m.size()-2)),'0');
     }else{
@@ -26,7 +27,7 @@ std::string unpackN(const std::string &n){
 }
 
 #ifndef BITSUM
-int compare(std::string a, std::string b){
+int compareReverse(const std::string &a, const std::string &b){
   assert(a.size() == b.size());
   for(int i=a.size()-1;i>=0;i--){
     if(a[i]<b[i])return -1;
@@ -71,8 +72,8 @@ int main(){
       int cmi = mi<val ? -1 : mi>val ? 1 : 0;
 #else
       #define VAL n
-      int cma = compare(ma,n);
-      int cmi = compare(mi,n);
+      int cma = compareReverse(ma,n);
+      int cmi = compareReverse(mi,n);
 #endif
       if(cma<0){ma=VAL;vma.clear();}
       if(cma<=0)vma.push_back((B-b)%B);
