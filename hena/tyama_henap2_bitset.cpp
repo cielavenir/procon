@@ -1,4 +1,4 @@
-//usr/bin/true; tmpfile=$(mktemp); g++ -std=c++20 -O3 -Ofast -march=native -o $tmpfile "$0" && $tmpfile; rm -f $tmpfile; exit
+//usr/bin/true; tmpfile=$(mktemp); g++ -std=c++17 -O3 -Ofast -march=native -o $tmpfile "$0" && $tmpfile; rm -f $tmpfile; exit
 
 //https://nabetani.sakura.ne.jp/ord/p.2_rotpolygonbin/
 //https://zenn.dev/nabetani/scraps/486b92465f2214
@@ -9,7 +9,8 @@
 #include <format>
 #include <cassert>
 
-#include <boost/dynamic_bitset/dynamic_bitset.hpp>
+#include <boost/dynamic_bitset.hpp>
+#include <boost/lexical_cast.hpp>
 
 std::string unpackN(const std::string &n){
   // Simulate Ruby `n.split(/(\[\d+\])/).map{|e|e[0]=='[' ? '0'*e[1..-2].to_i : e.to_i.to_s(2)}.join`
@@ -20,7 +21,11 @@ std::string unpackN(const std::string &n){
     if(m[0]=='['){
       r+=std::string(std::stoll(m.substr(1,m.size()-2)),'0');
     }else{
-      r+=std::format("{:b}",std::stoll(m));
+      // r+=std::format("{:b}",std::stoll(m));
+      // using boost::dynamic_bitset, C++17 suffices.
+      auto v=std::stoll(m);
+      auto bitnum=64-__builtin_clzll(v);
+      r+=boost::lexical_cast<std::string>(boost::dynamic_bitset(bitnum,v));
     }
   }
   return r;
