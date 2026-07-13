@@ -1,4 +1,4 @@
-//usr/bin/true; tmpfile=$(mktemp); g++ -std=c++20 -O3 -Ofast -march=native -o $tmpfile "$0" && $tmpfile; rm -f $tmpfile; exit
+//usr/bin/true; tmpfile=$(mktemp); g++ -std=c++20 -O3 -Ofast -march=native -ltbb -o $tmpfile "$0" && $tmpfile; rm -f $tmpfile; exit
 
 //https://nabetani.sakura.ne.jp/ord/p.2_rotpolygonbin/
 //https://zenn.dev/nabetani/scraps/486b92465f2214
@@ -9,6 +9,8 @@
 #include <format>
 #include <cassert>
 #include <cstring>
+
+#include <execution>
 
 std::string unpackN(const std::string &n){
   // Simulate Ruby `n.split(/(\[\d+\])/).map{|e|e[0]=='[' ? '0'*e[1..-2].to_i : e.to_i.to_s(2)}.join`
@@ -68,9 +70,15 @@ int main(){
       if(cma<=0)vma.push_back(b);
       if(cmi>0){mi=n;vmi.clear();}
       if(cmi>=0)vmi.push_back(b);
-#pragma omp parallel for
+//#pragma omp parallel for
       for(int iViews=0;iViews<depth;iViews++){
-        std::rotate(views[iViews].first, views[iViews].first+(depth-iViews), views[iViews].second);
+        auto first = views[iViews].first;
+        auto middle = views[iViews].first+(depth-iViews);
+        auto last = views[iViews].second;
+        //std::rotate(first, middle, last);
+        std::reverse(std::execution::par, first, middle);
+        std::reverse(std::execution::par, middle, last);
+        std::reverse(std::execution::par, first, last);
       }
     }
     for(int i=0;i<vmi.size();i++){
