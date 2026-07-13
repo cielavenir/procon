@@ -1,4 +1,4 @@
-//usr/bin/true; tmpfile=$(mktemp); g++ -std=c++17 -O3 -Ofast -march=native -o $tmpfile "$0" && $tmpfile; rm -f $tmpfile; exit
+//usr/bin/true; tmpfile=$(mktemp); g++ -std=c++11 -O3 -Ofast -march=native -o $tmpfile "$0" && $tmpfile; rm -f $tmpfile; exit
 
 //https://nabetani.sakura.ne.jp/ord/p.2_rotpolygonbin/
 //https://zenn.dev/nabetani/scraps/486b92465f2214
@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 #include <regex>
-#include <format>
+#include <vector>
 #include <cassert>
 
 #include <boost/dynamic_bitset.hpp>
@@ -22,10 +22,10 @@ std::string unpackN(const std::string &n){
       r+=std::string(std::stoll(m.substr(1,m.size()-2)),'0');
     }else{
       // r+=std::format("{:b}",std::stoll(m));
-      // using boost::dynamic_bitset, C++17 suffices.
+      // using boost::dynamic_bitset, C++11 suffices.
       auto v=std::stoll(m);
       auto bitnum=64-__builtin_clzll(v);
-      r+=boost::lexical_cast<std::string>(boost::dynamic_bitset(bitnum,v));
+      r+=boost::lexical_cast<std::string>(boost::dynamic_bitset<>(bitnum,v));
     }
   }
   return r;
@@ -52,12 +52,13 @@ int main(){
     }
     n=std::string(siz-n.size(),'0')+n;
     siz=B*depth;
-    auto bits=std::vector({boost::dynamic_bitset(n,0,siz,siz)});
+    std::vector<boost::dynamic_bitset<>> bits;
+    bits.emplace_back(n,0,siz,siz);
     for(int d=depth;d>1;){
       int oldsiz=siz;
       d-=1;
       siz+=B*d;
-      bits.push_back(boost::dynamic_bitset(n,oldsiz,siz-oldsiz,siz-oldsiz));
+      bits.emplace_back(n,oldsiz,siz-oldsiz,siz-oldsiz);
     }
     auto ma=bits,mi=bits;
     std::vector<int>vma,vmi;
