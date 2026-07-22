@@ -2,6 +2,7 @@
 #include <random>
 #include <algorithm>
 #include <cstdio>
+#include <ctime>
 #include <unistd.h>
 using namespace std;
 mt19937_64 engine((unsigned int)time(NULL)^(getpid()<<16));

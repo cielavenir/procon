@@ -57,16 +57,14 @@ end
 def solve(a)
 	squares = []  # [[y座標, x座標], 辺長]
 	a.each{|e|
-		genCoors.each{|y,x|
+		y,x = genCoors.find{|y,x|
 			points = [[y,x], [y+e-1,x], [y+e-1, x+e-1], [y,x+e-1]]
-			if squares.all?{|(sy,sx), s|
+			squares.all?{|(sy,sx), s|
 				points2 = [[sy,sx], [sy+s-1,sx], [sy+s-1, sx+s-1], [sy,sx+s-1]]
 				!overlap?(points, points2)
 			}
-				squares << [[y,x], e]
-				break
-			end
 		}
+		squares << [[y,x], e]
 	}
 	#p squares
 	return output(squares, [*0...a.size].max_by{|i|a[i]})
