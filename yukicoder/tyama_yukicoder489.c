@@ -4,7 +4,7 @@
 //yukicoder does not support C99
 int x[100000];
 int main(){
-	int n,d,k,r,s;
+	int n,d,k,r=0,s;
 	scanf("%d%d%d",&n,&d,&k);
 	for(int i=0;i<n;i++)scanf("%d",x+i);
 	for(int i=0;i<n;i++){
