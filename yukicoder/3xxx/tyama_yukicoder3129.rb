@@ -1,0 +1,37 @@
+#!/usr/bin/ruby
+puts DATA.read.lines.map(&:split).to_h[gets.chomp]
+__END__
+Alex_2oo8 22AA99
+Benq 1E8449
+DEGwer 8C0AB4
+DmitryGrigorev 4A235A
+Nachia 7878DB
+Radewoosh 800080
+Um_nik 08E8DE
+WA_TLE A80080
+ainta 567ACE
+dreamoon C500FE
+heno239 6BB75B
+hitonanode 9CA5B9
+hos_lyric CAD8F5
+jcvb 000000
+jiangly F8AAE5
+koosaga 808080
+ksun48 FF00FF
+liuhengxi C5DAB1
+maroonrk 869120
+matthew99 8B0000
+molamola FF40A2
+mulgokizary FFC0CB
+noshi91 00DD33
+pashka 777777
+peti1234 0A9FEA
+potato167 028FF4
+scott_wu CC00FF
+semiexp 92D050
+simonlindholm 732E6C
+snuke 1000AC
+sugim48 C06000
+tatyam FF6040
+ugly2333 FFE79D
+yosupo 274A78
